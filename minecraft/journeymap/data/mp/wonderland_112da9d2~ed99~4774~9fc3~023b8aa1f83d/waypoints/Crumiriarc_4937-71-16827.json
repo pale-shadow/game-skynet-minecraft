@@ -1,0 +1,24 @@
+{
+  "id": "Crumiriarc_4937-71-16827",
+  "name": "Crumiriarc",
+  "groupName": ":Waystones",
+  "displayId": "1a564f51-7430-4efa-888d-23c9cdaee5ff",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": 4937,
+  "y": 71,
+  "z": -16827,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": false,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

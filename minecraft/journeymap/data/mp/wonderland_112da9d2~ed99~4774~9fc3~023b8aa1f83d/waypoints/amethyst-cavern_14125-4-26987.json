@@ -1,0 +1,23 @@
+{
+  "id": "amethyst-cavern_14125-4-26987",
+  "name": "amethyst cavern",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--5268769-waypoint-icon.png",
+  "x": 14125,
+  "y": -4,
+  "z": 26987,
+  "r": 175,
+  "g": 154,
+  "b": 223,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

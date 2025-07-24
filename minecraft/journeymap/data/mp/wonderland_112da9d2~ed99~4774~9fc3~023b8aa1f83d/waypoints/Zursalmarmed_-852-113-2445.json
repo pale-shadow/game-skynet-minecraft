@@ -1,0 +1,24 @@
+{
+  "id": "Zursalmarmed_-852-113-2445",
+  "name": "Zursalmarmed",
+  "groupName": ":Waystones",
+  "displayId": "14e56a52-5bb6-446d-8186-61adccfcc0ee",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": -852,
+  "y": 113,
+  "z": 2445,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": false,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "Grease-Bucket_-789-70-2220",
+  "name": "Grease Bucket",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10206889-waypoint-icon.png",
+  "x": -789,
+  "y": 70,
+  "z": -2220,
+  "r": 100,
+  "g": 65,
+  "b": 87,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

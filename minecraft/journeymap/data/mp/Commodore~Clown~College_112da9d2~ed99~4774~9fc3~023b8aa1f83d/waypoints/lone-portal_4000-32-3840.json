@@ -1,0 +1,22 @@
+{
+  "id": "lone-portal_4000-32-3840",
+  "name": "lone portal",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--13027102-waypoint-icon.png",
+  "x": 4000,
+  "y": 32,
+  "z": 3840,
+  "r": 57,
+  "g": 56,
+  "b": 226,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "Nether-Forgotten-Portal_-1800-69-1728",
+  "name": "Nether - Forgotten Portal",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--13313917-waypoint-icon.png",
+  "x": -1800,
+  "y": 69,
+  "z": -1728,
+  "r": 52,
+  "g": 216,
+  "b": 131,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

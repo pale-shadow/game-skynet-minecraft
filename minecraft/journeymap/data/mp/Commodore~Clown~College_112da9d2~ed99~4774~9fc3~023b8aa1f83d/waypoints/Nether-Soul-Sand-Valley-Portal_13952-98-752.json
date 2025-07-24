@@ -1,0 +1,23 @@
+{
+  "id": "Nether-Soul-Sand-Valley-Portal_13952-98-752",
+  "name": "Nether - Soul Sand Valley Portal",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--9654722-waypoint-icon.png",
+  "x": 13952,
+  "y": 98,
+  "z": -752,
+  "r": 108,
+  "g": 174,
+  "b": 62,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

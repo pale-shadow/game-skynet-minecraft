@@ -1,0 +1,22 @@
+{
+  "id": "caveston_-48-58-6136",
+  "name": "caveston",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--5816805-waypoint-icon.png",
+  "x": -48,
+  "y": 58,
+  "z": 6136,
+  "r": 167,
+  "g": 62,
+  "b": 27,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

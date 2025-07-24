@@ -1,0 +1,24 @@
+{
+  "id": "Zurzerder_228-64-6059",
+  "name": "Zurzerder",
+  "groupName": ":Waystones",
+  "displayId": "f13f3326-b26f-49a4-86b4-f30f1e39cb0b",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": 228,
+  "y": 64,
+  "z": 6059,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": false,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

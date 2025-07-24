@@ -1,0 +1,23 @@
+{
+  "id": "gas-nugget_-2557-63-11117",
+  "name": "gas nugget",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--746833-waypoint-icon.png",
+  "x": -2557,
+  "y": 63,
+  "z": 11117,
+  "r": 244,
+  "g": 154,
+  "b": 175,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

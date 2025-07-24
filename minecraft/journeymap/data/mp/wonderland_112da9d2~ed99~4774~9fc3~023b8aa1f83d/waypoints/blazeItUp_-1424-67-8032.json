@@ -1,0 +1,23 @@
+{
+  "id": "blazeItUp_-1424-67-8032",
+  "name": "blazeItUp",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2557115-waypoint-icon.png",
+  "x": -1424,
+  "y": 67,
+  "z": 8032,
+  "r": 216,
+  "g": 251,
+  "b": 69,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

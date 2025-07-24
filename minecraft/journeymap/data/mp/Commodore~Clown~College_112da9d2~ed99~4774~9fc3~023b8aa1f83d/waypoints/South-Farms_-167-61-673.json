@@ -1,0 +1,23 @@
+{
+  "id": "South-Farms_-167-61-673",
+  "name": "South Farms",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--9921287-waypoint-icon.png",
+  "x": -167,
+  "y": 61,
+  "z": 673,
+  "r": 104,
+  "g": 156,
+  "b": 249,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

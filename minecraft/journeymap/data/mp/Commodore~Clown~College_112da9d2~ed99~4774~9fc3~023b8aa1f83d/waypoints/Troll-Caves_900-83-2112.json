@@ -1,0 +1,23 @@
+{
+  "id": "Troll-Caves_900-83-2112",
+  "name": "Troll Caves",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2854160-waypoint-icon.png",
+  "x": 900,
+  "y": 83,
+  "z": -2112,
+  "r": 212,
+  "g": 114,
+  "b": 240,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

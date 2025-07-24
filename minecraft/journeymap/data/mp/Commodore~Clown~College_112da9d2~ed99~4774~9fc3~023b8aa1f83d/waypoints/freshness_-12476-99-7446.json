@@ -1,0 +1,22 @@
+{
+  "id": "freshness_-12476-99-7446",
+  "name": "freshness",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--12202205-waypoint-icon.png",
+  "x": -12476,
+  "y": 99,
+  "z": 7446,
+  "r": 69,
+  "g": 207,
+  "b": 35,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

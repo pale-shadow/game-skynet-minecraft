@@ -1,0 +1,22 @@
+{
+  "id": "Pill-Village_2846-65-231",
+  "name": "Pill Village",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--12321456-waypoint-icon.png",
+  "x": 2846,
+  "y": 65,
+  "z": -231,
+  "r": 67,
+  "g": 253,
+  "b": 80,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "Weirdo-Hutt_840-100-120",
+  "name": "Weirdo Hutt",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--5412105-waypoint-icon.png",
+  "x": 840,
+  "y": 100,
+  "z": 120,
+  "r": 173,
+  "g": 106,
+  "b": 247,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

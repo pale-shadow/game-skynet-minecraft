@@ -1,0 +1,23 @@
+{
+  "id": "dummy-village_4842-80-138",
+  "name": "dummy village",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14588886-waypoint-icon.png",
+  "x": 4842,
+  "y": 80,
+  "z": 138,
+  "r": 33,
+  "g": 100,
+  "b": 42,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

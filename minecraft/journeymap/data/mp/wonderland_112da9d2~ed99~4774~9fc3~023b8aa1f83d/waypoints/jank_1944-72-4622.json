@@ -1,0 +1,23 @@
+{
+  "id": "jank_1944-72-4622",
+  "name": "jank",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--7760677-waypoint-icon.png",
+  "x": 1944,
+  "y": 72,
+  "z": 4622,
+  "r": 137,
+  "g": 148,
+  "b": 219,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "Savannah_-696-78-3264",
+  "name": "Savannah",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--7563443-waypoint-icon.png",
+  "x": -696,
+  "y": 78,
+  "z": -3264,
+  "r": 140,
+  "g": 151,
+  "b": 77,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

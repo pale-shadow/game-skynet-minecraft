@@ -1,0 +1,23 @@
+{
+  "id": "Wackenhutt_100-64-784",
+  "name": "Wackenhutt",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--5770230-waypoint-icon.png",
+  "x": 100,
+  "y": 64,
+  "z": 784,
+  "r": 167,
+  "g": 244,
+  "b": 10,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

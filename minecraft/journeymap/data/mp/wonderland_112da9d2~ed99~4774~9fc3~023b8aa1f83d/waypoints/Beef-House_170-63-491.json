@@ -1,0 +1,23 @@
+{
+  "id": "Beef-House_170-63-491",
+  "name": "Beef House",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--6696799-waypoint-icon.png",
+  "x": 170,
+  "y": 63,
+  "z": 491,
+  "r": 153,
+  "g": 208,
+  "b": 161,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

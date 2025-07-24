@@ -1,0 +1,23 @@
+{
+  "id": "Sandfort_-2446-64-869",
+  "name": "Sandfort",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14232816-waypoint-icon.png",
+  "x": -2446,
+  "y": 64,
+  "z": -869,
+  "r": 38,
+  "g": 211,
+  "b": 16,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

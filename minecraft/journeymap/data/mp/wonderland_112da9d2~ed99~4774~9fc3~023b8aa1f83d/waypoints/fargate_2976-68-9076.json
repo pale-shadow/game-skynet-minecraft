@@ -1,0 +1,23 @@
+{
+  "id": "fargate_2976-68-9076",
+  "name": "fargate",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--9492797-waypoint-icon.png",
+  "x": 2976,
+  "y": 68,
+  "z": 9076,
+  "r": 111,
+  "g": 38,
+  "b": 195,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

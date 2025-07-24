@@ -1,0 +1,23 @@
+{
+  "id": "North-Tower_-788-67-3830",
+  "name": "North Tower",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-death-icon.png",
+  "colorizedIcon": "fake:color--13422683-waypoint-death-icon.png",
+  "x": -788,
+  "y": 67,
+  "z": -3830,
+  "r": 51,
+  "g": 47,
+  "b": 165,
+  "enable": true,
+  "type": "Death",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

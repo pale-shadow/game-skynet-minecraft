@@ -1,0 +1,22 @@
+{
+  "id": "yuk-yuk_1141-63-375",
+  "name": "yuk yuk",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2664781-waypoint-icon.png",
+  "x": 1141,
+  "y": 63,
+  "z": 375,
+  "r": 215,
+  "g": 86,
+  "b": 179,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

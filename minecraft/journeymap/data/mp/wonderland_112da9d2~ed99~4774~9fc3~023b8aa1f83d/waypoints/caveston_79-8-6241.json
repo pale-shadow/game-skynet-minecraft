@@ -1,0 +1,22 @@
+{
+  "id": "caveston_79-8-6241",
+  "name": "caveston",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--306913-waypoint-icon.png",
+  "x": 79,
+  "y": 8,
+  "z": 6241,
+  "r": 251,
+  "g": 81,
+  "b": 31,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}
