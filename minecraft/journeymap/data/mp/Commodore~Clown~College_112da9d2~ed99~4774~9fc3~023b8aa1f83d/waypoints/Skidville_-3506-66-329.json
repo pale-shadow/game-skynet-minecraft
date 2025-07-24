@@ -1,0 +1,23 @@
+{
+  "id": "Skidville_-3506-66-329",
+  "name": "Skidville",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--3764455-waypoint-icon.png",
+  "x": -3506,
+  "y": 66,
+  "z": -329,
+  "r": 198,
+  "g": 143,
+  "b": 25,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

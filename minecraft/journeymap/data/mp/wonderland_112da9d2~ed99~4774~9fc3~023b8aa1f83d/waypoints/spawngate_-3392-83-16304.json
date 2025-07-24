@@ -1,0 +1,22 @@
+{
+  "id": "spawngate_-3392-83-16304",
+  "name": "spawngate",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--3686855-waypoint-icon.png",
+  "x": -3392,
+  "y": 83,
+  "z": -16304,
+  "r": 199,
+  "g": 190,
+  "b": 57,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

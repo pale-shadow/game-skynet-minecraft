@@ -1,0 +1,24 @@
+{
+  "id": "Shroomville_1670-66-757",
+  "name": "Shroomville",
+  "groupName": ":Waystones",
+  "displayId": "fccf64e7-bcd3-4940-a36e-b4a109a240d1",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": 1670,
+  "y": 66,
+  "z": 757,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": false,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

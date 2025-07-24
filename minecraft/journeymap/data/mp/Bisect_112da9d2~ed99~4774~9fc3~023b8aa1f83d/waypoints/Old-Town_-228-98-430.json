@@ -1,0 +1,24 @@
+{
+  "id": "Old-Town_-228-98-430",
+  "name": "Old Town",
+  "groupName": ":Waystones",
+  "displayId": "2592caa9-1c5f-4741-9cde-f173d0d2a1dc",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": -228,
+  "y": 98,
+  "z": -430,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": true,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

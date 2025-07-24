@@ -1,0 +1,22 @@
+{
+  "id": "far-cave_4516-76-16125",
+  "name": "far cave",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--13827896-waypoint-icon.png",
+  "x": 4516,
+  "y": 76,
+  "z": -16125,
+  "r": 45,
+  "g": 0,
+  "b": 200,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

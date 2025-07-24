@@ -1,0 +1,23 @@
+{
+  "id": "forest-glen_1-71-2159",
+  "name": "forest glen",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--6740233-waypoint-icon.png",
+  "x": 1,
+  "y": 71,
+  "z": -2159,
+  "r": 153,
+  "g": 38,
+  "b": 247,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "South-Farm_-136-70-672",
+  "name": "South Farm",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--16322442-waypoint-icon.png",
+  "x": -136,
+  "y": 70,
+  "z": 672,
+  "r": 6,
+  "g": 240,
+  "b": 118,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

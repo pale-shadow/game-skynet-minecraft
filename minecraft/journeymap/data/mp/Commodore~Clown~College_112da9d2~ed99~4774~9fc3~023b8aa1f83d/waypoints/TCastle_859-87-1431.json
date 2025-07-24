@@ -1,0 +1,23 @@
+{
+  "id": "TCastle_859-87-1431",
+  "name": "TCastle",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--15597968-waypoint-icon.png",
+  "x": 859,
+  "y": 87,
+  "z": -1431,
+  "r": 17,
+  "g": 254,
+  "b": 112,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "Jungle-Retreat_-45-82-1526",
+  "name": "Jungle Retreat",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--16232204-waypoint-icon.png",
+  "x": -45,
+  "y": 82,
+  "z": -1526,
+  "r": 8,
+  "g": 80,
+  "b": 244,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

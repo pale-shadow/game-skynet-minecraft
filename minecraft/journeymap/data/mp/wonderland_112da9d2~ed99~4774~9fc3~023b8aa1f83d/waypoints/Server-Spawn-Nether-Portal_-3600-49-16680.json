@@ -1,0 +1,23 @@
+{
+  "id": "Server-Spawn-Nether-Portal_-3600-49-16680",
+  "name": "Server Spawn Nether Portal",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--5739368-waypoint-icon.png",
+  "x": -3600,
+  "y": 49,
+  "z": -16680,
+  "r": 168,
+  "g": 108,
+  "b": 152,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

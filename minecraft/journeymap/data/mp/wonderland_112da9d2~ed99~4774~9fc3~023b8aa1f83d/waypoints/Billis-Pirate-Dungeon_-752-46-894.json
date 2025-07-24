@@ -1,0 +1,23 @@
+{
+  "id": "Billis-Pirate-Dungeon_-752-46-894",
+  "name": "Billis Pirate Dungeon",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--12505613-waypoint-icon.png",
+  "x": -752,
+  "y": 46,
+  "z": -894,
+  "r": 65,
+  "g": 45,
+  "b": 243,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

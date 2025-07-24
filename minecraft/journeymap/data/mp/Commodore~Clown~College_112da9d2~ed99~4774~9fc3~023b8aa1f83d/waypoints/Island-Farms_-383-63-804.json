@@ -1,0 +1,23 @@
+{
+  "id": "Island-Farms_-383-63-804",
+  "name": "Island Farms",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--15702953-waypoint-icon.png",
+  "x": -383,
+  "y": 63,
+  "z": -804,
+  "r": 16,
+  "g": 100,
+  "b": 87,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

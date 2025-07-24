@@ -1,0 +1,22 @@
+{
+  "id": "mine-here_2122-71-507",
+  "name": "mine here",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--986748-waypoint-icon.png",
+  "x": 2122,
+  "y": 71,
+  "z": 507,
+  "r": 240,
+  "g": 241,
+  "b": 132,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

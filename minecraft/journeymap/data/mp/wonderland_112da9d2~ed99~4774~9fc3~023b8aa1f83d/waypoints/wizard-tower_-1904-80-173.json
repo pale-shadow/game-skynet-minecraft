@@ -1,0 +1,23 @@
+{
+  "id": "wizard-tower_-1904-80-173",
+  "name": "wizard tower",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--3058905-waypoint-icon.png",
+  "x": -1904,
+  "y": 80,
+  "z": -173,
+  "r": 209,
+  "g": 83,
+  "b": 39,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

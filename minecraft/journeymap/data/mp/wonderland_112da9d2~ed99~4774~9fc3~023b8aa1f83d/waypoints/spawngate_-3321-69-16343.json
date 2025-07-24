@@ -1,0 +1,22 @@
+{
+  "id": "spawngate_-3321-69-16343",
+  "name": "spawngate",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--6319721-waypoint-icon.png",
+  "x": -3321,
+  "y": 69,
+  "z": -16343,
+  "r": 159,
+  "g": 145,
+  "b": 151,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

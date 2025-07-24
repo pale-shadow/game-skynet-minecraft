@@ -1,0 +1,23 @@
+{
+  "id": "house_2016-111-83",
+  "name": "house",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--12202533-waypoint-icon.png",
+  "x": 2016,
+  "y": 111,
+  "z": 83,
+  "r": 69,
+  "g": 205,
+  "b": 219,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

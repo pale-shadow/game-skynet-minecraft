@@ -1,0 +1,22 @@
+{
+  "id": "stop1_-807-69-3143",
+  "name": "stop1",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--15677041-waypoint-icon.png",
+  "x": -807,
+  "y": 69,
+  "z": -3143,
+  "r": 16,
+  "g": 201,
+  "b": 143,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

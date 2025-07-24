@@ -1,0 +1,22 @@
+{
+  "id": "sly-fort_4696-77-1061",
+  "name": "sly fort",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10087446-waypoint-icon.png",
+  "x": 4696,
+  "y": 77,
+  "z": 1061,
+  "r": 102,
+  "g": 19,
+  "b": 234,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

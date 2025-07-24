@@ -1,0 +1,23 @@
+{
+  "id": "Spawn2_-3681-76-16636",
+  "name": "Spawn2",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1442954-waypoint-icon.png",
+  "x": -3681,
+  "y": 76,
+  "z": -16636,
+  "r": 233,
+  "g": 251,
+  "b": 118,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

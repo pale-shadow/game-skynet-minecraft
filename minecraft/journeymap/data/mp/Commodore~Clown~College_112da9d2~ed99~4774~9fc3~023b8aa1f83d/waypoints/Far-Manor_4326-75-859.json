@@ -1,0 +1,24 @@
+{
+  "id": "Far-Manor_4326-75-859",
+  "name": "Far Manor",
+  "groupName": ":Waystones",
+  "displayId": "f493a55c-1848-4162-890b-ee592880aa46",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": 4326,
+  "y": 75,
+  "z": 859,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": true,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

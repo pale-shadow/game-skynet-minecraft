@@ -1,0 +1,22 @@
+{
+  "id": "midlothian-tower_-2148-103-4212",
+  "name": "midlothian tower",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14064769-waypoint-icon.png",
+  "x": -2148,
+  "y": 103,
+  "z": -4212,
+  "r": 41,
+  "g": 99,
+  "b": 127,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

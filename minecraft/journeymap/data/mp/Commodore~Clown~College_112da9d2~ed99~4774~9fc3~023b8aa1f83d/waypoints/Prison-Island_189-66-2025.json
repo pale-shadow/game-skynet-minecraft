@@ -1,0 +1,22 @@
+{
+  "id": "Prison-Island_189-66-2025",
+  "name": "Prison Island",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--13353305-waypoint-icon.png",
+  "x": 189,
+  "y": 66,
+  "z": -2025,
+  "r": 52,
+  "g": 62,
+  "b": 167,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

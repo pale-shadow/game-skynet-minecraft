@@ -1,0 +1,23 @@
+{
+  "id": "sea-shanty_2240-63-1342",
+  "name": "sea shanty",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--7660893-waypoint-icon.png",
+  "x": 2240,
+  "y": 63,
+  "z": 1342,
+  "r": 139,
+  "g": 26,
+  "b": 163,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

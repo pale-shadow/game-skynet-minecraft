@@ -1,0 +1,22 @@
+{
+  "id": "Castle-Mount_-1798-116-189",
+  "name": "Castle Mount",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10501938-waypoint-icon.png",
+  "x": -1798,
+  "y": 116,
+  "z": -189,
+  "r": 95,
+  "g": 192,
+  "b": 206,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

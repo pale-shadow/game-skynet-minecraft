@@ -1,0 +1,22 @@
+{
+  "id": "dark-tower_-1487-108-712",
+  "name": "dark tower",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2609806-waypoint-icon.png",
+  "x": -1487,
+  "y": 108,
+  "z": 712,
+  "r": 216,
+  "g": 45,
+  "b": 114,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}
