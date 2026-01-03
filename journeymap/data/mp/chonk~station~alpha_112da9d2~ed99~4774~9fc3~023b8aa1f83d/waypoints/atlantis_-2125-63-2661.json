@@ -9,7 +9,7 @@
   "r": 69,
   "g": 4,
   "b": 187,
-  "enable": true,
+  "enable": false,
   "type": "Normal",
   "origin": "journeymap",
   "dimensions": [

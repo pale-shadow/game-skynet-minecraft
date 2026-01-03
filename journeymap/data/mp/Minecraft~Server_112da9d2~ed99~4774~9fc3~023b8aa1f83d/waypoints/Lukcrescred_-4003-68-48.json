@@ -1,0 +1,24 @@
+{
+  "id": "Lukcrescred_-4003-68-48",
+  "name": "Lukcrescred",
+  "groupName": ":Waystones",
+  "displayId": "fb4c54f1-3ab9-43a0-ab12-06530c45b806",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": -4003,
+  "y": 68,
+  "z": 48,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": false,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}
