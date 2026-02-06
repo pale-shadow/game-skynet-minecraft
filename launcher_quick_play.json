@@ -19,12 +19,12 @@
         "source" : "Java"
       },
       {
-        "epochLastPlayedTimeMs" : 1770060994000,
-        "id" : "136.29.107.89:25566",
+        "epochLastPlayedTimeMs" : 1770403782000,
+        "id" : "127.0.0.1:25566",
         "javaInstance" : {
           "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
           "game" : {
-            "gamemode" : "creative",
+            "gamemode" : "survival",
             "type" : "multiplayer"
           }
         },
@@ -32,12 +32,38 @@
         "source" : "Java"
       },
       {
-        "epochLastPlayedTimeMs" : 1769968567000,
+        "epochLastPlayedTimeMs" : 1770316429000,
+        "id" : "10.10.8.60:25566",
+        "javaInstance" : {
+          "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
+          "game" : {
+            "gamemode" : "survival",
+            "type" : "multiplayer"
+          }
+        },
+        "name" : "chonk station alpha",
+        "source" : "Java"
+      },
+      {
+        "epochLastPlayedTimeMs" : 1770228168000,
         "id" : "136.29.107.89:25566",
         "javaInstance" : {
           "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
           "game" : {
             "gamemode" : "survival",
+            "type" : "multiplayer"
+          }
+        },
+        "name" : "chonk station alpha",
+        "source" : "Java"
+      },
+      {
+        "epochLastPlayedTimeMs" : 1770060994000,
+        "id" : "136.29.107.89:25566",
+        "javaInstance" : {
+          "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
+          "game" : {
+            "gamemode" : "creative",
             "type" : "multiplayer"
           }
         },
@@ -111,32 +137,6 @@
           "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
           "game" : {
             "gamemode" : "survival",
-            "type" : "multiplayer"
-          }
-        },
-        "name" : "Alpha Test",
-        "source" : "Java"
-      },
-      {
-        "epochLastPlayedTimeMs" : 1766456426000,
-        "id" : "10.10.8.60:25566",
-        "javaInstance" : {
-          "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
-          "game" : {
-            "gamemode" : "creative",
-            "type" : "multiplayer"
-          }
-        },
-        "name" : "chonk station alpha",
-        "source" : "Java"
-      },
-      {
-        "epochLastPlayedTimeMs" : 1766451724000,
-        "id" : "blowfish.lab.bitsmasher.net:25555",
-        "javaInstance" : {
-          "configId" : "04af4bec4ab6b0cb6225f1284183bde4",
-          "game" : {
-            "gamemode" : "creative",
             "type" : "multiplayer"
           }
         },
