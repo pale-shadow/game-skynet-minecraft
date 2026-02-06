@@ -1,6 +1,6 @@
 {
-  "assignmentContext" : "mctca111:31154450;mctca987:31154451;mctca895:31154452;mctca585:31154453;mctca431:31154454;mctca973:31154455;mctca657:31154458;telsndof:31154461;telsndnf:31154481;telsndpf:31154486;mctes210:31156075;3a922442:31158534;telsnd1ds:31246424;telopengl:31316718;mmrlms25v1:31313668;realmstrialcollapse25:31400378;d76i0371:31382338;klosu25:31392113;uctp25:31386646;buyboxplayable25:31396570;vqp25:31426341;tfyaqkl25:31427174;epagf25:31435848;winterdrop25:31432014;gdkiag25:31440767;promotionalminecoin25:31438216;",
-  "entityTag" : "-113773197_140325158",
+  "assignmentContext" : "mctca111:31154450;mctca987:31154451;mctca895:31154452;mctca585:31154453;mctca431:31154454;mctca973:31154455;mctca657:31154458;telsndof:31154461;telsndnf:31154481;telsndpf:31154486;mctes210:31156075;3a922442:31158534;telsnd1ds:31246424;telopengl:31316718;mmrlms25v1:31313668;realmstrialcollapse25:31400378;d76i0371:31382338;klosu25:31392113;uctp25:31386646;buyboxplayable25:31457061;epagf25:31435848;winterdrop25:31432014;gdkiag25:31440767;realmssparklev3:31455888;qpvc26:31446898;minecoinhomepage:31457944;",
+  "entityTag" : "1818766369_-1436369794",
   "tags" : 
   [
     "mctca111",
@@ -23,12 +23,12 @@
     "klosu25",
     "uctp25",
     "buyboxplayable25",
-    "vqp25",
-    "tfyaqkl25",
     "epagf25",
     "winterdrop25",
     "gdkiag25",
-    "promotionalminecoin25"
+    "realmssparklev3",
+    "qpvc26",
+    "minecoinhomepage"
   ],
   "version" : 2
 }

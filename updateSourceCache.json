@@ -4,7 +4,7 @@
 		"release" : 
 		{
 			"rawResponse" : "{\n\t\"result\" : \n\t{\n\t\t\"buildName\" : \"release\",\n\t\t\"downloadUrl\" : \"https://redstone-launcher.mojang.com/release\"\n\t}\n}",
-			"validUntil" : "2026-01-04T19:47:55.709Z"
+			"validUntil" : "2026-02-08T18:02:54.796Z"
 		}
 	},
 	"version" : 1
