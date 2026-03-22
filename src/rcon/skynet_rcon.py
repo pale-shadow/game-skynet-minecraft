@@ -1,10 +1,9 @@
 import mcrcon
 import time
 
-# Configuration from your server.properties
-CHONK_IP = "chonk.lab.bitsmasher.net" # or the 10.10.16.x IP
-RCON_PASS = "dinosaurExTraVaGanZa1969%%"
-RCON_PORT = 25575
+CHONK_IP = os.getenv("CHONK_IP")
+RCON_PASS = os.getenv("RCON_PASS")
+RCON_PORT = int(os.getenv("RCON_PORT", 25575))
 
 def send_to_chonk(command):
     try:
