@@ -1,0 +1,25 @@
+{
+  "name": "sentry_rest_v3",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 11, "height": 8, "length": 13 },
+  "materials": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:dark_oak_log",
+    "tertiary": "minecraft:polished_deepslate",
+    "floor": "minecraft:dark_oak_planks",
+    "roof": "minecraft:dark_oak_stairs",
+    "glass": "minecraft:cyan_stained_glass",
+    "light": "minecraft:oxidized_copper_bulb[lit=true]"
+  },
+  "features": {
+    "has_foundation": true,
+    "roof_style": "peaked",
+    "has_windows": true,
+    "interior_lit": true
+  },
+  "metadata": {
+    "description": "The 'Foundational' retreat. Steep roofline on a Polished Deepslate plinth with Copper Bulb accents."
+  }
+}

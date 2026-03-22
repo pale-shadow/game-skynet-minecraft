@@ -1,0 +1,31 @@
+{
+  "name": "mycelial_guardian",
+  "category": "tower",
+  "type": "tower",
+  "version": "JE_1_21_1",
+  "dimensions": {
+    "width": 15,
+    "height": 25,
+    "length": 15
+  },
+  "materials": {
+    "primary": "minecraft:mushroom_stem",
+    "secondary": "minecraft:oxidized_copper",
+    "roof": "minecraft:red_mushroom_block",
+    "glass": "minecraft:cyan_stained_glass",
+    "light": "minecraft:shroomlight",
+    "water": "minecraft:water"
+  },
+  "features": {
+    "has_roof": true,
+    "roof_style": "dome",
+    "hollow": true,
+    "interior_lit": true,
+    "crenellations": false,
+    "has_water": true
+  },
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "The Mycelial Guardian of the Deep - A massive mushroom-themed statue with a bioluminescent core and water moat."
+  }
+}

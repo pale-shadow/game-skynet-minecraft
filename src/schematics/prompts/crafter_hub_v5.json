@@ -1,0 +1,29 @@
+{
+  "name": "crafter_hub_v5_industrial",
+  "category": "industrial",
+  "type": "station",
+  "version": "JE_1_21_1",
+  "dimensions": { 
+    "width": 21, 
+    "height": 16, 
+    "length": 29 
+  },
+  "palette": {
+    "primary": "minecraft:purpur_pillar",
+    "secondary": "minecraft:dark_prismarine",
+    "trim": "minecraft:purpur_stairs",
+    "floor": "minecraft:polished_andesite",
+    "accent": "minecraft:warped_planks",
+    "lighting": "minecraft:sea_lantern"
+  },
+  "features": {
+    "has_foundation": true,
+    "fluted_pillars": true,
+    "girder_system": "grid",
+    "hanging_modules": true,
+    "vaulted_roof": true
+  },
+  "metadata": {
+    "description": "High-fidelity industrial hub matching the reference aesthetic. Utilizes 3x3 fluted pillars and suspended horizontal girders."
+  }
+}

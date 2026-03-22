@@ -1,0 +1,25 @@
+{
+  "name": "signal_core_v3",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 9, "height": 10, "length": 9 },
+  "materials": {
+    "primary": "minecraft:oxidized_copper",
+    "secondary": "minecraft:oxidized_copper_bulb[lit=true]",
+    "tertiary": "minecraft:redstone_block",
+    "glass": "minecraft:cyan_stained_glass",
+    "light": "minecraft:redstone_lamp",
+    "floor": "minecraft:polished_deepslate"
+  },
+  "features": {
+    "has_roof": true,
+    "roof_style": "flat",
+    "has_windows": true,
+    "interior_lit": true,
+    "hollow": true
+  },
+  "metadata": {
+    "description": "The 'Comms Array'. Sophisticated data hub with a pulsing Redstone core and Cyan 'coolant' windows."
+  }
+}

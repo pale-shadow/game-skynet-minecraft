@@ -1,0 +1,23 @@
+{
+  "name": "mycelial_guardian_v3",
+  "category": "tower",
+  "type": "tower",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 11, "height": 25, "length": 11 },
+  "materials": {
+    "primary": "minecraft:mushroom_stem",
+    "secondary": "minecraft:sea_lantern",
+    "light": "minecraft:shroomlight",
+    "accent": "minecraft:water",
+    "tertiary": "minecraft:lightning_rod"
+  },
+  "features": {
+    "hollow": true,
+    "has_roof": true,
+    "roof_style": "dome",
+    "has_antenna": true
+  },
+  "metadata": {
+    "description": "The 'Landmark Monument'. Symmetrical statue symbolizing the Shroomville union using biological materials."
+  }
+}

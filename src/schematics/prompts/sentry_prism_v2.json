@@ -1,0 +1,21 @@
+{
+  "name": "sentry_prism_v2",
+  "category": "tower",
+  "type": "tower",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 5, "height": 15, "length": 5 },
+  "materials": {
+    "primary": "minecraft:polished_tuff",
+    "secondary": "minecraft:tinted_glass",
+    "light": "minecraft:pearlescent_froglight",
+    "floor": "minecraft:polished_tuff"
+  },
+  "features": {
+    "hollow": true,
+    "top_deck": true,
+    "interior_lit": true
+  },
+  "metadata": {
+    "description": "Perimeter defense post utilizing Tinted Glass for stealth and Froglights for signal status."
+  }
+}

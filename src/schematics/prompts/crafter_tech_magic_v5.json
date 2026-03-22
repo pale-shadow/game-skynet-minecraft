@@ -1,0 +1,30 @@
+{
+  "name": "crafter_hub_v5_industrial",
+  "category": "industrial",
+  "type": "station",
+  "version": "JE_1_21_1",
+  "dimensions": { 
+    "width": 25, 
+    "height": 18, 
+    "length": 40 
+  },
+  "palette": {
+    "primary": "minecraft:purpur_pillar[axis=y]",
+    "secondary": "minecraft:dark_prismarine",
+    "trim": "minecraft:purpur_stairs",
+    "floor": "minecraft:polished_andesite",
+    "accent": "minecraft:warped_planks",
+    "lighting": "minecraft:pearlescent_froglight",
+    "greeble": "minecraft:iron_bars"
+  },
+  "features": {
+    "fluted_pillars": true,
+    "girder_system": "grid",
+    "light_boxes": "integrated",
+    "vaulted_ceiling": true,
+    "wall_recess_depth": 2
+  },
+  "metadata": {
+    "description": "Large-scale industrial terminal. High-detail pillars with pearlescent purple light boxes integrated into the ceiling and support girders."
+  }
+}

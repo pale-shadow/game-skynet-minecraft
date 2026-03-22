@@ -1,0 +1,22 @@
+{
+  "name": "vertical_sump_v3",
+  "category": "tower",
+  "type": "tower",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 9, "height": 32, "length": 9 },
+  "materials": {
+    "primary": "minecraft:dark_prismarine",
+    "secondary": "minecraft:polished_deepslate",
+    "light": "minecraft:shroomlight",
+    "glass": "minecraft:cyan_stained_glass",
+    "accent": "minecraft:polished_deepslate_wall"
+  },
+  "features": {
+    "hollow": true,
+    "interior_lit": true,
+    "top_deck": true
+  },
+  "metadata": {
+    "description": "The 'Industrial Bridge'. Utilitarian shaft connecting Y:63 and Y:31 using Dark Prismarine and Deepslate."
+  }
+}

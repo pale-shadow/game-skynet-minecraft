@@ -1,0 +1,22 @@
+{
+  "name": "crafter_hub_v2",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 7, "height": 7, "length": 7 },
+  "materials": {
+    "primary": "minecraft:polished_tuff",
+    "secondary": "minecraft:chiseled_tuff",
+    "tertiary": "minecraft:crafter",
+    "floor": "minecraft:smooth_quartz",
+    "light": "minecraft:pearlescent_froglight"
+  },
+  "features": {
+    "has_foundation": true,
+    "wall_thickness": 1,
+    "interior_lit": true
+  },
+  "metadata": {
+    "description": "Automated manufacturing unit featuring the 1.21 Crafter block as a central logic gate."
+  }
+}

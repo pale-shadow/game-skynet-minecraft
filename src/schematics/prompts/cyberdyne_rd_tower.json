@@ -1,0 +1,29 @@
+{
+  "name": "cyberdyne_rd_tower",
+  "category": "tower",
+  "type": "cyberdyne",
+  "version": "JE_1_21_1",
+  "dimensions": {
+    "width": 13,
+    "height": 40,
+    "length": 13
+  },
+  "materials": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:redstone_block",
+    "tertiary": "minecraft:redstone_lamp",
+    "roof": "minecraft:red_mushroom_block",
+    "glass": "minecraft:cyan_stained_glass",
+    "light": "minecraft:shroomlight",
+    "floor": "minecraft:smooth_stone"
+  },
+  "features": {
+    "hollow": true,
+    "interior_lit": true,
+    "redstone_veins": true
+  },
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "Cyberdyne Systems R&D Tower - Redstone-infused research facility featuring a railway integration lab and circuit workshop with a Mycelial Data Core."
+  }
+}

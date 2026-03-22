@@ -1,0 +1,22 @@
+{
+  "name": "void_rail_v2",
+  "category": "bridge",
+  "type": "bridge",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 11, "height": 9, "length": 20 },
+  "materials": {
+    "primary": "minecraft:polished_tuff",
+    "secondary": "minecraft:purpur_pillar",
+    "floor": "minecraft:gray_concrete",
+    "roof": "minecraft:calcite",
+    "light": "minecraft:pearlescent_froglight"
+  },
+  "features": {
+    "has_rail_bed": true,
+    "vaulted_ceiling": true,
+    "side_walkways": true
+  },
+  "metadata": {
+    "description": "Futuristic rail terminus for the Deep-Rail network, utilizing high-contrast void materials."
+  }
+}

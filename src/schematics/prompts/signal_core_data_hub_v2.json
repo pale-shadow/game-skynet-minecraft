@@ -1,0 +1,38 @@
+{
+  "name": "signal_core_data_hub_v2",
+  "category": "tower",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": {
+    "width": 9,
+    "height": 16,
+    "length": 9
+  },
+  "materials": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:oxidized_copper",
+    "tertiary": "minecraft:oxidized_copper_bulb[lit=true]",
+    "floor": "minecraft:moss_carpet",
+    "roof": "minecraft:polished_deepslate_slab",
+    "glass": "minecraft:cyan_stained_glass",
+    "door": "minecraft:iron_door",
+    "light": "minecraft:shroomlight",
+    "slab": "minecraft:polished_deepslate_slab"
+  },
+  "features": {
+    "has_roof": true,
+    "roof_style": "flat",
+    "has_floor": true,
+    "has_door": true,
+    "door_position": "south",
+    "has_windows": true,
+    "window_spacing": 2,
+    "interior_lit": true,
+    "has_foundation": true,
+    "wall_thickness": 1
+  },
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "Signal Core Data Hub V2 - Resembles an internal server component with bioluminescent lobby and copper indicators."
+  }
+}
