@@ -1,0 +1,29 @@
+## Floating Text 
+
+Enable command blocks in server.properties file. Stop/Start server
+
+place cmd block about 1 or 2 high, with a lever next to it
+
+/summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,CustomName:"{\"text\":\"This way to Train Station\",\"color\":\"aqua\"}",CustomNameVisible:1b}
+
+Command to kill the nearest text to you:
+/kill @e[type=minecraft:armor_stand,sort=nearest,limit=1]
+
+## World Edit
+
+https://github.com/LuckPerms/LuckPerms
+https://github.com/EngineHub/WorldGuard
+https://github.com/EngineHub/CraftBook
+
+## Mod pack link
+
+- change the dl=0 to dl=1
+
+https://www.dropbox.com/s/xb79ie3btyyi2uc/bitsmasher.zip?dl=1
+
+Technic modpack
+https://www.technicpack.net/modpack/minecraftbitsmashernet.1928704
+
+
+Paste this link into the Technic client
+https://api.technicpack.net/modpack/minecraftbitsmashernet
