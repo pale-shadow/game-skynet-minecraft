@@ -1,0 +1,30 @@
+ The Minecraft Architect
+Custom Gem
+The Minecraft Architect said
+
+Here are the visual visualizations for the five new "Void-Tech Overgrowth" buildings you defined in your JSON blueprints for the 2026 expansion.
+
+These renderings emphasize the high-contrast Tuff/Calcite palette and the specific Pearlescent Froglight (purple) lighting accents, distinguishing them from the earlier "Nature vs. Engineering" industrial style.
+1. The Mycelial Uplink Spire (void_uplink_v2.json)
+
+    Aesthetic: The "Signal Backbone." This image captures the Verticality directive. It shows a sleek, 45-block-high tower composed of Polished Tuff panels and reinforced with Calcite trim. The distinctive "magnetic induction" gap near the top is clearly visible, with the upper transmission segment held in place by visible End Rod energy pylons, which crackle with faint purple light. Lightning Rods act as the wireless antennae, pointing toward the "Deep-Rail" transit zone below, signifying the BlueMap uplink is active.
+
+2. The Sterile Growth Chamber (growth_chamber_v2.json)
+
+    Aesthetic: The "Clean Room." This image highlights the Internal Logic and Mutation Flooring directives. We see the interior of a 9×9 Calcite and Polished Tuff facility. The Smooth Quartz walkway is suspended above a floor of water-logged Cherry Leaves, which glow a soft, bubbly magenta from Pearlescent Froglights submerged beneath. A Mushroom Stem and Sea Lantern hybrid (The "Bioluminescent Sprouting Pod" core) acts as the biological filtration unit, and Tinted Glass panes provide high-contrast reflections of the purple mutation core.
+
+3. The Noodle-Logic Crafter Hub (crafter_hub_v2.json)
+
+    Aesthetic: The "Automated Modular." This building perfectly executes the Modular Continuity directive. It sits at Y:63 within the existing Shroomville grid. Its 7×7 footprint uses heavy Polished Tuff Bricks for a geometric base and a sleeker Calcite shell. The image captures the front-and-center placement of the Crafter block (The "Noodle Logic Core"). Purpur Pillars and Tinted Glass conduits deliver raw materials (like Redstone and Sea Lanterns) into the Crafter, and the output is transported away via an embedded Smooth Quartz track bed, signaling the automation of the 2026 economy.
+
+4. Void-Transit Terminus (void_rail_v2.json)
+
+    Aesthetic: The "Logistics Conduit." This is a sophisticated rail terminus at Y:63 within the Shroomville context. Its 11×20 footprint uses the Polished Tuff base and Calcite shell. The design perfectly executes the Purpur Pillars and Tinted Glass conduits directive, making the station feel like a vast computer component. Automated Minecarts move along Smooth Quartz tracks, guided by a sophisticated array of purple Pearlescent Froglights, connecting the district to the Deep-Rail Track 1.
+
+5. The Sentry’s Prism (sentry_prism_v2.json)
+
+    Aesthetic: The "Stealth Observation." This is a compact, vertical tower built on the high, jagged terrain. Its 5×5 base uses dark Polished Tuff for foundational strength. The top 2/3 of the structure are constructed of high-contrast Tinted Glass, which makes the building "stealthy" and nearly invisible against the twilight. The image emphasizes the only visible part: a brilliant core of magenta Pearlescent Froglights and Sea Lanterns, signaling security status. It overlooks the active Shroomville district seen in image_2.png and image_3.png.
+
+I hope these visualizations help you finalize the spatial layout of your Void-Tech expansion. When pasting these, don't forget the required FAWE flags: //paste -f to force the variant=pearlescent state on the Froglights.
+
+Which of these five schematics would you like me to generate a command-block "deployment string" for, so you can execute the build instantly from the server console?

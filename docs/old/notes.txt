@@ -1,0 +1,107 @@
+Client:
+
+install 64 bit java
+install technic launcher
+bump ram up to 4GB
+intsall the modpack
+
+
+ftbranks:
+https://help.ftb.team/help/en-gb/7-ftb-utilities/22-ranks
+how to claim chunks
+increase chunk limit
+chunk config files
+
+quests:
+find and ender poretal
+find a new spawn point
+work on spawn point
+spawn buulletin board
+
+
+hiring mods
+
+
+ansible playbooks for minecraft server
+
+
+```sh
+query.port=25565 # find your port
+enable-query=true # enable this to query your server
+enable-status=true # enable this to get your server status
+rcon.port=25575 # find your rcon port
+rcon.password=<custom_password> # set your own password for RCON
+enable-rcon=true # enable RCON
+server-ip=127.0.0.1 # IP: Yours will be Unique
+```
+
+## Install JDK
+
+When JAVA_HOME is set, the system knows where to look
+for the JDK and can use it to execute Java applications
+or compile Java code. So, open the “/etc/environment”
+file with the terminal text editor and add this line:
+
+```sh
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"` # add line to /etc/environment
+source /etc/environment
+echo $JAVA_HOME
+```
+
+### Debian 12 Bookworm
+
+```sh
+apt -y install default-jdk
+# sudo apt install openjdk-17-jdk # install only jdk
+# sudo apt install openjdk-17-jre # install only jre
+java -version # verify
+```
+
+## Remove Java
+
+```sh
+sudo dpkg -l | grep 'jdk\|jre'
+sudo apt purge default-jdk default-jdk-headless default-jre default-jre-headless openjdk-17-jdk openjdk-17-jdk-headless openjdk-17-jre openjdk-17-jre-headless
+sudo apt autoremove --purge
+```
+
+## Upgrade Forge Server
+
+Update all the mods in the mods folder.
+
+[Download the desired version](https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_Minecraft_Forge_server)
+
+Test on alpha server first:
+
+- Edit `user_jvm_args.txt`
+
+```sh
+apt install openjdk-17-jdk-headless
+java -jar ./forge-1.16.5-36.2.33.installer.jar --installServer
+run.sh
+```
+
+## Update the forge client.
+
+- Add the mods folder to the client.
+- Create a new zip file containing the mods and upload it to dropbox.
+
+## Spawn Management
+
+Use `/setworldspan` to move the server spawn point.
+
+## Ranks Mod
+
+[ranks](https://gist.github.com/LatvianModder/54ccaee3af7a55d23831eac20f248a3f/0ba8846e95ba1b9f4057b81cae74de96dc262f15)
+
+power determines the rank hierarchy, if multiple permissions are applied for the same player
+and two permissions conflict, the rank permission with the highest power will be the one applied.
+condition determines when the rank is applied, if there is no condition specified it can only be
+applied manually with `/ftbranks add <player> <rank>` always_active is a condition that means
+the rank is always applied, it is generally used for default ranks that would typically have
+the lowest priority/power. op condition applies when a player has been opped (with `/op`) or on
+singleplayer with cheats enabled.
+
+Some other conditions available are dimension, location, spawn, ftbchunks:claimed_chunk. Logical
+comparators like not, and, or and xor can be used to combine multiple conditions. Lastly the
+playtime condition can be used with time and time_unit properties to auto-promote ranks after a specified time has passed. Valid time units are ticks, seconds, minutes, hours, days and weeks.

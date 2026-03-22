@@ -1,0 +1,148 @@
+That explains it! The user doesn't exist at all in MariaDB, so the server is rejecting the connection because it has no record of a `bluemap` user to authenticate against.
+
+You need to create the user and the database, then grant the permissions.
+
+### 1. Create the Database and User
+
+Run these commands inside your MariaDB monitor on **blowfish**:
+
+```sql
+-- 1. Create the database
+CREATE DATABASE IF NOT EXISTS bluemap;
+
+-- 2. Create the user and allow connections from your Minecraft server IP
+CREATE USER 'bluemap'@'10.10.8.60' IDENTIFIED BY 'your_password_here';
+
+-- 3. Give the user full access to the bluemap database
+GRANT ALL PRIVILEGES ON bluemap.* TO 'bluemap'@'10.10.8.60';
+
+-- 4. Apply changes
+FLUSH PRIVILEGES;
+
+```
+
+---
+
+### 2. Verify the Creation
+
+Run your select query again to make sure it's there:
+
+```sql
+SELECT User, Host FROM mysql.user WHERE User = 'bluemap';
+
+```
+
+You should now see:
+| User | Host |
+| :--- | :--- |
+| bluemap | 10.10.8.60 |
+
+---
+
+### 3. Update BlueMap Config
+
+Make sure the password you used in the `CREATE USER` command matches exactly what you have in your BlueMap `sql.conf` on the Minecraft server.
+
+**Wait, what about the other Minecraft servers?**
+If you have multiple servers in your network (like the Lobby and Dreamland servers we saw earlier) that all need to connect to this same BlueMap database, you should either:
+
+* Repeat the `CREATE USER` and `GRANT` commands for each server's specific IP.
+* **Or**, use a wildcard if they are all on the same subnet:
+`CREATE USER 'bluemap'@'10.10.8.%' IDENTIFIED BY 'your_password_here';`
+
+---
+
+### 4. Final Test
+
+Go back to your Minecraft console and run:
+
+```bash
+/bluemap reload
+
+```
+
+If it connects, you should see a message in the logs saying **"BlueMap is now using the SQL storage"**.
+
+**Would you like me to help you check the `top` output once the map starts rendering to make sure the OpenBSD memory limits aren't choking the process?**
+
+To get better performance, you should let a dedicated web server like **Nginx** handle the static tile images directly from the database or filesystem, rather than having the Minecraft plugin's built-in server handle every request.
+
+Since you are using **SQL storage** on your OpenBSD `blowfish` box, Nginx is a great choice because it can act as a high-performance frontend.
+
+### 1. Configure Nginx as a Reverse Proxy
+
+This is the most common setup. Nginx sits in front of BlueMap's internal web server (port 8100) and handles the traffic.
+
+On your web server (or `blowfish` if you install Nginx there), create a site configuration:
+
+```nginx
+server {
+    listen 80;
+    server_name map.bitsmasher.net;
+
+    # Increase timeout for large map data transfers
+    proxy_read_timeout 300;
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+
+    location / {
+        proxy_pass http://10.10.8.60:8100; # The IP/Port of your BlueMap server
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Enable compression for faster loading
+        gzip on;
+        gzip_types text/plain text/css application/json application/javascript;
+    }
+}
+
+```
+
+---
+
+### 2. High Performance: The "Internal" SQL Setup
+
+Since you are using **SQL storage**, BlueMap's web server has to query MariaDB for every tile. For maximum performance, you can use the **BlueMap-PHP** script or the **BlueMap-Integrated-Webserver**.
+
+However, for most "Lab" setups, the **Reverse Proxy** (Step 1) is preferred because:
+
+1. It handles SSL (HTTPS) easily via Certbot.
+2. It protects your Minecraft server IP from direct exposure.
+3. It can cache static assets like the `3d-textures` and `scripts`.
+
+---
+
+### 3. OpenBSD Specifics (Nginx)
+
+If you are running Nginx on the OpenBSD box:
+
+1. Install it: `doas pkg_add nginx`
+2. Enable it: `doas rcctl enable nginx`
+3. Since OpenBSD's Nginx is **chrooted** by default to `/var/www`, you may need to adjust your paths if you are serving static files directly.
+
+### 4. Adjusting BlueMap's Config
+
+In your Minecraft server's `plugins/BlueMap/webapp.conf`, make sure `allowed-origins` includes your new domain so you don't hit CORS (Cross-Origin Resource Sharing) issues:
+
+```hocon
+# webapp.conf
+allowed-origins: [
+    "http://map.bitsmasher.net",
+    "https://map.bitsmasher.net"
+]
+
+```
+
+---
+
+### Summary Checklist
+
+* [ ] **Nginx Config:** Point `proxy_pass` to your Minecraft server's IP on port 8100.
+* [ ] **Firewall:** Ensure the Nginx machine can talk to `10.10.8.60:8100`.
+* [ ] **DNS:** Point `map.bitsmasher.net` to your Nginx machine's public IP.
+* [ ] **Reload:** `nginx -s reload` and `/bluemap reload`.
+
+**Would you like me to generate a Certbot command to add SSL/HTTPS to this Nginx config?**
+
