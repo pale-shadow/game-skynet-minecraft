@@ -1,0 +1,23 @@
+{
+  "name": "void_uplink_v2",
+  "category": "tower",
+  "type": "tower",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 7, "height": 45, "length": 7 },
+  "materials": {
+    "primary": "minecraft:polished_tuff",
+    "secondary": "minecraft:calcite",
+    "tertiary": "minecraft:lightning_rod",
+    "glass": "minecraft:tinted_glass",
+    "light": "minecraft:pearlescent_froglight",
+    "accent": "minecraft:end_rod"
+  },
+  "features": {
+    "hollow": true,
+    "interior_lit": true,
+    "has_antenna": true
+  },
+  "metadata": {
+    "description": "High-altitude signal transmitter using Void-Tech aesthetics and suspended structural segments."
+  }
+}

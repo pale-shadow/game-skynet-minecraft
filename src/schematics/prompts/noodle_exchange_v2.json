@@ -1,0 +1,37 @@
+{
+  "name": "noodle_exchange_v2",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": {
+    "width": 7,
+    "height": 7,
+    "length": 7
+  },
+  "materials": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:oxidized_copper",
+    "floor": "minecraft:gray_concrete",
+    "roof": "minecraft:polished_deepslate_slab",
+    "glass": "minecraft:cyan_stained_glass",
+    "door": "minecraft:iron_door",
+    "light": "minecraft:shroomlight",
+    "tertiary": "minecraft:oxidized_copper_bulb[lit=true]"
+  },
+  "features": {
+    "has_roof": true,
+    "roof_style": "flat",
+    "has_floor": true,
+    "has_door": true,
+    "door_position": "north",
+    "has_windows": true,
+    "window_spacing": 1,
+    "interior_lit": true,
+    "has_foundation": true,
+    "wall_thickness": 1
+  },
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "The Noodle Economy Exchange V2 - Industrial trade hub with track beds and bioluminescent accents."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "crafter_hub_master_control_v5",
+  "category": "decoration",
+  "type": "decoration",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 13, "height": 9, "length": 13 },
+  "materials": {
+    "primary": "minecraft:polished_tuff",
+    "secondary": "minecraft:calcite",
+    "floor": "minecraft:tinted_glass",
+    "sub_floor": "minecraft:polished_blackstone",
+    "light_main": "minecraft:froglight[variant=pearlescent]",
+    "light_accent": "minecraft:soul_lantern",
+    "core_logic": "minecraft:crafter",
+    "core_storage": "minecraft:barrel[facing=up]",
+    "core_crystal": "minecraft:amethyst_cluster",
+    "conduit": "minecraft:purpur_pillar[axis=y]",
+    "terminal": "minecraft:lectern",
+    "railing": "minecraft:chain",
+    "desk": "minecraft:polished_blackstone_slab[type=bottom]"
+  },
+  "decorations": [
+    {
+      "type": "complex_structure",
+      "name": "glass_floor_and_subfloor",
+      "blocks": {
+        "loop_x0_to_12_z0_to_12_y0": "materials.sub_floor",
+        "loop_x0_to_12_z0_to_12_y1": "materials.floor"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "expanded_logic_core",
+      "position": { "x": 4, "y": 2, "z": 4 },
+      "size": { "width": 5, "height": 5, "length": 5 },
+      "blocks": {
+        "loop_x0_to_4_y0_z0,2,4": "materials.core_logic",
+        "loop_x0,4_y0_z1,3": "materials.core_logic",
+        "loop_x1,3_y0_z1,3": "materials.core_storage",
+        "x2_y0_z2": "materials.core_crystal"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "tech_noir_furnishings",
+      "blocks": {
+        "x1_y2_z1": "materials.desk", "x2_y2_z1": "materials.desk",
+        "x1_y3_z1": "materials.terminal",
+        "x10_y2_z10": "materials.desk", "x11_y2_z10": "materials.desk",
+        "x11_y3_z10": "materials.terminal",
+        "x1_y2_z10": "minecraft:anvil", "x2_y2_z10": "minecraft:grindstone"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "observation_deck",
+      "position": { "x": 8, "y": 5, "z": 2 },
+      "blocks": {
+        "loop_x0_to_3_z0_to_3_y0": "materials.sub_floor",
+        "loop_x0_to_3_z0_y1,2": "materials.railing",
+        "loop_x0_z1_to_3_y1,2": "materials.railing",
+        "x3_y1_z3": "materials.terminal"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "hanging_lights_and_conduits",
+      "blocks": {
+        "x1_y8_z1": "materials.light_accent", "x1_y7_z1": "materials.railing", "x1_y6_z1": "materials.railing",
+        "x11_y8_z1": "materials.light_accent", "x11_y7_z1": "materials.railing", "x11_y6_z1": "materials.railing",
+        "x1_y8_z11": "materials.light_accent", "x1_y7_z11": "materials.railing", "x1_y6_z11": "materials.railing",
+        "x11_y8_z11": "materials.light_accent", "x11_y7_z11": "materials.railing", "x11_y6_z11": "materials.railing",
+        "loop_x2,10_y0_to_8_z2,10": "materials.conduit"
+      }
+    }
+  ],
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "V5 Master Control Room for the Crafter Hub. A larger, more complex design using the 'Computational Ender-Core' aesthetic with a 'Tech-Noir' ambiance. Features a glass floor over a sub-level, an expanded logic core, observation deck, and moody, high-contrast lighting."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "crafter_hub_interior_v4",
+  "category": "decoration",
+  "type": "decoration",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 7, "height": 7, "length": 7 },
+  "materials": {
+    "primary": "minecraft:polished_tuff",
+    "secondary": "minecraft:calcite",
+    "floor": "minecraft:smooth_quartz",
+    "light": "minecraft:froglight[variant=pearlescent]",
+    "core_logic": "minecraft:crafter",
+    "core_storage": "minecraft:barrel",
+    "core_container": "minecraft:chest",
+    "core_crystal": "minecraft:amethyst_cluster",
+    "conduit": "minecraft:purpur_pillar",
+    "glowing_panels": "minecraft:froglight[variant=pearlescent]"
+  },
+  "decorations": [
+    {
+      "type": "complex_structure",
+      "name": "noodle_logic_core",
+      "position": { "x": 3, "y": 1, "z": 3 },
+      "size": { "width": 3, "height": 3, "length": 3 },
+      "blocks": {
+        "x0_y0_z0": "materials.core_logic", "x1_y0_z0": "materials.core_logic", "x2_y0_z0": "materials.core_logic",
+        "x0_y0_z1": "materials.core_logic", "x1_y0_z1": "materials.core_crystal", "x2_y0_z1": "materials.core_logic",
+        "x0_y0_z2": "materials.core_logic", "x1_y0_z2": "materials.core_logic", "x2_y0_z2": "materials.core_logic",
+        "x0_y1_z0": "materials.core_logic", "x1_y1_z0": "materials.core_storage", "x2_y1_z0": "materials.core_logic",
+        "x0_y1_z1": "materials.core_storage", "x1_y1_z1": "materials.core_crystal", "x2_y1_z1": "materials.core_storage",
+        "x0_y1_z2": "materials.core_logic", "x1_y1_z2": "materials.core_storage", "x2_y1_z2": "materials.core_logic",
+        "x0_y2_z0": "materials.core_logic", "x1_y2_z0": "materials.core_container", "x2_y2_z0": "materials.core_logic",
+        "x0_y2_z1": "materials.core_container", "x1_y2_z1": "materials.core_crystal", "x2_y2_z1": "materials.core_container",
+        "x0_y2_z2": "materials.core_logic", "x1_y2_z2": "materials.core_container", "x2_y2_z2": "materials.core_logic"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "void_conduit_network",
+      "blocks": {
+        "x0_y2_z0": "materials.primary", "x1_y2_z0": "materials.primary", "x2_y2_z0": "materials.primary", "x3_y2_z0": "materials.primary", "x4_y2_z0": "materials.primary", "x5_y2_z0": "materials.primary", "x6_y2_z0": "materials.primary",
+        "x0_y2_z6": "materials.primary", "x1_y2_z6": "materials.primary", "x2_y2_z6": "materials.primary", "x3_y2_z6": "materials.primary", "x4_y2_z6": "materials.primary", "x5_y2_z6": "materials.primary", "x6_y2_z6": "materials.primary",
+        "x0_y2_z1": "materials.primary", "x6_y2_z1": "materials.primary", "x0_y2_z2": "materials.primary", "x6_y2_z2": "materials.primary", "x0_y2_z3": "materials.primary", "x6_y2_z3": "materials.primary", "x0_y2_z4": "materials.primary", "x6_y2_z4": "materials.primary", "x0_y2_z5": "materials.primary", "x6_y2_z5": "materials.primary",
+        "x3_y2_z1": "materials.conduit", "x3_y2_z2": "materials.conduit", "x3_y2_z3": "materials.conduit", "x3_y2_z4": "materials.conduit", "x3_y2_z5": "materials.conduit",
+        "x1_y2_z3": "materials.conduit", "x2_y2_z3": "materials.conduit", "x4_y2_z3": "materials.conduit", "x5_y2_z3": "materials.conduit",
+        "x0_y0_z3": "materials.conduit", "x0_y1_z3": "materials.conduit", "x0_y3_z3": "materials.conduit", "x0_y4_z3": "materials.conduit", "x0_y5_z3": "materials.conduit", "x0_y6_z3": "materials.conduit",
+        "x6_y0_z3": "materials.conduit", "x6_y1_z3": "materials.conduit", "x6_y3_z3": "materials.conduit", "x6_y4_z3": "materials.conduit", "x6_y5_z3": "materials.conduit", "x6_y6_z3": "materials.conduit"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "froglight_illumination_array",
+      "blocks": {
+        "x1_y0_z1": "materials.light", "x3_y0_z1": "materials.light", "x5_y0_z1": "materials.light",
+        "x1_y0_z3": "materials.light", "x3_y0_z3": "materials.light", "x5_y0_z3": "materials.light",
+        "x1_y0_z5": "materials.light", "x3_y0_z5": "materials.light", "x5_y0_z5": "materials.light",
+        "x1_y6_z1": "materials.light", "x3_y6_z1": "materials.light", "x5_y6_z1": "materials.light",
+        "x1_y6_z3": "materials.light", "x3_y6_z3": "materials.light", "x5_y6_z3": "materials.light",
+        "x1_y6_z5": "materials.light", "x3_y6_z5": "materials.light", "x5_y6_z5": "materials.light",
+        "x1_y2_z0": "materials.light", "x3_y2_z0": "materials.light", "x5_y2_z0": "materials.light",
+        "x1_y2_z6": "materials.light", "x3_y2_z6": "materials.light", "x5_y2_z6": "materials.light",
+        "x0_y2_z1": "materials.light", "x0_y2_z3": "materials.light", "x0_y2_z5": "materials.light",
+        "x6_y2_z1": "materials.light", "x6_y2_z3": "materials.light", "x6_y2_z5": "materials.light"
+      }
+    },
+    {
+      "type": "complex_structure",
+      "name": "glowing_floor_panels",
+      "position": { "x": 1, "y": 0, "z": 1 },
+      "size": { "width": 5, "length": 5 },
+      "blocks": {
+        "x0_z0": "materials.glowing_panels", "x2_z0": "materials.glowing_panels", "x4_z0": "materials.glowing_panels",
+        "x0_z2": "materials.glowing_panels", "x2_z2": "materials.glowing_panels", "x4_z2": "materials.glowing_panels",
+        "x0_z4": "materials.glowing_panels", "x2_z4": "materials.glowing_panels", "x4_z4": "materials.glowing_panels"
+      }
+    }
+  ],
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "V4 interior for the Crafter Hub, built with the 'Computational Ender-Core' aesthetic."
+  }
+}

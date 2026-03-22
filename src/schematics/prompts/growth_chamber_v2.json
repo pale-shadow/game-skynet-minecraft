@@ -1,0 +1,24 @@
+{
+  "name": "growth_chamber_v2",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 9, "height": 8, "length": 9 },
+  "materials": {
+    "primary": "minecraft:calcite",
+    "secondary": "minecraft:polished_tuff_bricks",
+    "floor": "minecraft:smooth_quartz",
+    "accent": "minecraft:cherry_leaves",
+    "light": "minecraft:pearlescent_froglight",
+    "glass": "minecraft:tinted_glass"
+  },
+  "features": {
+    "has_roof": true,
+    "roof_style": "flat",
+    "interior_lit": true,
+    "has_windows": true
+  },
+  "metadata": {
+    "description": "A sterile hydroponics lab for studying the 2026 mycelial mutations."
+  }
+}

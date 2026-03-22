@@ -1,0 +1,17 @@
+{
+  "name": "crafter_hub_v4",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 7, "height": 7, "length": 7 },
+  "features": {
+    "has_foundation": true,
+    "has_floor": true,
+    "wall_thickness": 1,
+    "interior_lit": true,
+    "hollow": true
+  },
+  "metadata": {
+    "description": "Automated manufacturing unit with default builder materials (v4)."
+  }
+}

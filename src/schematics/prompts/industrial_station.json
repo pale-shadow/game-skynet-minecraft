@@ -1,0 +1,30 @@
+{
+  "name": "end_industrial_station_v5",
+  "category": "industrial",
+  "type": "station",
+  "version": "JE_1_21_1",
+  "dimensions": { 
+    "width": 25, 
+    "height": 18, 
+    "length": 35 
+  },
+  "palette": {
+    "primary": "minecraft:purpur_pillar",
+    "secondary": "minecraft:dark_prismarine",
+    "accent": "minecraft:warped_planks",
+    "trim": "minecraft:stone_brick_stairs",
+    "floor": "minecraft:polished_andesite",
+    "lighting": "minecraft:sea_lantern"
+  },
+  "features": {
+    "has_foundation": true,
+    "foundation_depth": 3,
+    "roof_style": "vaulted_industrial",
+    "greebling_level": "high",
+    "exposed_beams": true,
+    "interior_platforms": 2
+  },
+  "metadata": {
+    "description": "High-detail automated hub matching End-Tech aesthetic. Features external pillars and hanging crane-arm supports."
+  }
+}

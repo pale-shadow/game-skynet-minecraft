@@ -1,0 +1,29 @@
+{
+  "name": "vertical_sump_tower",
+  "category": "tower",
+  "type": "tower",
+  "version": "JE_1_21_1",
+  "dimensions": {
+    "width": 11,
+    "height": 35,
+    "length": 11
+  },
+  "materials": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:oxidized_copper",
+    "stairs": "minecraft:oxidized_copper_stairs",
+    "glass": "minecraft:cyan_stained_glass",
+    "light": "minecraft:shroomlight"
+  },
+  "features": {
+    "has_roof": true,
+    "roof_style": "dome",
+    "hollow": true,
+    "crenellations": true,
+    "interior_lit": true
+  },
+  "metadata": {
+    "author": "Gemini CLI",
+    "description": "Vertical Sump Logistics Tower - High-velocity elevator shaft connecting Rail Yard (Y:63) and Deep Station (Y:31) with a bioluminescent Mush-Cap aesthetic."
+  }
+}

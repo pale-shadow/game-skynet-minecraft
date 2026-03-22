@@ -1,0 +1,23 @@
+{
+  "name": "noodle_exchange_v3",
+  "category": "house",
+  "type": "house",
+  "version": "JE_1_21_1",
+  "dimensions": { "width": 7, "height": 7, "length": 7 },
+  "materials": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:oxidized_copper",
+    "floor": "minecraft:gray_concrete",
+    "light": "minecraft:shroomlight",
+    "tertiary": "minecraft:crafter"
+  },
+  "features": {
+    "has_foundation": true,
+    "has_floor": true,
+    "wall_thickness": 1,
+    "interior_lit": true
+  },
+  "metadata": {
+    "description": "The 'Trade Standard'. 7x7 Modular Unit for the Noodle Exchange with integrated Crafter core."
+  }
+}

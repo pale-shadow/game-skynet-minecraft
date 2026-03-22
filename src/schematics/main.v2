@@ -1,0 +1,105 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
+
+	"github.com/Tnze/go-mc/nbt"
+	"github.com/Tnze/go-mc/level/schematic"
+)
+
+// Prompt matches your crafter_hub_v5.json structure
+type Prompt struct {
+	Name       string            `json:"name"`
+	Type       string            `json:"type"`
+	Dimensions struct {
+		Width  int `json:"width"`
+		Height int `json:"height"`
+		Length int `json:"length"`
+	} `json:"dimensions"`
+	Palette map[string]string `json:"palette"`
+}
+
+func main() {
+	if len(os.Args) < 2 {
+		log.Fatal("Usage: go run main.go <prompt_file.json>")
+	}
+
+	// 1. Parse JSON Prompt
+	plan, err := ioutil.ReadFile(os.Args[1])
+	if err != nil {
+		log.Fatalf("Error reading prompt: %v", err)
+	}
+
+	var p Prompt
+	err = json.Unmarshal(plan, &p)
+	if err != nil {
+		log.Fatalf("Error parsing JSON: %v", err)
+	}
+
+	fmt.Printf("Generating: %s (Type: %s)\n", p.Name, p.Type)
+
+	// 2. Initialize Schematic
+	// Width, Height, Length
+	schem := schematic.New(int16(p.Dimensions.Width), int16(p.Dimensions.Height), int16(p.Dimensions.Length))
+
+	// 3. Logic Routing
+	if p.Type == "station" {
+		generateStation(schem, p)
+	} else {
+		fmt.Println("Fallback: Generic box logic")
+		generateBox(schem)
+	}
+
+	// 4. Save to Output
+	outPath := fmt.Sprintf("output/%s.schem", p.Name)
+	f, err := os.Create(outPath)
+	if err != nil {
+		log.Fatalf("Error creating file: %v", err)
+	}
+	defer f.Close()
+
+	err = nbt.NewEncoder(f).Encode(schem, "Schematic")
+	if err != nil {
+		log.Fatalf("Error encoding NBT: %v", err)
+	}
+
+	fmt.Printf("Success! Saved to %s\n", outPath)
+}
+
+func generateStation(s *schematic.Schematic, p Prompt) {
+	w, h, l := p.Dimensions.Width, p.Dimensions.Height, p.Dimensions.Length
+	
+	// Map palette to schematic indices
+	// In a full build, you'd dynamically map these from the JSON palette map
+	primary := p.Palette["primary"]
+	lighting := p.Palette["lighting"]
+
+	// 1. Foundation
+	for x := 0; x < w; x++ {
+		for z := 0; z < l; z++ {
+			s.SetBlock(x, 0, z, primary)
+		}
+	}
+
+	// 2. v5 Industrial Pillars (Indented 3x3 Logic)
+	pillarLocs := [][]int{{1, 1}, {1, l - 2}, {w - 2, 1}, {w - 2, l - 2}}
+	for _, loc := range pillarLocs {
+		px, pz := loc[0], loc[1]
+		for py := 1; py < h-1; py++ {
+			s.SetBlock(px, py, pz, primary)
+			// Add lighting integrated into pillars at intervals
+			if py%4 == 0 {
+				s.SetBlock(px, py, pz, lighting)
+			}
+		}
+	}
+}
+
+func generateBox(s *schematic.Schematic) {
+	// Simple generic builder for non-station types
+	s.SetBlock(0, 0, 0, "minecraft:stone")
+}
