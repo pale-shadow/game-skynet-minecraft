@@ -1,9 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
+#
+# SPDX-FileCopyrightText: ©2026 franklin <smoooth.y62wj@passmail.net>
+#
+# SPDX-License-Identifier: MIT
 
 # OpenBSD:
 # doas pkg_add jdk minecraft
 
-# A simple "rcon.sh" file to interactively issue commands to the server, helpful combined with tail
+
 while true; do
     printf "RCON> "
     read input
