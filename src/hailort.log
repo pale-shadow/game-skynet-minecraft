@@ -1,8 +1,0 @@
-[2026-03-22 19:12:43.950] [53708] [HailoRT] [info] [vdevice.cpp:523] [create] Creating vdevice with params: device_count: 1, scheduling_algorithm: NONE, multi_process_service: false
-[2026-03-22 19:12:43.961] [53708] [HailoRT] [info] [device.cpp:49] [Device] OS Version: Linux 6.12.62+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.62-1+rpt1~bookworm (2026-01-19) aarch64
-[2026-03-22 19:12:43.962] [53708] [HailoRT] [info] [control.cpp:108] [control__parse_identify_results] firmware_version is: 4.20.0
-[2026-03-22 19:12:43.962] [53708] [HailoRT] [info] [vdevice.cpp:651] [create] VDevice Infos: 0001:01:00.0
-[2026-03-22 20:53:43.495] [57208] [HailoRT] [info] [vdevice.cpp:523] [create] Creating vdevice with params: device_count: 1, scheduling_algorithm: NONE, multi_process_service: false
-[2026-03-22 20:53:43.507] [57208] [HailoRT] [info] [device.cpp:49] [Device] OS Version: Linux 6.12.62+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.62-1+rpt1~bookworm (2026-01-19) aarch64
-[2026-03-22 20:53:43.508] [57208] [HailoRT] [info] [control.cpp:108] [control__parse_identify_results] firmware_version is: 4.20.0
-[2026-03-22 20:53:43.508] [57208] [HailoRT] [info] [vdevice.cpp:651] [create] VDevice Infos: 0001:01:00.0

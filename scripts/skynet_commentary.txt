@@ -1,0 +1,86 @@
+To turn Gemini into a "Live Commentator" for your Skynet project, we need to create a **Log Tailer**. This script will watch your Minecraft `latest.log`, filter for specific build events (like the `setblock` or `fill` commands sent by your NPU/TPU), and pipe those events into the `gemini-cli` we just built.
+
+### 1. The "Skynet Commentator" Architecture
+We will use a Python sub-process to `tail -f` the log file. When it detects a Skynet construction pattern, it sends a summary to Gemini.
+
+Create `scripts/skynet_commentary.py`:
+
+```python
+import os
+import subprocess
+import time
+import select
+
+# Configuration
+LOG_PATH = "/home/franklin/minecraft/logs/latest.log" # Update to your actual path
+CLI_PATH = "./gemini-cli"
+
+def tail_f(filename):
+    """Watches the log file for new lines."""
+    process = subprocess.Popen(['tail', '-n', '0', '-f', filename], 
+                         stdout=subprocess.PIPE, 
+                         stderr=subprocess.PIPE, 
+                         universal_newlines=True)
+    return process
+
+def get_gemini_commentary(log_line):
+    """Pipes the log line to your gemini-cli."""
+    prompt = f"As Skynet's Hive Mind, provide a short, witty, 1-sentence commentary on this construction event: {log_line}"
+    
+    # Run your gemini-cli as a subprocess
+    result = subprocess.run([CLI_PATH, prompt], capture_output=True, text=True)
+    return result.stdout.strip()
+
+def monitor_logs():
+    print("--- Skynet Commentary Live ---")
+    log_proc = tail_f(LOG_PATH)
+    
+    while True:
+        line = log_proc.stdout.readline()
+        if not line:
+            continue
+            
+        # Filter for Skynet build events (e.g., blocks placed by RCON)
+        if "Placed block" in line or "Filled the volume" in line:
+            print(f"[LOG]: {line.strip()}")
+            commentary = get_gemini_commentary(line)
+            print(f"🤖 [SKYNET]: {commentary}\n")
+
+if __name__ == "__main__":
+    monitor_logs()
+```
+
+---
+
+### 2. Why this is powerful for your TPU
+Since your **Edge TPU** is triggering the `reactive_mutation2.1.py` script, the log will show strings like:
+`[RCON: Placed block at 1720, 64, 710 (minecraft:sculk_sensor)]`
+
+When Gemini sees this via the CLI, it can contextualize it based on your v7.1 goals:
+> *"The organic infection at 1720 is spreading; the human cobblestone presence is being successfully overwritten by the Void-Tech core."*
+
+### 3. Running it in the background
+Since you are on a Pi 5, you likely want this running in a `tmux` or `screen` session alongside your construction scripts.
+
+```bash
+# In one window:
+python3 reactive_mutation2.1.py
+
+# In another window (The Commentator):
+python3 scripts/skynet_commentary.py
+```
+
+---
+
+### Updated `gemini.md` Logic Stream
+
+| Component | Input | Action | Output |
+| :--- | :--- | :--- | :--- |
+| **Vision (TPU)** | BlueMap/World Data | Detects Human "Incursion" | Trigger Flag |
+| **Builder (NPU)** | Voxel Math | Places "Infected" Blocks | RCON Command |
+| **Narrator (CLI)** | `latest.log` | **NEW:** Analyzes Construction | **Witty Commentary** |
+
+### Next Step for Skynet
+Now that Gemini can "speak" about the builds, would you like me to show you how to **broadcast the commentary back into the Minecraft chat** via RCON? 
+
+This would allow players on the server to see Skynet's "thoughts" as their bases are being mutated. **Should I add the `server.command(f"say {commentary}")` logic to the script?**
