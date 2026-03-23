@@ -46,6 +46,7 @@
 - **Industry:** Western Blacksmith and Villager Hutt (Staff Housing).
 
 ### 7. Administrative Workflows
+- **Autonomous Operation:** The server's AI, "Skynet," runs as a background service (`skynet-ai.service`). It manages hourly procedural construction and monitors restricted zones for player presence, issuing automated warnings.
 - **Chunk Regeneration:** Use `bluemap fix-edges` for visual continuity after terrain resets.
 - **Region Management:** Use `WorldGuard` to prevent "Ghost" chunk corruption in legacy zones.
 - **Client Access:** Technic Launcher is the official gateway; direct Dropbox sourcing for reliability.
