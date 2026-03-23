@@ -19,3 +19,6 @@ To entice players to leave the legacy hubs like **Washington Station**, we will 
 *   **Pre-generation:** Use the **Chunky** plugin to pre-render the AI Fields within a 10,000-block radius to ensure smooth travel via Elytra [13].
 *   **Security:** Enforce strict **LuckPerms** weights to protect legacy 2012 sites while granting "Hacker" and "Sheriff" ranks limited building permissions in the experimental AI zones [15, 16].
 
+## ideas
+
+- create a red and white checkered border around the the inside of the ai field that is level with the ground (assume around y=64?)
