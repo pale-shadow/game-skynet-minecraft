@@ -1,0 +1,3 @@
+# models
+
+`ln -s /usr/share/hailo-models/yolov8s_h8l.hef`

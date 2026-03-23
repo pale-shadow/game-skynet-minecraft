@@ -1,0 +1,23 @@
+[
+    {
+        "x": -1147,
+        "z": -621,
+        "w": 3,
+        "d": 3,
+        "label": "Initial_Tower"
+    },
+    {
+        "x": -1446,
+        "z": -849,
+        "w": 5,
+        "d": 5,
+        "label": "Outpost_Alpha"
+    },
+    {
+        "x": -1374,
+        "z": -822,
+        "w": 9,
+        "d": 7,
+        "label": "Void_Tech_Station_A"
+    }
+]
