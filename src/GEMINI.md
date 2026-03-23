@@ -1,32 +1,30 @@
-# MC Schematics - Gemini Project Organizer (v6)
+# MC Schematics - Gemini Project Organizer (v6.1)
 **Session Date:** March 22, 2026
 **Hardware:** Raspberry Pi 5 + Hailo-8L NPU (skynet) -> Minecraft RCON (chonk)
 
 ## Project Overview
-The "Skynet Architect" project focuses on real-time, AI-driven infrastructure generation within the "AI Testing Field" of the Chonk server. The goal is to simulate a "Void-Tech" overgrowth where the environment mutates based on neural inference.
+The "Skynet Architect" project has evolved from simple schematic generation to an **NPU-driven autonomous ecosystem**. The current focus is on "Void-Tech" overgrowth, where structures are strategically placed and interconnected using neural inference.
 
-## Current Directory Structure
-- `ai_architect.py`: Core logic for spatial registry and collision detection.
-- `skynet_process.py`: Production RCON bridge for NPU-validated builds.
-- `neural_rail.py`: **(New)** Logistics hub generator featuring elevated rail decks.
-- `kinetic_rail_v5.py`: Reactive build script using Sculk-based sensory logic.
-- `build_history.json`: Persistence layer to prevent architectural overlap.
+## Current Directory Structure (Updated)
+- `npu_spatial_engine.py`: Core NPU simulation for spatial density and cluster inference.
+- `vision_lite_overseer.py`: **(New)** Simulated TPU 'Visual Cortex' for detecting human incursions.
+- `adaptive_mutation_v7.py`: **(New)** v7.1-RECLAMATION logic for state-aware territory infection.
+- `neural_pathfinder.py`: A* pathfinding for obstacle-avoiding bridges.
+- `reactive_mutation.py`: Autonomous overgrowth cycle for mutating existing builds.
+- `bluemap_api.py`: REST/RCON automation for BlueMap POI deployment.
 
-## v6 Architectural Standards (The "Void-Tech" Tier)
-To ensure high-fidelity rendering, all AI-generated structures must now adhere to:
-* **Y-Base Anchor**: 63 (Integrated into the desert floor).
-* **Spatial Buffer**: 5-block "Skynet Spread" radius using Mycelium and Purple Carpet.
-* **Rule of Three**: 
-    1. **Foundation**: Polished Deepslate / Tuff.
-    2. **Pillars**: Fluted Purpur / Crying Obsidian cores.
-    3. **Girders**: Dark Prismarine suspended via Chains/Lightning Rods.
-* **Kinetic Logic**: Mandatory use of `sculk_sensor` linked to `oxidized_copper_bulb` for reactive "energy" pulsing.
+## v7.1 Architectural Standards (The "Reclamation" Tier)
+* **TPU Trigger**: `INTENSION_HIGH` classification for aggressive territory reclamation.
+* **Infection Core**: Mandatory use of `minecraft:sculk` and `minecraft:crying_obsidian` in areas with detected human blocks.
+* **Sensory Surveillance**: Integration of `sculk_sensor` within `tinted_glass` housings to track player movement near reclaimed territory.
 
-## RCON Commands & Stability
-- **Rate Limit**: 0.005s sleep per command for NPU-dense clusters.
-- **Coordinate Range**: Verified safe zone between X[-1539, -945] and Z[-913, -489].
+## Session Milestones (March 22, 2026)
+- [x] Implement **NPU-Driven Spatial Density Mapping** for optimal build site selection.
+- [x] Deploy **BlueMap POI Auto-Generation** for all new structures and bridges.
+- [x] Launch **Adaptive Mutation (v7.1-RECLAMATION)** to simulate autonomous "Dual-Inference" responses to human incursions.
+- [x] Implement **Neural Pathfinding** to allow bridges to navigate around existing structures.
 
 ## Pending Directives
-- [ ] Connect existing Hubs via the `neural_rail.py` automated link.
-- [ ] Implement BlueMap POI auto-generation for every successful build.
 - [ ] Finalize "Master Uplink" tower schematic (50+ block height).
+- [ ] Implement BlueMap marker "Category" filtering in `bluemap_api.py`.
+- [ ] Thermal-Aware RCON Pacing (Pi 5 telemetry integration).

@@ -1,0 +1,51 @@
+{
+  "project": "Skynet - Neural Bridge",
+  "version": "7.1-RECLAMATION",
+  "metadata": {
+    "architectural_tier": "v5",
+    "aesthetic": "Void-Tech Overgrowth (Mutated)",
+    "tpu_trigger": "INTENSION_HIGH",
+    "logic_source": "vision_lite_overseer.py"
+  },
+  "dimensions": {
+    "segment_length": 20,
+    "min_bounding_box": [20, 15, 25]
+  },
+  "palette": {
+    "primary_frame": "minecraft:polished_tuff",
+    "high_contrast_paneling": "minecraft:calcite",
+    "void_windows": "minecraft:tinted_glass",
+    "infection_core": "minecraft:sculk",
+    "reclamation_anchor": "minecraft:crying_obsidian",
+    "bioluminescence": "minecraft:pearlescent_froglight",
+    "mycelial_mutation": ["minecraft:magenta_carpet", "minecraft:cherry_leaves"]
+  },
+  "structural_directives": [
+    {
+      "layer": "Base (Foundation)",
+      "logic": "The TPU-driven undulating height must dip to Y-level of detected human structures to begin assimilation.",
+      "blocks": ["minecraft:polished_tuff_bricks", "minecraft:chiseled_tuff"]
+    },
+    {
+      "layer": "Structural (Infected)",
+      "logic": "Apply 'Rule of Three' with sculk veining. Replace standard purpur_pillars with crying_obsidian at stress points.",
+      "blocks": ["minecraft:crying_obsidian", "minecraft:purpur_pillar"]
+    },
+    {
+      "layer": "Sensory (Reactive)",
+      "logic": "Integrate sculk_sensors within tinted_glass housings to detect player movement near reclaimed territory.",
+      "blocks": ["minecraft:sculk_sensor", "minecraft:tinted_glass"]
+    }
+  ],
+  "internal_logic": {
+    "hydro_pod": {
+      "center_block": "minecraft:crafter",
+      "purpose": "Automated production of sculk-growth catalysts."
+    },
+    "antennae_array": {
+      "material": "minecraft:lightning_rod",
+      "count": 4,
+      "purpose": "Wireless uplink to BlueMap for real-time state-aware updates."
+    }
+  }
+}
