@@ -19,5 +19,18 @@
         "w": 9,
         "d": 7,
         "label": "Void_Tech_Station_A"
+    },
+    {
+        "x": -1380,
+        "z": -803,
+        "w": 50,
+        "d": 50,
+        "label": "V7_Neural_Rail_Nexus"
+    },
+    {
+        "start": "Void_Tech_Station_A",
+        "end": "V7_Neural_Rail_Nexus",
+        "type": "Neural_Bridge_V7",
+        "timestamp": 1774244607.2963433
     }
 ]
