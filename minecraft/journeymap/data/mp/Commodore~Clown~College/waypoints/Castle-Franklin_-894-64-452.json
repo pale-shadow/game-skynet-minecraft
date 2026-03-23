@@ -1,0 +1,22 @@
+{
+  "id": "Castle-Franklin_-894-64-452",
+  "name": "Castle Franklin",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14980203-waypoint-icon.png",
+  "x": -894,
+  "y": 64,
+  "z": -452,
+  "r": 27,
+  "g": 107,
+  "b": 149,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "observation-deck_1772-82-1849",
+  "name": "observation deck",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--3658543-waypoint-icon.png",
+  "x": 1772,
+  "y": 82,
+  "z": 1849,
+  "r": 200,
+  "g": 44,
+  "b": 209,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

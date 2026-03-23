@@ -1,0 +1,22 @@
+{
+  "id": "Keffeben-s-Castle_840-71-1431",
+  "name": "Keffeben\u0027s Castle",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10583164-waypoint-icon.png",
+  "x": 840,
+  "y": 71,
+  "z": -1431,
+  "r": 94,
+  "g": 131,
+  "b": 132,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

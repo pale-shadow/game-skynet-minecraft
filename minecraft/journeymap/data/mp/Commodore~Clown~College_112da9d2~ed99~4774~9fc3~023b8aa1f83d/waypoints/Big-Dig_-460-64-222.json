@@ -1,0 +1,23 @@
+{
+  "id": "Big-Dig_-460-64-222",
+  "name": "Big Dig",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--7415275-waypoint-icon.png",
+  "x": -460,
+  "y": 64,
+  "z": -222,
+  "r": 142,
+  "g": 218,
+  "b": 21,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

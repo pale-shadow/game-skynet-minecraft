@@ -1,0 +1,22 @@
+{
+  "id": "Business-Nugget_810-65-243",
+  "name": "Business Nugget",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--7901297-waypoint-icon.png",
+  "x": 810,
+  "y": 65,
+  "z": -243,
+  "r": 135,
+  "g": 111,
+  "b": 143,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>JourneyMap</title>
+
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="JourneyMap Team" name="author">
+
+    <!-- IDEA says this isn't actually valid, we should do this server-side -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache">-->
+
+    <link href="favicon.ico" rel="shortcut icon">
+    <link href="img/ico/journeymap.png" rel="apple-touch-icon-precomposed">
+    <link href="bundled/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="main">
+    <v-style v-if="visibleWaypoints">
+        <template v-for="(waypoint) in waypoints">
+.leaflet-tooltip.{{waypoint.className}} {
+    color: {{waypoint.tooltipColor}};
+    border-color: {{waypoint.tooltipColor}};
+}
+        </template>
+    </v-style>
+
+    <v-style v-if="visibleAnimals || visibleMobs || visibleVillagers">
+        <template v-for="(marker) in markers">
+            <template v-if="marker.color !== undefined">
+.leaflet-tooltip.{{ marker.key.replaceAll("/", "_") }} {
+    border-color: {{ marker.color }};
+}
+            </template>
+        </template>
+    </v-style>
+
+    <l-map :max-bounds="map_bounds"
+           :crs="L.CRS.Simple"
+           :fade-animation="false"
+           :max-zoom="5"
+           :min-zoom="-2"
+           :options="{'attributionControl': false}"
+           :zoom="0"
+
+           @zoom="updateZoom"
+           ref="map"
+
+           @dragstart="dragStart"
+           @ready="mapReady"
+           id="map">
+
+        <l-tile-layer
+                :tile-layer-class="getTileClass"
+                :tile-size="512"
+
+                ref="tiles">
+        </l-tile-layer>
+
+        <l-control :position="'topleft'"
+                   class="leaflet-bar leaflet-control">
+            <a @click="toggleFollowMode()" id="center">
+                <img :src="followIcon"/>
+            </a>
+        </l-control>
+
+        <l-control :position="'bottomright'"
+                   class="info-pane">
+            <b-tooltip :animated="true" label="Player biome" position="is-left">
+                <div>
+                    <font-awesome-icon icon="cube"></font-awesome-icon>
+                    <span v-text="playerBiome"></span>
+                </div>
+            </b-tooltip>
+
+            <b-tooltip :animated="true" label="Player coordinates" position="is-left">
+                <div class="truncate">
+                    <font-awesome-icon icon="location-arrow"></font-awesome-icon>
+
+                    <span class="light-text">x:</span>
+                    <span v-text="playerX"></span>
+                    <span class="light-text">z:</span>
+                    <span v-text="playerZ"></span>
+                    <span class="light-text">y:</span>
+                    <span v-text="playerY"></span>
+                </div>
+            </b-tooltip>
+        </l-control>
+
+        <l-control :position="'bottomright'"
+                   class="info-pane">
+            <b-tooltip :animated="true" label="World" position="is-left">
+                <div>
+                    <font-awesome-icon icon="globe-europe"></font-awesome-icon>
+                    <span v-text="playerWorld"></span>
+                </div>
+            </b-tooltip>
+        </l-control>
+
+        <l-control :position="'topright'"
+                   class="leaflet-bar leaflet-control">
+            <b-tooltip :active="!settingsVisible"
+                       :animated="true"
+
+                       label="Webmap settings"
+                       position="is-left">
+                <div>
+                    <a @click="settingsVisible = !settingsVisible">
+                        <font-awesome-icon icon="cogs"></font-awesome-icon>
+                    </a>
+                </div>
+            </b-tooltip>
+        </l-control>
+
+        <l-control :position="'topleft'"
+                   class="leaflet-bar leaflet-control">
+            <a @click="setMapMode('day')" id="mapTypeDay" v-if="surfaceMappingAllowed">
+                <img :src="dayIcon"/>
+            </a>
+            <a @click="setMapMode('night')" id="mapTypeNight" v-if="surfaceMappingAllowed">
+                <img :src="nightIcon"/>
+            </a>
+            <a @click="setMapMode('topo')" id="mapTypeTopo" v-if="topoMappingAllowed">
+                <img :src="topoIcon"/>
+            </a>
+            <a @click="setMapMode('underground')" id="mapTypeUnderground" v-if="caveMappingAllowed">
+                <img :src="undergroundIcon"/>
+            </a>
+        </l-control>
+
+        <l-control :position="'bottomleft'"
+                   class="leaflet-bar leaflet-control">
+            <b-tooltip :animated="true" class="is-flex" label="JourneyMap Website" position="is-right">
+                <a href="https://journeymap.info" id="aboutButton" target="_blank">
+                    <img :src="jmIcon"/>
+                </a>
+            </b-tooltip>
+        </l-control>
+
+        <l-control :position="'bottomleft'"
+                   class="leaflet-bar leaflet-control">
+            <b-tooltip :animated="true" class="is-flex" label="Toggle full-screen" position="is-right">
+                <a @click="toggleFullScreen">
+                    <font-awesome-icon icon="expand-arrows-alt"></font-awesome-icon>
+                </a>
+            </b-tooltip>
+
+            <b-tooltip :animated="true" class="is-flex" label="View journeymap.log" position="is-right">
+                <a @click="logModalActive = true" id="logButton">
+                    <font-awesome-icon icon="file-alt"></font-awesome-icon>
+                </a>
+            </b-tooltip>
+        </l-control>
+
+        <l-marker :icon="getMarkerIconObj(marker)"
+                  :key="marker.key"
+                  :lat-lng="marker.latLng"
+                  :options="marker.options"
+                  :z-index-offset="marker.zIndex ? marker.zIndex : 0"
+
+                  v-for="(marker) in markers">
+            <l-tooltip v-if="marker.nameTooltip !== undefined"
+                       :options="{permanent: true, direction: 'center', offset: [0, 32], className: marker.key.replaceAll('/', '_')}">
+                <div v-html="marker.nameTooltip.text"></div>
+            </l-tooltip>
+
+            <l-tooltip v-if="marker.customTooltip !== undefined"
+                       :options="{direction: 'right', offset: [16, 0]}">
+                <div v-html="marker.customTooltip.text"></div>
+            </l-tooltip>
+        </l-marker>
+
+        <l-marker :icon="getMarkerIconObj(waypoint)"
+                  :key="waypoint.key"
+                  :lat-lng="waypoint.latLng"
+                  :style="waypoint.type"
+                  :options="{interactive: false}"
+
+                  v-if="visibleWaypoints"
+                  v-for="(waypoint) in waypoints"
+        >
+            <l-tooltip :options="{permanent: true, direction: 'center', offset: [0, 43], className: waypoint.className}">
+                {{ waypoint.name }}
+            </l-tooltip>
+        </l-marker>
+
+        <!--        <l-polygon :color="waypoint.color"-->
+        <!--                   :fill-color="waypoint.color"-->
+        <!--                   :fill-opacity="0.7"-->
+        <!--                   :lat-lngs="waypoint.latLngs"-->
+        <!--                   :key="waypoint.id"-->
+
+        <!--                   v-if="visibleWaypoints"-->
+        <!--                   v-for="(waypoint) in waypoints"-->
+        <!--        ></l-polygon>-->
+
+        <l-polygon :color="polygon.strokeColor"
+                   :fill-color="polygon.fillColor"
+                   :fill-opacity="polygon.fillOpacity"
+                   :lat-lngs="polygon.latLngs"
+                   :opacity="polygon.strokeOpacity"
+                   :weight="polygon.strokeWidth"
+                   :key="polygon.id"
+
+                   v-if="visiblePolygons"
+                   v-for="(polygon) in polygons"
+        ></l-polygon>
+    </l-map>
+
+    <b-collapse :open.sync="settingsVisible"
+                aria-id="settingsPanel"
+
+                class="info-pane settings-pane">
+        <div class="settings-pane-header">
+            Visibility
+
+            <a aria-controls="settingsPanel"
+               class="is-pulled-right has-text-primary"
+               slot="trigger"
+
+               @click="settingsVisible = !settingsVisible">
+
+                <font-awesome-icon icon="times-circle"></font-awesome-icon>
+            </a>
+        </div>
+        <div class="content">
+            <div class="settings-group">
+                <div class="field">
+                    <b-switch v-model="visiblePlayer">
+                        Current player
+                    </b-switch>
+                </div>
+                <div class="field">
+                    <b-switch v-model="visiblePlayers">
+                        Other players
+                    </b-switch>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <div class="field">
+                    <b-switch v-model="visibleAnimals">
+                        Animals
+                    </b-switch>
+                </div>
+                <div class="field">
+                    <b-switch v-model="visibleMobs">
+                        Mobs
+                    </b-switch>
+                </div>
+                <div class="field">
+                    <b-switch v-model="visibleVillagers">
+                        Villagers
+                    </b-switch>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <div class="field">
+                    <b-switch v-model="visiblePolygons">
+                        Polygons
+                    </b-switch>
+                </div>
+                <div class="field">
+                    <b-switch v-model="visibleWaypoints">
+                        Waypoints
+                    </b-switch>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-pane-header">
+            Follow Mode
+        </div>
+        <div class="content">
+            <div class="settings-group">
+                <div class="field">
+                    <b-switch v-model="followMapType">
+                        Match Minimap Type
+                    </b-switch>
+                </div>
+            </div>
+        </div>
+    </b-collapse>
+
+    <b-modal :active.sync="logModalActive"
+
+             aria-modal
+             aria-role="dialog"
+             custom-class="front"
+             id="logModal"
+    >
+        <div class="content">
+            <pre id="logContent">{{
+                    logContent ? logContent : "Click 'Load Logs' to get the latest logs from journeymap.log"
+                }}</pre>
+
+            <button :class="'button is-info is-pulled-left' + (logsLoading ? ' is-loading' : '')" @click="reloadLog"
+                    type="button">Reload Logs
+            </button>
+
+            <div class="field is-grouped is-grouped-right">
+                <p class="control">
+                    <button @click="downloadLog" class="button is-primary" type="button">Download</button>
+                </p>
+                <p class="control">
+                    <button @click="logModalActive = false" class="button is-danger" type="button">Close</button>
+                </p>
+            </div>
+        </div>
+    </b-modal>
+
+    <b-modal :active="status !== 'ready'"
+             :can-cancel="false"
+
+             aria-modal
+             aria-role="dialog"
+             custom-class="front"
+             has-modal-card
+             trap-focus>
+        <div class="card">
+            <div class="card-content has-text-centered">
+                <div class="content" v-if="status === 'no_world'">
+                    No world is loaded - please join a server, or start a single-player world.
+                </div>
+                <div class="content" v-if="status === 'starting'">
+                    JourneyMap is busy, please wait...
+                </div>
+                <div class="content" v-if="status === 'disabled'">
+                    Mapping is currently disabled.
+                </div>
+                <div class="content" v-if="status === 'failed'">
+                    Unable to connect - is the webmap enabled?
+                </div>
+                <div class="content" v-if="status === 'other'">
+                    Just a sec...
+                </div>
+            </div>
+        </div>
+    </b-modal>
+</div>
+
+<script src="bundled/bundle.js"></script>
+</body>
+</html>

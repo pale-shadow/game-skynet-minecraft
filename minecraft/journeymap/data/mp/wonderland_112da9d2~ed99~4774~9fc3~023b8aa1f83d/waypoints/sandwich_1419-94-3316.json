@@ -1,0 +1,22 @@
+{
+  "id": "sandwich_1419-94-3316",
+  "name": "sandwich",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10335801-waypoint-icon.png",
+  "x": 1419,
+  "y": 94,
+  "z": 3316,
+  "r": 98,
+  "g": 73,
+  "b": 199,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

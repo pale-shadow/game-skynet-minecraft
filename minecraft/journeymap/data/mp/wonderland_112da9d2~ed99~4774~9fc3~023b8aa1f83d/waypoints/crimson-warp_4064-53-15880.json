@@ -1,0 +1,23 @@
+{
+  "id": "crimson-warp_4064-53-15880",
+  "name": "crimson warp",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1049465-waypoint-icon.png",
+  "x": 4064,
+  "y": 53,
+  "z": -15880,
+  "r": 239,
+  "g": 252,
+  "b": 135,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

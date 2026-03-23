@@ -1,0 +1,23 @@
+{
+  "id": "Fort-Nuggetron_-472-63-3442",
+  "name": "Fort Nuggetron",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--15076238-waypoint-icon.png",
+  "x": -472,
+  "y": 63,
+  "z": -3442,
+  "r": 25,
+  "g": 244,
+  "b": 114,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

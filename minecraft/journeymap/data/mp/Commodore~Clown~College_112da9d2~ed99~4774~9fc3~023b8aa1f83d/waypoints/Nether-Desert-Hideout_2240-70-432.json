@@ -1,0 +1,22 @@
+{
+  "id": "Nether-Desert-Hideout_2240-70-432",
+  "name": "Nether - Desert Hideout",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1820074-waypoint-icon.png",
+  "x": 2240,
+  "y": 70,
+  "z": 432,
+  "r": 228,
+  "g": 58,
+  "b": 86,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

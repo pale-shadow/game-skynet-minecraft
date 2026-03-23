@@ -1,0 +1,22 @@
+{
+  "id": "Test-Build_4695-77-1064",
+  "name": "Test Build",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--4550547-waypoint-icon.png",
+  "x": 4695,
+  "y": 77,
+  "z": 1064,
+  "r": 186,
+  "g": 144,
+  "b": 109,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

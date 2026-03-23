@@ -1,0 +1,23 @@
+{
+  "id": "Outer-Reach_8648-70-3192",
+  "name": "Outer Reach",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1268038-waypoint-icon.png",
+  "x": 8648,
+  "y": 70,
+  "z": -3192,
+  "r": 236,
+  "g": 166,
+  "b": 186,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

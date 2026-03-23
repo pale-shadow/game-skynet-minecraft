@@ -1,0 +1,24 @@
+{
+  "id": "Mrokloritron_5622-64-18052",
+  "name": "Mrokloritron",
+  "groupName": ":Waystones",
+  "displayId": "a9bd5da3-39ee-4726-bc2b-6e7c8b0ceef1",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1-waypoint-icon.png",
+  "x": 5622,
+  "y": 64,
+  "z": -18052,
+  "r": 255,
+  "g": 255,
+  "b": 255,
+  "enable": false,
+  "type": "Normal",
+  "origin": "waystones",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

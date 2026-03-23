@@ -1,0 +1,23 @@
+{
+  "id": "Train-Station_-219-76-362",
+  "name": "Train Station",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10708648-waypoint-icon.png",
+  "x": -219,
+  "y": 76,
+  "z": -362,
+  "r": 92,
+  "g": 153,
+  "b": 88,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

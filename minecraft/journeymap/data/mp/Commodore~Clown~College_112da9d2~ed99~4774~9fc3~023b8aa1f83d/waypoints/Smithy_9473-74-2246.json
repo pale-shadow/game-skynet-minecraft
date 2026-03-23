@@ -1,0 +1,23 @@
+{
+  "id": "Smithy_9473-74-2246",
+  "name": "Smithy",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1665982-waypoint-icon.png",
+  "x": 9473,
+  "y": 74,
+  "z": 2246,
+  "r": 230,
+  "g": 148,
+  "b": 66,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

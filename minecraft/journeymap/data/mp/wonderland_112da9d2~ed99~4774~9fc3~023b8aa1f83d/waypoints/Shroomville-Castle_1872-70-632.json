@@ -1,0 +1,22 @@
+{
+  "id": "Shroomville-Castle_1872-70-632",
+  "name": "Shroomville Castle",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10218455-waypoint-icon.png",
+  "x": 1872,
+  "y": 70,
+  "z": 632,
+  "r": 100,
+  "g": 20,
+  "b": 41,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

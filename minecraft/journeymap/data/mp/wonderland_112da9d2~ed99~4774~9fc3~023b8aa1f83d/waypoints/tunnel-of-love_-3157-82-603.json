@@ -1,0 +1,22 @@
+{
+  "id": "tunnel-of-love_-3157-82-603",
+  "name": "tunnel of love",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--15723676-waypoint-icon.png",
+  "x": -3157,
+  "y": 82,
+  "z": -603,
+  "r": 16,
+  "g": 19,
+  "b": 100,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

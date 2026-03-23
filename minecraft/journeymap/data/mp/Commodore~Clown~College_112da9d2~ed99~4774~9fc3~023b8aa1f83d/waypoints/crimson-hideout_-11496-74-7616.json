@@ -1,0 +1,22 @@
+{
+  "id": "crimson-hideout_-11496-74-7616",
+  "name": "crimson hideout",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10221824-waypoint-icon.png",
+  "x": -11496,
+  "y": 74,
+  "z": 7616,
+  "r": 100,
+  "g": 7,
+  "b": 0,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

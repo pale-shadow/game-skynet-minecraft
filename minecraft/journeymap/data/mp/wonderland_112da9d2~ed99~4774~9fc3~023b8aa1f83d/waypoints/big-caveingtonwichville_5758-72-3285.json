@@ -1,0 +1,22 @@
+{
+  "id": "big-caveingtonwichville_5758-72-3285",
+  "name": "big caveingtonwichville",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--16323229-waypoint-icon.png",
+  "x": 5758,
+  "y": 72,
+  "z": -3285,
+  "r": 6,
+  "g": 237,
+  "b": 99,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}
