@@ -2,6 +2,8 @@ import os
 import time
 import random
 import mcrcon
+from npu_spatial_engine import NPUSpatialEngine
+from bluemap_api import create_bluemap_marker
 
 # Configuration
 CHONK_IP = os.getenv("CHONK_IP")
@@ -19,26 +21,32 @@ def push_build_to_chonk(commands):
         print(f"CRITICAL: RCON Connection failed: {e}")
 
 def get_v5_kinetic_terminal():
-    # Site selection (35x35 footprint for detail)
-    x = random.randint(FIELD_BOUNDS["min_x"] + 35, FIELD_BOUNDS["max_x"] - 35)
-    z = random.randint(FIELD_BOUNDS["min_z"] + 35, FIELD_BOUNDS["max_z"] - 35)
-    y = FIELD_BOUNDS["y"]
+    # Site selection using NPU Engine
+    engine = NPUSpatialEngine()
+    width, depth = 35, 35
+    x, z = engine.get_optimal_vector(width, depth, preference="void")
+    
+    if not x:
+        print("❌ NPU Inference Error: No safe spatial vector found.")
+        return []
 
+    y = FIELD_BOUNDS["y"]
     commands = []
 
     # 1. SKYNET SPREAD: Ground Corruption (5-block radius)
-    # Replaces desert sand with Mycelium and Purple Carpet "tendrils"
+    # Replaces desert sand with Mycelium, Purple Carpet and Sculk Veins
     for dx in range(-15, 16):
         for dz in range(-15, 16):
             if random.random() > 0.7:
                 commands.append(f"setblock {x+dx} {y-1} {z+dz} minecraft:mycelium")
                 if random.random() > 0.5:
                     commands.append(f"setblock {x+dx} {y} {z+dz} minecraft:purple_carpet")
+                if random.random() > 0.8:
+                    commands.append(f"setblock {x+dx} {y} {z+dz} minecraft:sculk_vein")
 
-    # 2. THE RAIL DECK (Suspended look from Image 4)
-    # Polished Tuff foundation with Dark Prismarine girders
+    # 2. THE RAIL DECK
     commands.append(f"fill {x-12} {y+4} {z-4} {x+12} {y+4} {z+4} minecraft:polished_tuff")
-    commands.append(f"fill {x-12} {y+5} {z-1} {x+12} {y+5} {z+1} minecraft:gray_concrete") # Track Bed
+    commands.append(f"fill {x-12} {y+5} {z-1} {x+12} {y+5} {z+1} minecraft:chiseled_tuff") # Upgraded Track Bed
     commands.append(f"fill {x-12} {y+6} {z} {x+12} {y+6} {z} minecraft:powered_rail")
     commands.append(f"setblock {x} {y+4} {z} minecraft:redstone_block") # Rail Power
 
@@ -48,7 +56,6 @@ def get_v5_kinetic_terminal():
     commands.append(f"fill {x-1} {y+1} {z-1} {x+1} {y+11} {z+1} minecraft:amethyst_block")
     
     # REACTIVE SENSORS: Places sculk sensors that trigger Copper Bulbs
-    # These will "ping" and light up as the player moves around the core
     commands.append(f"setblock {x+3} {y+5} {z} minecraft:sculk_sensor")
     commands.append(f"setblock {x+4} {y+5} {z} minecraft:oxidized_copper_bulb[lit=false]")
     commands.append(f"setblock {x-3} {y+5} {z} minecraft:sculk_sensor")
@@ -64,6 +71,11 @@ def get_v5_kinetic_terminal():
     commands.append(f"summon minecart {x+5} {y+7} {z} {{CustomName:'\"Skynet-V5-Express\"'}}")
 
     commands.append(f"say [Skynet] V5 Kinetic Terminal Online. Reaction field active at {x} {z}.")
+    
+    # BlueMap POI
+    create_bluemap_marker(f"kinetic_{int(time.time())}", "V5 Kinetic Terminal", x, y + 10, z, 
+                         detail="Skynet-V5 Architecture featuring reactive sculk cores.")
+    
     return commands
 
 if __name__ == "__main__":
