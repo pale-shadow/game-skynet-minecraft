@@ -27,3 +27,4 @@ To entice players to leave the legacy hubs like **Washington Station**, we will 
 - make a builder to make a repeatable fence section that can be installed around the inside of the containment field.
 - do some underwater builds in an ocean field
 - put the server on standard port and fix the hobo role to be an observer only role named "uncleared visitor"
+- update the skynet process to run once an hour. Tell it to randomize the build recipes.
