@@ -1,0 +1,23 @@
+{
+  "id": "castleingtonwichville_-439-86-106",
+  "name": "castleingtonwichville",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2399341-waypoint-icon.png",
+  "x": -439,
+  "y": 86,
+  "z": -106,
+  "r": 219,
+  "g": 99,
+  "b": 147,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "Atlantis_-881-64-3904",
+  "name": "Atlantis",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--3435850-waypoint-icon.png",
+  "x": -881,
+  "y": 64,
+  "z": -3904,
+  "r": 203,
+  "g": 146,
+  "b": 182,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

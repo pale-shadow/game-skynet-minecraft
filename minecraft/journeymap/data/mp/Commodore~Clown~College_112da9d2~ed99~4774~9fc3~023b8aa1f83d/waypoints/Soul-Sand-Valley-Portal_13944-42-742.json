@@ -1,0 +1,23 @@
+{
+  "id": "Soul-Sand-Valley-Portal_13944-42-742",
+  "name": "Soul Sand Valley Portal",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14677571-waypoint-icon.png",
+  "x": 13944,
+  "y": 42,
+  "z": -742,
+  "r": 32,
+  "g": 9,
+  "b": 189,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "future-forward_5284-63-18737",
+  "name": "future forward",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--4972095-waypoint-icon.png",
+  "x": 5284,
+  "y": 63,
+  "z": -18737,
+  "r": 180,
+  "g": 33,
+  "b": 193,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

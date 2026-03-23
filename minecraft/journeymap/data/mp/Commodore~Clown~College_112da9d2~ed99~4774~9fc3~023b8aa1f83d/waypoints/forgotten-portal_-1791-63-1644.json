@@ -1,0 +1,22 @@
+{
+  "id": "forgotten-portal_-1791-63-1644",
+  "name": "forgotten portal",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1942265-waypoint-icon.png",
+  "x": -1791,
+  "y": 63,
+  "z": -1644,
+  "r": 226,
+  "g": 93,
+  "b": 7,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

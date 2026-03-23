@@ -1,0 +1,22 @@
+{
+  "id": "ballzac_-952-85-2648",
+  "name": "ballzac",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--12665329-waypoint-icon.png",
+  "x": -952,
+  "y": 85,
+  "z": 2648,
+  "r": 62,
+  "g": 190,
+  "b": 15,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "Sandville_-1346-66-335",
+  "name": "Sandville",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2817888-waypoint-icon.png",
+  "x": -1346,
+  "y": 66,
+  "z": 335,
+  "r": 213,
+  "g": 0,
+  "b": 160,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

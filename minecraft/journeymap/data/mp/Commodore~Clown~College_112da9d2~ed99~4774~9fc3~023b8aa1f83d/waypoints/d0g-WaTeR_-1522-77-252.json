@@ -1,0 +1,23 @@
+{
+  "id": "d0g-WaTeR_-1522-77-252",
+  "name": "d0g WaTeR",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14476904-waypoint-icon.png",
+  "x": -1522,
+  "y": 77,
+  "z": -252,
+  "r": 35,
+  "g": 25,
+  "b": 152,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "castle-house_4354-102-799",
+  "name": "castle house",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--1475086-waypoint-icon.png",
+  "x": 4354,
+  "y": 102,
+  "z": 799,
+  "r": 233,
+  "g": 125,
+  "b": 242,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

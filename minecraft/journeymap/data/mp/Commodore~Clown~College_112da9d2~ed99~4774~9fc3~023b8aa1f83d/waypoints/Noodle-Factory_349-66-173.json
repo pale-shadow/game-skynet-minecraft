@@ -1,0 +1,23 @@
+{
+  "id": "Noodle-Factory_349-66-173",
+  "name": "Noodle Factory",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--15793820-waypoint-icon.png",
+  "x": 349,
+  "y": 66,
+  "z": -173,
+  "r": 15,
+  "g": 1,
+  "b": 100,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

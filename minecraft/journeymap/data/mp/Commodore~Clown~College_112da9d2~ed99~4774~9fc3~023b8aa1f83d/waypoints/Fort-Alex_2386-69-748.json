@@ -1,0 +1,22 @@
+{
+  "id": "Fort-Alex_2386-69-748",
+  "name": "Fort Alex",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--12204833-waypoint-icon.png",
+  "x": 2386,
+  "y": 69,
+  "z": -748,
+  "r": 69,
+  "g": 196,
+  "b": 223,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "the-big-cave_4701-80-1081",
+  "name": "the big cave",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--3015198-waypoint-icon.png",
+  "x": 4701,
+  "y": 80,
+  "z": 1081,
+  "r": 209,
+  "g": 253,
+  "b": 226,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

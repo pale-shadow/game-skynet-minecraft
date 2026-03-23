@@ -1,0 +1,22 @@
+{
+  "id": "sizzle_-1286-68-10986",
+  "name": "sizzle",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--14507604-waypoint-icon.png",
+  "x": -1286,
+  "y": 68,
+  "z": 10986,
+  "r": 34,
+  "g": 161,
+  "b": 172,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

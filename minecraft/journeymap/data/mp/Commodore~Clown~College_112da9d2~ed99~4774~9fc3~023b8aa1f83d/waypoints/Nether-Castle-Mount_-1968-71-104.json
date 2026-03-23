@@ -1,0 +1,23 @@
+{
+  "id": "Nether-Castle-Mount_-1968-71-104",
+  "name": "Nether-Castle Mount",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--988812-waypoint-icon.png",
+  "x": -1968,
+  "y": 71,
+  "z": -104,
+  "r": 240,
+  "g": 233,
+  "b": 116,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

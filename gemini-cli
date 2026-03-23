@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+import os
+import sys
+from google import genai
+
+# Pull the key from your direnv/envrc
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    print("Error: GEMINI_API_KEY not found in environment.")
+    sys.exit(1)
+
+client = genai.Client(api_key=api_key)
+
+# Get input from arguments or pipe
+user_input = " ".join(sys.argv[1:])
+if not user_input and not sys.stdin.isatty():
+    user_input = sys.stdin.read()
+
+if not user_input:
+    print("Usage: ./gemini-cli 'your question' or echo 'data' | ./gemini-cli")
+    sys.exit(0)
+
+try:
+    response = client.models.generate_content(
+        model="gemini-2.0-flash", 
+        contents=user_input
+    )
+    print(response.text)
+except Exception as e:
+    print(f"API Error: {e}")

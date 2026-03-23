@@ -1,0 +1,23 @@
+{
+  "id": "caye-caulker_1669-65-2454",
+  "name": "caye caulker",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--9364905-waypoint-icon.png",
+  "x": 1669,
+  "y": 65,
+  "z": 2454,
+  "r": 113,
+  "g": 26,
+  "b": 87,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "shipwreck_-2046-114-2212",
+  "name": "shipwreck",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--16386853-waypoint-icon.png",
+  "x": -2046,
+  "y": 114,
+  "z": -2212,
+  "r": 5,
+  "g": 244,
+  "b": 219,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

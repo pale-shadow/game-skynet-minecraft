@@ -1,0 +1,22 @@
+{
+  "id": "Old-Town_-232-97-428",
+  "name": "Old Town",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--2447899-waypoint-icon.png",
+  "x": -232,
+  "y": 97,
+  "z": -428,
+  "r": 218,
+  "g": 165,
+  "b": 229,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

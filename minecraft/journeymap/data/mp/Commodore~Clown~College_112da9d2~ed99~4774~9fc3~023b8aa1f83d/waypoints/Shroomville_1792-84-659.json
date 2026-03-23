@@ -1,0 +1,23 @@
+{
+  "id": "Shroomville_1792-84-659",
+  "name": "Shroomville",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--10223330-waypoint-icon.png",
+  "x": 1792,
+  "y": 84,
+  "z": 659,
+  "r": 100,
+  "g": 1,
+  "b": 30,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

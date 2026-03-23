@@ -1,0 +1,22 @@
+{
+  "id": "crimson-warp_4048-64-15871",
+  "name": "crimson warp",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--11312252-waypoint-icon.png",
+  "x": 4048,
+  "y": 64,
+  "z": -15871,
+  "r": 83,
+  "g": 99,
+  "b": 132,
+  "enable": false,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}

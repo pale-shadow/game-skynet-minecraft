@@ -1,0 +1,23 @@
+{
+  "id": "crimson-forest_1640-87-5216",
+  "name": "crimson forest",
+  "groupName": "Waypoints",
+  "icon": "journeymap:ui/img/waypoint-icon.png",
+  "colorizedIcon": "fake:color--8978220-waypoint-icon.png",
+  "x": 1640,
+  "y": 87,
+  "z": 5216,
+  "r": 119,
+  "g": 0,
+  "b": 212,
+  "enable": true,
+  "type": "Normal",
+  "origin": "journeymap",
+  "dimensions": [
+    "minecraft:the_nether"
+  ],
+  "persistent": true,
+  "showDeviation": false,
+  "iconColor": -1,
+  "customIconColor": false
+}
