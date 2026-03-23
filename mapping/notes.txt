@@ -1,0 +1,15 @@
+2. The Skynet "Boundary Breach" Method (Advanced)
+Since your Pi 5 is processing data, you can write a small Python loop that checks player positions against the coordinates you defined for the Silicon Ridge or Abyssal Reef. When a player's X/Z matches the field, the Pi 5 sends a high-priority "System Alert" that looks different from a standard claim message.
+
+Example Skynet Logic (Python):
+
+Python
+# Define the coordinates from your world.conf
+RIDGE_BOUNDS = {'x_min': 1216, 'x_max': 1919, 'z_min': 1024, 'z_max': 1151}
+
+def check_breach(player_x, player_z):
+    if RIDGE_BOUNDS['x_min'] <= player_x <= RIDGE_BOUNDS['x_max']:
+        if RIDGE_BOUNDS['z_min'] <= player_z <= RIDGE_BOUNDS['z_max']:
+            # Send a 'Glitch' style alert via RCON
+            rcon.command("title @a actionbar {\"text\":\"!! ALGORITHM BREACH DETECTED: SILICON RIDGE !!\",\"color\":\"red\"}")
+            rcon.command("playsound minecraft:block.beacon.activate ambient @a")
