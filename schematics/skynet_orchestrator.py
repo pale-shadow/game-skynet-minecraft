@@ -4,6 +4,9 @@ import random
 from datetime import datetime, timedelta
 import re
 from mcrcon import MCRcon
+import mcschematic
+import importlib
+import os
 
 # --- Configuration ---
 # TODO: Move to a dedicated config file (e.g., config.json)
@@ -80,30 +83,75 @@ def get_players_in_zones():
     return players_in_restricted_zones
 
 def run_build_cycle():
-    """Selects a random build and triggers the generation."""
+    """Selects a random build, generates it, and deploys it via RCON."""
     print(f"[{datetime.now()}] Initiating hourly autonomous build cycle.")
     
-    structure_types = ["house", "tower", "bridge", "castle", "terrain"]
+    # --- 1. Randomization ---
+    structure_types = ["house", "tower", "bridge", "castle"] # Removed 'terrain' as it may not have a dedicated builder
     palettes = ["Nature vs Engineering", "Void-Tech Overgrowth"]
     
+    selected_type = random.choice(structure_types)
+    selected_palette = random.choice(palettes)
+    build_name = f"SKYNET_{selected_type.upper()}_{random.randint(1000, 9999)}"
+
     sector_name = random.choice(list(SECTORS.keys()))
     bounds = SECTORS[sector_name]
-    
     target_x = random.randint(bounds["x"][0], bounds["x"][1])
     target_z = random.randint(bounds["z"][0], bounds["z"][1])
-    
-    selected_type = random.choice(structure_types)
-    build_name = f"{selected_type.capitalize()}_{random.randint(100, 999)}"
+    target_y = 64 # Build at a standard ground level
 
-    # This is where you would call your schematic generation and placement logic
-    # For now, we will just send an RCON message as a placeholder
-    print(f"[{datetime.now()}] GENERATING '{build_name}' in {sector_name} at ({target_x}, {target_z})")
+    print(f"[{datetime.now()}] SELECTED: Build '{build_name}' of type '{selected_type}' in {sector_name}")
+
+    # --- 2. Build Schematic ---
+    try:
+        # Dynamically import the correct builder module
+        builder_module = importlib.import_module(f".builders.{selected_type}", "schematics")
+        builder_function = getattr(builder_module, f"build_{selected_type}")
+
+        # Create a prompt for the builder
+        prompt = {
+            "dimensions": {
+                "width": random.randint(7, 15),
+                "height": random.randint(12, 30),
+                "length": random.randint(7, 15)
+            },
+            "features": {
+                "void_tech": selected_palette == "Void-Tech Overgrowth",
+                "has_roof": random.choice([True, False]),
+                "crenellations": random.choice([True, False]),
+                "has_railing": True
+            }
+        }
+
+        # Generate the schematic object
+        schem = mcschematic.MCSchematic()
+        builder_function(schem, prompt)
+
+        # Save the schematic to a file
+        schem_dir = "schematics/schem_files"
+        os.makedirs(schem_dir, exist_ok=True)
+        schem.save(schem_dir, build_name, mcschematic.Version.JE_1_20_1)
+        print(f"[{datetime.now()}] Successfully generated schematic: {build_name}.schem")
+
+    except Exception as e:
+        print(f"[{datetime.now()}] ERROR during schematic generation: {e}")
+        return # Abort this build cycle
+
+    # --- 3. Deploy via RCON (FAWE) ---
+    print(f"[{datetime.now()}] Deploying schematic at ({target_x}, {target_y}, {target_z})")
     send_rcon_command(f"say [Skynet] Commencing construction of '{build_name}' in sector: {sector_name}.")
     
-    # Placeholder for actual build logic
-    # e.g., build_schematic(selected_type, ..., sign_data)
-    time.sleep(10) # Simulate build time
-    
+    # Use FAWE commands to load and paste the schematic
+    # Assumes schematics are saved in the `plugins/FastAsyncWorldEdit/schematics` directory on the server
+    # A server-side script might be needed to move the file to the correct location
+    # For now, we assume the schematics directory is accessible.
+    resp_load = send_rcon_command(f"//schem load {build_name}")
+    print(f"[{datetime.now()}] SCHEM LOAD response: {resp_load}")
+
+    # Use /execute to run the paste command at the correct coordinates
+    resp_paste = send_rcon_command(f"/execute positioned {target_x} {target_y} {target_z} run //paste -a")
+    print(f"[{datetime.now()}] PASTE response: {resp_paste}")
+
     print(f"[{datetime.now()}] Build cycle complete.")
 
 def schedule_next_build_time(current_time):
