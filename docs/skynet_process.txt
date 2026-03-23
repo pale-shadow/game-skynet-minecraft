@@ -1,0 +1,69 @@
+To ensure high availability and 24/7 uptime for your orchestration layer, we will treat the `skynet_process` as a background daemon. In a professional Linux environment, we don't just "run" scripts; we manage them via `systemd` to handle logging, auto-restarts on crash, and dependency mapping.
+
+### The Dependency Architecture
+Since your Python scripts likely interact with the Minecraft server (via RCON or direct file manipulation of `chunks` or `schematics`), the Python service should be configured to start **after** the Minecraft service is initialized.
+
+
+
+---
+
+### Step 1: Create the Systemd Unit File
+Create a new file at `/etc/systemd/system/skynet-processor.service`. You will need `sudo` privileges for this.
+
+```ini
+[Unit]
+Description=Skynet AI Process for Minecraft Orchestration
+# Ensure this starts only after the network and the MC server are up
+After=network.target minecraft.service
+Wants=minecraft.service
+
+[Service]
+Type=simple
+User=franklin
+Group=franklin
+WorkingDirectory=/home/franklin/workspace/gaming/game-chonk-minecraft/src
+# Use the absolute path to your virtual environment if applicable
+ExecStart=/usr/bin/python3 scripts/skynet_process.py
+Restart=always
+# 5-second delay before restarting to prevent rapid-fire crash loops
+RestartSec=5
+# Redirect stdout/stderr to journald for easy debugging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=skynet-ai
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Step 2: Implementation & Validation
+Once the file is saved, you must notify the system manager of the new configuration and enable it to start on boot.
+
+```bash
+# Reload the daemon to recognize the new service
+sudo systemctl daemon-reload
+
+# Enable the service to start on system boot
+sudo systemctl enable skynet-processor.service
+
+# Start the service immediately
+sudo systemctl start skynet-processor.service
+
+# Check the status to ensure it's "active (running)"
+sudo systemctl status skynet-processor.service
+```
+
+### Step 3: Monitoring Logs
+In a production environment, you cannot afford to guess why a script failed. Use `journalctl` to tail the logs in real-time, which is far more efficient than manually checking `hailort.log`.
+
+```bash
+# Follow the logs for the skynet service specifically
+journalctl -u skynet-processor.service -f
+```
+
+### Critical Warning: Resource Contention
+Since you are running "Neural" and "AI" pathfinders, these scripts are likely CPU-bound. If your Minecraft server (Java) and these Python scripts compete for the same physical cores, you will see **Micro-Stuttering** (TPS spikes). 
+
+To prevent this, I recommend using `CPUAffinity` in your service files to pin the Python processes to specific threads, leaving the primary cores open for the Minecraft main tick loop.
+
+**Would you like me to show you how to configure CPU Pinning (Taskset) within these service files to isolate the Python overhead from the game engine?**
