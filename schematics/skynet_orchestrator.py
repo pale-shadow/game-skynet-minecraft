@@ -86,8 +86,7 @@ def run_build_cycle():
     """Selects a random build, generates it, and deploys it via RCON."""
     print(f"[{datetime.now()}] Initiating hourly autonomous build cycle.")
     
-    # --- 1. Randomization ---
-    structure_types = ["house", "tower", "bridge", "castle"] # Removed 'terrain' as it may not have a dedicated builder
+    structure_types = ["house", "tower", "bridge", "castle"] 
     palettes = ["Nature vs Engineering", "Void-Tech Overgrowth"]
     
     selected_type = random.choice(structure_types)
@@ -102,13 +101,10 @@ def run_build_cycle():
 
     print(f"[{datetime.now()}] SELECTED: Build '{build_name}' of type '{selected_type}' in {sector_name}")
 
-    # --- 2. Build Schematic ---
     try:
-        # Dynamically import the correct builder module
         builder_module = importlib.import_module(f".builders.{selected_type}", "schematics")
         builder_function = getattr(builder_module, f"build_{selected_type}")
 
-        # Create a prompt for the builder
         prompt = {
             "dimensions": {
                 "width": random.randint(7, 15),
@@ -123,11 +119,9 @@ def run_build_cycle():
             }
         }
 
-        # Generate the schematic object
         schem = mcschematic.MCSchematic()
         builder_function(schem, prompt)
 
-        # Save the schematic to a file
         schem_dir = "schematics/schem_files"
         os.makedirs(schem_dir, exist_ok=True)
         schem.save(schem_dir, build_name, mcschematic.Version.JE_1_20_1)
@@ -137,7 +131,6 @@ def run_build_cycle():
         print(f"[{datetime.now()}] ERROR during schematic generation: {e}")
         return # Abort this build cycle
 
-    # --- 3. Deploy via RCON (FAWE) ---
     print(f"[{datetime.now()}] Deploying schematic at ({target_x}, {target_y}, {target_z})")
     send_rcon_command(f"say [Skynet] Commencing construction of '{build_name}' in sector: {sector_name}.")
     
@@ -148,7 +141,6 @@ def run_build_cycle():
     resp_load = send_rcon_command(f"//schem load {build_name}")
     print(f"[{datetime.now()}] SCHEM LOAD response: {resp_load}")
 
-    # Use /execute to run the paste command at the correct coordinates
     resp_paste = send_rcon_command(f"/execute positioned {target_x} {target_y} {target_z} run //paste -a")
     print(f"[{datetime.now()}] PASTE response: {resp_paste}")
 
