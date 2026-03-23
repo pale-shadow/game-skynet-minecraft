@@ -1,0 +1,80 @@
+📜 SHROOMVILLE_MASTER_MANIFEST.txt🛠️ BLUEMAP MARKER CONFIGURATIONCode snippet# Add this block to your marker-sets in world.conf
+
+```sh
+"shroomville-district": {
+    label: "Shroomville District"
+    toggleable: true
+    default-hide: false
+    markers: {
+        # --- DEFENSES & PERIMETER ---
+        shroom-gate-east: {
+            type: "poi", position: { x: 1928, y: 64, z: 766 },
+            label: "Eastern Gate (2021)",
+            detail: "Automated redstone gate with daylight sensor. Rebuilt 2021."
+        },
+        shroom-gate-west: {
+            type: "poi", position: { x: 1484, y: 63, z: 750 },
+            label: "Western Gate (2022)",
+            detail: "Heavy stone-brick fortification. Automated night-lock system."
+        },
+
+        # --- RESEARCH & RESIDENTIAL ---
+        shroom-labs: {
+            type: "poi", position: { x: 1788, y: 89, z: 709 },
+            label: "Shroomville Labs (2025)",
+            detail: "Rebuilt atop theDevilsVoice's original home. Features the Historical Tool Archive."
+        },
+        shroom-guest-cottage: {
+            type: "poi", position: { x: 1780, y: 65, z: 731 },
+            label: "Historic Guest Cottage (2012)",
+            detail: "Preserved cobblestone/oak starter home from the Foundation Era."
+        },
+        shroom-villager-hutt: {
+            type: "poi", position: { x: 1467, y: 64, z: 734 },
+            label: "Villager Hutt (2026)",
+            detail: "Modern 2-story glass dormitory for the district workforce."
+        },
+
+        # --- INDUSTRIAL & LOGISTICS ---
+        shroom-deep-station: {
+            type: "poi", position: { x: 1832, y: 31, z: 688 },
+            label: "Deep-Rail Station (June 2025)",
+            detail: "Main terminus for Track 1. Modern stone-vaulted hub at Y:31."
+        },
+        shroom-rail-yard: {
+            type: "poi", position: { x: 1618, y: 63, z: 676 },
+            label: "Rail Yard & Repair Shed",
+            detail: "Mechanical maintenance hub for minecart inspection and testing."
+        },
+        shroom-blacksmith: {
+            type: "poi", position: { x: 1643, y: 63, z: 748 },
+            label: "District Blacksmith",
+            detail: "Open-air forge serving the Western District's industrial needs."
+        },
+        shroom-stables-wip: {
+            type: "poi", position: { x: 1615, y: 64, z: 740 },
+            label: "Shroomville Stables (WIP)",
+            detail: "Started 2025. Planned equestrian hub for surface transit."
+        },
+
+        # --- CULTURE & ECOLOGY ---
+        shroom-ss-museum: {
+            type: "poi", position: { x: 1669, y: 64, z: 889 },
+            label: "SS Shroomville Maritime Museum",
+            detail: "Converted sailing vessel featuring a museum and coffee shop."
+        },
+        shroom-aviary: {
+            type: "poi", position: { x: 1648, y: 64, z: 775 },
+            label: "The Aviary (2025)",
+            detail: "Botany and Bee sanctuary. Honey/Wax harvesting facility."
+        },
+        shroom-aquarium: {
+            type: "poi", position: { x: 1640, y: 64, z: 735 },
+            label: "City Aquarium",
+            detail: "Glass aquatic exhibit located next to the Cathedral."
+        }
+    }
+}
+```
+
+📖 SERVER HISTORY LOG (SHROOMVILLE)2012–2014: Foundation of the Guest Cottage and theDevilsVoice House. The Chunk Glitch (506, -18) necessitates the creation of the Business Nugget bypass.2021–2022: Security modernization. Eastern and Western Gates are automated. Perimeter walls are extended to fully enclose the Mushroom Biome.2025: Industrial Revolution. Construction of the Deep-Rail Station ($Y: 31$) and the Rail Yard. The Shroomville Labs are rebuilt into a 5-story facility.2026: Cultural Bloom. Opening of the SS Shroomville Museum, Aviary, and Aquarium. Construction of the Villager Hutt to house the growing population.📋 Admin Notes for TomorrowSafety Buffer: Avoid regenerating chunks in the $1600 \rightarrow 1850$ X-range and $650 \rightarrow 900$ Z-range to protect the complex redstone in the Labs and the delicate Bee entities in the Aviary.Y-Level Conflict: Remember that the Rail Yard ($Y: 63$) and Deep Station ($Y: 31$) are vertically stacked. Check both levels before any WorldEdit operations.BlueMap Reload: After applying the HOCON code above, run /bluemap reload to see the new "Shroomville District" toggle.

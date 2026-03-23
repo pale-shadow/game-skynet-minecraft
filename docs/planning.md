@@ -22,3 +22,4 @@ To entice players to leave the legacy hubs like **Washington Station**, we will 
 ## ideas
 
 - create a red and white checkered border around the the inside of the ai field that is level with the ground (assume around y=64?)
+- each build should a sign to explain the date it was built, another sign with the build name, another sign with the lab herware used in the build. 
