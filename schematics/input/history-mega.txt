@@ -1511,4 +1511,54 @@ The original coordinates of the Forge-era Mushroom Lab have been designated as a
 **The Dreamland project is now fully documented from its 2012 roots to its 2025 Forge experiments and its 2026 future. Would you like me to help you set up a "Warp" at this memorial so players can easily visit the site of the old lab?**
 
 
-The skynet daemon should run as a continuous service. At a random minute during a one hour window, the process will create new
+The skynet daemon should run as a continuous service. At a random minute during each one hour window, the process will
+create a new building in the AI containment field. The service will check each of the designated industrial areas for presence of players every 10 minutes.
+If a player is detected, the daemon will send a warming message via RCON to let them know they are in a restricted area every 30 seconds.
+
+✦ The new, more advanced Skynet process has been implemented. Here is a summary of the work completed and the next steps to activate it.
+
+  Summary of Changes
+
+   1. Systemd Service (scripts/skynet-ai.service): I created a systemd unit file that defines how the Skynet process should run as a background service on your Linux host.
+      It's configured to start automatically on boot and restart if it fails.
+   2. Python Dependency (requirements.txt): I added the mcrcon library to your requirements file, which is necessary for the Python script to communicate with the game
+      server.
+   3. Orchestrator Script (schematics/skynet_orchestrator.py): I created a new, robust daemon script that fulfills all your requirements. It runs a main loop that manages
+      multiple timers to:
+       * Build: Schedule and execute a random building project at a random minute within each hour.
+       * Monitor: Check the defined industrial zones for players every 10 minutes.
+       * Warn: Send a customized warning message via RCON every 30 seconds to any players detected in a restricted zone.
+
+  Next Steps to Activate the Service
+
+  To get the new Skynet process running, you will need to perform the following steps on your server (chonk):
+
+   1. Install the Dependency:
+
+   1     # Navigate to your project directory
+   2     cd /home/franklin/workspace/gaming/game-chonk-minecraft
+   3     # Install the new library into your virtual environment
+   4     ./venv/bin/pip install -r requirements.txt
+
+   2. Configure RCON Password:
+       * Edit schematics/skynet_orchestrator.py and replace "YourUltraSecurePassword" with your actual RCON password.
+
+   3. Deploy and Start the Service:
+
+    1     # Copy the service file to the systemd directory
+    2     sudo cp scripts/skynet-ai.service /etc/systemd/system/skynet-ai.service
+    3
+    4     # Reload the systemd daemon to recognize the new service
+    5     sudo systemctl daemon-reload
+    6
+    7     # Enable the service to start automatically on boot
+    8     sudo systemctl enable skynet-ai.service
+    9
+   10     # Start the service immediately
+   11     sudo systemctl start skynet-ai.service
+
+   4. Monitor the Service:
+      You can watch the service's live logs to see it in action:
+   1     journalctl -u skynet-ai.service -f
+
+  The Skynet AI Orchestrator is now ready and will begin its cycle of building and monitoring according to your specifications.
