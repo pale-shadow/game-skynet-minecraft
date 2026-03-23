@@ -6,9 +6,14 @@ Generates flat or arched bridges with optional railings.
 import math
 import mcschematic
 from .primitives import cuboid_filled, flat_plane, line_z
+from .void_tech import apply_void_palette, add_hydro_pod, apply_mutation
 
 
 def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
+    # Use v7 Standard if requested
+    if prompt.get("features", {}).get("void_tech", False):
+        prompt = apply_void_palette(prompt)
+        
     dims = prompt.get("dimensions", {})
     w = dims.get("width", 5)       # width of bridge (X)
     h = dims.get("height", 8)      # arch height
@@ -36,8 +41,21 @@ def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
         if has_rail_bed:
             # Place track bed in middle
             mid_x = w // 2
-            line_z(schem, mid_x, 0, 0, l - 1, "minecraft:gray_concrete")
+            line_z(schem, mid_x, 0, 0, l - 1, "minecraft:gray_concrete" if not feats.get("void_tech") else "minecraft:chiseled_tuff")
             line_z(schem, mid_x, 1, 0, l - 1, "minecraft:powered_rail[powered=true]")
+            
+        # Add Void-Tech specific features
+        if feats.get("void_tech", False):
+            # Hydro-Pods every 20 blocks
+            for z_pod in range(0, l, 20):
+                add_hydro_pod(schem, w // 2, 2, z_pod, mats)
+            # Mutation spread
+            apply_mutation(schem, w // 2, 0, l // 2, max(w, l) // 2 + 5, mats)
+            # Bioluminescence at ends
+            schem.setBlock((0, 1, 0), mats.get("glow"))
+            schem.setBlock((w-1, 1, 0), mats.get("glow"))
+            schem.setBlock((0, 1, l-1), mats.get("glow"))
+            schem.setBlock((w-1, 1, l-1), mats.get("glow"))
             
         if side_walkways:
             line_z(schem, 0, 0, 0, l - 1, secondary)
