@@ -28,3 +28,4 @@ To entice players to leave the legacy hubs like **Washington Station**, we will 
 - do some underwater builds in an ocean field
 - put the server on standard port and fix the hobo role to be an observer only role named "uncleared visitor"
 - update the skynet process to run once an hour. Tell it to randomize the build recipes.
+- each build should a sign to explain the date it was built, another sign with the build name, another sign with the lab herware used in the build. 
