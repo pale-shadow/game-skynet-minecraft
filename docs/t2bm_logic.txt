@@ -1,0 +1,26 @@
+Integrating the **Text to Building in Minecraft (T2BM)** logic into your existing **`decoration.py`** builder engine involves transitioning from hard-coded geometric loops to a high-level "intent-based" generation system. Based on the T2BM methodology and your server’s current infrastructure, here is the integration roadmap:
+
+### 1. Natural Language Front-End (Refining Prompts)
+T2BM begins by translating textual descriptions into building manifests. 
+*   **Integration:** Instead of manually writing JSON geometric loops (e.g., `loop_x0_to_12`), you should implement a pre-processing layer—likely running on your **Raspberry Pi 5 with Hailo AI acceleration**—that uses an LLM to convert a text prompt (e.g., "Build a $7 \times 7$ Void-Tech research module") into the `complex_structure` JSON format that `decoration.py` already supports.
+*   **Hardware synergy:** Use the Hailo-8 hardware to run the inference for the T2BM model locally, ensuring that natural language processing doesn't impact the server's **20 TPS** standard.
+
+### 2. Implementing Interlayer Representations
+The T2BM model uses "interlayer representations" to bridge text and blocks.
+*   **Integration:** Update `decoration.py` to support an abstract **Component Library**. Instead of defining coordinates, the T2BM-linked JSON should specify components like `foundation`, `void_core`, or `conduit_network`.
+*   **Regex Parser Update:** Your current **regular-expression-based parser** can be adapted to interpret these interlayer components, allowing the script to mathematically derive the offsets for a structure based on the "intent" provided by the LLM.
+
+### 3. Automated Structural Repair
+A core feature of T2BM is a "repairing" phase to ensure structural completeness and satisfaction.
+*   **Integration:** Add a post-generation validation function to `decoration.py`. This function should scan the generated schematic for:
+    *   **Connectivity:** Ensuring **Deep-Rail** tracks or **Void Conduits** aren't broken by geometric errors.
+    *   **Functional Blocks:** Verifying that critical blocks like doors, windows (Cyan Stained Glass), and data terminals (Lecterns) are correctly placed and oriented.
+    *   **Block States:** Automatically ensuring that **Pearlescent Froglights** have the correct `variant` tag and **Oxidized Copper** has the intended oxidation state.
+
+### 4. Aesthetic Consistency (Void-Tech Palette)
+T2BM experiments show that LLMs can incorporate specific building blocks if given appropriate prompts.
+*   **Integration:** Your master prompt reference for the LLM should strictly enforce the **"Void-Tech Overgrowth"** palette: **Polished Tuff** (primary), **Calcite** (secondary), and **Tinted Glass** (tertiary).
+*   **Automation:** Configure `decoration.py` to automatically substitute these IDs when the LLM generates a "Clean Room" or "Laboratory" description, ensuring the new AI-generated buildings match the **Urbanization Phase** aesthetic.
+
+### 5. Deployment via FAWE
+Once `decoration.py` processes the T2BM logic and outputs a binary **Sponge-format (.schem) file**, it should be deployed using **FastAsyncWorldEdit (FAWE)**. This minimizes block-update lag during the construction of large structures like the **Mycelial Uplink Spire** or the **Crafter Hub Master Control**.

@@ -1,15 +1,13 @@
 import os
 import time
 import random
-import mcrcon
 import json
+from skynet_core import Config, SkynetRCON, setup_logging
 from vision_lite_overseer import VisionLiteOverseer
 from npu_spatial_engine import NPUSpatialEngine
 
-# Configuration
-CHONK_IP = os.getenv("CHONK_IP")
-RCON_PASS = os.getenv("RCON_PASS")
-RCON_PORT = int(os.getenv("RCON_PORT", 25575))
+# Setup standardized logging
+logger = setup_logging("adaptive_mutation")
 
 # Palette from neural_bridge_infected_v7.json
 INFECTED_PALETTE = {
@@ -20,15 +18,6 @@ INFECTED_PALETTE = {
     "sensory": ["minecraft:sculk_sensor", "minecraft:tinted_glass"]
 }
 
-def push_commands_to_chonk(commands):
-    try:
-        with mcrcon.MCRcon(CHONK_IP, RCON_PASS, port=RCON_PORT) as mcr:
-            for cmd in commands:
-                mcr.command(cmd)
-                time.sleep(0.005) # Optimized for Hailo-8L throughput
-    except Exception as e:
-        print(f"CRITICAL: RCON Connection failed: {e}")
-
 class AdaptiveMutator:
     """
     Implements the v7.1-RECLAMATION 'Adaptive Mutation' logic.
@@ -37,16 +26,17 @@ class AdaptiveMutator:
     def __init__(self):
         self.overseer = VisionLiteOverseer()
         self.engine = NPUSpatialEngine()
+        self.rcon = SkynetRCON()
 
     def apply_infection(self, x, z, state, score):
         """
         Applies the infected pattern to an area based on the incursion state.
         """
-        y_base = 63 # Desert floor level
+        y_base = Config.FIELD_BOUNDS["y_base"] - 1 # Desert floor level
         cmds = []
         radius = 10
         
-        print(f"🧪 Applying {state} Infection at ({x}, {z})...")
+        logger.info(f"🧪 Applying {state} Infection at ({x}, {z})...")
         
         if state == "INTENSION_HIGH":
             # Aggressive Reclamation
@@ -96,12 +86,12 @@ class AdaptiveMutator:
                     all_cmds.extend(cmds)
         
         if all_cmds:
-            push_commands_to_chonk(all_cmds)
-            print("✅ Adaptive Mutation cycle complete.")
+            self.rcon.send(all_cmds)
+            logger.info("✅ Adaptive Mutation cycle complete.")
         else:
-            print("☀️ No incursions detected. World state: PRISTINE.")
+            logger.info("☀️ No incursions detected. World state: PRISTINE.")
 
 if __name__ == "__main__":
-    print("🧠 Skynet Adaptive Mutation: Synchronizing with TPU Vision...")
+    logger.info("🧠 Skynet Adaptive Mutation: Synchronizing with TPU Vision...")
     mutator = AdaptiveMutator()
     mutator.run_cycle()

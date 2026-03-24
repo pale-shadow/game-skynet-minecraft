@@ -1,17 +1,19 @@
 [Unit]
-Description=Skynet AI Process for Minecraft Orchestration
-After=network.target
+Description=Skynet AI Orchestrator for Minecraft
+After=network.target minecraft.service
+Wants=minecraft.service
 
 [Service]
 Type=simple
 User=franklin
 Group=franklin
-WorkingDirectory=/home/franklin/workspace/gaming/game-chonk-minecraft/schematics
-ExecStart=/home/franklin/workspace/gaming/game-chonk-minecraft/venv/bin/python3 skynet_daemon.py
+WorkingDirectory=/home/franklin/workspace/gaming/game-chonk-minecraft
+# Use the absolute path to the virtual environment's python
+ExecStart=/home/franklin/workspace/gaming/game-chonk-minecraft/venv/bin/python3 schematics/skynet_orchestrator.py
 Restart=always
 RestartSec=10
-StandardOutput=append:/home/franklin/workspace/gaming/game-chonk-minecraft/logs/skynet_daemon.log
-StandardError=append:/home/franklin/workspace/gaming/game-chonk-minecraft/logs/skynet_daemon.log
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=skynet-ai
 
 [Install]

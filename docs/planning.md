@@ -22,4 +22,10 @@ To entice players to leave the legacy hubs like **Washington Station**, we will 
 ## ideas
 
 - create a red and white checkered border around the the inside of the ai field that is level with the ground (assume around y=64?)
+- generate a book and sign for each build.
+- add a banner that shows when you are in the ai field
+- make a builder to make a repeatable fence section that can be installed around the inside of the containment field.
+- do some underwater builds in an ocean field
+- put the server on standard port and fix the hobo role to be an observer only role named "uncleared visitor"
+- update the skynet process to run once an hour. Tell it to randomize the build recipes.
 - each build should a sign to explain the date it was built, another sign with the build name, another sign with the lab herware used in the build. 
