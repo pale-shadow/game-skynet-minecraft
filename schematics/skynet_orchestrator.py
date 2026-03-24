@@ -7,6 +7,7 @@ from mcrcon import MCRcon
 import mcschematic
 import importlib
 import os
+import logging
 
 # --- Configuration ---
 # TODO: Move to a dedicated config file (e.g., config.json)
@@ -17,6 +18,20 @@ RCON_PASSWORD = "YourUltraSecurePassword"  # Replace with your actual RCON passw
 BUILD_COOLDOWN_HOURS = 1
 PLAYER_CHECK_SECONDS = 600  # 10 minutes
 WARNING_INTERVAL_SECONDS = 30  # 30 seconds
+
+# Robust Logging Path [Conversation]
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOG_FILE = os.path.join(PROJECT_ROOT, "logs", "skynet_orchestrator.log")
+
+# Setup Professional Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - [%(levelname)s] - %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_FILE),
+        logging.StreamHandler()
+    ]
+)
 
 # The AI containment fields / industrial areas
 SECTORS = {
@@ -32,7 +47,7 @@ def send_rcon_command(command):
         with MCRcon(RCON_HOST, RCON_PASSWORD, port=RCON_PORT) as mcr:
             return mcr.command(command)
     except Exception as e:
-        print(f"[{datetime.now()}] RCON Error: {e}")
+        logging.error(f"RCON Error: {e}")
         return None
 
 # --- Core Logic ---
@@ -76,7 +91,7 @@ def get_players_in_zones():
         for sector_name, bounds in SECTORS.items():
             x_bounds, z_bounds = bounds["x"], bounds["z"]
             if x_bounds[0] <= px <= x_bounds[1] and z_bounds[0] <= pz <= z_bounds[1]:
-                print(f"[{datetime.now()}] Player '{name}' detected in restricted sector: {sector_name}")
+                logging.info(f"Player '{name}' detected in restricted sector: {sector_name}")
                 players_in_restricted_zones.add(name)
                 break # No need to check other sectors for this player
                 
@@ -84,7 +99,7 @@ def get_players_in_zones():
 
 def run_build_cycle():
     """Selects a random build, generates it, and deploys it via RCON."""
-    print(f"[{datetime.now()}] Initiating hourly autonomous build cycle.")
+    logging.info("Initiating hourly autonomous build cycle.")
     
     structure_types = ["house", "tower", "bridge", "castle"] 
     palettes = ["Nature vs Engineering", "Void-Tech Overgrowth"]
@@ -99,7 +114,7 @@ def run_build_cycle():
     target_z = random.randint(bounds["z"][0], bounds["z"][1])
     target_y = 64 # Build at a standard ground level
 
-    print(f"[{datetime.now()}] SELECTED: Build '{build_name}' of type '{selected_type}' in {sector_name}")
+    logging.info(f"SELECTED: Build '{build_name}' of type '{selected_type}' in {sector_name}")
 
     try:
         builder_module = importlib.import_module(f".builders.{selected_type}", "schematics")
@@ -125,13 +140,13 @@ def run_build_cycle():
         schem_dir = "schematics/schem_files"
         os.makedirs(schem_dir, exist_ok=True)
         schem.save(schem_dir, build_name, mcschematic.Version.JE_1_20_1)
-        print(f"[{datetime.now()}] Successfully generated schematic: {build_name}.schem")
+        logging.info(f"Successfully generated schematic: {build_name}.schem")
 
     except Exception as e:
-        print(f"[{datetime.now()}] ERROR during schematic generation: {e}")
+        logging.error(f"ERROR during schematic generation: {e}")
         return # Abort this build cycle
 
-    print(f"[{datetime.now()}] Deploying schematic at ({target_x}, {target_y}, {target_z})")
+    logging.info(f"Deploying schematic at ({target_x}, {target_y}, {target_z})")
     send_rcon_command(f"say [Skynet] Commencing construction of '{build_name}' in sector: {sector_name}.")
     
     # Use FAWE commands to load and paste the schematic
@@ -139,12 +154,12 @@ def run_build_cycle():
     # A server-side script might be needed to move the file to the correct location
     # For now, we assume the schematics directory is accessible.
     resp_load = send_rcon_command(f"//schem load {build_name}")
-    print(f"[{datetime.now()}] SCHEM LOAD response: {resp_load}")
+    logging.info(f"SCHEM LOAD response: {resp_load}")
 
     resp_paste = send_rcon_command(f"/execute positioned {target_x} {target_y} {target_z} run //paste -a")
-    print(f"[{datetime.now()}] PASTE response: {resp_paste}")
+    logging.info(f"PASTE response: {resp_paste}")
 
-    print(f"[{datetime.now()}] Build cycle complete.")
+    logging.info("Build cycle complete.")
 
 def schedule_next_build_time(current_time):
     """Schedules the next build for a random minute within the next hour."""
@@ -153,14 +168,14 @@ def schedule_next_build_time(current_time):
     
 # --- Main Daemon Loop ---
 def main():
-    print("Skynet AI Orchestrator v1.3 Initializing...")
+    logging.info("Skynet AI Orchestrator v1.3 Initializing...")
 
     # --- State Variables ---
     next_player_check_time = datetime.now()
     next_build_time = schedule_next_build_time(datetime.now())
     players_in_zone = {} # { "player_name": <last_warning_time> }
     
-    print(f"Next build scheduled for: {next_build_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    logging.info(f"Next build scheduled for: {next_build_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
     while True:
         now = datetime.now()
@@ -169,23 +184,23 @@ def main():
         if now >= next_build_time:
             run_build_cycle()
             next_build_time = schedule_next_build_time(now)
-            print(f"Next build scheduled for: {next_build_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            logging.info(f"Next build scheduled for: {next_build_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
         # 2. Handle 10-Minute Player Check
         if now >= next_player_check_time:
-            print(f"[{now}] Running 10-minute player check in restricted zones...")
+            logging.info("Running 10-minute player check in restricted zones...")
             detected_players = get_players_in_zones()
 
             # Add new players to the warning list
             for name in detected_players:
                 if name not in players_in_zone:
-                    print(f"[{now}] New player '{name}' detected. Adding to warning list.")
+                    logging.info(f"New player '{name}' detected. Adding to warning list.")
                     players_in_zone[name] = datetime.min # Send warning immediately
 
             # Remove players who have left
             for name in list(players_in_zone.keys()):
                 if name not in detected_players:
-                    print(f"[{now}] Player '{name}' has left the restricted zone.")
+                    logging.info(f"Player '{name}' has left the restricted zone.")
                     del players_in_zone[name]
             
             next_player_check_time = now + timedelta(seconds=PLAYER_CHECK_SECONDS)
@@ -193,7 +208,7 @@ def main():
         # 3. Handle 30-Second Warning Messages
         for name, last_warning_time in players_in_zone.items():
             if (now - last_warning_time).total_seconds() >= WARNING_INTERVAL_SECONDS:
-                print(f"[{now}] Sending 30-second warning to '{name}'.")
+                logging.info(f"Sending 30-second warning to '{name}'.")
                 send_rcon_command(f'tellraw {name} ["", {{"text":"[SKYNET]","color":"dark_red"}}, {{"text":" WARNING: You are in a restricted automated construction zone. Please vacate the area.","color":"red"}}]')
                 players_in_zone[name] = now
         

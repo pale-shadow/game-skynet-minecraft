@@ -1,49 +1,34 @@
 import os
 import time
 import random
-import mcrcon
+from skynet_core import Config, SkynetRCON
 
-# Load parameters from environment
-CHONK_IP = os.getenv("CHONK_IP")
-RCON_PASS = os.getenv("RCON_PASS")
-RCON_PORT = int(os.getenv("RCON_PORT", 25575))
-
-# AI Testing Field Boundaries (from world.conf)
-FIELD_BOUNDS = {
-    "min_x": -1539,
-    "max_x": -945,
-    "min_z": -913,
-    "max_z": -489,
-    "y_base": 70
-}
+# Unified RCON Client
+rcon = SkynetRCON()
 
 def is_within_bounds(x, z, width=5, depth=5):
     """Safety check: Ensures the entire footprint stays within the AI Field."""
-    within_x = (FIELD_BOUNDS["min_x"] <= x and (x + width) <= FIELD_BOUNDS["max_x"])
-    within_z = (FIELD_BOUNDS["min_z"] <= z and (z + depth) <= FIELD_BOUNDS["max_z"])
+    bounds = Config.FIELD_BOUNDS
+    within_x = (bounds["min_x"] <= x and (x + width) <= bounds["max_x"])
+    within_z = (bounds["min_z"] <= z and (z + depth) <= bounds["max_z"])
     return within_x and within_z
 
 def push_build_to_chonk(commands):
+    """Deploys build commands to the server via standardized RCON client."""
     if not commands:
         return
-    try:
-        with mcrcon.MCRcon(CHONK_IP, RCON_PASS, port=RCON_PORT) as mcr:
-            for cmd in commands:
-                response = mcr.command(cmd)
-                print(f"Chonk Response: {response}")
-                time.sleep(0.02) 
-    except Exception as e:
-        print(f"CRITICAL: RCON Connection to {CHONK_IP} failed: {e}")
+    rcon.send(commands)
 
-def get_hailo_structure_logic():
+def get_hailo_structure_logic(sector=None, metadata=None):
     """
     Simulates AI 'Void-Tech' generation within the verified desert boundary.
     Uses the 2026 Aesthetic: Polished Tuff, Calcite, and Tinted Glass.
     """
+    bounds = Config.FIELD_BOUNDS
     # Pick a random starting point within the field
-    x = random.randint(FIELD_BOUNDS["min_x"], FIELD_BOUNDS["max_x"] - 6)
-    z = random.randint(FIELD_BOUNDS["min_z"], FIELD_BOUNDS["max_z"] - 6)
-    y = FIELD_BOUNDS["y_base"]
+    x = random.randint(bounds["min_x"], bounds["max_x"] - 6)
+    z = random.randint(bounds["min_z"], bounds["max_z"] - 6)
+    y = bounds["y_base"]
 
     if not is_within_bounds(x, z, 6, 6):
         print(f"⚠️ Warning: Inference generated coordinates {x}, {z} out of bounds. Aborting.")
@@ -54,6 +39,8 @@ def get_hailo_structure_logic():
     secondary = "minecraft:calcite"
     glass = "minecraft:tinted_glass"
     light = "minecraft:froglight[variant=pearlescent]"
+    
+    sector_msg = f" in sector: {sector}" if sector else ""
 
     return [
         # Foundation and Core (Polished Tuff)
@@ -66,11 +53,11 @@ def get_hailo_structure_logic():
         f"fill {x+1} {y+1} {z+1} {x+4} {y+11} {z+4} minecraft:air",
         # Internal Bio-Lighting
         f"setblock {x+2} {y+6} {z+2} {light}",
-        f"say [Skynet] Void-Tech Uplink Tower deployed at {x} {y} {z} (Boundary Verified)."
+        f"say [Skynet] Void-Tech Uplink Tower deployed at {x} {y} {z}{sector_msg} (Boundary Verified)."
     ]
 
 if __name__ == "__main__":
-    print(f"📡 Skynet NPU initializing build for Chonk ({CHONK_IP})...")
+    print(f"📡 Skynet NPU initializing build for Chonk ({Config.CHONK_IP})...")
     structure = get_hailo_structure_logic()
     if structure:
         push_build_to_chonk(structure)
