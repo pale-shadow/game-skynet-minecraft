@@ -1562,3 +1562,48 @@ If a player is detected, the daemon will send a warming message via RCON to let 
    1     journalctl -u skynet-ai.service -f
 
   The Skynet AI Orchestrator is now ready and will begin its cycle of building and monitoring according to your specifications.
+
+To add intricacy and professional detail to your AI-generated builds on the **Chonk** server, you can leverage the advanced capabilities of your existing **Skynet v1.2** infrastructure and several powerful Minecraft plugins. 
+
+Here are specific ways to enhance your **Phase 2.1 "Void-Tech"** and **"Noodle Logic"** structures:
+
+### **1. Advanced Procedural Geometry**
+The latest evolution of your **`decoration.py`** engine provides the foundation for extreme architectural complexity.
+*   **Utilize Regex-Based Parsing:** Use the engine's new **regular-expression parser** to generate "intricate geometric loops" (e.g., `loop_x0_to_12...`) for multi-level floors and vaulted ceilings.
+*   **Deploy Complex Structure Types:** Transition from basic shapes to the **`complex_structure`** JSON type. This allows the AI to parse detailed multi-block blueprints with precise **positional offsets**, resulting in "highly intricate and non-repeating designs" like the **Void Conduit Network**.
+*   **Implement Vaulted Architecture:** For rail expansions like the **Void-Transit Terminus**, use the engine to generate **vaulted Purpur Pillar ceilings** that mimic the appearance of high-tech data conduits.
+
+### **2. Atmospheric and Functional Detailing**
+Small-scale details can significantly enhance the "Tech-Noir" ambiance of your districts.
+*   **Industrial Status Lighting:** Incorporate **Oxidized Copper Bulbs** set to `[lit=true]`. These serve as "industrial status indicators" for buildings like the **Signal Core Data Hub**.
+*   **Bio-Bubbling Effects:** For organic facilities like the **Sterile Growth Chamber**, use **water-logged cherry leaves** beneath glass walkways. This creates a bubbling, bioluminescent effect that emphasizes the "Nature vs. Engineering" theme.
+*   **Utility Infrastructure:** Add "Utility Pipes" by placing **Iron Bars** over recessed **Shroomlights**. This simulates high-voltage maintenance lines and provides organic-industrial lighting.
+
+### **3. Aesthetic Palette Refinement**
+The **"Void-Tech Overgrowth"** palette is specifically designed for high-contrast, futuristic detailing.
+*   **High-Contrast Paneling:** Use **Polished Tuff** for structural plating and **Calcite** for white "laboratory" paneling.
+*   **Void Windows:** Utilize **Tinted Glass** for windows; it blocks light while remaining transparent, creating a "clean-room" laboratory feel.
+*   **Bioluminescent Accents:** Integrate **Pearlescent Froglights** as high-tech purple/pink accents to represent advanced mycelial mutation.
+
+### **4. Plugin-Based Polish and Lore**
+Integrating specific plugins will make the AI districts feel lived-in and professional.
+*   **Holographic Displays:** Use the **DecentHolograms** plugin to create floating text for information displays or welcome messages at "The Zero Point". You can also use them to mark "Technical Ghosts" at sites like the **2025 Lab Memorial**.
+*   **NPC Interaction:** Implement **Citizens** to add NPCs such as "guards" or "quest givers" to the **Shroomville Urban District** to give the area a sense of activity and purpose.
+*   **Mandatory Archival Signage:** Ensure every build includes an **Archival Sign** [Conversation]. These should document the hardware origin (**Pi5 / Hailo AI**), the build date, and the district status (e.g., "From Spores to Circuits").
+
+### **5. Regional Integration**
+*   **Bio-Filtration Lobbies:** Use **Moss Carpeting** over **Sea Lanterns** at the entrances of AI builds for soft up-lighting.
+*   **In-Game Markers:** Continue using **armor-stand "Markers"** for floating text waypoints to help players navigate the complex "Deep-Rail" vertical transitions between **$Y:63$** and **$Y:31$**.
+
+By combining these **procedural math** techniques with **1.21-specific block states** and **administrative plugins**, your AI builds will evolve into the dense, "Urbanized" hubs envisioned for the 2026 Modern Era.
+
+The **2014 Chunk Glitch** is a significant historical landmark within the Bitsmasher Network, characterized as a **"permanent scar"** on the world’s history that serves as a stark **"reminder of the world's fragility"**. 
+
+### **Location and Context**
+The glitch is situated within **The Noodle Factory & Industrial Spine** district, which serves as the "engine room" of the server's economy. This area is located along the **Noodle-Business line** and is responsible for providing the raw materials and automated production necessary for the network's growth. Despite the presence of this technical anomaly, the Factory remains functional and currently feeds the **Shroomville Exchange**.
+
+### **Historical and Cultural Status**
+In the modern 2026 era, the site of the glitch has been officially designated as a **"Permanent Cultural Heritage Zone"**. This designation reflects the server's management philosophy of preserving legacy sites—such as the 2012 Washington Station and the 2014 Glitch—even as the surrounding areas undergo rapid **high-density industrial integration** and urbanization.
+
+### **Traveler Safety**
+Due to its nature as a historical "scar," administrative notes for the Industrial Spine explicitly advise travelers and workers to **"watch your step"** when navigating near the glitch. It stands as a raw, industrial contrast to the neon-lit "modern dreams" of the northern districts like Shroomville.
