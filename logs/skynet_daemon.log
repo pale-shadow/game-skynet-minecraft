@@ -399,4 +399,3 @@ ImportError: cannot import name 'get_hailo_structure_logic' from 'skynet_process
 Traceback (most recent call last):
   File "/home/franklin/workspace/gaming/game-chonk-minecraft/schematics/skynet_unified.py", line 11, in <module>
     from skynet_process import get_hailo_structure_logic
-ImportError: cannot import name 'get_hailo_structure_logic' from 'skynet_process' (/home/franklin/workspace/gaming/game-chonk-minecraft/schematics/skynet_process.py)
