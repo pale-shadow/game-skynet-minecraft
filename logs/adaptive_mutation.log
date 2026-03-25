@@ -10,6 +10,7 @@
 2026-03-24 12:37:56,571 - [INFO] - 🧠 Selecting spatial inference logic for node_vision...
 2026-03-24 12:37:56,571 - [INFO] - 📡 node_vision using prompt: sentry_prism_v2.json
 2026-03-24 12:37:56,572 - [ERROR] - Failed to generate logic for node_vision: list index out of range
+<<<<<<< HEAD
 2026-03-24 12:37:56,572 - [INFO] - 💤 Cycle complete. Next sequence in 3600s.
 2026-03-24 23:12:53,231 - [INFO] - 🧠 Skynet Unified AI Brain: ONLINE
 2026-03-24 23:12:53,231 - [INFO] - 📡 Monitoring Nodes: Pi5 / Hailo-8L, ASUS Edge-t, AI Vision Node
@@ -23,3 +24,6 @@
 2026-03-24 23:12:54,261 - [INFO] - 🧠 Selecting spatial inference logic for node_vision...
 2026-03-24 23:12:54,290 - [INFO] - ✅ Successfully urbanized Silicon Ridge (Beta-Zone)
 2026-03-24 23:12:54,291 - [INFO] - 💤 Cycle complete. Next sequence in 3600s.
+=======
+2026-03-24 12:37:56,572 - [INFO] - 💤 Cycle complete. Next sequence in 3600s.
+>>>>>>> origin/main
