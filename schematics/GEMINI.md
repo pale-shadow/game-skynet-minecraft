@@ -45,3 +45,11 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
 * Uses the **Sponge Schematic v3** format (`.schem`) compatible with WorldEdit.
 * **Block rotation system** (`blocks.py`) handles all facing/axis/half/hinge properties.
 * **Registry Requirement**: All new builders must be mapped in `builders/__init__.py` under the `BUILDERS` dictionary to be accessible by the generator.
+
+## Networked AI Infrastructure (MCP v1.5)
+
+To coordinate decentralized processing, the system is segmented as follows:
+
+- **Minecraft Server (`chonk`)**: `chonk.lab.bitsmasher.net` (`10.10.8.60`) - The destination for all generated builds.
+- **AI Hardware (NPU Cluster)**: `10.10.16.10` - High-performance Pi 5 cluster with Hailo-8L NPUs for architectural inference.
+- **Stargate MCP (Master Control)**: `10.10.16.66` - The primary server orchestrating all AI hardware and pushing build commands via RCON.

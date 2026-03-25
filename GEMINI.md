@@ -8,8 +8,11 @@
 - **2026 Focus:** Urbanization of the Shroomville Biome and "Deep-Rail" connectivity.
 
 ### 2. Infrastructure & DevOps
-- **Host Environment:** Debian 12 (Bookworm) @ chonk
-- **Performance Profile (2026 Audit):** - **Redstone:** `ALTERNATE_CURRENT` implementation enabled.
+- **Host Environment:** Debian 12 (Bookworm) @ chonk (`10.10.8.60`)
+- **AI Hardware:** `10.10.16.10` (Pi 5 + Hailo-8L)
+- **Stargate MCP:** `10.10.16.66` (Master Control Program for AI hardware)
+- **Performance Profile (2026 Audit):**
+ - **Redstone:** `ALTERNATE_CURRENT` implementation enabled.
   - **Villager Logic:** Optimized POI pings (`60` ticks) and inactive ticking disabled.
   - **Chunk System:** Async loading with auto-detecting IO threads.
 - **Directory Structure:** - `~/bin/`: Custom management scripts (`common.sh`, `backup_to_git.sh`).
@@ -46,7 +49,7 @@
 - **Industry:** Western Blacksmith and Villager Hutt (Staff Housing).
 
 ### 7. Administrative Workflows
-- **Autonomous Operation:** The server's AI, "Skynet," runs as a background service (`skynet-ai.service`). It manages hourly procedural construction and monitors restricted zones for player presence, issuing automated warnings.
+- **Autonomous Operation:** The "Skynet" daemon (`skynet_daemon.py` or `skynet_unified.py`) runs from the Stargate MCP (`10.10.16.66`). It manages hourly procedural construction and monitors restricted zones for player presence, issuing automated warnings via RCON to `chonk.lab.bitsmasher.net`.
 - **Chunk Regeneration:** Use `bluemap fix-edges` for visual continuity after terrain resets.
 - **Region Management:** Use `WorldGuard` to prevent "Ghost" chunk corruption in legacy zones.
 - **Client Access:** Technic Launcher is the official gateway; direct Dropbox sourcing for reliability.
@@ -55,4 +58,4 @@
 - **Janitors (Admins):** UnvaluedShoe79, some_garlic, slyborg4realz.
 - **Policy:** Admin status is handled via LuckPerms group inheritance.
 ---
-*Created for theDevilsVoice | Last Updated: March 19, 2026*
+*Created for theDevilsVoice | Last Updated: March 25, 2026*
