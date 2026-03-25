@@ -1,65 +1,58 @@
 import os
-import time
 import random
+import logging
 from skynet_core import Config, SkynetRCON
 
-# Unified RCON Client
 rcon = SkynetRCON()
 
 def is_within_bounds(x, z, width=5, depth=5):
-    """Safety check: Ensures the entire footprint stays within the AI Field."""
     bounds = Config.FIELD_BOUNDS
-    within_x = (bounds["min_x"] <= x and (x + width) <= bounds["max_x"])
-    within_z = (bounds["min_z"] <= z and (z + depth) <= bounds["max_z"])
-    return within_x and within_z
+    return (bounds["min_x"] <= x and (x + width) <= bounds["max_x"]) and \
+           (bounds["min_z"] <= z and (z + depth) <= bounds["max_z"])
 
 def push_build_to_chonk(commands):
-    """Deploys build commands to the server via standardized RCON client."""
-    if not commands:
-        return
+    if not commands: return
     rcon.send(commands)
 
-def get_hailo_structure_logic(sector=None, metadata=None):
+def get_node_logic(node="node_hailo", sector="Shroomville", metadata=None):
     """
-    Simulates AI 'Void-Tech' generation within the verified desert boundary.
-    Uses the 2026 Aesthetic: Polished Tuff, Calcite, and Tinted Glass.
+    Unified logic for the 4-node AI cluster.
+    Delegates builds based on hardware specialty [378, 381, Conversation].
     """
-    bounds = Config.FIELD_BOUNDS
-    # Pick a random starting point within the field
-    x = random.randint(bounds["min_x"], bounds["max_x"] - 6)
-    z = random.randint(bounds["min_z"], bounds["max_z"] - 6)
-    y = bounds["y_base"]
-
-    if not is_within_bounds(x, z, 6, 6):
-        print(f"⚠️ Warning: Inference generated coordinates {x}, {z} out of bounds. Aborting.")
-        return []
-
-    # Palette from master_prompt_reference_v2.md
-    primary = "minecraft:polished_tuff"
-    secondary = "minecraft:calcite"
-    glass = "minecraft:tinted_glass"
-    light = "minecraft:froglight[variant=pearlescent]"
+    logging.info(f"🧠 Selecting spatial inference logic for {node}...")
     
-    sector_msg = f" in sector: {sector}" if sector else ""
+    NODE_PROMPTS = {
+        "node_hailo": ["void_rail_v2.json", "crafter_hub_v2.json"],     # Industry
+        "node_edgetpu": ["void_uplink_v2.json", "growth_chamber_v2.json"], # Organic
+        "node_vision": ["sentry_prism_v2.json"],                          # Security
+        "node_stargate": ["crafter_hub_master_control_v5.json"]          # High-Density [2]
+    }
 
-    return [
-        # Foundation and Core (Polished Tuff)
-        f"fill {x} {y} {z} {x+5} {y+12} {z+5} {primary}",
-        # Recessed paneling (Calcite)
-        f"fill {x+1} {y+1} {z} {x+4} {y+10} {z} {secondary}",
-        # Void Windows (Tinted Glass)
-        f"fill {x+2} {y+3} {z} {x+3} {y+8} {z} {glass}",
-        # Hollow out the interior
-        f"fill {x+1} {y+1} {z+1} {x+4} {y+11} {z+4} minecraft:air",
-        # Internal Bio-Lighting
-        f"setblock {x+2} {y+6} {z+2} {light}",
-        f"say [Skynet] Void-Tech Uplink Tower deployed at {x} {y} {z}{sector_msg} (Boundary Verified)."
-    ]
+    try:
+        prompts = NODE_PROMPTS.get(node, ["void_rail_v2.json"])
+        selected_prompt = random.choice(prompts)
+        logging.info(f"📡 {node} using prompt: {selected_prompt}")
 
-if __name__ == "__main__":
-    print(f"📡 Skynet NPU initializing build for Chonk ({Config.CHONK_IP})...")
-    structure = get_hailo_structure_logic()
-    if structure:
-        push_build_to_chonk(structure)
-    else:
-        print("❌ Process halted: Safety boundary violation.")
+        # 1. Base Commands
+        commands = [f"say §b[Skynet]§f Node {node} deploying {selected_prompt} to {sector}..."]
+
+        # 2. Add Build-Specific Commands (Placeholder for actual schematic logic)
+        # In production, this would call your decoration.py engine
+        commands.append(f"say §d[Inference]§f Spatial Sync complete for {node}.")
+
+        # 3. Corrected Metadata Signage (v2) [423, Conversation]
+        if metadata:
+            f, b = metadata['front'], metadata['back']
+            # Accessing list indices safely
+            sign_nbt = (
+                f'{{front_text:{{messages:[\"{f}\",\"{f[3]}\",\"{f[1]}\",\"{f[4]}\"]}}, '
+                f'back_text:{{messages:[\"{b}\",\"{b[3]}\",\"{b[1]}\",\"{b[4]}\"]}}}}'
+            )
+            # Place sign at center of build origin
+            commands.append(f"setblock ~ ~1 ~ minecraft:oak_sign{sign_nbt} replace")
+
+        return commands
+
+    except Exception as e:
+        logging.error(f"Failed to generate logic for {node}: {e}")
+        return None
