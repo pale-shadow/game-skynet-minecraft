@@ -15,10 +15,6 @@ def push_build_to_chonk(commands):
     rcon.send(commands)
 
 def get_node_logic(node="node_hailo", sector="Shroomville", metadata=None):
-    """
-    Unified logic for the 4-node AI cluster.
-    Delegates builds based on hardware specialty [378, 381, Conversation].
-    """
     logging.info(f"🧠 Selecting spatial inference logic for {node}...")
     
     NODE_PROMPTS = {
