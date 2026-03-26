@@ -4,30 +4,22 @@
 #
 # SPDX-License-Identifier: MIT
 
-PROJECT_DIR="/home/minecraft/src/schematics"
-GO_GEN_DIR="/home/minecraft/src/schematic-go"
-PROMPT_FILE="${PROJECT_DIR}/prompts/crafter_hub_v5.json"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BIN_DIR="${PROJECT_ROOT}/bin"
+CONFIG_DIR="${PROJECT_ROOT}/schematic-agent/configs"
 
-# 1. Verify Go Binary exists
-if [ ! -f "${GO_GEN_DIR}/schem-gen" ]; then
-    echo "ERROR: Go binary not found at ${GO_GEN_DIR}/schem-gen"
-    echo "Please run 'go build -o schem-gen main.go' in the schematic-go directory."
-    exit 1
-fi
+# 1. Compile the toolchain
+echo "Rebuilding Skynet Go Toolchain..."
+go build -o "${BIN_DIR}/schem-gen" "${PROJECT_ROOT}/cmd/main.go"
 
-pushd "${GO_GEN_DIR}" > /dev/null || exit 1
+# 2. Run the Grid Tie Weaver
+# Example: Connecting Station 4478 to Tower 2196
+echo "Initiating Grid Tie Weaver: Connecting Urban Nodes..."
+"${BIN_DIR}/schem-gen" weave --config "${CONFIG_DIR}/grid_tie_weaver.yaml"
 
-# 2. Run the generator
-echo "Generating v5 Industrial Station via Go Toolchain..."
-./schem-gen "${PROMPT_FILE}"
-
-# 3. Check for successful output via the symlink
 if [ $? -eq 0 ]; then
-    echo "Success! Schematic generated in ${PROJECT_DIR}/schem_files/"
+    echo "Success: Urban power grid extended."
 else
-    echo "CRITICAL: Generation failed."
-    popd > /dev/null
+    echo "ERROR: Pathfinding failed. Check schematic-agent/logs/hailort.log"
     exit 1
 fi
-
-popd > /dev/null
