@@ -6,9 +6,13 @@ from mcrcon import MCRcon
 
 class Config:
     """Centralized configuration and spatial boundaries for Skynet."""
+    # Infrastructure
+    CHONK_IP = os.getenv("CHONK_IP", "10.10.8.60")
+    AI_HARDWARE = "10.10.16.10"
+    MCP_HOST = "10.10.16.66"
+
     # RCON Credentials
-    CHONK_IP = os.getenv("CHONK_IP", "chonk.lab.bitsmasher.net")
-    RCON_PASS = os.getenv("RCON_PASS", "dinosaurExTraVaGanZa1969%%")
+    RCON_PASS = os.getenv("RCON_PASS")
     RCON_PORT = int(os.getenv("RCON_PORT", 25575))
 
     @classmethod
