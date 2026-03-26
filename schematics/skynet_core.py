@@ -12,7 +12,7 @@ class Config:
     MCP_HOST = "10.10.16.66"
 
     # RCON Credentials
-    RCON_PASS = os.getenv("RCON_PASS", "dinosaurExTraVaGanZa1969%%")
+    RCON_PASS = os.getenv("RCON_PASS")
     RCON_PORT = int(os.getenv("RCON_PORT", 25575))
 
     @classmethod
