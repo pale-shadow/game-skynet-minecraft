@@ -1,72 +1,77 @@
 package builders
 
 import (
+	"encoding/json"
 	"fmt"
 	"math"
 	"os/exec"
-	"strconv"
 	"strings"
 
 	"github.com/pale-shadow/game-skynet-minecraft/internal/minecraft"
 )
 
-// Node represents a 3D coordinate in the pathfinding grid
 type Node struct {
 	X, Y, Z int
 	G, H, F float64
 	Parent  *Node
 }
 
-// Weaver handles the high-density connectivity between SKYNET modules
 type Weaver struct {
-	ConfigPath string
-	TPSGuard   float64
+	Config     string
+	Threshold  float64
 }
 
-// GenerateGridPath initiates the A* search with NPU-weighted heuristics
+// GenerateGridPath connects two SKYNET landmarks (e.g. Station to Tower)
 func (w *Weaver) GenerateGridPath(start, end minecraft.Location) ([]minecraft.Location, error) {
-	// Pre-flight check: Ensure 24G Heap is stable and TPS is > 19.5
-	if !w.checkServerHealth() {
-		return nil, fmt.Errorf("STABILITY_RISK: TPS below threshold")
-	}
-
 	openList := []Node{{X: start.X, Y: start.Y, Z: start.Z}}
 	closedList := make(map[string]bool)
 
 	for len(openList) > 0 {
-		// Pop node with lowest F cost
 		current := w.getLowestF(&openList)
 		
-		// Target Reached
-		if w.isAtTarget(current, end) {
-			return w.reconstructPath(current), nil
+		if w.dist(current, end) < 1.5 {
+			return w.reconstruct(current), nil
 		}
 
-		closedList[w.coordKey(current.X, current.Y, current.Z)] = true
+		closedList[w.key(current)] = true
 
-		// Neighbors: Standard 6-way adjacency (Up, Down, North, South, East, West)
-		for _, next := range w.getNeighbors(current) {
-			if closedList[w.coordKey(next.X, next.Y, next.Z)] {
-				continue
-			}
+		// 6-Directional search for conduit placement
+		for _, neighbor := range w.getNeighbors(current) {
+			if closedList[w.key(neighbor)] { continue }
 
-			// NPU INFERENCE: Call Python NPU Spatial Engine for aesthetic weighting
-			// This prevents the weaver from floating conduits mid-air
-			npuWeight := w.getNPUWeight(next)
-
-			tentativeG := current.G + 1.0 + npuWeight
+			// NPU INFERENCE CALL
+			// Weights the path to prefer "snapping" to existing structures
+			npuWeight := w.getNPUAestheticWeight(neighbor)
 			
-			if w.shouldUpdatePath(next, tentativeG, openList) {
-				next.Parent = &current
-				next.G = tentativeG
-				next.H = w.heuristic(next, end)
-				next.F = next.G + next.H
-				openList = append(openList, next)
+			tentativeG := current.G + 1.0 + npuWeight
+			if tentativeG < neighbor.G || !w.listContains(openList, neighbor) {
+				neighbor.Parent = &current
+				neighbor.G = tentativeG
+				neighbor.H = w.heuristic(neighbor, end)
+				neighbor.F = neighbor.G + neighbor.H
+				openList = append(openList, neighbor)
 			}
 		}
 	}
-
-	return nil, fmt.Errorf("PATH_NOT_FOUND: Spatial occlusion detected")
+	return nil, fmt.Errorf("SIGNAL_LOST: No viable path for conduit")
 }
 
-// getNPUWeight interfaces with schematic-agent/n
+func (w *Weaver) getNPUAestheticWeight(n Node) float64 {
+	// Call the Python NPU Spatial Engine specifically for the Hailo-8L
+	cmd := exec.Command("python3", "schematic-agent/npu_spatial_engine.py", 
+		"--query", "traversability", 
+		"--pos", fmt.Sprintf("%d,%d,%d", n.X, n.Y, n.Z))
+	
+	out, err := cmd.Output()
+	if err != nil { return 5.0 } // Default penalty if NPU is busy
+	
+	// Implementation note: The NPU should return lower values for blocks 
+	// adjacent to existing SKYNET walls to encourage "cable management" looks.
+	return w.parseWeight(string(out))
+}
+
+func (w *Weaver) heuristic(n Node, target minecraft.Location) float64 {
+	return math.Abs(float64(n.X-target.X)) + math.Abs(float64(n.Y-target.Y)) + math.Abs(float64(n.Z-target.Z))
+}
+
+// Helper methods: getLowestF, dist, key, getNeighbors, reconstruct...
