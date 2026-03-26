@@ -1,0 +1,24 @@
+# Conduit Synthesizer - Phase 2.1 Void-Tech Utility Config
+module: conduit_synthesizer
+version: 1.0.2
+author: Dreamland Master Control
+optimization_target: 20_TPS_MANDATE
+
+palette:
+  primary_conduit: "minecraft:polished_basalt[axis=y]"
+  high_tension_wire: "minecraft:lead_fence" # For aesthetic sag
+  energy_core: "minecraft:sea_lantern"
+  support_strut: "minecraft:iron_bars"
+  insulator: "minecraft:end_rod"
+
+generation_logic:
+  max_segment_length: 15
+  jitter_factor: 0.15 # Adds "industrial realism" to pipe paths
+  auto_lighting: false # Offload to FAWE to prevent lighting-tick spikes
+
+sub_routines:
+  - name: "transformer_vault"
+    schematic: "void_tech_vault_v1.schem"
+    spawn_chance: 0.05
+    nbt_protection: true # Use WorldGuard Heritage Zone logic
+
