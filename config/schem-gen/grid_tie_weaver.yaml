@@ -1,0 +1,21 @@
+# Grid Tie Weaver - Spatial Connectivity Logic
+module: grid_tie_weaver
+[cite_start]input_source: "field_scanner_v2" # Pulls from Hailo NPU spatial scan [cite: 53]
+
+connectivity_rules:
+  - source: "SKYNET_STATION"
+    target: "SKYNET_TOWER"
+    connection_type: "elevated_rail_conduit"
+    min_clearance: 5 # Blocks above terrain
+  - source: "SKYNET_HOUSE"
+    target: "conduit_synth_hub"
+    connection_type: "underground_utility"
+    depth_offset: -3
+
+# T2BM Refinement Logic [cite: 18]
+refinement:
+  repair_holes: true
+  functional_mapping:
+    - "door_logic": "auto_rcon_secure" # Escapes %% credentials
+    - "lighting": "proximity_redstone"
+
