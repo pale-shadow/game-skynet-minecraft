@@ -16,7 +16,7 @@ You need to initialize the four primary servers that bridge the AI's logic with 
     Filesystem MCP Server: Grants the AI access to the schematics/, models/, and internal/ directories to read "Noodle Logic" blueprints and write new spatial representations.
     RCON Tool Server: Wraps your SkynetRCON client. This turns RCON commands into "tools" that the LLM can call to perform the "Decoding" and "Repairing" stages of the T2BM process in real-time.
     Git Automation Server: Integrates your backup_to_git.sh script, allowing the AI to autonomously push successful "Void-Tech" designs to GitHub.
-    Database Context Server: Connects to the database/ folder. This tool is critical for safety; it allows the AI to query CoreProtect logs and WorldGuard regions to avoid building over Permanent Cultural Heritage Zones.
+    Database Context Server: Connects to the MariaDB host blowfish.lab.bitsmasher.net (10.10.12.15). This tool is critical for safety; it allows the AI to query CoreProtect logs and WorldGuard regions to avoid building over Permanent Cultural Heritage Zones.
 
 4. Integrate the Orchestrator (skynet_unified.py)
 Modify your orchestrator code on Stargate to act as the MCP Host. Instead of executing shell commands directly, the "Brain" will now send standardized protocol requests to these tools.
