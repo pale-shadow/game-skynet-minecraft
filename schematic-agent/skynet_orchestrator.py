@@ -108,8 +108,8 @@ def run_build_cycle():
     selected_palette = random.choice(palettes)
     build_name = f"SKYNET_{selected_type.upper()}_{random.randint(1000, 9999)}"
 
-    sector_name = random.choice(list(SECTORS.keys()))
-    bounds = SECTORS[sector_name]
+    sector_name = "AI Containment Area"
+    bounds = {"x": (-1539, -945), "z": (-913, -489)}
     target_x = random.randint(bounds["x"][0], bounds["x"][1])
     target_z = random.randint(bounds["z"][0], bounds["z"][1])
     target_y = 64 # Build at a standard ground level

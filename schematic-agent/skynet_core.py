@@ -1,3 +1,6 @@
+import re
+import subprocess
+import random
 import os
 import logging
 import time
@@ -100,3 +103,60 @@ class SkynetRCON:
         """Verifies server connectivity."""
         resp = self.send("list", silent=True)
         return resp is not None
+    def survey_site(self, x, z, radius=5):
+        self.logger.info(f"🔍 Surveying site at ({x}, {z}) with radius {radius}...")
+        return Config.FIELD_BOUNDS["y_base"]
+
+class SkynetCore:
+    def __init__(self, name="skynet_core"):
+        self.name = name
+        self.logger = setup_logging(name)
+        self.rcon = SkynetRCON()
+        self.last_thermal_check = 0
+        self.last_player_check = 0
+        self.players_in_zone = {}
+
+    def get_temp(self):
+        try:
+            res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
+            return float(res.replace("temp=", "").replace("\x27C\\n", ""))
+        except Exception:
+            return 0.0
+
+    def check_thermal(self):
+        temp = self.get_temp()
+        if temp > Config.TEMP_THRESHOLD:
+            self.logger.warning(f"⚠️ Thermal Throttling: {temp}°C > {Config.TEMP_THRESHOLD}°C")
+            return False
+        return True
+
+    def get_players_in_zones(self):
+        detected = set()
+        resp = self.rcon.send("list", silent=True)
+        if not resp or ":" not in str(resp):
+            return detected
+        try:
+            player_names = str(resp).split(":")[1].strip().split(", ")
+            if not player_names or player_names == [""]:
+                return detected
+        except IndexError:
+            return detected
+        for name in player_names:
+            name = name.strip()
+            pos_resp = self.rcon.send(f"data get entity {name} Pos", silent=True)
+            if not pos_resp: continue
+            match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            if not match: continue
+            px, _, pz = map(float, match.groups())
+            for sector_name, bounds in Config.SECTORS.items():
+                x_b, z_b = bounds["x"], bounds["z"]
+                if x_b[0] <= px <= x_b[1] and z_b[0] <= pz <= z_b[1]:
+                    self.logger.info(f"👤 Player \x27{name}\x27 detected in restricted sector: {sector_name}")
+                    detected.add(name)
+                    break
+        return detected
+
+    def send_warning(self, player_name):
+        msg = f"tellraw {player_name} [{\x22text\x22:\x22[SKYNET] \x22,\x22color\x22:\x22aqua\x22},{\x22text\x22:\x22Restricted Zone Incursion Detected. Proceed with caution.\x22,\x22color\x22:\x22white\x22}]"
+        self.rcon.send(msg)
+        self.players_in_zone[player_name] = time.time()

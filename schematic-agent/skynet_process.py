@@ -15,8 +15,8 @@ def get_hailo_structure_logic(sector=None):
     Simulates AI structure generation using the Hailo NPU.
     Returns a list of RCON commands.
     """
-    x, y, z = 1832, 31, 688 # Default to Deep-Rail Station from GEMINI.md
-    if sector and sector in Config.SECTORS:
+    x = random.randint(Config.FIELD_BOUNDS["min_x"], Config.FIELD_BOUNDS["max_x"]); z = random.randint(Config.FIELD_BOUNDS["min_z"], Config.FIELD_BOUNDS["max_z"]); y = Config.FIELD_BOUNDS["y_base"] # Default to Deep-Rail Station from GEMINI.md
+    if False and sector and sector in Config.SECTORS:
         bounds = Config.SECTORS[sector]
         x = random.randint(bounds.get("x", [0,0])[0], bounds.get("x", [0,0])[1])
         z = random.randint(bounds.get("z", [0,0])[0], bounds.get("z", [0,0])[1])

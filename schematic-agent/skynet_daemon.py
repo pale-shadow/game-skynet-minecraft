@@ -96,7 +96,7 @@ def run_skynet_loop():
                 # 2.2 Forced Hourly Build with Void-Tech Palette [378, 416, Conversation]
                 logging.info("🏗 NPU Spatial Inference: Generating New Randomized Build...")
                 try:
-                    sector = random.choice(SECTORS)
+                    sector = "AI Containment Area"
                     build_name = f"Void-Tech {random.randint(100, 999)}"
                     sign_data = generate_sign_metadata(build_name, sector)
                     

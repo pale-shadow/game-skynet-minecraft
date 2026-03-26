@@ -52,4 +52,25 @@ ExecStart=/mnt/clusterfs2/game-chonk-minecraft/venv/bin/python3 skynet_unified.p
 ```
 **By centralizing the "Brain" on Stargate's NVMe storage, you provide the high-speed infrastructure needed for the next phase of the Void Reclamation project.**
 
+The planned **MCP (Model Context Protocol)** setup on the **`stargate.research.bitsmasher.net`** host is designed to transform this node into the central **Architectural Agent** and orchestrator for the Skynet AI cluster [Conversation]. Leveraging its **Raspberry Pi 5** hardware and high-speed **476.9G NVMe SSD**, Stargate will bridge high-level LLM reasoning with the server's low-level administrative tools [34, Conversation].
 
+### **Core MCP Servers and Tools**
+The setup involves deploying a suite of MCP servers that grant the **T2BM (Text to Building in Minecraft)** model direct access to the server environment:
+
+*   **Filesystem MCP Server:** This allows the AI to navigate the reorganized directory structure on the NVMe mount (`/mnt/clusterfs2/`). It enables the model to read existing "Noodle Logic" blueprints from the `schematics/` folder and write new `.json` prompts or schematic files [34, Conversation].
+*   **RCON Tool Server:** This standardizes the **SkynetRCON** client into a protocol-compliant tool. The LLM can then "execute" architectural designs by sending real-time `setblock` or `fill` commands to the Chonk server to deploy structures like the **v5 Crafter Hub** [34, Conversation].
+*   **Git Automation Server:** This server wraps the existing **`backup_to_git.sh`** script. It allows the "Unified Brain" to automatically commit successful "Void-Tech" designs and world state changes to the GitHub repository as part of the archival process [34, 62, Conversation].
+*   **Database Context Server:** By connecting to the **`database/`** folder, this tool allows the AI to query historical build data and **CoreProtect** logs. This ensures that new construction projects, such as the **Rail Builder** extensions, do not interfere with **Permanent Cultural Heritage Zones** [9, 34, Conversation].
+
+### **Integration with the T2BM Model**
+Stargate is the primary host for the **T2BM** pipeline, which uses Large Language Models for 3D generation. The MCP setup facilitates the three key stages of this model:
+1.  **Prompt Refining:** The AI uses the Filesystem MCP to pull environmental requirements and refine them into detailed architectural prompts [92, Conversation].
+2.  **Decoding Interlayer Representation:** The model translates conceptual designs into spatial block data.
+3.  **Repairing:** The AI identifies and fixes structural errors to ensure buildings have complete structures and functional blocks, such as **doors, windows, and beds**.
+
+### **Strategic Objectives and Performance**
+*   **NVMe Optimization:** Moving the orchestrator code and model weights to the NVMe SSD ensures that I/O-heavy tasks, such as parsing large schematic libraries, are performed with minimal latency [Conversation].
+*   **Maintaining 20 TPS:** By offloading the MCP host and LLM inference to Stargate, the main Minecraft server remains dedicated to game ticks, helping achieve the target **20 TPS performance** goal [44, Conversation].
+*   **Heritage Safeguards:** The system uses MCP to cross-reference **WorldGuard** regions, acting as a "safety net" to prevent the autonomous builders from overwriting legacy sites like the **2012 Washington Station** [8, 9, Conversation].
+
+This setup establishes Stargate as the high-density infrastructure hub required for the **Phase 2.1 Urbanization** of the Dreamland server [Conversation].
