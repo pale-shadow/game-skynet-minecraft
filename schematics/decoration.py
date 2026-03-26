@@ -27,11 +27,11 @@ def run_skynet_daemon():
     
     while True:
         # 1. Randomization Logic for build variety
-        sector_name = random.choice(list(sectors.keys()))
-        bounds = sectors[sector_name]
+        sector_name = "AI Containment Area"
+        bounds = {"x": (-1539, -945), "z": (-913, -489)}
         
-        target_x = random.randint(bounds["x"], bounds["x"][5])
-        target_z = random.randint(bounds["z"], bounds["z"][5])
+        target_x = random.randint(bounds["x"][0], bounds["x"][1])
+        target_z = random.randint(bounds["z"][0], bounds["z"][1])
         target_y = 63 # Standard baseline, adjusted for vertical stacking in Shroomville [6]
         
         selected_type = random.choice(structure_types)

@@ -80,7 +80,7 @@ def run_unified_brain():
         try:
             node_id = random.choice(list(AI_CLUSTER.keys()))
             node_info = AI_CLUSTER[node_id]
-            sector = random.choice(SECTORS)
+            sector = "AI Containment Area"
             build_name = f"Void-Tech {random.randint(100, 999)}"
             
             logging.info(f"🏗 Delegating {build_name} to {node_info['hardware']}...")

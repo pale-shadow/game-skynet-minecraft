@@ -80,8 +80,8 @@ class SkynetUnifiedDaemon:
         selected_type = random.choice(types)
         build_name = f"SKYNET_{selected_type.upper()}_{random.randint(1000, 9999)}"
 
-        sector_name = random.choice(list(Config.SECTORS.keys()))
-        bounds = Config.SECTORS[sector_name]
+        sector_name = "AI Containment Area"
+        bounds = {"x": (Config.FIELD_BOUNDS["min_x"], Config.FIELD_BOUNDS["max_x"]), "z": (Config.FIELD_BOUNDS["min_z"], Config.FIELD_BOUNDS["max_z"])}
         tx = random.randint(bounds["x"][0], bounds["x"][1])
         tz = random.randint(bounds["z"][0], bounds["z"][1])
         ty = Config.FIELD_BOUNDS["y_base"]
@@ -120,7 +120,7 @@ class SkynetUnifiedDaemon:
         """Generates a procedural Void-Tech structure using direct fill commands."""
         logger.info("🏗 Starting Void-Tech Mutation Cycle (NPU)...")
         try:
-            sector = random.choice(list(Config.SECTORS.keys()))
+            sector = "AI Containment Area"
             cmds = get_hailo_structure_logic(sector=sector)
             if cmds:
                 self.rcon.send(cmds)
