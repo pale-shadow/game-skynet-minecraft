@@ -2,7 +2,7 @@ import os
 from mcrcon import MCRcon
 
 CHONK_IP = "10.10.8.60"
-RCON_PASS = "dinosaurExTraVaGanZa1969%%"
+RCON_PASS = os.getenv("RCON_PASS")
 RCON_PORT = 25575
 
 print(f"Connecting to {CHONK_IP}:{RCON_PORT} with pass: {RCON_PASS}")
