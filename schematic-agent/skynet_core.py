@@ -157,6 +157,6 @@ class SkynetCore:
         return detected
 
     def send_warning(self, player_name):
-        msg = f"tellraw {player_name} [{\x22text\x22:\x22[SKYNET] \x22,\x22color\x22:\x22aqua\x22},{\x22text\x22:\x22Restricted Zone Incursion Detected. Proceed with caution.\x22,\x22color\x22:\x22white\x22}]"
+        msg = f"tellraw {player_name} [SKYNET] Restricted Zone Incursion Detected. Proceed with caution."
         self.rcon.send(msg)
         self.players_in_zone[player_name] = time.time()

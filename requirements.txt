@@ -1,7 +1,7 @@
 rcon
 requests
 google-genai
-rcon
+mcrcon # needed by skynet_core
 pycoral-pi5
 tflite-runtime
 mcschematic # used for @schematics/
