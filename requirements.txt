@@ -4,3 +4,4 @@ google-genai
 rcon
 pycoral-pi5
 tflite-runtime
+mcschematic # used for @schematics/
