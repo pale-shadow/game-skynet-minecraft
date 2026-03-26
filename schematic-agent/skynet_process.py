@@ -10,23 +10,47 @@ def is_within_bounds(x, z, width=5, depth=5):
     return (bounds["min_x"] <= x and (x + width) <= bounds["max_x"]) and \
            (bounds["min_z"] <= z and (z + depth) <= bounds["max_z"])
 
-def get_hailo_structure_logic(sector=None):
+def push_build_to_chonk(commands):
+    """
+    Sends a list of commands to the Minecraft server via RCON.
+    Includes centralized logging for build deployment.
+    """
+    if not commands:
+        return
+        
+    try:
+        rcon.send(commands)
+        # Attempt to extract coordinates and building name for more detailed logging if possible
+        # This is a generic push, so we just log that a deployment happened.
+        logging.info(f"🚀 Deployed AI-generated structure logic to chonk.")
+    except Exception as e:
+        logging.error(f"❌ Failed to push build to chonk: {e}")
+
+def get_hailo_structure_logic(sector=None, metadata=None):
     """
     Simulates AI structure generation using the Hailo NPU.
     Returns a list of RCON commands.
     """
-    x = random.randint(Config.FIELD_BOUNDS["min_x"], Config.FIELD_BOUNDS["max_x"]); z = random.randint(Config.FIELD_BOUNDS["min_z"], Config.FIELD_BOUNDS["max_z"]); y = Config.FIELD_BOUNDS["y_base"] # Default to Deep-Rail Station from GEMINI.md
-    if False and sector and sector in Config.SECTORS:
-        bounds = Config.SECTORS[sector]
-        x = random.randint(bounds.get("x", [0,0])[0], bounds.get("x", [0,0])[1])
-        z = random.randint(bounds.get("z", [0,0])[0], bounds.get("z", [0,0])[1])
-        y = Config.FIELD_BOUNDS.get("y_base", 64)
+    x = random.randint(Config.FIELD_BOUNDS["min_x"], Config.FIELD_BOUNDS["max_x"])
+    z = random.randint(Config.FIELD_BOUNDS["min_z"], Config.FIELD_BOUNDS["max_z"])
+    y = Config.FIELD_BOUNDS["y_base"] 
 
-    return [
+    build_name = "Void-Tech Structure"
+    if metadata and "front" in metadata:
+        # Extract name from sign metadata if available
+        first_line = metadata["front"][0]
+        build_name = first_line.replace("&b&l", "").strip()
+
+    cmds = [
         f"fill {x} {y} {z} {x+3} {y+15} {z+3} minecraft:polished_tuff",
         f"fill {x+1} {y+1} {z+1} {x+2} {y+14} {z+2} minecraft:air",
-        f"say [AI] Structure successfully computed on skynet and deployed to chonk in {sector if sector else 'default zone'}."
+        f"say [Skynet] Void-Tech '{build_name}' deployed at {x} {y} {z} in {sector if sector else 'default zone'}."
     ]
+    
+    # If metadata/signs are provided, we should ideally add them to cmds here, 
+    # but for now we follow the existing pattern in skynet_daemon.py
+    
+    return cmds
 
 def get_node_logic(node="node_hailo", sector="Shroomville", metadata=None):
     logging.info(f"🧠 Selecting spatial inference logic for {node}...")

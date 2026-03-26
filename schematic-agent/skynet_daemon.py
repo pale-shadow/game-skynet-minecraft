@@ -97,14 +97,20 @@ def run_skynet_loop():
                 logging.info("🏗 NPU Spatial Inference: Generating New Randomized Build...")
                 try:
                     sector = "AI Containment Area"
-                    build_name = f"Void-Tech {random.randint(100, 999)}"
+                    build_id = random.randint(100, 999)
+                    build_name = f"Void-Tech {build_id}"
                     sign_data = generate_sign_metadata(build_name, sector)
                     
                     # Offloading procedural math to Hailo AI [1-3]
                     cmds = get_hailo_structure_logic(sector=sector, metadata=sign_data)
                     if cmds:
+                        # Extract coordinates from first command for logging if possible
+                        import re
+                        coord_match = re.search(r"fill (-?\d+) (-?\d+) (-?\d+)", cmds[0])
+                        coords = coord_match.groups() if coord_match else ("?", "?", "?")
+                        
                         push_build_to_chonk(cmds)
-                        logging.info(f"✅ Successfully deployed {build_name} to {sector}")
+                        logging.info(f"✅ Successfully deployed '{build_name}' at {coords[0]} {coords[1]} {coords[2]} to {sector}")
                     else:
                         logging.warning("Build logic generated no commands. Skipping deployment.")
                 except Exception as e:

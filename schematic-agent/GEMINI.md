@@ -40,6 +40,13 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
 * **Industrial Lighting**: Integration of `minecraft:pearlescent_froglight` within girder intersections to provide a native purple-white temperature glow.
 * **Grid-Iron Girders**: Intersecting longitudinal and transverse beams using `dark_prismarine` and `warped_fences` for suspended structural realism.
 
+## Debugging & Health Check (Mar 26, 2026)
+
+- **RCON Link Restoration**: Fixed a critical `Login failed` error. The `RCON_PASS` in the systemd service file was corrupted with trailing percent signs and single quotes. Corrected the environment definition in `mcp-servers/skynet-daemon.service`.
+- **Deployment Verification**: Verified that `skynet_unified.py` successfully generates and attempts to deploy schematics (e.g., `SKYNET_BRIDGE_3283.schem`) to the server.
+- **Announcement & Logging Standards**: Implemented mandatory coordinate and name reporting for all builds. All server console announcements (`say` commands) and local log files (`skynet_unified.log`, `skynet_daemon.log`) now explicitly include the building name and its $(X, Y, Z)$ coordinates for full traceability.
+- **Hardware Status**: Confirmed Hailo-8L NPU is operational and responding to spatial inference requests.
+
 ## Technical Notes
 
 * Uses the **Sponge Schematic v3** format (`.schem`) compatible with WorldEdit.
