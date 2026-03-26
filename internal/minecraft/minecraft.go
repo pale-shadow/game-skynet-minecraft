@@ -1,11 +1,38 @@
 package minecraft
 
 import (
+	"compress/gzip"
 	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
+
+	"github.com/Tnze/go-mc/level/schematic"
 )
+
+type Location struct {
+	X, Y, Z int
+}
+
+func SaveSchematic(schem *schematic.Schematic, filename string) error {
+	path := filepath.Join("schematic-agent", "schem_files", filename)
+	
+	f, err := os.Create(path)
+	if err != nil {
+		return fmt.Errorf("failed to create schematic file: %v", err)
+	}
+	defer f.Close()
+
+	gw := gzip.NewWriter(f)
+	defer gw.Close()
+
+	if err := schem.Encode(gw); err != nil {
+		return fmt.Errorf("failed to encode NBT schematic: %v", err)
+	}
+
+	fmt.Printf("✔ Phase 2.1: Schematic saved to %s\n", path)
+	return nil
+}
 
 func Check_Minecraft_Install() {
 	var minecraftPath string
