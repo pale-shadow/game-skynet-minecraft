@@ -18,6 +18,7 @@
 - **Directory Structure:** - `~/bin/`: Custom management scripts (`common.sh`, `backup_to_git.sh`).
   - `~/config/`: Centralized Paper/Spigot/Global configuration hub.
   - `~/docs/`: Historical records (HISTORY.md) and BlueMap manifests.
+- **Environment Management:** Use `direnv` for local environment variable management. The RCON password must be stored as `RCON_PASS` in the `.envrc` file and referenced by all scripts and tools needing console access.
 
 ### 3. Current Permission Hierarchy (LuckPerms)
 | Rank | Weight | Description |

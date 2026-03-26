@@ -45,6 +45,7 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
 * Uses the **Sponge Schematic v3** format (`.schem`) compatible with WorldEdit.
 * **Block rotation system** (`blocks.py`) handles all facing/axis/half/hinge properties.
 * **Registry Requirement**: All new builders must be mapped in `builders/__init__.py` under the `BUILDERS` dictionary to be accessible by the generator.
+* **Security & Environment**: Use `direnv` to manage the `RCON_PASS` environment variable in a `.envrc` file. Never hardcode passwords or credentials within the generator scripts or builders.
 
 ## Networked AI Infrastructure (MCP v1.5)
 

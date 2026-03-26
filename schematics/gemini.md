@@ -7,6 +7,8 @@ The "Skynet Architect" project has evolved from simple schematic generation to a
 
 The current focus is on "Void-Tech" overgrowth, strategic structure placement, and **player interaction within AI-controlled zones**. The daemon can detect players in restricted areas and issue automated warnings via RCON.
 
+**Environment & Security:** The system uses `direnv` to manage sensitive credentials. All RCON operations must use the `RCON_PASS` environment variable defined in the root `.envrc` file.
+
 ## Core Process
 - `skynet_orchestrator.py`: The main daemon, run as a `systemd` service. It manages a multi-stage "Sense, Plan, Act" pipeline, handling both procedural builds and player monitoring.
 - `vision_lite_overseer.py`: Logic for detecting human incursions, used by the orchestrator.
