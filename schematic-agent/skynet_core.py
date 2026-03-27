@@ -60,13 +60,14 @@ def setup_logging(script_name):
     # Clear existing handlers to avoid duplication
     logging.getLogger().handlers = []
     
+    handlers = [logging.FileHandler(log_file)]
+    if not os.getenv("INVOCATION_ID"):
+        handlers.append(logging.StreamHandler())
+    
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - [%(levelname)s] - %(message)s',
-        handlers=[
-            logging.FileHandler(log_file),
-            logging.StreamHandler()
-        ]
+        handlers=handlers
     )
     return logging.getLogger(script_name)
 

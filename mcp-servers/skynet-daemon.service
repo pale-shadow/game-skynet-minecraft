@@ -9,8 +9,8 @@ WorkingDirectory=/home/franklin/workspace/gaming/game-skynet-minecraft/schematic
 ExecStart=/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 skynet_unified.py
 Restart=always
 RestartSec=10
-StandardOutput=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_daemon.log
-StandardError=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_daemon.log
+StandardOutput=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_unified.log
+StandardError=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_unified.log
 
 
 [Install]
