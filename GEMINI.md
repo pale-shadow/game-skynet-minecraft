@@ -50,13 +50,10 @@
 - **Industry:** Western Blacksmith and Villager Hutt (Staff Housing).
 
 ### 7. Administrative Workflows
-- **Autonomous Operation:** The "Skynet" daemon (`skynet_daemon.py` or `skynet_unified.py`) runs from the Stargate MCP (`10.10.16.66`). It manages hourly procedural construction and monitors restricted zones for player presence, issuing automated warnings via RCON to `chonk.lab.bitsmasher.net`.
+- **Autonomous Operation:** The "Skynet" daemon (`skynet_unified.py`) runs as a systemd service (`skynet-daemon.service`) from the Stargate MCP (`10.10.16.66`). It manages hourly procedural urbanization builds and monitors restricted zones. 
+- **RCON Integrity:** (Resolved Mar 26, 2026) Fixed authentication failure caused by corrupted `RCON_PASS` quoting in systemd environment definitions. Verified RCON link is active and responding to `list` and `data get` commands.
+- **Urbanization Cycle:** Automated deployment of high-fidelity v5 schematics (e.g., houses, bridges) to the AI Containment Area is functional.
 - **Chunk Regeneration:** Use `bluemap fix-edges` for visual continuity after terrain resets.
 - **Region Management:** Use `WorldGuard` to prevent "Ghost" chunk corruption in legacy zones.
-- **Client Access:** Technic Launcher is the official gateway; direct Dropbox sourcing for reliability.
-
-### 8. Core Administrative Team
-- **Janitors (Admins):** UnvaluedShoe79, some_garlic, slyborg4realz.
-- **Policy:** Admin status is handled via LuckPerms group inheritance.
 ---
-*Created for theDevilsVoice | Last Updated: March 25, 2026*
+*Created for theDevilsVoice | Last Updated: March 26, 2026*

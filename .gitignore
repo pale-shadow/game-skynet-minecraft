@@ -1,4 +1,4 @@
 .envrc
 **/__pycache__/
 *.tflite
-**/venv/
+**/.venv/

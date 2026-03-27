@@ -11,7 +11,7 @@ from place_ai_warning_signs import place_random_warning
 # Unified Configuration: Phase 2.1 [378, 416, Conversation]
 SLEEP_INTERVAL = 3600  # Exact 1-hour cycle
 TEMP_THRESHOLD = 75.0  # Pi 5 Thermal Limit
-LOG_FILE = "../logs/skynet_daemon.log"
+LOG_FILE = "../logs/skynet_unified.log"
 SECTORS = ["Shroomville Urban District", "Silicon Ridge (Beta-Zone)", "Abyssal Reef (Ocean Sector)"]
 
 # AI Cluster Node Definitions [Conversation]

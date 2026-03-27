@@ -48,7 +48,7 @@ class SkynetUnifiedDaemon(SkynetCore):
         tz = random.randint(bounds["z"][0], bounds["z"][1])
         ty = self.rcon.survey_site(tx, tz)
 
-        logger.info(f"SELECTED: {build_name} in {sector_name}")
+        logger.info(f"SELECTED: {build_name} for deployment at ({tx}, {ty}, {tz}) in {sector_name}")
 
         try:
             # Modular Builder Import
@@ -70,10 +70,10 @@ class SkynetUnifiedDaemon(SkynetCore):
             logger.info(f"✅ Generated: {build_name}.schem")
 
             # Deployment
-            self.rcon.send(f"say [Skynet] Commencing Urbanization of '{build_name}' in {sector_name}.")
+            self.rcon.send(f"say [Skynet] Commencing Urbanization of '{build_name}' at {tx} {ty} {tz} in {sector_name}.")
             self.rcon.send(f"//schem load {build_name}")
             self.rcon.send(f"execute positioned {tx} {ty} {tz} run //paste -a")
-            logger.info(f"🚀 Deployed {build_name} to {sector_name}")
+            logger.info(f"🚀 Deployed {build_name} to {tx} {ty} {tz} ({sector_name})")
 
         except Exception as e:
             logger.error(f"❌ Urbanization Error: {e}")
@@ -85,8 +85,13 @@ class SkynetUnifiedDaemon(SkynetCore):
             sector = "AI Containment Area"
             cmds = get_hailo_structure_logic(sector=sector)
             if cmds:
+                # Extract coordinates from first command if possible for logging
+                coord_match = re.search(r"fill (-?\d+) (-?\d+) (-?\d+)", cmds[0])
+                coords = coord_match.groups() if coord_match else ("?", "?", "?")
+                
                 self.rcon.send(cmds)
-                logger.info(f"✅ Successfully mutated area in {sector}")
+                self.rcon.send(f"say [Skynet] Void-Tech Mutation complete at {coords[0]} {coords[1]} {coords[2]} ({sector}).")
+                logger.info(f"✅ Successfully mutated area at {coords[0]} {coords[1]} {coords[2]} in {sector}")
         except Exception as e:
             logger.error(f"❌ Void-Tech Error: {e}")
 
