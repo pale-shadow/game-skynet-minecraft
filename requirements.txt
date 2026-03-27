@@ -1,7 +1,9 @@
 rcon
 requests
 google-genai
-mcrcon # needed by skynet_core
+mcrcon
 pycoral-pi5
 tflite-runtime
-mcschematic # used for @schematics/
+mcschematic
+pytest
+pytest-mock
