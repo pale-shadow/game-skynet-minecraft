@@ -91,7 +91,7 @@ class SkynetRCON:
                     resp = mcr.command(cmd)
                     responses.append(resp)
                     if not silent and resp:
-                        self.logger.debug(f"RCON Response: {resp}")
+                        self.logger.info(f"RCON Response: {resp}")
                     # Throttle for Hailo-8L throughput or server stability
                     if len(command) > 1:
                         time.sleep(0.01)
@@ -146,7 +146,7 @@ class SkynetCore:
             name = name.strip()
             pos_resp = self.rcon.send(f"data get entity {name} Pos", silent=True)
             if not pos_resp: continue
-            match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            match = re.search(r"\[(-?[\d.]+)d, (-?[\d.]+)d, (-?[\d.]+)d\]", str(pos_resp))
             if not match: continue
             px, _, pz = map(float, match.groups())
             for sector_name, bounds in Config.SECTORS.items():

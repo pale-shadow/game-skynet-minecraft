@@ -84,3 +84,623 @@
 2026-03-26 18:54:01,622 - [INFO] - 📡 RCON Link: ACTIVE
 2026-03-26 18:59:01,632 - [INFO] - 📡 RCON Link: ACTIVE
 2026-03-26 19:04:01,646 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-26 19:09:01,655 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 10:35:20,362 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:35:20,362 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:35:20,362 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:35:20,369 - [INFO] - 📡 RCON Link: ACTIVE
+🚀 NPUSpatialEngine initialized on hardware: hailo
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 130, in <module>
+    daemon.run_loop()
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 114, in run_loop
+    detected = self.get_players_in_zones()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_core.py", line 149, in get_players_in_zones
+    match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_parser.py", line 985, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+2026-03-28 10:35:30,582 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:35:30,582 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:35:30,582 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:35:30,589 - [INFO] - 📡 RCON Link: ACTIVE
+🚀 NPUSpatialEngine initialized on hardware: hailo
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 130, in <module>
+    daemon.run_loop()
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 114, in run_loop
+    detected = self.get_players_in_zones()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_core.py", line 149, in get_players_in_zones
+    match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_parser.py", line 985, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+2026-03-28 10:35:40,864 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:35:40,864 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:35:40,864 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:35:40,871 - [INFO] - 📡 RCON Link: ACTIVE
+🚀 NPUSpatialEngine initialized on hardware: hailo
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 130, in <module>
+    daemon.run_loop()
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 114, in run_loop
+    detected = self.get_players_in_zones()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_core.py", line 149, in get_players_in_zones
+    match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_parser.py", line 985, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+2026-03-28 10:35:51,092 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:35:51,092 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:35:51,092 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:35:51,098 - [INFO] - 📡 RCON Link: ACTIVE
+🚀 NPUSpatialEngine initialized on hardware: hailo
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 130, in <module>
+    daemon.run_loop()
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 114, in run_loop
+    detected = self.get_players_in_zones()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_core.py", line 149, in get_players_in_zones
+    match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_parser.py", line 985, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+2026-03-28 10:36:01,353 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:36:01,354 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:36:01,354 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:36:01,360 - [INFO] - 📡 RCON Link: ACTIVE
+🚀 NPUSpatialEngine initialized on hardware: hailo
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 130, in <module>
+    daemon.run_loop()
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 114, in run_loop
+    detected = self.get_players_in_zones()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_core.py", line 149, in get_players_in_zones
+    match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_parser.py", line 985, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+2026-03-28 10:36:11,596 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:36:11,596 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:36:11,596 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:36:11,603 - [INFO] - 📡 RCON Link: ACTIVE
+🚀 NPUSpatialEngine initialized on hardware: hailo
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 130, in <module>
+    daemon.run_loop()
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py", line 114, in run_loop
+    detected = self.get_players_in_zones()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_core.py", line 149, in get_players_in_zones
+    match = re.search(r"\\[(-?[\\d\\.]+)d, (-?[\\d\\.]+)d, (-?[\\d\\.]+)d\\]", str(pos_resp))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_compiler.py", line 743, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/re/_parser.py", line 985, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+2026-03-28 10:36:21,856 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 10:36:21,856 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 10:36:21,856 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 10:36:21,862 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 10:36:21,868 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 10:36:21,868 - [INFO] - 🔍 Surveying site at (-1147, -742) with radius 5...
+2026-03-28 10:36:21,868 - [INFO] - SELECTED: SKYNET_BRIDGE_4458 for deployment at (-1147, 64, -742) in AI Containment Area
+2026-03-28 10:36:21,872 - [INFO] - ✅ Generated: SKYNET_BRIDGE_4458.schem
+2026-03-28 10:36:21,892 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_4458 to -1147 64 -742 (AI Containment Area)
+2026-03-28 10:41:21,902 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 10:46:21,911 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 10:51:21,924 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 10:56:21,933 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:01:21,947 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:06:21,955 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:11:21,968 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:16:21,977 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:21:21,993 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:26:22,002 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:31:22,016 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:36:22,026 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:36:22,032 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 11:36:22,032 - [INFO] - 🔍 Surveying site at (-1320, -882) with radius 5...
+2026-03-28 11:36:22,033 - [INFO] - SELECTED: SKYNET_CASTLE_6382 for deployment at (-1320, 64, -882) in AI Containment Area
+2026-03-28 11:36:22,046 - [INFO] - ✅ Generated: SKYNET_CASTLE_6382.schem
+2026-03-28 11:36:22,062 - [INFO] - 🚀 Deployed SKYNET_CASTLE_6382 to -1320 64 -882 (AI Containment Area)
+2026-03-28 11:41:22,070 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:46:22,079 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:51:22,093 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 11:56:22,102 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:01:22,115 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:06:22,124 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:11:22,138 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:16:22,147 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:21:22,160 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:26:22,169 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:31:22,182 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:36:22,191 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:36:22,198 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 12:36:22,198 - [INFO] - 🔍 Surveying site at (-1027, -525) with radius 5...
+2026-03-28 12:36:22,198 - [INFO] - SELECTED: SKYNET_CASTLE_6147 for deployment at (-1027, 64, -525) in AI Containment Area
+2026-03-28 12:36:22,223 - [INFO] - ✅ Generated: SKYNET_CASTLE_6147.schem
+2026-03-28 12:36:22,238 - [INFO] - 🚀 Deployed SKYNET_CASTLE_6147 to -1027 64 -525 (AI Containment Area)
+2026-03-28 12:41:22,248 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:46:22,256 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:51:22,270 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 12:56:22,278 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:01:22,292 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:06:22,301 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:11:22,314 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:16:22,323 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:21:22,336 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:26:22,346 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:31:22,359 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:36:22,368 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:36:22,376 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 13:36:22,376 - [INFO] - 🔍 Surveying site at (-1000, -843) with radius 5...
+2026-03-28 13:36:22,376 - [INFO] - SELECTED: SKYNET_STATION_1493 for deployment at (-1000, 64, -843) in AI Containment Area
+2026-03-28 13:36:22,379 - [INFO] - ✅ Generated: SKYNET_STATION_1493.schem
+2026-03-28 13:36:22,395 - [INFO] - 🚀 Deployed SKYNET_STATION_1493 to -1000 64 -843 (AI Containment Area)
+2026-03-28 13:41:22,404 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:46:22,413 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:51:22,427 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 13:56:22,435 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:01:22,449 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:06:22,458 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:11:22,472 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:16:22,481 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:21:22,495 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:26:22,504 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:31:22,517 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:36:22,527 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:36:22,534 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 14:36:22,534 - [INFO] - 🔍 Surveying site at (-1234, -508) with radius 5...
+2026-03-28 14:36:22,534 - [INFO] - SELECTED: SKYNET_BRIDGE_3767 for deployment at (-1234, 64, -508) in AI Containment Area
+2026-03-28 14:36:22,536 - [INFO] - ✅ Generated: SKYNET_BRIDGE_3767.schem
+2026-03-28 14:36:22,551 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_3767 to -1234 64 -508 (AI Containment Area)
+2026-03-28 14:41:22,559 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:46:22,568 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:51:22,581 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 14:56:22,590 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:01:22,603 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:06:22,612 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:11:22,625 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:16:22,635 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:21:22,648 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:26:22,656 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:31:22,671 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:36:22,680 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:36:22,687 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 15:36:22,687 - [INFO] - 🔍 Surveying site at (-1295, -537) with radius 5...
+2026-03-28 15:36:22,687 - [INFO] - SELECTED: SKYNET_HOUSE_2149 for deployment at (-1295, 64, -537) in AI Containment Area
+2026-03-28 15:36:22,693 - [INFO] - ✅ Generated: SKYNET_HOUSE_2149.schem
+2026-03-28 15:36:22,709 - [INFO] - 🚀 Deployed SKYNET_HOUSE_2149 to -1295 64 -537 (AI Containment Area)
+2026-03-28 15:41:22,717 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:46:22,728 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:51:22,741 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 15:56:22,750 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:01:22,763 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:06:22,772 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:11:22,785 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:16:22,794 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:21:22,808 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:26:22,817 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:31:22,831 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:36:22,839 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:36:22,846 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 16:36:22,846 - [INFO] - 🔍 Surveying site at (-1242, -899) with radius 5...
+2026-03-28 16:36:22,846 - [INFO] - SELECTED: SKYNET_HOUSE_5175 for deployment at (-1242, 64, -899) in AI Containment Area
+2026-03-28 16:36:22,851 - [INFO] - ✅ Generated: SKYNET_HOUSE_5175.schem
+2026-03-28 16:36:22,866 - [INFO] - 🚀 Deployed SKYNET_HOUSE_5175 to -1242 64 -899 (AI Containment Area)
+2026-03-28 16:41:22,874 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:46:22,883 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:51:22,897 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 16:56:22,905 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:01:22,919 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:06:22,927 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:11:22,940 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:16:22,949 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:21:22,962 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:26:22,971 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:31:22,984 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:36:22,993 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:36:23,000 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 17:36:23,000 - [INFO] - 🔍 Surveying site at (-1356, -755) with radius 5...
+2026-03-28 17:36:23,000 - [INFO] - SELECTED: SKYNET_BRIDGE_2776 for deployment at (-1356, 64, -755) in AI Containment Area
+2026-03-28 17:36:23,002 - [INFO] - ✅ Generated: SKYNET_BRIDGE_2776.schem
+2026-03-28 17:36:23,016 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_2776 to -1356 64 -755 (AI Containment Area)
+2026-03-28 17:41:23,025 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:46:23,034 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:51:23,046 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 17:56:23,054 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:01:23,067 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:06:23,076 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:11:23,089 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:16:23,098 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:21:23,112 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:26:23,121 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:31:23,134 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:36:23,143 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:36:23,151 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 18:36:23,151 - [INFO] - 🔍 Surveying site at (-1236, -604) with radius 5...
+2026-03-28 18:36:23,151 - [INFO] - SELECTED: SKYNET_STATION_4520 for deployment at (-1236, 64, -604) in AI Containment Area
+2026-03-28 18:36:23,154 - [INFO] - ✅ Generated: SKYNET_STATION_4520.schem
+2026-03-28 18:36:23,168 - [INFO] - 🚀 Deployed SKYNET_STATION_4520 to -1236 64 -604 (AI Containment Area)
+2026-03-28 18:41:23,177 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:46:23,185 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:51:23,198 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 18:56:23,207 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:01:23,220 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:06:23,228 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:11:23,242 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:16:23,250 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:21:23,264 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:26:23,272 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:31:23,285 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:36:23,293 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:36:23,300 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 19:36:23,300 - [INFO] - 🔍 Surveying site at (-1329, -611) with radius 5...
+2026-03-28 19:36:23,300 - [INFO] - SELECTED: SKYNET_CASTLE_9542 for deployment at (-1329, 64, -611) in AI Containment Area
+2026-03-28 19:36:23,321 - [INFO] - ✅ Generated: SKYNET_CASTLE_9542.schem
+2026-03-28 19:36:23,336 - [INFO] - 🚀 Deployed SKYNET_CASTLE_9542 to -1329 64 -611 (AI Containment Area)
+2026-03-28 19:41:23,345 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:46:23,353 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:51:23,367 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 19:56:23,375 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:01:23,388 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:06:23,396 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:11:23,409 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:16:23,418 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:21:23,432 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:26:23,440 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:31:23,453 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:36:23,462 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:36:23,468 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 20:36:23,468 - [INFO] - 🔍 Surveying site at (-1486, -787) with radius 5...
+2026-03-28 20:36:23,468 - [INFO] - SELECTED: SKYNET_STATION_2536 for deployment at (-1486, 64, -787) in AI Containment Area
+2026-03-28 20:36:23,471 - [INFO] - ✅ Generated: SKYNET_STATION_2536.schem
+2026-03-28 20:36:23,485 - [INFO] - 🚀 Deployed SKYNET_STATION_2536 to -1486 64 -787 (AI Containment Area)
+2026-03-28 20:41:23,494 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:46:23,504 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:51:23,518 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 20:56:23,526 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:01:23,539 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:06:23,548 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:11:23,561 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:16:23,573 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:17:22,138 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 21:17:22,138 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 21:17:22,138 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 21:17:22,144 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:17:22,151 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 21:17:22,151 - [INFO] - 🔍 Surveying site at (-1449, -731) with radius 5...
+2026-03-28 21:17:22,151 - [INFO] - SELECTED: SKYNET_BRIDGE_6072 for deployment at (-1449, 64, -731) in AI Containment Area
+2026-03-28 21:17:22,155 - [INFO] - ✅ Generated: SKYNET_BRIDGE_6072.schem
+2026-03-28 21:17:22,170 - [INFO] - RCON Response: Incorrect argument for command
+... -731 run //paste -a<--[HERE]
+2026-03-28 21:17:22,170 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_6072 to -1449 64 -731 (AI Containment Area)
+2026-03-28 21:17:39,456 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 21:17:39,457 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 21:17:39,457 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 21:17:39,463 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:17:39,469 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 21:17:39,469 - [INFO] - 🔍 Surveying site at (-1188, -588) with radius 5...
+2026-03-28 21:17:39,469 - [INFO] - SELECTED: SKYNET_CASTLE_2731 for deployment at (-1188, 64, -588) in AI Containment Area
+2026-03-28 21:17:39,481 - [INFO] - ✅ Generated: SKYNET_CASTLE_2731.schem
+2026-03-28 21:17:39,497 - [INFO] - RCON Response: §cError:§4 Player not found.
+
+2026-03-28 21:17:39,502 - [INFO] - 🚀 Deployed SKYNET_CASTLE_2731 to -1188 64 -588 (AI Containment Area)
+2026-03-28 21:21:08,864 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 21:21:08,864 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 21:21:08,865 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 21:21:08,871 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:21:08,877 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 21:21:08,877 - [INFO] - 🔍 Surveying site at (-1186, -835) with radius 5...
+2026-03-28 21:21:08,877 - [INFO] - SELECTED: SKYNET_HOUSE_4205 for deployment at (-1186, 64, -835) in AI Containment Area
+2026-03-28 21:21:08,883 - [INFO] - ✅ Generated: SKYNET_HOUSE_4205.schem
+2026-03-28 21:21:08,893 - [INFO] - RCON Load Response: 
+2026-03-28 21:21:08,898 - [INFO] - RCON Response: Incorrect argument for command
+... -835 run //paste -a<--[HERE]
+2026-03-28 21:21:08,898 - [INFO] - RCON Paste Response: Incorrect argument for command
+... -835 run //paste -a<--[HERE]
+2026-03-28 21:21:08,898 - [INFO] - 🚀 Deployed SKYNET_HOUSE_4205 to -1186 64 -835 (AI Containment Area)
+2026-03-28 21:22:20,704 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-28 21:22:20,704 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-28 21:22:20,704 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-28 21:22:20,710 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:22:20,717 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 21:22:20,717 - [INFO] - 🔍 Surveying site at (-1268, -781) with radius 5...
+2026-03-28 21:22:20,717 - [INFO] - SELECTED: SKYNET_STATION_5913 for deployment at (-1268, 64, -781) in AI Containment Area
+2026-03-28 21:22:20,722 - [INFO] - ✅ Generated: SKYNET_STATION_5913.schem
+2026-03-28 21:22:20,732 - [INFO] - RCON Load [SKYNET_STATION_5913]: 
+2026-03-28 21:22:20,736 - [INFO] - RCON Paste [-t]: 
+2026-03-28 21:22:20,736 - [INFO] - 🚀 Deployed SKYNET_STATION_5913 to -1268 64 -781 (AI Containment Area)
+2026-03-28 21:27:20,745 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:32:20,753 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:37:20,767 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:42:20,776 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:47:20,789 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:52:20,797 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 21:57:20,811 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:02:20,819 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:07:20,832 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:12:20,841 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:17:20,854 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:22:20,862 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:22:20,869 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 22:22:20,869 - [INFO] - 🔍 Surveying site at (-1323, -584) with radius 5...
+2026-03-28 22:22:20,869 - [INFO] - SELECTED: SKYNET_HOUSE_8841 for deployment at (-1323, 64, -584) in AI Containment Area
+2026-03-28 22:22:20,875 - [INFO] - ✅ Generated: SKYNET_HOUSE_8841.schem
+2026-03-28 22:22:20,884 - [INFO] - RCON Load [SKYNET_HOUSE_8841]: 
+2026-03-28 22:22:20,889 - [INFO] - RCON Paste [-t]: 
+2026-03-28 22:22:20,889 - [INFO] - 🚀 Deployed SKYNET_HOUSE_8841 to -1323 64 -584 (AI Containment Area)
+2026-03-28 22:27:20,897 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:32:20,906 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:37:20,925 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:42:20,935 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:47:20,948 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:52:20,957 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 22:57:20,970 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:02:20,979 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:07:20,993 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:12:21,002 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:17:21,019 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:22:21,027 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:22:21,034 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-28 23:22:21,034 - [INFO] - 🔍 Surveying site at (-1088, -739) with radius 5...
+2026-03-28 23:22:21,034 - [INFO] - SELECTED: SKYNET_HOUSE_1532 for deployment at (-1088, 64, -739) in AI Containment Area
+2026-03-28 23:22:21,039 - [INFO] - ✅ Generated: SKYNET_HOUSE_1532.schem
+2026-03-28 23:22:21,049 - [INFO] - RCON Load [SKYNET_HOUSE_1532]: 
+2026-03-28 23:22:21,054 - [INFO] - RCON Paste [-t]: 
+2026-03-28 23:22:21,054 - [INFO] - 🚀 Deployed SKYNET_HOUSE_1532 to -1088 64 -739 (AI Containment Area)
+2026-03-28 23:27:21,062 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:32:21,071 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:37:21,084 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:42:21,093 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:47:21,106 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:52:21,115 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-28 23:57:21,128 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:02:21,139 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:07:21,151 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:12:21,160 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:17:21,173 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:22:21,181 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:22:21,188 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 00:22:21,188 - [INFO] - 🔍 Surveying site at (-1046, -594) with radius 5...
+2026-03-29 00:22:21,188 - [INFO] - SELECTED: SKYNET_HOUSE_3525 for deployment at (-1046, 64, -594) in AI Containment Area
+2026-03-29 00:22:21,195 - [INFO] - ✅ Generated: SKYNET_HOUSE_3525.schem
+2026-03-29 00:22:21,204 - [INFO] - RCON Load [SKYNET_HOUSE_3525]: 
+2026-03-29 00:22:21,209 - [INFO] - RCON Paste [-t]: 
+2026-03-29 00:22:21,209 - [INFO] - 🚀 Deployed SKYNET_HOUSE_3525 to -1046 64 -594 (AI Containment Area)
+2026-03-29 00:27:21,218 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:32:21,226 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:37:21,239 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:42:21,247 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:47:21,260 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:52:21,269 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 00:57:21,282 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:02:21,290 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:07:21,303 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:12:21,312 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:17:21,325 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:22:21,333 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:22:21,339 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 01:22:21,340 - [INFO] - 🔍 Surveying site at (-1226, -892) with radius 5...
+2026-03-29 01:22:21,340 - [INFO] - SELECTED: SKYNET_CASTLE_6359 for deployment at (-1226, 64, -892) in AI Containment Area
+2026-03-29 01:22:21,372 - [INFO] - ✅ Generated: SKYNET_CASTLE_6359.schem
+2026-03-29 01:22:21,382 - [INFO] - RCON Load [SKYNET_CASTLE_6359]: 
+2026-03-29 01:22:21,386 - [INFO] - RCON Paste [-t]: 
+2026-03-29 01:22:21,386 - [INFO] - 🚀 Deployed SKYNET_CASTLE_6359 to -1226 64 -892 (AI Containment Area)
+2026-03-29 01:27:21,395 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:32:21,403 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:37:21,416 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:42:21,425 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:47:21,438 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:52:21,446 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 01:57:21,459 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:02:21,467 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:07:21,480 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:12:21,489 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:17:21,502 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:22:21,510 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:22:21,517 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 02:22:21,517 - [INFO] - 🔍 Surveying site at (-1185, -641) with radius 5...
+2026-03-29 02:22:21,517 - [INFO] - SELECTED: SKYNET_BRIDGE_8011 for deployment at (-1185, 64, -641) in AI Containment Area
+2026-03-29 02:22:21,520 - [INFO] - ✅ Generated: SKYNET_BRIDGE_8011.schem
+2026-03-29 02:22:21,529 - [INFO] - RCON Load [SKYNET_BRIDGE_8011]: 
+2026-03-29 02:22:21,534 - [INFO] - RCON Paste [-t]: 
+2026-03-29 02:22:21,534 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_8011 to -1185 64 -641 (AI Containment Area)
+2026-03-29 02:27:21,542 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:32:21,550 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:37:21,563 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:42:21,572 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:47:21,585 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:52:21,593 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 02:57:21,606 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:02:21,614 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:07:21,627 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:12:21,635 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:17:21,649 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:22:21,657 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:22:21,664 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 03:22:21,664 - [INFO] - 🔍 Surveying site at (-1333, -557) with radius 5...
+2026-03-29 03:22:21,664 - [INFO] - SELECTED: SKYNET_HOUSE_7169 for deployment at (-1333, 64, -557) in AI Containment Area
+2026-03-29 03:22:21,668 - [INFO] - ✅ Generated: SKYNET_HOUSE_7169.schem
+2026-03-29 03:22:21,677 - [INFO] - RCON Load [SKYNET_HOUSE_7169]: 
+2026-03-29 03:22:21,682 - [INFO] - RCON Paste [-t]: 
+2026-03-29 03:22:21,682 - [INFO] - 🚀 Deployed SKYNET_HOUSE_7169 to -1333 64 -557 (AI Containment Area)
+2026-03-29 03:27:21,691 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:32:21,699 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:37:21,712 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:42:21,721 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:47:21,734 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:52:21,743 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 03:57:21,756 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:02:21,764 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:07:21,777 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:12:21,786 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:17:21,800 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:22:21,813 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:22:21,821 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 04:22:21,821 - [INFO] - 🔍 Surveying site at (-1321, -582) with radius 5...
+2026-03-29 04:22:21,821 - [INFO] - SELECTED: SKYNET_STATION_6035 for deployment at (-1321, 64, -582) in AI Containment Area
+2026-03-29 04:22:21,823 - [INFO] - ✅ Generated: SKYNET_STATION_6035.schem
+2026-03-29 04:22:21,833 - [INFO] - RCON Load [SKYNET_STATION_6035]: 
+2026-03-29 04:22:21,838 - [INFO] - RCON Paste [-t]: 
+2026-03-29 04:22:21,838 - [INFO] - 🚀 Deployed SKYNET_STATION_6035 to -1321 64 -582 (AI Containment Area)
+2026-03-29 04:27:21,846 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:32:21,854 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:37:21,867 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:42:21,875 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:47:21,888 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:52:21,897 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 04:57:21,910 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:02:21,919 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:07:21,931 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:12:21,939 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:17:21,952 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:22:21,960 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:22:21,967 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 05:22:21,967 - [INFO] - 🔍 Surveying site at (-1177, -791) with radius 5...
+2026-03-29 05:22:21,967 - [INFO] - SELECTED: SKYNET_TOWER_9751 for deployment at (-1177, 64, -791) in AI Containment Area
+2026-03-29 05:22:21,976 - [INFO] - ✅ Generated: SKYNET_TOWER_9751.schem
+2026-03-29 05:22:21,986 - [INFO] - RCON Load [SKYNET_TOWER_9751]: 
+2026-03-29 05:22:21,991 - [INFO] - RCON Paste [-t]: 
+2026-03-29 05:22:21,991 - [INFO] - 🚀 Deployed SKYNET_TOWER_9751 to -1177 64 -791 (AI Containment Area)
+2026-03-29 05:27:21,999 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:32:22,008 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:37:22,020 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:42:22,029 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:47:22,041 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:52:22,050 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 05:57:22,063 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:02:22,071 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:07:22,085 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:12:22,093 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:17:22,106 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:22:22,114 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:22:22,121 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 06:22:22,121 - [INFO] - 🔍 Surveying site at (-1209, -625) with radius 5...
+2026-03-29 06:22:22,121 - [INFO] - SELECTED: SKYNET_TOWER_6332 for deployment at (-1209, 64, -625) in AI Containment Area
+2026-03-29 06:22:22,130 - [INFO] - ✅ Generated: SKYNET_TOWER_6332.schem
+2026-03-29 06:22:22,139 - [INFO] - RCON Load [SKYNET_TOWER_6332]: 
+2026-03-29 06:22:22,144 - [INFO] - RCON Paste [-t]: 
+2026-03-29 06:22:22,144 - [INFO] - 🚀 Deployed SKYNET_TOWER_6332 to -1209 64 -625 (AI Containment Area)
+2026-03-29 06:27:22,152 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:32:22,161 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:37:22,173 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:42:22,182 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:47:22,195 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:52:22,204 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 06:57:22,217 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:02:22,229 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:07:22,243 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:12:22,251 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:17:22,263 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:22:22,271 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:22:22,278 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 07:22:22,278 - [INFO] - 🔍 Surveying site at (-1172, -864) with radius 5...
+2026-03-29 07:22:22,278 - [INFO] - SELECTED: SKYNET_BRIDGE_9860 for deployment at (-1172, 64, -864) in AI Containment Area
+2026-03-29 07:22:22,280 - [INFO] - ✅ Generated: SKYNET_BRIDGE_9860.schem
+2026-03-29 07:22:22,290 - [INFO] - RCON Load [SKYNET_BRIDGE_9860]: 
+2026-03-29 07:22:22,294 - [INFO] - RCON Paste [-t]: 
+2026-03-29 07:22:22,294 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_9860 to -1172 64 -864 (AI Containment Area)
+2026-03-29 07:27:22,302 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:32:22,311 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:37:22,323 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:42:22,332 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:47:22,344 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:52:22,353 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 07:57:22,365 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:02:22,373 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:07:22,386 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:12:22,396 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:17:22,414 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:22:22,423 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:22:22,435 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 08:22:22,435 - [INFO] - 🔍 Surveying site at (-948, -817) with radius 5...
+2026-03-29 08:22:22,435 - [INFO] - SELECTED: SKYNET_BRIDGE_1596 for deployment at (-948, 64, -817) in AI Containment Area
+2026-03-29 08:22:22,438 - [INFO] - ✅ Generated: SKYNET_BRIDGE_1596.schem
+2026-03-29 08:22:22,447 - [INFO] - RCON Load [SKYNET_BRIDGE_1596]: 
+2026-03-29 08:22:22,451 - [INFO] - RCON Paste [-t]: 
+2026-03-29 08:22:22,451 - [INFO] - 🚀 Deployed SKYNET_BRIDGE_1596 to -948 64 -817 (AI Containment Area)
+2026-03-29 08:27:22,460 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:32:22,469 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:37:22,488 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:42:22,496 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:47:22,515 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:52:22,525 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 08:57:22,543 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 09:02:22,552 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 09:07:22,571 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 09:12:22,580 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 09:17:22,598 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 09:22:22,606 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 09:22:22,618 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 09:22:22,618 - [INFO] - 🔍 Surveying site at (-1424, -493) with radius 5...
+2026-03-29 09:22:22,618 - [INFO] - SELECTED: SKYNET_CASTLE_4867 for deployment at (-1424, 64, -493) in AI Containment Area
+2026-03-29 09:22:22,640 - [INFO] - ✅ Generated: SKYNET_CASTLE_4867.schem
+2026-03-29 09:22:22,651 - [INFO] - RCON Load [SKYNET_CASTLE_4867]: 
+2026-03-29 09:22:22,655 - [INFO] - RCON Paste [-t]: 
+2026-03-29 09:22:22,655 - [INFO] - 🚀 Deployed SKYNET_CASTLE_4867 to -1424 64 -493 (AI Containment Area)
+2026-03-29 09:27:22,665 - [INFO] - 📡 RCON Link: ACTIVE
