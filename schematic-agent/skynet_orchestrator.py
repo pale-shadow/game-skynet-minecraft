@@ -13,17 +13,16 @@ import logging
 # TODO: Move to a dedicated config file (e.g., config.json)
 RCON_HOST = "localhost"
 RCON_PORT = 25575
-RCON_PASSWORD = "YourUltraSecurePassword"  # Replace with your actual RCON password
+RCON_PASSWORD = "YourUltraSecurePassword"
 
 BUILD_COOLDOWN_HOURS = 1
 PLAYER_CHECK_SECONDS = 600  # 10 minutes
 WARNING_INTERVAL_SECONDS = 30  # 30 seconds
 
-# Robust Logging Path [Conversation]
+
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_FILE = os.path.join(PROJECT_ROOT, "logs", "skynet_orchestrator.log")
 
-# Setup Professional Logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - [%(levelname)s] - %(message)s',
@@ -33,7 +32,6 @@ logging.basicConfig(
     ]
 )
 
-# The AI containment fields / industrial areas
 SECTORS = {
     "Shroomville Urban District": {"x": (1600, 1850), "z": (650, 900)},
     "Silicon Ridge (Beta-Zone)": {"x": (1400, 1575), "z": (700, 875)},
