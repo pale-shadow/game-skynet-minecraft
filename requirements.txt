@@ -1,6 +1,9 @@
-mcrcon
+rcon
 requests
 google-genai
-rcon
+mcrcon
 pycoral-pi5
 tflite-runtime
+mcschematic
+pytest
+pytest-mock

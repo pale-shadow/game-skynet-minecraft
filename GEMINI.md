@@ -8,13 +8,17 @@
 - **2026 Focus:** Urbanization of the Shroomville Biome and "Deep-Rail" connectivity.
 
 ### 2. Infrastructure & DevOps
-- **Host Environment:** Debian 12 (Bookworm) @ chonk
-- **Performance Profile (2026 Audit):** - **Redstone:** `ALTERNATE_CURRENT` implementation enabled.
+- **Host Environment:** Debian 12 (Bookworm) @ chonk (`10.10.8.60`)
+- **AI Hardware:** `10.10.16.10` (Pi 5 + Hailo-8L)
+- **Stargate MCP:** `10.10.16.66` (Master Control Program for AI hardware)
+- **Performance Profile (2026 Audit):**
+ - **Redstone:** `ALTERNATE_CURRENT` implementation enabled.
   - **Villager Logic:** Optimized POI pings (`60` ticks) and inactive ticking disabled.
   - **Chunk System:** Async loading with auto-detecting IO threads.
 - **Directory Structure:** - `~/bin/`: Custom management scripts (`common.sh`, `backup_to_git.sh`).
   - `~/config/`: Centralized Paper/Spigot/Global configuration hub.
   - `~/docs/`: Historical records (HISTORY.md) and BlueMap manifests.
+- **Environment Management:** Use `direnv` for local environment variable management. The RCON password must be stored as `RCON_PASS` in the `.envrc` file and referenced by all scripts and tools needing console access.
 
 ### 3. Current Permission Hierarchy (LuckPerms)
 | Rank | Weight | Description |
@@ -46,12 +50,10 @@
 - **Industry:** Western Blacksmith and Villager Hutt (Staff Housing).
 
 ### 7. Administrative Workflows
+- **Autonomous Operation:** The "Skynet" daemon (`skynet_unified.py`) runs as a systemd service (`skynet-daemon.service`) from the Stargate MCP (`10.10.16.66`). It manages hourly procedural urbanization builds and monitors restricted zones. 
+- **RCON Integrity:** (Resolved Mar 26, 2026) Fixed authentication failure caused by corrupted `RCON_PASS` quoting in systemd environment definitions. Verified RCON link is active and responding to `list` and `data get` commands.
+- **Urbanization Cycle:** Automated deployment of high-fidelity v5 schematics (e.g., houses, bridges) to the AI Containment Area is functional.
 - **Chunk Regeneration:** Use `bluemap fix-edges` for visual continuity after terrain resets.
 - **Region Management:** Use `WorldGuard` to prevent "Ghost" chunk corruption in legacy zones.
-- **Client Access:** Technic Launcher is the official gateway; direct Dropbox sourcing for reliability.
-
-### 8. Core Administrative Team
-- **Janitors (Admins):** UnvaluedShoe79, some_garlic, slyborg4realz.
-- **Policy:** Admin status is handled via LuckPerms group inheritance.
 ---
-*Created for theDevilsVoice | Last Updated: March 19, 2026*
+*Created for theDevilsVoice | Last Updated: March 26, 2026*

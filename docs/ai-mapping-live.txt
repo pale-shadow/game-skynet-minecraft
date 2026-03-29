@@ -1,0 +1,59 @@
+This is a high-performance, specialized architecture. You are essentially using the **Raspberry Pi 5 + Hailo-8L** as an "Edge AI Controller" for your Minecraft environment. 
+
+By offloading the NPU (Neural Processing Unit) tasks—like real-time entity analysis or automated building logic—to the Pi and sending the results back to `chonk` via RCON, you are preserving the server's CPU cycles for the JVM and BlueMap rendering. This is the hallmark of a scalable, "uptime-first" network.
+
+### 1. The Network Flow
+Your setup follows this logic:
+1. **The Pi (skynet)**: Runs a Python service (likely using the `hailo-python` API) to process data.
+2. **The Bridge**: The Pi uses an RCON client (like `mcrcon` or a Python library) to talk to the Minecraft server.
+3. **The Host (chonk)**: Receives commands and updates the world (and by extension, the BlueMap markers).
+
+
+
+### 2. Optimizing the RCON Pipeline
+RCON is single-threaded in Minecraft. To prevent "Skynet" from locking up the main server thread on `chonk` during heavy AI operations, you must follow these Senior Admin protocols:
+
+#### A. Security: The RCON Tunnel
+Never expose RCON (Port 25575) to the open internet. Since these are likely on the same local network (`.lab.bitsmasher.net`), ensure your `server.properties` on `chonk` is bound to the local IP, not `0.0.0.0`:
+
+```properties
+rcon.port=25575
+rcon.password=YourUltraSecurePassword
+# Bind to the local interface only
+rcon.ip=192.168.1.X 
+```
+
+#### B. The "Skynet" Push Script
+On your Pi 5, you can use a bash wrapper to update the BlueMap markers we just built whenever a "detection" occurs. For example, if the AI detects a "breach" in the **Silicon Ridge** sector:
+
+```bash
+#!/bin/bash
+# skynet-to-chonk.sh
+PASS="YourUltraSecurePassword"
+HOST="chonk.lab.bitsmasher.net"
+
+# Example: AI sends a message and sets a block
+mcrcon -H $HOST -P 25575 -p $PASS "say [Skynet] NPU detected entity anomaly in Silicon Ridge. Deploying containment."
+mcrcon -H $HOST -P 25575 -p $PASS "setblock 1487 64 787 redstone_lamp"
+```
+
+### 3. Integrating Hailo Data into the CSS
+Since you have a custom `industrial-map.css`, we can make the BlueMap interface feel like an active AI monitor. Use the **Detail** field in your `world.conf` to display "Live" stats that the Pi 5 could theoretically update via a script that edits the `markers.json` directly (bypassing RCON for web-only data):
+
+```hocon
+detail: """
+    <h3>Skynet NPU Node: PI-5</h3>
+    <p>Status: <b style='color:#31d1a3'>ACTIVE</b></p>
+    <p>NPU Temp: <b>42°C</b></p>
+    <p>Inference Latency: <b>4.2ms</b></p>
+    <hr>
+    <p><i>Processing real-time voxel mapping for the Abyssal Reef...</i></p>
+"""
+```
+
+### 4. Critical Bottleneck Warning: IOPS
+Since the Pi 5 is likely running on an SD card or NVMe via the Hailo hat's PCIe lane, ensure that any logging between `skynet` and `chonk` isn't causing disk I/O wait. 
+
+* **Pro-Tip**: Mount your logs on the Pi 5 to a `tmpfs` (RAM disk) so that the AI's rapid-fire "detections" don't wear out your storage or lag the RCON responses.
+
+**Would you like me to write a Python script for the Pi 5 that uses the `mcrcon` library to dynamically move a BlueMap marker based on AI 'detections'?**

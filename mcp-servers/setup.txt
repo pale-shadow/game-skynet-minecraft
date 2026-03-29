@@ -1,0 +1,41 @@
+Setting up the MCP (Model Context Protocol) server on stargate.research.bitsmasher.net involves preparing the high-speed NVMe environment, installing the necessary SDKs, and configuring the specific tools required for the Skynet AI Brain and T2BM architectural inference.
+1. Prepare the Environment on Stargate
+Since Stargate uses a 476.9G NVMe SSD mounted at /mnt/clusterfs2, you should host the MCP environment there to ensure low-latency I/O for schematic parsing and model weight retrieval.
+
+    Navigate to the NVMe mount and clone the repository:
+    Create and activate a specialized virtual environment:
+
+2. Install the MCP Python SDK
+The Model Context Protocol allows your LLM (running the T2BM model) to interact with external tools like your Go-based schem-gen and RCON client.
+
+    Install the core SDK:
+
+3. Configure the Specialized MCP Servers
+You need to initialize the four primary servers that bridge the AI's logic with the Minecraft server's physical world.
+
+    Filesystem MCP Server: Grants the AI access to the schematics/, models/, and internal/ directories to read "Noodle Logic" blueprints and write new spatial representations.
+    RCON Tool Server: Wraps your SkynetRCON client. This turns RCON commands into "tools" that the LLM can call to perform the "Decoding" and "Repairing" stages of the T2BM process in real-time.
+    Git Automation Server: Integrates your backup_to_git.sh script, allowing the AI to autonomously push successful "Void-Tech" designs to GitHub.
+    Database Context Server: Connects to the MariaDB host blowfish.lab.bitsmasher.net (10.10.12.15). This tool is critical for safety; it allows the AI to query CoreProtect logs and WorldGuard regions to avoid building over Permanent Cultural Heritage Zones.
+
+4. Integrate the Orchestrator (skynet_unified.py)
+Modify your orchestrator code on Stargate to act as the MCP Host. Instead of executing shell commands directly, the "Brain" will now send standardized protocol requests to these tools.
+
+    Update the pathing: Ensure all internal imports point to the new /mnt/clusterfs2/game-chonk-minecraft/ structure.
+    Link T2BM logic: Configure the orchestrator to pass refined prompts through the Filesystem MCP to the T2BM model, then use the RCON Tool to deploy the result.
+
+5. Safety and Performance Guardrails
+With the MCP servers active, you must ensure the following plugins are running on the Chonk server to act as the physical "guardrails" for the AI:
+
+    WorldGuard: Defines the restricted industrial field boundaries that the MCP Database server will check before construction.
+    CoreProtect: Logs all AI-driven block mutations for instant rollback if the "Repairing" stage fails.
+    Spark: Use the MCP to monitor Spark profiler reports to ensure the architectural agent does not drop the server below 20 TPS.
+
+6. Final Service Activation
+Update your skynet-daemon.service on the Stargate host to point to the new working directory and virtual environment:
+
+[Service]
+WorkingDirectory=/mnt/clusterfs2/game-chonk-minecraft/schematics
+ExecStart=/mnt/clusterfs2/game-chonk-minecraft/venv/bin/python3 skynet_unified.py
+
+After updating, run sudo systemctl daemon-reload and sudo systemctl restart skynet-daemon to begin the Phase 2.1 Urbanization cycle with full MCP integration.
