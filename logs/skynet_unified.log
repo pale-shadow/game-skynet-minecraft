@@ -704,3 +704,7 @@ re.error: unbalanced parenthesis at position 15
 2026-03-29 09:22:22,655 - [INFO] - RCON Paste [-t]: 
 2026-03-29 09:22:22,655 - [INFO] - 🚀 Deployed SKYNET_CASTLE_4867 to -1424 64 -493 (AI Containment Area)
 2026-03-29 09:27:22,665 - [INFO] - 📡 RCON Link: ACTIVE
+/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
+/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
+/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
+/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory

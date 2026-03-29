@@ -5,12 +5,12 @@ After=network.target
 [Service]
 Environment="CHONK_IP=chonk.lab.bitsmasher.net" "RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575"
 User=franklin
-WorkingDirectory=/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent
-ExecStart=/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 skynet_unified.py
+WorkingDirectory=/home/minecraft/schematics
+ExecStart=/home/minecraft/.venv/bin/python3 skynet_unified.py
 Restart=always
 RestartSec=10
-StandardOutput=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_unified.log
-StandardError=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_unified.log
+StandardOutput=append:/home/minecraft/logs/skynet_unified.log
+StandardError=append:/home/minecraft/logs/skynet_unified.log
 
 
 [Install]
