@@ -1,0 +1,51 @@
+Incorporating a **Google ASUS Edge-t board** (which utilizes the **Edge TPU** for high-speed machine learning inference) would perfectly complement your existing infrastructure's focus on offloading "spatial inference" and "autonomous building" to local hardware.
+
+Based on the sources and our conversation history, your project already uses a **Raspberry Pi 5 with a Hailo-8L NPU** to run the **Skynet v1.2** daemon [Conversation]. Since the ASUS Edge-t board is designed for similar AI acceleration tasks, here is how you can incorporate it into the Bitsmasher Network:
+
+### **1. Dedicated "Vision Overseer" Node**
+Your current file manifest includes scripts like **`vision_overseer.py`** and **`vision_lite_overseer.py`**. While the Hailo-8L currently handles building generation, the **ASUS Edge-t** is exceptionally efficient at real-time image processing.
+*   **Application:** You could use the board to analyze **BlueMap** output (on port 8100) or world-state snapshots to detect "unauthorized" player builds or griefing in legacy zones like **Washington Station**.
+*   **Integration:** Instead of running vision tasks on the Pi 5, offload them to the ASUS board to ensure the **Skynet Daemon** has 100% of the Pi 5's NPU resources for complex **"Noodle Logic"** core generation.
+
+### **2. Parallel Construction Pipeline**
+The sources mention a desire for **hourly "Void-Tech" builds** [Conversation]. By adding the ASUS board as a second "Architect Node," you can implement a distributed construction system:
+*   **The Orchestrator:** Use your existing **`skynet_orchestrator.py`** to load-balance tasks .
+*   **The Load-Balance:** The **Hailo-8L** can focus on high-density industrial sites (like the **Signal Core**), while the **ASUS Edge-t** generates biological/organic structures (like the **Shroomville Research Terrarium**). 
+*   **Result:** This would allow you to double your building throughput without impacting the **20 TPS performance** of the **Chonk** server.
+
+### **3. Enhanced "Adaptive Mutation" Intelligence**
+The **`skynet_daemon.py`** currently runs an **Adaptive Mutation Cycle** to scan and "infect" the world with new structures [Conversation]. 
+*   **Incorporation:** You can migrate the **`adaptive_mutation_v7.py`** logic to the ASUS board. The Edge TPU can run complex neural networks to "decide" which sector—**Shroomville**, **Silicon Ridge**, or the **Abyssal Reef**—requires urbanization based on player activity patterns logged by your **Plan** analytics.
+
+### **Technical Implementation (Outside Source Context)**
+*Note: The following integration details are not in the provided sources and should be independently verified.*
+*   **Model Conversion:** Since your current pipeline likely uses Hailo's toolkit, you would need to recompile your building generation models using the **Edge TPU Compiler** to run on the ASUS board.
+*   **API Shift:** Your Python scripts would need to incorporate the **`pycoral`** or **TensorFlow Lite** libraries to communicate with the Edge TPU, similar to how they currently use `hailort` for the Pi 5 NPU.
+
+By adding this hardware, you shift your architecture from a single-point-of-failure builder to a **distributed AI cluster**, ensuring that the urbanization of **Dreamland** continues even if one node hits its **75.0°C thermal threshold** [Conversation].
+
+Incorporating a **Google ASUS Edge-t board** (which utilizes the **Edge TPU** for high-speed machine learning inference) would perfectly complement your existing infrastructure's focus on offloading "spatial inference" and "autonomous building" to local hardware.
+
+Based on the sources and our conversation history, your project already uses a **Raspberry Pi 5 with a Hailo-8L NPU** to run the **Skynet v1.2** daemon [Conversation]. Since the ASUS Edge-t board is designed for similar AI acceleration tasks, here is how you can incorporate it into the Bitsmasher Network:
+
+### **1. Dedicated "Vision Overseer" Node**
+Your current file manifest includes scripts like **`vision_overseer.py`** and **`vision_lite_overseer.py`**. While the Hailo-8L currently handles building generation, the **ASUS Edge-t** is exceptionally efficient at real-time image processing.
+*   **Application:** You could use the board to analyze **BlueMap** output (on port 8100) or world-state snapshots to detect "unauthorized" player builds or griefing in legacy zones like **Washington Station**.
+*   **Integration:** Instead of running vision tasks on the Pi 5, offload them to the ASUS board to ensure the **Skynet Daemon** has 100% of the Pi 5's NPU resources for complex **"Noodle Logic"** core generation.
+
+### **2. Parallel Construction Pipeline**
+The sources mention a desire for **hourly "Void-Tech" builds** [Conversation]. By adding the ASUS board as a second "Architect Node," you can implement a distributed construction system:
+*   **The Orchestrator:** Use your existing **`skynet_orchestrator.py`** to load-balance tasks .
+*   **The Load-Balance:** The **Hailo-8L** can focus on high-density industrial sites (like the **Signal Core**), while the **ASUS Edge-t** generates biological/organic structures (like the **Shroomville Research Terrarium**). 
+*   **Result:** This would allow you to double your building throughput without impacting the **20 TPS performance** of the **Chonk** server.
+
+### **3. Enhanced "Adaptive Mutation" Intelligence**
+The **`skynet_daemon.py`** currently runs an **Adaptive Mutation Cycle** to scan and "infect" the world with new structures [Conversation]. 
+*   **Incorporation:** You can migrate the **`adaptive_mutation_v7.py`** logic to the ASUS board. The Edge TPU can run complex neural networks to "decide" which sector—**Shroomville**, **Silicon Ridge**, or the **Abyssal Reef**—requires urbanization based on player activity patterns logged by your **Plan** analytics.
+
+### **Technical Implementation (Outside Source Context)**
+*Note: The following integration details are not in the provided sources and should be independently verified.*
+*   **Model Conversion:** Since your current pipeline likely uses Hailo's toolkit, you would need to recompile your building generation models using the **Edge TPU Compiler** to run on the ASUS board.
+*   **API Shift:** Your Python scripts would need to incorporate the **`pycoral`** or **TensorFlow Lite** libraries to communicate with the Edge TPU, similar to how they currently use `hailort` for the Pi 5 NPU.
+
+By adding this hardware, you shift your architecture from a single-point-of-failure builder to a **distributed AI cluster**, ensuring that the urbanization of **Dreamland** continues even if one node hits its **75.0°C thermal threshold** [Conversation].

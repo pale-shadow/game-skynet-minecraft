@@ -105,3 +105,53 @@ singleplayer with cheats enabled.
 Some other conditions available are dimension, location, spawn, ftbchunks:claimed_chunk. Logical
 comparators like not, and, or and xor can be used to combine multiple conditions. Lastly the
 playtime condition can be used with time and time_unit properties to auto-promote ranks after a specified time has passed. Valid time units are ticks, seconds, minutes, hours, days and weeks.
+
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+✦ Yes, there is significant redundancy in the current Python codebase. Currently, the system is split across multiple scripts that often
+  repeat the same setup logic, environment configuration, and communication boilerplate.
+
+  Points of Redundancy
+
+   1. RCON Communication Proliferation:
+       * At least five files (skynet_daemon.py, skynet_orchestrator.py, skynet_process.py, adaptive_mutation_v7.py, and
+         vision_lite_overseer.py) independently manage RCON connections.
+       * Each file re-implements MCRcon context managers and handles RCON errors slightly differently.
+
+   2. Configuration Drift:
+       * Environment variables like CHONK_IP, RCON_PASS, and RCON_PORT are fetched via os.getenv in nearly every file.
+       * Spatial constants like FIELD_BOUNDS and SECTORS (which define where Skynet can build) are hard-coded in multiple places, making it
+         difficult to update the "AI Field" boundaries globally.
+
+   3. Logging Boilerplate:
+       * Every script now contains a nearly identical logging.basicConfig block.
+       * Path resolution logic for finding the logs/ folder from different subdirectories is repeated across the codebase.
+
+   4. Service Overlap (The "Two Daemons" Problem):
+       * skynet_daemon.py: Handles hourly "Void-Tech" builds using direct fill commands and manages "Adaptive Mutation" (sculk infections).
+       * skynet_orchestrator.py: Handles hourly "Urbanization" builds using .schem files and manages player detection/warnings.
+       * Both scripts run an infinite while True loop, monitor the time, and perform "hourly builds," but they do so in isolation from one
+         another.
+
+  Proposed Consolidation Strategy
+
+  To drive out duplication without losing functionality, I recommend the following architectural refactor:
+
+   1. Create skynet_core.py:
+       * A central utility module that initializes logging for any script that imports it.
+       * A single Config class that loads and validates all environment variables and spatial boundaries.
+       * A unified SkynetRCON client that provides a thread-safe, resilient way to send commands.
+
+   2. Unified "Skynet Brain" Daemon:
+       * Merge skynet_daemon.py and skynet_orchestrator.py into a single service.
+       * This single process would manage all Skynet behaviors:
+           * Urbanization Phase: Generating and pasting .schem files.
+           * Mutation Phase: Real-time fill commands and sculk overgrowth.
+           * Containment: Player tracking and automated warnings.
+           * Diagnostics: Thermal monitoring and RCON health checks.
+
+   3. Refactor Logic Components:
+       * Update adaptive_mutation_v7.py, vision_lite_overseer.py, and npu_spatial_engine.py to import their configuration and RCON client
+         from skynet_core.py.
+
+  This would reduce the Python lines of code by approximately 30-40% and ensure that a change to a server password or build boundary only
+  needs to be made in one place. Would you like me to proceed with creating the skynet_core.py module as the first step?
