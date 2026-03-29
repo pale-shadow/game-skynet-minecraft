@@ -13,10 +13,10 @@ IFS=$'\n\t'
 LRED='\033[0;31m'
 NC='\033[0m' # No Color
 
+SERVER_DIR="/home/minecraft"
 MY_HOSTNAME=$(cat /proc/sys/kernel/hostname)
 
 function world_backup() {
-  SERVER_DIR="/home/minecraft"
   while true; do
     log_header "[$(date)] Starting scheduled world backup."
     git add ${SERVER_DIR}/world/ ${SERVER_DIR}/world_nether/ ${SERVER_DIR}/world_the_end/
