@@ -9,12 +9,9 @@ from mcrcon import MCRcon
 
 class Config:
     """Centralized configuration and spatial boundaries for Skynet."""
-    # Infrastructure
     CHONK_IP = os.getenv("CHONK_IP", "10.10.8.60")
     AI_HARDWARE = "10.10.16.10"
     MCP_HOST = "10.10.16.66"
-
-    # RCON Credentials
     RCON_PASS = os.getenv("RCON_PASS")
     RCON_PORT = int(os.getenv("RCON_PORT", 25575))
 
@@ -22,8 +19,6 @@ class Config:
     def log_config(cls, logger):
         logger.info(f"⚙️ Config: IP={cls.CHONK_IP}, Port={cls.RCON_PORT}, Pass={'***' + cls.RCON_PASS[-2:] if cls.RCON_PASS else 'None'}")
 
-    # Spatial Boundaries (AI Field / Urbanization Zones)
-    # The 'AI Field' (Desert)
     FIELD_BOUNDS = {
         "min_x": -1539,
         "max_x": -945,
@@ -32,21 +27,18 @@ class Config:
         "y_base": 64
     }
 
-    # The 'Urbanization' Sectors
     SECTORS = {
         "Shroomville Urban District": {"x": (1600, 1850), "z": (650, 900)},
         "Silicon Ridge (Beta-Zone)": {"x": (1400, 1575), "z": (700, 875)},
         "Abyssal Reef (Ocean Sector)": {"x": (1900, 2050), "z": (700, 850)}
     }
 
-    # Operational Parameters
     TEMP_THRESHOLD = 75.0  # Celsius
     BUILD_COOLDOWN = 3600  # Hourly
     RCON_CHECK_INTERVAL = 300 # 5 Minutes
     PLAYER_CHECK_INTERVAL = 600 # 10 Minutes
     WARNING_INTERVAL = 30 # 30 Seconds
 
-    # Project Paths
     PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
     SCHEM_DIR = os.path.join(PROJECT_ROOT, "schematics", "schem_files")
@@ -57,7 +49,6 @@ def setup_logging(script_name):
     os.makedirs(Config.LOG_DIR, exist_ok=True)
     log_file = os.path.join(Config.LOG_DIR, f"{script_name}.log")
     
-    # Clear existing handlers to avoid duplication
     logging.getLogger().handlers = []
     
     handlers = [logging.FileHandler(log_file)]
@@ -92,7 +83,6 @@ class SkynetRCON:
                     responses.append(resp)
                     if not silent and resp:
                         self.logger.info(f"RCON Response: {resp}")
-                    # Throttle for Hailo-8L throughput or server stability
                     if len(command) > 1:
                         time.sleep(0.01)
             return responses if len(responses) > 1 else responses[0]
