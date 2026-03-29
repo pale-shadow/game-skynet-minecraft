@@ -71,8 +71,22 @@ class SkynetUnifiedDaemon(SkynetCore):
 
             # Deployment
             self.rcon.send(f"say [Skynet] Commencing Urbanization of '{build_name}' at {tx} {ty} {tz} in {sector_name}.")
-            self.rcon.send(f"//schem load {build_name}")
-            self.rcon.send(f"execute positioned {tx} {ty} {tz} run //paste -a")
+            
+            # Load the schematic
+            resp_load = self.rcon.send(f"//schem load {build_name}")
+            logger.info(f"RCON Load [{build_name}]: {resp_load}")
+            
+            # Paste at the target coordinates using -t (to) flag for WorldEdit 7.2+
+            # Fallback to execute positioned if -t is not supported.
+            resp_paste = self.rcon.send(f"//paste -a -t {tx} {ty} {tz}")
+            logger.info(f"RCON Paste [-t]: {resp_paste}")
+            
+            # If -t failed (returned something about flags), try execute positioned
+            if "Incorrect" in str(resp_paste) or "Unknown flag" in str(resp_paste):
+                 logger.info("Retrying with 'execute positioned ... run //paste -a' (without leading // for subcommand)")
+                 resp_paste_exec = self.rcon.send(f"execute positioned {tx} {ty} {tz} run worldedit:paste -a")
+                 logger.info(f"RCON Paste [execute]: {resp_paste_exec}")
+
             logger.info(f"🚀 Deployed {build_name} to {tx} {ty} {tz} ({sector_name})")
 
         except Exception as e:

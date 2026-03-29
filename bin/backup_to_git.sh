@@ -12,18 +12,29 @@ set -euo pipefail
 IFS=$'\n\t'
 LRED='\033[0;31m'
 NC='\033[0m' # No Color
-SERVER_DIR="~/workspace/gaming/game-skynet-minecraft"
+
+MY_HOSTNAME=$(cat /proc/sys/kernel/hostname)
 
 function world_backup() {
-    while true; do
-        log_header "[$(date)] Starting skynet backup."
-        
-        git add "${SERVER_DIR}/"
-        git commit -m "Skynet Backup: $(date)"
-        git push origin $(git rev-parse --abbrev-ref HEAD)
-        
-        log_info "[$(date)] Backup complete."
-    done
+  SERVER_DIR="/home/minecraft"
+  while true; do
+    log_header "[$(date)] Starting scheduled world backup."
+    git add ${SERVER_DIR}/world/ ${SERVER_DIR}/world_nether/ ${SERVER_DIR}/world_the_end/
+    git commit -m "World Backup: $(date)"
+    git push origin $(git rev-parse --abbrev-ref HEAD)
+    log_info "[$(date)] Backup complete."
+  done
+}
+
+function host_backup() {
+  SERVER_DIR="/home/franklin/workspace/gaming/game-skynet-minecraft"
+  while true; do
+    log_header "[$(date)] Starting skynet backup."
+    git add "${SERVER_DIR}/"
+    git commit -m "Skynet Backup: $(date)"
+    git push origin $(git rev-parse --abbrev-ref HEAD)
+    log_info "[$(date)] Backup complete."
+  done
 }
 
 function main() {
@@ -36,8 +47,11 @@ function main() {
   fi
   log_info "successfully sourced ${SERVER_DIR}/bin/common.sh" && echo -e "\n"
 
-  world_backup
+  if  [ "$HOSTNAME" = "chonk.lab.bitsmasher.net" ]; then   
+    world_backup
+  else
+   host_backup
+  fi 
 }
 
 main "$@"
-
