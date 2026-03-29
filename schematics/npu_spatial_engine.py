@@ -1,5 +1,3 @@
-import argparse
-import sys
 import os
 import json
 import math
@@ -109,41 +107,11 @@ class NPUSpatialEngine:
         """
         Returns a cost weight for a specific voxel.
         Lower weight = More 'attractive' path for the Weaver (Rail Builder).
-        Input format: "x,y,z" or "label,x,z,y" (handling legacy split[3])
         """
         try:
-            parts = coords.split(',')
-            # Standardize coordinate parsing
-            if len(parts) == 3:
-                x, y, z = map(int, parts)
-            elif len(parts) >= 4:
-                # Legacy support for split[3] if it's label,x,z,y
-                x, z, y = int(parts[1]), int(parts[2]), int(parts[3])
-            else:
-                return 10.0
-
-            # Boundary Checks
-            if not (self.bounds["min_x"] <= x <= self.bounds["max_x"] and 
-                    self.bounds["min_z"] <= z <= self.bounds["max_z"]):
-                return 100.0 # Out of bounds is very unattractive
+            y_val = int(coords.split(',')[3])
             
-            # Y-Level Preference Check
-            return 0.1 if y == self.bounds["y_base"] else 5.0
-            
-        except (IndexError, ValueError):
-            return 10.0 
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--query", type=str, required=True)
-    parser.add_argument("--pos", type=str, required=True)
-    parser.add_argument("--hardware", type=str, default="hailo")
-    args = parser.parse_args()
-    engine = NPUSpatialEngine(hardware_mode=args.hardware)
-    
-    if args.query == "traversability":
-        weight = engine.query_traversability(args.pos)
-        print(weight)
+            return 0.1 if y_val == 70 else 5.0
     elif args.query == "optimal_vector":
         x, z = engine.get_optimal_vector(30, 30)
         print(f"{x},{z}")
