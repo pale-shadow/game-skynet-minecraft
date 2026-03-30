@@ -704,7 +704,122 @@ re.error: unbalanced parenthesis at position 15
 2026-03-29 09:22:22,655 - [INFO] - RCON Paste [-t]: 
 2026-03-29 09:22:22,655 - [INFO] - 🚀 Deployed SKYNET_CASTLE_4867 to -1424 64 -493 (AI Containment Area)
 2026-03-29 09:27:22,665 - [INFO] - 📡 RCON Link: ACTIVE
-/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
-/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
-/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
-/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3: can't open file '/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/skynet_unified.py': [Errno 2] No such file or directory
+2026-03-29 16:26:45,110 - [INFO] - 🚀 Skynet Unified Brain v1.5: INITIALIZED
+2026-03-29 16:26:45,110 - [INFO] - 📡 Hardware: Pi 5 + Hailo-8L (Threshold: 75.0'C)
+2026-03-29 16:26:45,110 - [INFO] - ⚙️ Config: IP=chonk.lab.bitsmasher.net, Port=25575, Pass=***69
+2026-03-29 16:26:45,117 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 16:26:45,124 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 16:26:45,125 - [INFO] - 🔍 Surveying site at (-1415, -521) with radius 5...
+2026-03-29 16:26:45,125 - [INFO] - SELECTED: SKYNET_TOWER_6401 for deployment at (-1415, 64, -521) in AI Containment Area
+2026-03-29 16:26:45,157 - [INFO] - ✅ Generated: SKYNET_TOWER_6401.schem
+2026-03-29 16:26:45,167 - [INFO] - RCON Load [SKYNET_TOWER_6401]: 
+2026-03-29 16:26:45,171 - [INFO] - RCON Paste [-t]: 
+2026-03-29 16:26:45,171 - [INFO] - 🚀 Deployed SKYNET_TOWER_6401 to -1415 64 -521 (AI Containment Area)
+2026-03-29 16:31:45,180 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 16:41:45,202 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 16:46:45,210 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 16:51:45,224 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 16:56:45,233 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:01:45,246 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:06:45,254 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:11:45,267 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:16:45,276 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:21:45,290 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:26:45,299 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:26:45,305 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 17:26:45,305 - [INFO] - 🔍 Surveying site at (-1167, -536) with radius 5...
+2026-03-29 17:26:45,306 - [INFO] - SELECTED: SKYNET_TOWER_9903 for deployment at (-1167, 64, -536) in AI Containment Area
+2026-03-29 17:26:45,313 - [INFO] - ✅ Generated: SKYNET_TOWER_9903.schem
+2026-03-29 17:26:45,322 - [INFO] - RCON Load [SKYNET_TOWER_9903]: 
+2026-03-29 17:26:45,327 - [INFO] - RCON Paste [-t]: 
+2026-03-29 17:26:45,327 - [INFO] - 🚀 Deployed SKYNET_TOWER_9903 to -1167 64 -536 (AI Containment Area)
+2026-03-29 17:31:45,335 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:36:45,344 - [INFO] - 📡 RCON Link: ACTIVE
+2026-03-29 17:44:00,445 - [ERROR] - RCON Failure: [Errno 110] Connection timed out
+2026-03-29 17:49:05,597 - [ERROR] - RCON Failure: [Errno 110] Connection timed out
+2026-03-29 17:49:08,749 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 17:52:01,879 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 17:56:54,989 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 17:57:08,109 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:02:11,229 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:07:04,348 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:07:17,468 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:12:20,598 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:17:13,718 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:17:26,828 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:22:29,949 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:26:49,953 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 18:26:49,953 - [INFO] - 🔍 Surveying site at (-1278, -663) with radius 5...
+2026-03-29 18:26:49,953 - [INFO] - SELECTED: SKYNET_STATION_6471 for deployment at (-1278, 64, -663) in AI Containment Area
+2026-03-29 18:26:49,956 - [INFO] - ✅ Generated: SKYNET_STATION_6471.schem
+2026-03-29 18:26:53,069 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:26:56,189 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:26:56,189 - [INFO] - RCON Load [SKYNET_STATION_6471]: None
+2026-03-29 18:26:59,319 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:26:59,319 - [INFO] - RCON Paste [-t]: None
+2026-03-29 18:26:59,319 - [INFO] - 🚀 Deployed SKYNET_STATION_6471 to -1278 64 -663 (AI Containment Area)
+2026-03-29 18:27:22,429 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:27:35,559 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:32:38,669 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:37:31,799 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:37:44,909 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:42:48,029 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:47:41,149 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:47:54,269 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:52:57,389 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:57:50,509 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 18:58:03,629 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:03:06,749 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:07:59,879 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:08:12,989 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:13:16,119 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:18:09,229 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:18:22,349 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:23:25,479 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:26:55,483 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 19:26:55,483 - [INFO] - 🔍 Surveying site at (-1064, -769) with radius 5...
+2026-03-29 19:26:55,483 - [INFO] - SELECTED: SKYNET_TOWER_8306 for deployment at (-1064, 64, -769) in AI Containment Area
+2026-03-29 19:26:55,500 - [INFO] - ✅ Generated: SKYNET_TOWER_8306.schem
+2026-03-29 19:26:58,599 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:27:01,719 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:27:01,719 - [INFO] - RCON Load [SKYNET_TOWER_8306]: None
+2026-03-29 19:27:04,839 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:27:04,839 - [INFO] - RCON Paste [-t]: None
+2026-03-29 19:27:04,839 - [INFO] - 🚀 Deployed SKYNET_TOWER_8306 to -1064 64 -769 (AI Containment Area)
+2026-03-29 19:28:17,949 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:28:31,079 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:33:34,189 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:38:27,309 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:38:40,439 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:43:43,549 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:48:36,669 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:48:49,789 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:53:52,910 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:58:46,039 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 19:58:59,149 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:04:02,279 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:08:55,399 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:09:08,509 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:14:11,629 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:19:04,749 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:19:17,879 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:24:20,989 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:27:00,994 - [INFO] - 🏗 Starting Urbanization Build Cycle (.schem)...
+2026-03-29 20:27:00,994 - [INFO] - 🔍 Surveying site at (-1459, -719) with radius 5...
+2026-03-29 20:27:00,994 - [INFO] - SELECTED: SKYNET_STATION_3164 for deployment at (-1459, 64, -719) in AI Containment Area
+2026-03-29 20:27:00,996 - [INFO] - ✅ Generated: SKYNET_STATION_3164.schem
+2026-03-29 20:27:04,109 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:27:07,229 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:27:07,229 - [INFO] - RCON Load [SKYNET_STATION_3164]: None
+2026-03-29 20:27:10,349 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:27:10,349 - [INFO] - RCON Paste [-t]: None
+2026-03-29 20:27:10,349 - [INFO] - 🚀 Deployed SKYNET_STATION_3164 to -1459 64 -719 (AI Containment Area)
+2026-03-29 20:29:13,469 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:29:26,589 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:34:29,709 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:39:22,829 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:39:35,949 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:44:39,069 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:49:32,199 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:49:45,309 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-03-29 20:54:48,429 - [ERROR] - RCON Failure: [Errno 113] No route to host

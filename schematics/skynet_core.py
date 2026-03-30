@@ -34,7 +34,9 @@ class Config:
     }
 
     TEMP_THRESHOLD = 75.0  # Celsius
-    BUILD_COOLDOWN = 3600  # Hourly
+    BUILD_COOLDOWN = 3600  # 1 Hour
+    BUILD_COOLDOWN_VOID = 1800  # 30 Minutes
+    BUILD_COOLDOWN_MUTATION = 300 # 5 Minutes
     RCON_CHECK_INTERVAL = 300 # 5 Minutes
     PLAYER_CHECK_INTERVAL = 600 # 10 Minutes
     WARNING_INTERVAL = 30 # 30 Seconds
@@ -106,6 +108,21 @@ class SkynetCore:
         self.last_thermal_check = 0
         self.last_player_check = 0
         self.players_in_zone = {}
+
+    @staticmethod
+    def is_within_bounds(x, z, width=5, depth=5):
+        bounds = Config.FIELD_BOUNDS
+        return (bounds["min_x"] <= x and (x + width) <= bounds["max_x"]) and \
+               (bounds["min_z"] <= z and (z + depth) <= bounds["max_z"])
+
+    @staticmethod
+    def generate_build_metadata(build_name, sector_name):
+        """Generates text for the mandatory Archival Signs based on the 2026 protocol."""
+        date_str = datetime.now().strftime("%b %d, %2026")
+        return {
+            "front": [f"&b&l{build_name}", f"&3Built: {date_str}", "&0Hardware: Pi5 / Hailo AI", ""],
+            "back": ["&8Daemon: Skynet v1.5", f"&0Sector: {sector_name}", "&2Status: Urbanized", ""]
+        }
 
     def get_temp(self):
         try:

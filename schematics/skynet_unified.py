@@ -8,7 +8,6 @@ import re
 from datetime import datetime, timedelta
 from skynet_core import Config, SkynetRCON, SkynetCore, setup_logging
 from adaptive_mutation_v7 import AdaptiveMutator
-from skynet_process import get_hailo_structure_logic
 import mcschematic
 
 # Setup standardized logging
@@ -27,7 +26,8 @@ class SkynetUnifiedDaemon(SkynetCore):
         self.last_rcon_check = 0
         self.last_player_check = 0
         self.last_urbanization_build = 0 # Hourly .schem
-        self.last_void_tech_build = 0     # Hourly Void-Tech (fill)
+        self.last_void_tech_build = 0     # 30-min Void-Tech (fill)
+        self.last_mutation_cycle = 0      # 5-min Adaptive Mutation
         
 
 
@@ -42,8 +42,9 @@ class SkynetUnifiedDaemon(SkynetCore):
         selected_type = random.choice(types)
         build_name = f"SKYNET_{selected_type.upper()}_{random.randint(1000, 9999)}"
 
-        sector_name = "AI Containment Area"
-        bounds = {"x": (Config.FIELD_BOUNDS["min_x"], Config.FIELD_BOUNDS["max_x"]), "z": (Config.FIELD_BOUNDS["min_z"], Config.FIELD_BOUNDS["max_z"])}
+        sector_name = random.choice(list(Config.SECTORS.keys()))
+        bounds = Config.SECTORS[sector_name]
+        
         tx = random.randint(bounds["x"][0], bounds["x"][1])
         tz = random.randint(bounds["z"][0], bounds["z"][1])
         ty = self.rcon.survey_site(tx, tz)
@@ -70,42 +71,76 @@ class SkynetUnifiedDaemon(SkynetCore):
             logger.info(f"✅ Generated: {build_name}.schem")
 
             # Deployment
-            self.rcon.send(f"say [Skynet] Commencing Urbanization of '{build_name}' at {tx} {ty} {tz} in {sector_name}.")
+            self.rcon.send(f"say [Skynet] Commencing Urbanization of \x27{build_name}\x27 at {tx} {ty} {tz} in {sector_name}.")
             
             # Load the schematic
             resp_load = self.rcon.send(f"//schem load {build_name}")
             logger.info(f"RCON Load [{build_name}]: {resp_load}")
             
             # Paste at the target coordinates using -t (to) flag for WorldEdit 7.2+
-            # Fallback to execute positioned if -t is not supported.
             resp_paste = self.rcon.send(f"//paste -a -t {tx} {ty} {tz}")
             logger.info(f"RCON Paste [-t]: {resp_paste}")
             
-            # If -t failed (returned something about flags), try execute positioned
-            if "Incorrect" in str(resp_paste) or "Unknown flag" in str(resp_paste):
-                 logger.info("Retrying with 'execute positioned ... run //paste -a' (without leading // for subcommand)")
+            # If -t failed, try execute positioned
+            if not resp_paste or "Incorrect" in str(resp_paste) or "Unknown flag" in str(resp_paste):
+                 logger.info("Retrying with \x27execute positioned ... run //paste -a\x27")
                  resp_paste_exec = self.rcon.send(f"execute positioned {tx} {ty} {tz} run worldedit:paste -a")
                  logger.info(f"RCON Paste [execute]: {resp_paste_exec}")
+
+            # 4. Archival Signage (Mandatory protocol)
+            meta = self.generate_build_metadata(build_name, sector_name)
+            f, b = meta["front"], meta["back"]
+            sign_nbt = (
+                f"{{front_text:{{messages:[\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[0]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[1]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[2]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[3]}\x5C\x22}}\x22]}}, "
+                f"back_text:{{messages:[\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[0]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[1]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[2]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[3]}\x5C\x22}}\x22]}}}}"
+            )
+            # Place sign at center of build on ground level
+            self.rcon.send(f"setblock {tx} {ty} {tz} minecraft:oak_sign{sign_nbt} replace")
 
             logger.info(f"🚀 Deployed {build_name} to {tx} {ty} {tz} ({sector_name})")
 
         except Exception as e:
             logger.error(f"❌ Urbanization Error: {e}")
 
+    def run_adaptive_mutation_cycle(self):
+        """Scans nodes and applies sculk mutation based on human incursions."""
+        if not self.check_thermal(): return
+        logger.info("🧪 Starting Adaptive Mutation Cycle (TPU Vision)...")
+        try:
+            self.mutator.run_cycle()
+        except Exception as e:
+            logger.error(f"❌ Mutation Cycle Error: {e}")
+
     def run_void_tech_cycle(self):
         """Generates a procedural Void-Tech structure using direct fill commands."""
+        if not self.check_thermal(): return
         logger.info("🏗 Starting Void-Tech Mutation Cycle (NPU)...")
         try:
-            sector = "AI Containment Area"
-            cmds = get_hailo_structure_logic(sector=sector)
-            if cmds:
-                # Extract coordinates from first command if possible for logging
-                coord_match = re.search(r"fill (-?\d+) (-?\d+) (-?\d+)", cmds[0])
-                coords = coord_match.groups() if coord_match else ("?", "?", "?")
-                
-                self.rcon.send(cmds)
-                self.rcon.send(f"say [Skynet] Void-Tech Mutation complete at {coords[0]} {coords[1]} {coords[2]} ({sector}).")
-                logger.info(f"✅ Successfully mutated area at {coords[0]} {coords[1]} {coords[2]} in {sector}")
+            sector_name = random.choice(list(Config.SECTORS.keys()))
+            bounds = Config.SECTORS[sector_name]
+            tx = random.randint(bounds["x"][0], bounds["x"][1])
+            tz = random.randint(bounds["z"][0], bounds["z"][1])
+            ty = Config.FIELD_BOUNDS["y_base"]
+            
+            build_name = f"VOID_CORE_{random.randint(100, 999)}"
+            
+            cmds = [
+                f"fill {tx} {ty} {tz} {tx+3} {ty+15} {tz+3} minecraft:polished_tuff",
+                f"fill {tx+1} {ty+1} {tz+1} {tx+2} {ty+14} {tz+2} minecraft:air",
+            ]
+            
+            # Metadata Signs
+            meta = self.generate_build_metadata(build_name, sector_name)
+            f, b = meta["front"], meta["back"]
+            sign_nbt = (
+                f"{{front_text:{{messages:[\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[0]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[1]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[2]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{f[3]}\x5C\x22}}\x22]}}, "
+                f"back_text:{{messages:[\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[0]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[1]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[2]}\x5C\x22}}\x22,\x22{{\x5C\x22text\x5C\x22:\x5C\x22{b[3]}\x5C\x22}}\x22]}}}}"
+            )
+            cmds.append(f"setblock {tx} {ty} {tz} minecraft:oak_sign{sign_nbt} replace")
+            cmds.append(f"say [Skynet] Void-Tech \x27{build_name}\x27 deployed at {tx} {ty} {tz} in {sector_name}.")
+            
+            self.rcon.send(cmds)
+            logger.info(f"✅ Successfully mutated area at {tx} {ty} {tz} in {sector_name}")
         except Exception as e:
             logger.error(f"❌ Void-Tech Error: {e}")
 
@@ -132,7 +167,15 @@ class SkynetUnifiedDaemon(SkynetCore):
                         self.send_warning(name)
                 self.last_player_check = now
 
-            # 3. Builds
+            # 3. Builds & Mutations
+            if now - self.last_mutation_cycle >= Config.BUILD_COOLDOWN_MUTATION:
+                self.run_adaptive_mutation_cycle()
+                self.last_mutation_cycle = now
+
+            if now - self.last_void_tech_build >= Config.BUILD_COOLDOWN_VOID:
+                self.run_void_tech_cycle()
+                self.last_void_tech_build = now
+
             if now - self.last_urbanization_build >= Config.BUILD_COOLDOWN:
                 self.run_urbanization_cycle()
                 self.last_urbanization_build = now
