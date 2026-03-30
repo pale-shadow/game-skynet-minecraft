@@ -1,7 +1,7 @@
 import os
 import nbtlib
 
-file_path = "/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent/schem_files/"
+file_path = "/home/franklin/workspace/gaming/game-skynet-minecraft/schematics/schem_files/"
 
 def validate_schematic(file_path):
     try:
