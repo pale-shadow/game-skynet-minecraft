@@ -12,6 +12,7 @@ class Config:
     CHONK_IP = os.getenv("CHONK_IP", "10.10.8.60")
     AI_HARDWARE = "10.10.16.10"
     MCP_HOST = "10.10.16.66"
+    AGENT_HOSTS = ["10.10.16.10", "10.10.16.4"] # Pi 5 + Tinker Edge T
     RCON_PASS = os.getenv("RCON_PASS")
     RCON_PORT = int(os.getenv("RCON_PORT", 25575))
 
