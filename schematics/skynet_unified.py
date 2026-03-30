@@ -92,23 +92,6 @@ class SkynetUnifiedDaemon(SkynetCore):
         except Exception as e:
             logger.error(f"❌ Urbanization Error: {e}")
 
-    def run_void_tech_cycle(self):
-        """Generates a procedural Void-Tech structure using direct fill commands."""
-        logger.info("🏗 Starting Void-Tech Mutation Cycle (NPU)...")
-        try:
-            sector = "AI Containment Area"
-            cmds = get_hailo_structure_logic(sector=sector)
-            if cmds:
-                # Extract coordinates from first command if possible for logging
-                coord_match = re.search(r"fill (-?\d+) (-?\d+) (-?\d+)", cmds[0])
-                coords = coord_match.groups() if coord_match else ("?", "?", "?")
-                
-                self.rcon.send(cmds)
-                self.rcon.send(f"say [Skynet] Void-Tech Mutation complete at {coords[0]} {coords[1]} {coords[2]} ({sector}).")
-                logger.info(f"✅ Successfully mutated area at {coords[0]} {coords[1]} {coords[2]} in {sector}")
-        except Exception as e:
-            logger.error(f"❌ Void-Tech Error: {e}")
-
     def run_loop(self):
         logger.info("🚀 Skynet Unified Brain v1.5: INITIALIZED")
         logger.info(f"📡 Hardware: Pi 5 + Hailo-8L (Threshold: {Config.TEMP_THRESHOLD}'C)")

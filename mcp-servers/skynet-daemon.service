@@ -1,17 +1,16 @@
 [Unit]
-Description=Skynet Unified AI Brain
+Description=Skynet Master Controller
 After=network.target
 
 [Service]
 Environment="CHONK_IP=chonk.lab.bitsmasher.net" "RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575"
 User=franklin
-WorkingDirectory=/home/franklin/workspace/gaming/game-skynet-minecraft/schematic-agent
-ExecStart=/home/franklin/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 skynet_unified.py
+WorkingDirectory=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics
+ExecStart=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/venv/bin/python3 skynet_controller.py
 Restart=always
 RestartSec=10
-StandardOutput=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_unified.log
-StandardError=append:/home/franklin/workspace/gaming/game-skynet-minecraft/logs/skynet_unified.log
-
+StandardOutput=append:/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/logs/skynet_controller.log
+StandardError=append:/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/logs/skynet_controller.log
 
 [Install]
 WantedBy=multi-user.target
