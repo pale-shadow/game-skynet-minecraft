@@ -1,5 +1,5 @@
 [Unit]
-Description=Skynet Unified AI Brain
+Description=Skynet Master Controller
 After=network.target
 
 [Service]
@@ -11,7 +11,6 @@ Restart=always
 RestartSec=10
 StandardOutput=append:/home/minecraft/logs/skynet_unified.log
 StandardError=append:/home/minecraft/logs/skynet_unified.log
-
 
 [Install]
 WantedBy=multi-user.target
