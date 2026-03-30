@@ -9,8 +9,11 @@
 
 ### 2. Infrastructure & DevOps
 - **Host Environment:** Debian 12 (Bookworm) @ chonk (`10.10.8.60`)
-- **AI Hardware:** `10.10.16.10` (Pi 5 + Hailo-8L)
-- **Stargate MCP:** `10.10.16.66` (Master Control Program for AI hardware)
+- **AI Hardware (NPU)**: `10.10.16.10` (Pi 5 + Hailo-8L)
+- **Vision Overseer (Edge TPU)**: `10.10.16.4` (ASUS Tinker Edge-T / Mendel Linux)
+- **Stargate MCP**: `10.10.16.66` (Master Control Program for AI hardware)
+- **Partner Node (femputer)**: `10.10.15.15` (Owner: slyb0rg). Migrated from Digital Ocean on Jan 26, 2026. Backup: [slyb0t/Stream-Minecraft-Server-](https://github.com/slyb0t/Stream-Minecraft-Server-)
+
 - **Performance Profile (2026 Audit):**
  - **Redstone:** `ALTERNATE_CURRENT` implementation enabled.
   - **Villager Logic:** Optimized POI pings (`60` ticks) and inactive ticking disabled.
