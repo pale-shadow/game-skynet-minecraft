@@ -4,6 +4,7 @@ google-genai
 mcrcon
 pycoral-pi5
 tflite-runtime
-mcschematic
+mcschematic>=0.7.2
 pytest
 pytest-mock
+diagrams 

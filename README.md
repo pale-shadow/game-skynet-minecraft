@@ -2,6 +2,8 @@
 
 Welcome a world that bridges over a decade of history with the cutting edge of AI-driven Minecraft engineering. 
 
+![tech void nihilism as software architecture](https://github.com/pale-shadow/game-chonk-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
+
 ## 🌐 Server Information
 *   **Server Address:** `minecraft.bitsmasher.net`
 *   **Version:** Paper 1.21.11 (Java 21)
