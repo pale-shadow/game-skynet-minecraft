@@ -1,12 +1,12 @@
 [Unit]
-Description=Skynet AI Agent Service
+Description="STARGATE: Skynet AI Agent"
 After=network.target
 
 [Service]
 Environment="RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575"
 User=franklin
 WorkingDirectory=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics
-ExecStart=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/venv/bin/python3 skynet_agent.py
+ExecStart=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 skynet_agent.py
 Restart=always
 RestartSec=10
 StandardOutput=append:/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/logs/skynet_agent.log

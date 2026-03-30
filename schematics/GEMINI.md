@@ -60,4 +60,5 @@ To coordinate decentralized processing, the system is segmented as follows:
 
 - **Minecraft Server (`chonk`)**: `chonk.lab.bitsmasher.net` (`10.10.8.60`) - The destination for all generated builds.
 - **AI Hardware (NPU Cluster)**: `10.10.16.10` - High-performance Pi 5 cluster with Hailo-8L NPUs for architectural inference.
+- **Vision Overseer (Edge TPU)**: `10.10.16.4` - ASUS Tinker Edge-T (Mendel Linux) dedicated to real-time image processing and adaptive mutation scans.
 - **Stargate MCP (Master Control)**: `10.10.16.66` - The primary server orchestrating all AI hardware and pushing build commands via RCON.
