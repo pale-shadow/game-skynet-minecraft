@@ -42,10 +42,15 @@ class Config:
     PLAYER_CHECK_INTERVAL = 600 # 10 Minutes
     WARNING_INTERVAL = 30 # 30 Seconds
 
-    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
-    SCHEM_DIR = os.path.join(PROJECT_ROOT, "schematics", "schem_files")
-    HISTORY_FILE = os.path.join(PROJECT_ROOT, "schematics", "input", "build_history.json")
+    # When deployed on chonk, the schematics directory is the effective project root.
+    # The systemd service sets WorkingDirectory=/home/minecraft/schematics.
+    # If skynet_core.py is in /home/minecraft/schematics/skynet_core.py:
+    # os.path.abspath(__file__) -> /home/minecraft/schematics/skynet_core.py
+    # os.path.dirname(os.path.abspath(__file__)) -> /home/minecraft/schematics/
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
+    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs") # Assumes logs are in /home/minecraft/logs
+    SCHEM_DIR = PROJECT_ROOT # Schematics will be saved directly into /home/minecraft/schematics
+    HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json") # Assumes input is in /home/minecraft/schematics/input
 
 def setup_logging(script_name):
     """Standardizes logging to the logs/ folder with absolute paths."""
