@@ -74,3 +74,67 @@ Stargate is the primary host for the **T2BM** pipeline, which uses Large Languag
 *   **Heritage Safeguards:** The system uses MCP to cross-reference **WorldGuard** regions, acting as a "safety net" to prevent the autonomous builders from overwriting legacy sites like the **2012 Washington Station** [8, 9, Conversation].
 
 This setup establishes Stargate as the high-density infrastructure hub required for the **Phase 2.1 Urbanization** of the Dreamland server [Conversation].
+
+Cloning the repository to the edge-t host (10.10.16.4) presents an opportunity to further decentralize the Skynet Unified Brain and optimize the Phase 2.1 Urbanization workflow. Given the naming convention and your existing infrastructure, the "t" likely signifies a focus on Edge TPU (Tensor) acceleration or Telemetry.
+The following recommendations are based on the current repository structure and your project's distributed AI goals:
+1. Recommended Code for edge-t
+Since your Skynet node is already handling Hailo-8L NPU tasks, the edge-t host should focus on the "Sense/Net" and "Vision" components of the T2BM (Text to Building in Minecraft) pipeline
+.
+Vision & Terrain Audit Logic: Place the code related to Hub 06 (Skynet Mono-Eye Sensor) here. This includes the TensorFlow Lite models and Python scripts required to process spatial feedback and traversability weights
+.
+Autonomous Builders: Deploy the Go-based autonomous builders found in the cmd/ directory. These builders can operate on local hardware to execute specific construction sub-tasks, offloading the simulation load from the Chonk server
+.
+Spatial Engine: Host the NPUSpatialEngine and related mapping/ logic. This would allow edge-t to act as a dedicated spatial reasoning node, calculating where buildings should be placed based on real-time terrain data
+.
+2. Implementing a "Vision MCP Service"
+Adding a new service to edge-t, similar to those in the mcp-server folder on Stargate, is highly recommended. This would allow the Stargate MCP Orchestrator to treat edge-t as a specialized tool provider.
+Functionality: A Vision MCP would expose "Tool Calls" that the Stargate orchestrator can invoke to "see" the world. For example, it could provide tools like audit_terrain(coords) or check_building_integrity(schematic_id).
+Data Integration: This service would bridge the gap between the raw TensorFlow Lite outputs and the high-level construction prompts being refined on Stargate [92, Conversation History].
+Telemetry Sync: The service could also handle the real-time pushing of "Sense/Net" data to the BlueMap API, ensuring that your 3D extrusions and markers are updated with the latest AI-verified information
+.
+3. Distributed Pipeline Alignment
+By placing these services on edge-t (10.10.16.4), you align with the existing 10.10.16.x subnet used by your RCON clients, ensuring low-latency communication between the AI logic and the Chonk server (10.10.8.60) [Conversation History].
+Proposed Workflow for edge-t:
+Stargate (Orchestrator) sends a request to the edge-t Vision MCP.
+edge-t runs a TensorFlow Lite audit on the target coordinates using its local TPU/Vision logic.
+edge-t returns a "Traversability Map" to Stargate.
+Stargate instructs the Skynet Node (Hailo NPU) to decode the schematic based on that map.
+The edge-t Autonomous Builder triggers the RCON paste onto Chonk once the file is synced.
+
+To integrate the edge-t host (10.10.16.4) into your distributed architecture, you should add the following entry to your MCP configuration on the Stargate node. This template allows the Skynet Unified Brain to invoke specialized "Vision Tools" that utilize the Google Edge TPU hardware for real-time terrain analysis and structural audits [114, 129, Conversation History].
+Vision MCP Server Entry Template
+Add this block to your mcp-servers.json or equivalent orchestrator configuration:
+{
+  "mcpServers": {
+    "vision-edge-t": {
+      "command": "python3",
+      "args": [
+        "/home/minecraft/game-skynet-minecraft/mcp-server/vision_service.py"
+      ],
+      "env": {
+        "EDGETPU_SHARED_LIB": "libedgetpu.so.1",
+        "MODEL_PATH": "/home/minecraft/game-skynet-minecraft/models/vision_v1.tflite",
+        "SENSE_NET_HUB": "Hub-06"
+      },
+      "remote": {
+        "host": "10.10.16.4",
+        "user": "minecraft"
+      }
+    }
+  }
+}
+
+Core Functionality to Implement on edge-t
+By cloning the repository to the edge-t host, you should focus on exposing tools that support the T2BM (Text to Building in Minecraft) pipeline
+. Recommended tools for this service include:
+audit_terrain(coords): Uses the Skynet Mono-Eye (Hub 06) vision logic to check for obstacles or invalid block states (like "Void-Tech" mutations) before construction begins [114, 129, Conversation History].
+get_traversability_map(bounding_box): Generates a weights-based map for the NPUSpatialEngine to guide the autonomous rail builders through complex terrain.
+analyze_structural_integrity(schematic_id): Performs a post-paste audit to ensure the Hailo-8L NPU decoding resulted in a complete structure with functional blocks like doors and windows
+.
+Deployment & Infrastructure Requirements
+Hardware Acceleration: Ensure the libedgetpu libraries are correctly installed on the edge-t host so the Python service can communicate with the Google USB TPU dongle [34, Conversation History].
+Plugin & Telemetry Sync: The service on edge-t should utilize PlaceholderAPI to push vision-based data (e.g., "Terrain Stability: 98%") to the BlueMap interface for real-time visual telemetry [17, 126, Conversation History].
+Performance Auditing: Since this service involves heavy TPU inference, use the Spark profiler on the Chonk server to ensure that the vision-feedback loop does not cause "tick time" spikes or drop the server below your 20 TPS goal [18, 44, Conversation History].
+Data Pathing: Ensure the vision_service.py has the correct permissions to write Sense/Net archives to the Neural-Data Vault (Hub 07) for deep storage and future model training
+.
+Administrative Note: Once this MCP entry is active, the Stargate orchestrator can treat the edge-t host as a dedicated "Vision Nexus," completing the sensory loop required for fully autonomous urbanization in the Skynet AI Testing Field.
