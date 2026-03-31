@@ -1,0 +1,16 @@
+[Unit]
+Description="STARGATE: Skynet AI Agent"
+After=network.target
+
+[Service]
+User=franklin
+WorkingDirectory=/home/minecraft/skynet_daemon
+Environment="RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575"
+ExecStart=/usr/bin/python3 /home/minecraft/skynet_daemon/skynet_unified.py
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=skynet-agent
+
+[Install]
+WantedBy=multi-user.target

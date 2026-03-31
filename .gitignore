@@ -3,3 +3,4 @@
 *.tflite
 **/.venv/
 **/venv/
+*.log
