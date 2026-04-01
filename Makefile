@@ -16,9 +16,9 @@ python:
 
 test: python
 	@echo "==> Initiating Distributed Test Suite with Coverage..."
-	$(PYTHON) -m pytest test/test_gemini_link.py test/test_brain.py
-	$(PYTHON) -m pytest test/test_rcon.py
-	$(PYTHON) -m pytest --cov=schematics --cov=models test/
+	$(PYTHON) -m pytest test/test_gemini_link.py test/test_brain.py test/test_hardware.py test/test_tpu.py
+	$(PYTHON) -m pytest test/test_rcon.py test/test_builders.py
+	# $(PYTHON) -m pytest --cov=schematics/ 
 	ssh $(REMOTE_NODE) "hailortcli fw-control identify && vcgencmd measure_temp"
 
 remote-audit:

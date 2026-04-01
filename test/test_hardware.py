@@ -3,10 +3,6 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-# Skip if actual hardware check fails - we don't want CI to fail on dev machines
-# without the NPU, unless specifically testing for it.
-
-
 @pytest.mark.hardware
 def test_hailo_hardware():
     """Verify Hailo-8L NPU Presence."""
