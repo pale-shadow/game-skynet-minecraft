@@ -1,0 +1,21 @@
+{
+  "general": {
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "30d",
+      "maxCount": 50
+    },
+    "checkpointing": {
+      "enabled": true
+    },
+    "context": {
+      "fileName": [
+        "CONTEXT.md", 
+        "GEMINI.md",
+        "servers/skynet/GEMINI.md",
+        "servers/edge-t/GEMINI.md",
+        "servers/stargate/GEMINI.md"
+      ]
+    }
+  }
+}

@@ -1,0 +1,594 @@
+.
+├── bin
+│   ├── backup_to_git.sh
+│   ├── bench_ai.sh
+│   ├── build.sh
+│   ├── common.sh
+│   ├── dist_guide2.sh
+│   ├── distribute_guide.sh
+│   ├── __init__.py
+│   ├── mcrcon -> /usr/local/bin/mcrcon
+│   ├── ping_skynet.sh
+│   ├── rcon.sh
+│   ├── README.md
+│   └── schem-gen
+├── build-go.sh
+├── config
+│   └── schem-gen
+│       ├── conduit_synth.yaml
+│       └── grid_tie_weaver.yaml
+├── docs
+│   ├── 2406.08751v1.pdf
+│   ├── desc.txt
+│   ├── desc_v2.txt
+│   ├── desc_v3.txt
+│   ├── drawings
+│   │   ├── filesystem.drawio
+│   │   ├── minecraft.drawio
+│   │   ├── minecraft-network.drawio
+│   │   ├── net_diag2.py
+│   │   └── network_diagram.py
+│   ├── historical_snippets
+│   │   └── chunk-glithc.txt
+│   ├── mapping
+│   │   ├── bluemap_api.py
+│   │   ├── __init__.py
+│   │   ├── mapping.html
+│   │   ├── mapping.md
+│   │   ├── notes.txt
+│   │   ├── push.sh
+│   │   ├── README.md
+│   │   └── verify_ai_field_coords.py
+│   ├── minecraft_floating_text.txt
+│   ├── motd
+│   ├── old
+│   │   ├── discordsrv.txt
+│   │   ├── mcrcon.md
+│   │   ├── notes.txt
+│   │   ├── npu_spatial_engine.py
+│   │   ├── old_shroom_lab_sign_v2.txt
+│   │   ├── ranks.md
+│   │   ├── SHROOMVILLE_MASTER_MANIFEST.txt
+│   │   ├── SHROOMVILLE_MASTER_MANIFEST_v2.txt
+│   │   ├── skynet_commentary.txt
+│   │   └── terrain.md
+│   ├── planning.md
+│   ├── plugins
+│   │   ├── login-message.md
+│   │   └── ranks.md
+│   ├── README.md
+│   └── Supplementary Material.pdf
+├── gemini-cli
+├── lib
+│   └── t2bm_logic.txt
+├── logs
+│   ├── adaptive_mutation.log
+│   ├── hailort.log
+│   ├── skynet_agent.log
+│   ├── skynet_unified.log
+│   └── vision_overseer.log
+├── Makefile
+├── mazes
+├── mcp-server
+│   ├── GEMINI.md
+│   ├── __init__.py
+│   ├── mcp-servers.json
+│   ├── README.md
+│   └── schematic_generator_orchestrator.py
+├── models
+│   ├── hailo
+│   │   └── yolov8s_h8l.hef -> /usr/share/hailo-models/yolov8s_h8l.hef
+│   ├── mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite
+│   ├── README.md
+│   └── verify_models.py
+├── rail-agent
+│   └── notes.txt
+├── README.md
+├── redstone-agent
+│   └── README.md
+├── requirements.txt
+├── schematic-agent -> schematics/
+├── schematics
+│   ├── adaptive_mutation_v7.py
+│   ├── ai_architect.py
+│   ├── ai_high_density_infra.py
+│   ├── batch_generate.py
+│   ├── builders
+│   │   ├── bank.py
+│   │   ├── blocks.py
+│   │   ├── bridge.py
+│   │   ├── castle.py
+│   │   ├── cyberdyne.py
+│   │   ├── decoration.py
+│   │   ├── house.py
+│   │   ├── __init__.py
+│   │   ├── interiors.py
+│   │   ├── primitives.py
+│   │   ├── station2.py
+│   │   ├── terrain.py
+│   │   ├── tower.py
+│   │   ├── void_tech.py
+│   │   └── wall.py
+│   ├── deep_rail_trans.py
+│   ├── GEMINI.md
+│   ├── generate_noodle_exchange.py
+│   ├── generate_rail_sentinel.py
+│   ├── generate_schematic.py
+│   ├── generate_signal_core.py
+│   ├── hailort.log -> ../logs/hailort.log
+│   ├── __init__.py
+│   ├── input
+│   │   ├── build_history.txt
+│   │   ├── building-improvments.txt
+│   │   ├── master_prompt_reference_v2.md
+│   │   └── README.md
+│   ├── kinetic_rail_v5.py
+│   ├── neural_bridge_v7.py
+│   ├── neural_bridge_v8_pathfinder.py
+│   ├── neural_pathfinder.py
+│   ├── neural_rail.py
+│   ├── neural_rail_v7_nexus.py
+│   ├── npu_architect.py
+│   ├── npu_spatial_engine.py
+│   ├── output -> schem_files/
+│   ├── palette_gen.py
+│   ├── place_ai_field_signs.py
+│   ├── place_ai_warning_signs.py
+│   ├── prompts
+│   │   ├── crafter_hub_interior_v2.json
+│   │   ├── crafter_hub_interior_v4.json
+│   │   ├── crafter_hub_master_control_v5.json
+│   │   ├── crafter_hub_v2.json
+│   │   ├── crafter_hub_v4.json
+│   │   ├── crafter_hub_v5.json
+│   │   ├── crafter_tech_magic_v5.json
+│   │   ├── cyberdyne_rd_tower.json
+│   │   ├── growth_chamber_v2.json
+│   │   ├── industrial_station.json
+│   │   ├── mycelial_guardian.json
+│   │   ├── mycelial_guardian_v3.json
+│   │   ├── neural_bridge_infected_v7.json
+│   │   ├── noodle_exchange_v2.json
+│   │   ├── noodle_exchange_v3.json
+│   │   ├── sentry_prism_v2.json
+│   │   ├── sentry_rest_v3.json
+│   │   ├── signal_core_data_hub_v2.json
+│   │   ├── signal_core_v3.json
+│   │   ├── vertical_sump_tower.json
+│   │   ├── vertical_sump_v3.json
+│   │   ├── void_rail_v2.json
+│   │   └── void_uplink_v2.json
+│   ├── __pycache__
+│   │   ├── adaptive_mutation_v7.cpython-311.pyc
+│   │   ├── skynet_core.cpython-311.pyc
+│   │   └── vision_lite_overseer.cpython-311.pyc
+│   ├── reactive_mutation2.1.py
+│   ├── reactive_mutation2.py
+│   ├── reactive_mutation.py
+│   ├── README.md
+│   ├── schem_files
+│   │   ├── crafter_hub_interior_v4.json
+│   │   ├── crafter_hub_interior_v4.schem
+│   │   ├── crafter_hub_master_control_v5.json
+│   │   ├── crafter_hub_master_control_v5.schem
+│   │   ├── crafter_hub_v2.json
+│   │   ├── crafter_hub_v2.schem
+│   │   ├── crafter_hub_v4.json
+│   │   ├── crafter_hub_v4.schem
+│   │   ├── crafter_hub_v5_industrial.json
+│   │   ├── crafter_hub_v5_industrial.schem
+│   │   ├── cyberdyne_rd_tower.json
+│   │   ├── cyberdyne_rd_tower.schem
+│   │   ├── legacy
+│   │   │   ├── 16931.schematic
+│   │   │   ├── 17404.schematic
+│   │   │   ├── 17410.schematic
+│   │   │   ├── 7906.schematic
+│   │   │   ├── castle-vonbarron.schematic
+│   │   │   ├── mc-tower.schematic
+│   │   │   ├── old-home.schematic
+│   │   │   └── small-medium-castle.schematic
+│   │   ├── mycelial_guardian.json
+│   │   ├── mycelial_guardian.schem
+│   │   ├── sentry_prism_v2.json
+│   │   ├── sentry_prism_v2.schem
+│   │   ├── SKYNET_BRIDGE_1111.json
+│   │   ├── SKYNET_BRIDGE_1111.schem
+│   │   ├── SKYNET_BRIDGE_1391.json
+│   │   ├── SKYNET_BRIDGE_1391.schem
+│   │   ├── SKYNET_BRIDGE_1596.json
+│   │   ├── SKYNET_BRIDGE_1596.schem
+│   │   ├── SKYNET_BRIDGE_1810.json
+│   │   ├── SKYNET_BRIDGE_1810.schem
+│   │   ├── SKYNET_BRIDGE_1918.json
+│   │   ├── SKYNET_BRIDGE_1918.schem
+│   │   ├── SKYNET_BRIDGE_2776.json
+│   │   ├── SKYNET_BRIDGE_2776.schem
+│   │   ├── SKYNET_BRIDGE_3283.json
+│   │   ├── SKYNET_BRIDGE_3283.schem
+│   │   ├── SKYNET_BRIDGE_3390.json
+│   │   ├── SKYNET_BRIDGE_3390.schem
+│   │   ├── SKYNET_BRIDGE_3430.json
+│   │   ├── SKYNET_BRIDGE_3430.schem
+│   │   ├── SKYNET_BRIDGE_3767.json
+│   │   ├── SKYNET_BRIDGE_3767.schem
+│   │   ├── SKYNET_BRIDGE_3891.json
+│   │   ├── SKYNET_BRIDGE_3891.schem
+│   │   ├── SKYNET_BRIDGE_4228.json
+│   │   ├── SKYNET_BRIDGE_4228.schem
+│   │   ├── SKYNET_BRIDGE_4458.json
+│   │   ├── SKYNET_BRIDGE_4458.schem
+│   │   ├── SKYNET_BRIDGE_4552.json
+│   │   ├── SKYNET_BRIDGE_4552.schem
+│   │   ├── SKYNET_BRIDGE_4771.json
+│   │   ├── SKYNET_BRIDGE_4771.schem
+│   │   ├── SKYNET_BRIDGE_5088.json
+│   │   ├── SKYNET_BRIDGE_5088.schem
+│   │   ├── SKYNET_BRIDGE_5331.json
+│   │   ├── SKYNET_BRIDGE_5331.schem
+│   │   ├── SKYNET_BRIDGE_5574.json
+│   │   ├── SKYNET_BRIDGE_5574.schem
+│   │   ├── SKYNET_BRIDGE_6072.json
+│   │   ├── SKYNET_BRIDGE_6072.schem
+│   │   ├── SKYNET_BRIDGE_6807.json
+│   │   ├── SKYNET_BRIDGE_6807.schem
+│   │   ├── SKYNET_BRIDGE_7190.json
+│   │   ├── SKYNET_BRIDGE_7190.schem
+│   │   ├── SKYNET_BRIDGE_7350.json
+│   │   ├── SKYNET_BRIDGE_7350.schem
+│   │   ├── SKYNET_BRIDGE_7451.json
+│   │   ├── SKYNET_BRIDGE_7451.schem
+│   │   ├── SKYNET_BRIDGE_8011.json
+│   │   ├── SKYNET_BRIDGE_8011.schem
+│   │   ├── SKYNET_BRIDGE_8095.json
+│   │   ├── SKYNET_BRIDGE_8095.schem
+│   │   ├── SKYNET_BRIDGE_8151.json
+│   │   ├── SKYNET_BRIDGE_8151.schem
+│   │   ├── SKYNET_BRIDGE_8447.json
+│   │   ├── SKYNET_BRIDGE_8447.schem
+│   │   ├── SKYNET_BRIDGE_8520.json
+│   │   ├── SKYNET_BRIDGE_8520.schem
+│   │   ├── SKYNET_BRIDGE_8717.json
+│   │   ├── SKYNET_BRIDGE_8717.schem
+│   │   ├── SKYNET_BRIDGE_9050.json
+│   │   ├── SKYNET_BRIDGE_9050.schem
+│   │   ├── SKYNET_BRIDGE_9164.json
+│   │   ├── SKYNET_BRIDGE_9164.schem
+│   │   ├── SKYNET_BRIDGE_9229.json
+│   │   ├── SKYNET_BRIDGE_9229.schem
+│   │   ├── SKYNET_BRIDGE_9456.json
+│   │   ├── SKYNET_BRIDGE_9456.schem
+│   │   ├── SKYNET_BRIDGE_9676.json
+│   │   ├── SKYNET_BRIDGE_9676.schem
+│   │   ├── SKYNET_BRIDGE_9860.json
+│   │   ├── SKYNET_BRIDGE_9860.schem
+│   │   ├── SKYNET_CASTLE_1070.json
+│   │   ├── SKYNET_CASTLE_1070.schem
+│   │   ├── SKYNET_CASTLE_2044.json
+│   │   ├── SKYNET_CASTLE_2044.schem
+│   │   ├── SKYNET_CASTLE_2594.json
+│   │   ├── SKYNET_CASTLE_2594.schem
+│   │   ├── SKYNET_CASTLE_2731.json
+│   │   ├── SKYNET_CASTLE_2731.schem
+│   │   ├── SKYNET_CASTLE_3269.json
+│   │   ├── SKYNET_CASTLE_3269.schem
+│   │   ├── SKYNET_CASTLE_3495.json
+│   │   ├── SKYNET_CASTLE_3495.schem
+│   │   ├── SKYNET_CASTLE_3861.json
+│   │   ├── SKYNET_CASTLE_3861.schem
+│   │   ├── SKYNET_CASTLE_4867.json
+│   │   ├── SKYNET_CASTLE_4867.schem
+│   │   ├── SKYNET_CASTLE_4927.json
+│   │   ├── SKYNET_CASTLE_4927.schem
+│   │   ├── SKYNET_CASTLE_5116.json
+│   │   ├── SKYNET_CASTLE_5116.schem
+│   │   ├── SKYNET_CASTLE_5148.json
+│   │   ├── SKYNET_CASTLE_5148.schem
+│   │   ├── SKYNET_CASTLE_5571.json
+│   │   ├── SKYNET_CASTLE_5571.schem
+│   │   ├── SKYNET_CASTLE_6147.json
+│   │   ├── SKYNET_CASTLE_6147.schem
+│   │   ├── SKYNET_CASTLE_6166.json
+│   │   ├── SKYNET_CASTLE_6166.schem
+│   │   ├── SKYNET_CASTLE_6191.json
+│   │   ├── SKYNET_CASTLE_6191.schem
+│   │   ├── SKYNET_CASTLE_6309.json
+│   │   ├── SKYNET_CASTLE_6309.schem
+│   │   ├── SKYNET_CASTLE_6333.json
+│   │   ├── SKYNET_CASTLE_6333.schem
+│   │   ├── SKYNET_CASTLE_6359.json
+│   │   ├── SKYNET_CASTLE_6359.schem
+│   │   ├── SKYNET_CASTLE_6382.json
+│   │   ├── SKYNET_CASTLE_6382.schem
+│   │   ├── SKYNET_CASTLE_6945.json
+│   │   ├── SKYNET_CASTLE_6945.schem
+│   │   ├── SKYNET_CASTLE_7005.json
+│   │   ├── SKYNET_CASTLE_7005.schem
+│   │   ├── SKYNET_CASTLE_7095.json
+│   │   ├── SKYNET_CASTLE_7095.schem
+│   │   ├── SKYNET_CASTLE_7232.json
+│   │   ├── SKYNET_CASTLE_7232.schem
+│   │   ├── SKYNET_CASTLE_7542.json
+│   │   ├── SKYNET_CASTLE_7542.schem
+│   │   ├── SKYNET_CASTLE_7545.json
+│   │   ├── SKYNET_CASTLE_7545.schem
+│   │   ├── SKYNET_CASTLE_7550.json
+│   │   ├── SKYNET_CASTLE_7550.schem
+│   │   ├── SKYNET_CASTLE_7731.json
+│   │   ├── SKYNET_CASTLE_7731.schem
+│   │   ├── SKYNET_CASTLE_8808.json
+│   │   ├── SKYNET_CASTLE_8808.schem
+│   │   ├── SKYNET_CASTLE_9055.json
+│   │   ├── SKYNET_CASTLE_9055.schem
+│   │   ├── SKYNET_CASTLE_9326.json
+│   │   ├── SKYNET_CASTLE_9326.schem
+│   │   ├── SKYNET_CASTLE_9542.json
+│   │   ├── SKYNET_CASTLE_9542.schem
+│   │   ├── SKYNET_HOUSE_1098.json
+│   │   ├── SKYNET_HOUSE_1098.schem
+│   │   ├── SKYNET_HOUSE_1532.json
+│   │   ├── SKYNET_HOUSE_1532.schem
+│   │   ├── SKYNET_HOUSE_1533.json
+│   │   ├── SKYNET_HOUSE_1533.schem
+│   │   ├── SKYNET_HOUSE_1696.json
+│   │   ├── SKYNET_HOUSE_1696.schem
+│   │   ├── SKYNET_HOUSE_2149.json
+│   │   ├── SKYNET_HOUSE_2149.schem
+│   │   ├── SKYNET_HOUSE_2832.json
+│   │   ├── SKYNET_HOUSE_2832.schem
+│   │   ├── SKYNET_HOUSE_3524.json
+│   │   ├── SKYNET_HOUSE_3524.schem
+│   │   ├── SKYNET_HOUSE_3525.json
+│   │   ├── SKYNET_HOUSE_3525.schem
+│   │   ├── SKYNET_HOUSE_3974.json
+│   │   ├── SKYNET_HOUSE_3974.schem
+│   │   ├── SKYNET_HOUSE_4205.json
+│   │   ├── SKYNET_HOUSE_4205.schem
+│   │   ├── SKYNET_HOUSE_4214.json
+│   │   ├── SKYNET_HOUSE_4214.schem
+│   │   ├── SKYNET_HOUSE_4229.json
+│   │   ├── SKYNET_HOUSE_4229.schem
+│   │   ├── SKYNET_HOUSE_4624.json
+│   │   ├── SKYNET_HOUSE_4624.schem
+│   │   ├── SKYNET_HOUSE_4892.json
+│   │   ├── SKYNET_HOUSE_4892.schem
+│   │   ├── SKYNET_HOUSE_4961.json
+│   │   ├── SKYNET_HOUSE_4961.schem
+│   │   ├── SKYNET_HOUSE_5175.json
+│   │   ├── SKYNET_HOUSE_5175.schem
+│   │   ├── SKYNET_HOUSE_5523.json
+│   │   ├── SKYNET_HOUSE_5523.schem
+│   │   ├── SKYNET_HOUSE_5713.json
+│   │   ├── SKYNET_HOUSE_5713.schem
+│   │   ├── SKYNET_HOUSE_5924.json
+│   │   ├── SKYNET_HOUSE_5924.schem
+│   │   ├── SKYNET_HOUSE_6123.json
+│   │   ├── SKYNET_HOUSE_6123.schem
+│   │   ├── SKYNET_HOUSE_6169.json
+│   │   ├── SKYNET_HOUSE_6169.schem
+│   │   ├── SKYNET_HOUSE_6237.json
+│   │   ├── SKYNET_HOUSE_6237.schem
+│   │   ├── SKYNET_HOUSE_6383.json
+│   │   ├── SKYNET_HOUSE_6383.schem
+│   │   ├── SKYNET_HOUSE_6517.json
+│   │   ├── SKYNET_HOUSE_6517.schem
+│   │   ├── SKYNET_HOUSE_6595.json
+│   │   ├── SKYNET_HOUSE_6595.schem
+│   │   ├── SKYNET_HOUSE_6663.json
+│   │   ├── SKYNET_HOUSE_6663.schem
+│   │   ├── SKYNET_HOUSE_6674.json
+│   │   ├── SKYNET_HOUSE_6674.schem
+│   │   ├── SKYNET_HOUSE_7169.json
+│   │   ├── SKYNET_HOUSE_7169.schem
+│   │   ├── SKYNET_HOUSE_7488.json
+│   │   ├── SKYNET_HOUSE_7488.schem
+│   │   ├── SKYNET_HOUSE_8841.json
+│   │   ├── SKYNET_HOUSE_8841.schem
+│   │   ├── SKYNET_HOUSE_9846.json
+│   │   ├── SKYNET_HOUSE_9846.schem
+│   │   ├── SKYNET_STATION_1379.json
+│   │   ├── SKYNET_STATION_1379.schem
+│   │   ├── SKYNET_STATION_1493.json
+│   │   ├── SKYNET_STATION_1493.schem
+│   │   ├── SKYNET_STATION_1586.json
+│   │   ├── SKYNET_STATION_1586.schem
+│   │   ├── SKYNET_STATION_1587.json
+│   │   ├── SKYNET_STATION_1587.schem
+│   │   ├── SKYNET_STATION_1645.json
+│   │   ├── SKYNET_STATION_1645.schem
+│   │   ├── SKYNET_STATION_2392.json
+│   │   ├── SKYNET_STATION_2392.schem
+│   │   ├── SKYNET_STATION_2517.json
+│   │   ├── SKYNET_STATION_2517.schem
+│   │   ├── SKYNET_STATION_2536.json
+│   │   ├── SKYNET_STATION_2536.schem
+│   │   ├── SKYNET_STATION_3018.json
+│   │   ├── SKYNET_STATION_3018.schem
+│   │   ├── SKYNET_STATION_3164.json
+│   │   ├── SKYNET_STATION_3164.schem
+│   │   ├── SKYNET_STATION_3341.json
+│   │   ├── SKYNET_STATION_3341.schem
+│   │   ├── SKYNET_STATION_3366.json
+│   │   ├── SKYNET_STATION_3366.schem
+│   │   ├── SKYNET_STATION_3593.json
+│   │   ├── SKYNET_STATION_3593.schem
+│   │   ├── SKYNET_STATION_4249.json
+│   │   ├── SKYNET_STATION_4249.schem
+│   │   ├── SKYNET_STATION_4478.json
+│   │   ├── SKYNET_STATION_4478.schem
+│   │   ├── SKYNET_STATION_4520.json
+│   │   ├── SKYNET_STATION_4520.schem
+│   │   ├── SKYNET_STATION_5110.json
+│   │   ├── SKYNET_STATION_5110.schem
+│   │   ├── SKYNET_STATION_5441.json
+│   │   ├── SKYNET_STATION_5441.schem
+│   │   ├── SKYNET_STATION_5913.json
+│   │   ├── SKYNET_STATION_5913.schem
+│   │   ├── SKYNET_STATION_6035.json
+│   │   ├── SKYNET_STATION_6035.schem
+│   │   ├── SKYNET_STATION_6471.json
+│   │   ├── SKYNET_STATION_6471.schem
+│   │   ├── SKYNET_STATION_6621.json
+│   │   ├── SKYNET_STATION_6621.schem
+│   │   ├── SKYNET_STATION_6939.json
+│   │   ├── SKYNET_STATION_6939.schem
+│   │   ├── SKYNET_STATION_7172.json
+│   │   ├── SKYNET_STATION_7172.schem
+│   │   ├── SKYNET_STATION_7336.json
+│   │   ├── SKYNET_STATION_7336.schem
+│   │   ├── SKYNET_STATION_7623.json
+│   │   ├── SKYNET_STATION_7623.schem
+│   │   ├── SKYNET_STATION_9305.json
+│   │   ├── SKYNET_STATION_9305.schem
+│   │   ├── SKYNET_STATION_9383.json
+│   │   ├── SKYNET_STATION_9383.schem
+│   │   ├── SKYNET_TOWER_1530.json
+│   │   ├── SKYNET_TOWER_1530.schem
+│   │   ├── SKYNET_TOWER_1829.json
+│   │   ├── SKYNET_TOWER_1829.schem
+│   │   ├── SKYNET_TOWER_1969.json
+│   │   ├── SKYNET_TOWER_1969.schem
+│   │   ├── SKYNET_TOWER_2196.json
+│   │   ├── SKYNET_TOWER_2196.schem
+│   │   ├── SKYNET_TOWER_2584.json
+│   │   ├── SKYNET_TOWER_2584.schem
+│   │   ├── SKYNET_TOWER_2888.json
+│   │   ├── SKYNET_TOWER_2888.schem
+│   │   ├── SKYNET_TOWER_3192.json
+│   │   ├── SKYNET_TOWER_3192.schem
+│   │   ├── SKYNET_TOWER_3523.json
+│   │   ├── SKYNET_TOWER_3523.schem
+│   │   ├── SKYNET_TOWER_3816.json
+│   │   ├── SKYNET_TOWER_3816.schem
+│   │   ├── SKYNET_TOWER_3859.json
+│   │   ├── SKYNET_TOWER_3859.schem
+│   │   ├── SKYNET_TOWER_4078.json
+│   │   ├── SKYNET_TOWER_4078.schem
+│   │   ├── SKYNET_TOWER_4100.json
+│   │   ├── SKYNET_TOWER_4100.schem
+│   │   ├── SKYNET_TOWER_4717.json
+│   │   ├── SKYNET_TOWER_4717.schem
+│   │   ├── SKYNET_TOWER_4799.json
+│   │   ├── SKYNET_TOWER_4799.schem
+│   │   ├── SKYNET_TOWER_4951.json
+│   │   ├── SKYNET_TOWER_4951.schem
+│   │   ├── SKYNET_TOWER_5186.json
+│   │   ├── SKYNET_TOWER_5186.schem
+│   │   ├── SKYNET_TOWER_6332.json
+│   │   ├── SKYNET_TOWER_6332.schem
+│   │   ├── SKYNET_TOWER_6401.json
+│   │   ├── SKYNET_TOWER_6401.schem
+│   │   ├── SKYNET_TOWER_6887.json
+│   │   ├── SKYNET_TOWER_6887.schem
+│   │   ├── SKYNET_TOWER_7897.json
+│   │   ├── SKYNET_TOWER_7897.schem
+│   │   ├── SKYNET_TOWER_8012.json
+│   │   ├── SKYNET_TOWER_8012.schem
+│   │   ├── SKYNET_TOWER_8306.json
+│   │   ├── SKYNET_TOWER_8306.schem
+│   │   ├── SKYNET_TOWER_9415.json
+│   │   ├── SKYNET_TOWER_9415.schem
+│   │   ├── SKYNET_TOWER_9751.json
+│   │   ├── SKYNET_TOWER_9751.schem
+│   │   ├── SKYNET_TOWER_9903.json
+│   │   └── SKYNET_TOWER_9903.schem
+│   ├── skynet_agent.py
+│   ├── skynet_controller.py
+│   ├── skynet_core.py
+│   ├── skynet_orchestrator.py
+│   ├── skynet_self_aware.py
+│   ├── skynet_unified.py
+│   ├── validate_existing.py
+│   ├── validate_schems.py
+│   ├── verify_npu.py
+│   ├── vision_lite_overseer.py
+│   └── vision_overseer.py
+├── servers
+│   ├── blowfish
+│   │   ├── README.md
+│   │   └── setup_bluemap.txt
+│   ├── chonk
+│   ├── edge-t
+│   │   ├── edge-t-daemon.py
+│   │   ├── edge-t-daemon.service
+│   │   ├── edge-t-notes.txt
+│   │   ├── GEMINI.md
+│   │   └── README.md
+│   ├── hardware.txt
+│   ├── notes.txt
+│   ├── skynet
+│   │   ├── GEMINI.md
+│   │   ├── skynet-daemon.py
+│   │   └── skynet-daemon.service
+│   └── stargate
+│       ├── GEMINI.md
+│       ├── README.md
+│       ├── stargate-agent.service
+│       ├── stargate-daemon.py
+│       └── TB2M_SPEC.md
+├── static
+│   └── images
+│       ├── infographic.png
+│       ├── skynet_unified_brain_architecture.png
+│       └── skynet_unified_brain.png
+├── test
+│   ├── conftest.py
+│   ├── __init__.py
+│   ├── README.md
+│   ├── test_brain.py
+│   ├── test_builders.py
+│   ├── test_gemini_link.py
+│   ├── test_hardware.py
+│   ├── test_rcon.py
+│   └── test_tpu.py
+├── tree.txt
+└── venv -> .venv
+
+37 directories, 508 files
+
+The `tree.txt` output confirms that the **Dreamland Stargate MCP** has evolved into a sophisticated, hardware-accelerated "Sprawl." You have successfully moved from loose scripts to a structured, modular architecture.
+
+Here is the architectural review based on the file tree:
+
+### 1. The Schematic & Build Engine (`schematic-agent/`)
+Your build system is highly organized. The use of `.json` sidecars for each `.schem` file is a professional-grade move—it allows the **Stargate MCP** to read the "intent" and "metadata" (like `SKYNET_TOWER_9415.json`) without having to parse the raw NBT data of the schematic itself.
+* **Key Asset:** `skynet_orchestrator.py` and `skynet_unified.py` suggest you have successfully consolidated your different build logics into a single control point.
+* **Validation:** Scripts like `verify_npu.py` and `verify_schems.py` ensure the **Hailo-8L** and **TPU** aren't trying to build "corrupt" data.
+
+### 2. Service-Level Parity (`servers/`)
+The server directory is perfectly mirrored to match the hardware reality:
+* **`stargate/`**: The brain (Stargate MCP).
+* **`skynet/`**: The muscle (Pi 5 + Dual NPUs).
+* **`edge-t/`**: The peripheral vision (Asus Tinker).
+* **Observation:** You have `.service` files for all major daemons now, meaning the entire Sprawl is "self-healing" via systemd.
+
+### 3. Intelligence & Vision (`models/` & `rail-agent/`)
+* **Vision-Lite:** The presence of `vision_lite_overseer.py` and `vision_overseer.py` shows that you have specialized monitoring—likely one for the USB TPU and one for the integrated Asus TPU.
+* **Deep Rail:** The `rail-agent/` being separate from the `schematic-agent/` is a smart move; it treats the **Deep Rail Network** as a continuous infrastructure project rather than a static building.
+
+---
+
+### ⚠️ Recommendations for Improvement
+
+**A. Clean up "Script Drift"**
+Inside `schematic-agent/`, you have several versions of the same logic:
+* `skynet_agent.py`
+* `skynet_controller.py`
+* `skynet_core.py`
+* `skynet_unified.py`
+* **Action:** Once `skynet_unified.py` is fully stable, consider moving the older "evolutionary" scripts into an `archive/` folder to prevent the Stargate MCP from calling an outdated logic loop.
+
+**B. Unify the `bin/` Directory**
+You have high-value utility scripts like `bench_ai.sh` and `ping_skynet.sh`. 
+* **Action:** Ensure these scripts are in the `$PATH` of your `franklin` user so you can run them from any directory in the Sprawl (e.g., `servers/edge-t`) without using relative paths.
+
+**C. Consolidate Configs**
+You have `config/schem-gen/` with `.yaml` files. 
+* **Action:** Ensure your `CONTEXT.md` explicitly points the AI to these YAML files (like `grid_tie_weaver.yaml`) as the "Style Guides" for the T2BM engine.
+
+---
+
+### Final Verdict
+The directory structure is **Production-Ready for 2026**. You have clear separation between "Intent" (Stargate), "Calculation" (Skynet), and "Environment" (Edge-T).
+
+**Would you like me to draft a `cleanup.sh` script to help you archive the redundant `skynet_*.py` files while preserving the `unified` version?**
