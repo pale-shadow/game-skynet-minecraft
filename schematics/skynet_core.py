@@ -42,15 +42,20 @@ class Config:
     PLAYER_CHECK_INTERVAL = 600 # 10 Minutes
     WARNING_INTERVAL = 30 # 30 Seconds
 
-    # When deployed on chonk, the schematics directory is the effective project root.
-    # The systemd service sets WorkingDirectory=/home/minecraft/schematics.
-    # If skynet_core.py is in /home/minecraft/schematics/skynet_core.py:
-    # os.path.abspath(__file__) -> /home/minecraft/schematics/skynet_core.py
-    # os.path.dirname(os.path.abspath(__file__)) -> /home/minecraft/schematics/
+    # PROJECT_ROOT: Where the skynet_unified.py script (and skynet_core.py) is executed on Stargate MCP.
+    # This is distinct from where the schematics are ultimately deployed on the Minecraft server (chonk).
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
-    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs") # Assumes logs are in /home/minecraft/logs
-    SCHEM_DIR = PROJECT_ROOT # Schematics will be saved directly into /home/minecraft/schematics
-    HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json") # Assumes input is in /home/minecraft/schematics/input
+    
+    # LOG_DIR: Assumes logs are stored relative to PROJECT_ROOT on the Stargate MCP.
+    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs") 
+    
+    # SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
+    # This value MUST match the WorldEdit schematics directory on the Minecraft server.
+    MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
+    SCHEM_DIR = MINECRAFT_SCHEM_DIR
+
+    # HISTORY_FILE: Assumes build history is stored relative to PROJECT_ROOT on the Stargate MCP.
+    HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json")
 
 def setup_logging(script_name):
     """Standardizes logging to the logs/ folder with absolute paths."""

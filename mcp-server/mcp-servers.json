@@ -6,7 +6,7 @@
         "-y",
         "@modelcontextprotocol/server-filesystem",
         "/home/minecraft/game-skynet-minecraft/schematics",
-        "/home/minecraft/game-skynet-minecraft/logs"
+        "/home/minecraft/schematics"
       ],
       "env": {
         "SERVER_DIR": "/home/minecraft"
