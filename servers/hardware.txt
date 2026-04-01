@@ -10,3 +10,12 @@ Hardware	Accelerator	Strengths	Expected Build "Personality"
 Pi 5 + AI Hat	Hailo-8L (13 TOPS)	High throughput, low latency.	The Efficiency Expert: Likely to find the most mathematically optimal, direct paths with clean 45-degree angles.
 Workstation + USB	Google Coral TPU (4 TOPS)	High compatibility with TFLite.	The Brutalist: May prefer "shortest-path" logic that ignores aesthetic terrain, resulting in raw, industrial-style conduits.
 Asus Tinker Edge-T	Edge TPU (Integrated)	Dedicated SoC for vision tasks.	The Organicist: Using the Edge-T's specific vision pipeline might result in paths that "hug" the terrain shadows and existing structures more closely.
+
+[HOST_REGISTRY]
+STARGATE_MCP : 10.10.16.66 : PORT 8765 (Orchestrator)
+SKYNET_CORE  : 10.10.16.10 : PORT 8766 (Hailo-8L + USB TPU)
+EDGE_T_NODE  : 10.10.16.4 : PORT 8767 (Asus Tinker TPU)
+
+[BUS_MAPPING]
+RCON_BRIDGE  : 10.10.8.60:25575
+BLUEMAP_API  : 10.10.8.60:8100

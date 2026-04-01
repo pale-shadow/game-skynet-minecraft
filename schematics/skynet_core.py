@@ -54,7 +54,11 @@ class Config:
     MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
     SCHEM_DIR = MINECRAFT_SCHEM_DIR
 
+    # JSON_METADATA_DIR: Directory for build metadata JSON files on the Minecraft server (chonk).
+    JSON_METADATA_DIR = os.path.join(MINECRAFT_SCHEM_DIR, "build_metadata")
+
     # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
+    # This is a legacy file and is not actively used for overlap detection.
     HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json")
 
 def setup_logging(script_name):

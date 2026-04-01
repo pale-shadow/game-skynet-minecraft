@@ -1,0 +1,13 @@
+# Ignore patterns for Gemini CLI
+.git/
+node_modules/
+.venv/
+*.pyc
+__pycache__/
+*.o
+*.a
+*.so
+*.lo
+*.la
+.deps/
+.libs/

@@ -9,6 +9,8 @@ from datetime import datetime, timedelta
 from skynet_core import Config, SkynetRCON, SkynetCore, setup_logging
 from adaptive_mutation_v7 import AdaptiveMutator
 import mcschematic
+import json
+from validate_no_overlaps import check_overlaps
 
 # Setup standardized logging
 logger = setup_logging("skynet_unified")
@@ -45,11 +47,16 @@ class SkynetUnifiedDaemon(SkynetCore):
         sector_name = random.choice(list(Config.SECTORS.keys()))
         bounds = Config.SECTORS[sector_name]
         
-        tx = random.randint(bounds["x"][0], bounds["x"][1])
-        tz = random.randint(bounds["z"][0], bounds["z"][1])
+        # Determine schematic dimensions dynamically
+        width = random.randint(10, 20)
+        height = random.randint(15, 35)
+        length = random.randint(10, 20)
+
+        tx = random.randint(bounds["x"][0], bounds["x"][1] - width) # Adjust max_x to prevent out-of-bounds
+        tz = random.randint(bounds["z"][0], bounds["z"][1] - length) # Adjust max_z to prevent out-of-bounds
         ty = self.rcon.survey_site(tx, tz)
 
-        logger.info(f"SELECTED: {build_name} for deployment at ({tx}, {ty}, {tz}) in {sector_name}")
+        logger.info(f"SELECTED: {build_name} of size {width}x{height}x{length} for deployment at ({tx}, {ty}, {tz}) in {sector_name}")
 
         try:
             # Modular Builder Import
@@ -59,14 +66,31 @@ class SkynetUnifiedDaemon(SkynetCore):
 
             prompt = {
                 "name": build_name,
-                "dimensions": {"width": random.randint(10, 20), "height": random.randint(15, 35), "length": random.randint(10, 20)},
+                "dimensions": {"width": width, "height": height, "length": length},
                 "features": {"void_tech": True, "has_roof": True, "crenellations": True}
             }
+
+            # Pre-deployment overlap check
+            proposed_build = {
+                "id": build_name,
+                "x1": tx, "y1": ty, "z1": tz,
+                "x2": tx + width, "y2": ty + height, "z2": tz + length,
+                "file": os.path.join(Config.SCHEM_DIR, f"{build_name}.schem") # Placeholder path
+            }
+            
+            # Ensure JSON_METADATA_DIR exists for check_overlaps to read from
+            os.makedirs(Config.JSON_METADATA_DIR, exist_ok=True)
+            
+            conflicts = check_overlaps(Config.JSON_METADATA_DIR, proposed_build)
+            if conflicts:
+                logger.warning(f"❌ Aborting build {build_name}: Detected {len(conflicts)} overlaps with existing structures. {conflicts}")
+                return # Abort this build cycle
 
             schem = mcschematic.MCSchematic()
             builder_func(schem, prompt)
             
             os.makedirs(Config.SCHEM_DIR, exist_ok=True)
+            schem_file_path = os.path.join(Config.SCHEM_DIR, build_name)
             schem.save(Config.SCHEM_DIR, build_name, mcschematic.Version.JE_1_21_1)
             logger.info(f"✅ Generated: {build_name}.schem")
 
@@ -99,8 +123,48 @@ class SkynetUnifiedDaemon(SkynetCore):
 
             logger.info(f"🚀 Deployed {build_name} to {tx} {ty} {tz} ({sector_name})")
 
+            # Save build metadata
+            self._save_build_metadata(build_name, sector_name, tx, ty, tz, width, height, length)
+
         except Exception as e:
             logger.error(f"❌ Urbanization Error: {e}")
+
+        except Exception as e:
+            logger.error(f"❌ Urbanization Error: {e}")
+
+    def _save_build_metadata(self, build_name, sector_name, x, y, z, width, height, length):
+        """Saves build metadata to a JSON file in the designated metadata directory."""
+        metadata = {
+            "build_id": build_name,
+            "provenance": {
+                "generated_at": datetime.now().isoformat(),
+                "deployed_at": datetime.now().isoformat(), # Assuming deployment happens immediately
+                "logic_core": "skynet_unified_daemon",
+                "t2bm_version": "v2.1-urbanization"
+            },
+            "hardware_telemetry": {
+                "inference_node": "Skynet-Pi5-Hailo8L", # Placeholder
+                "vision_audit_node": "edge-t-Google-TPU", # Placeholder
+                "total_render_time_ms": 0, # Placeholder
+                "npu_utilization_peak": "0%" # Placeholder
+            },
+            "spatial_data": {
+                "origin": {"x": x, "y": y, "z": z},
+                "dimensions": {"width": width, "height": height, "length": length},
+                "stability_index": 0.0, # Placeholder
+                "worldguard_region": "ai_containment_zone_alpha" # Placeholder
+            },
+            "performance_impact": {
+                "tps_pre_deployment": 20.0, # Placeholder
+                "tps_post_deployment": 20.0, # Placeholder
+                "fawe_asynchronous_load": True # Placeholder
+            }
+        }
+
+        metadata_file_path = os.path.join(Config.JSON_METADATA_DIR, f"{build_name}.json")
+        with open(metadata_file_path, "w") as f:
+            json.dump(metadata, f, indent=2)
+        logger.info(f"📝 Saved build metadata for {build_name} to {metadata_file_path}")
 
     def run_adaptive_mutation_cycle(self):
         """Scans nodes and applies sculk mutation based on human incursions."""

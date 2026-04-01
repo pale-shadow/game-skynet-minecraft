@@ -74,8 +74,6 @@ The MCP is central to the T2BM pipeline, facilitating three key stages:
 
 *   **WorldGuard Regions:** The `database-context` server queries WorldGuard to identify and avoid building within protected heritage zones (e.g., 2012 Washington Station).
 *   **CoreProtect Auditing:** CoreProtect logs AI block mutations, enabling rollbacks if the "Repairing" stage fails.
-*   **Spark Profiling:** MCP can be used to monitor Spark profiler reports to ensure AI operations do not degrade server performance below 20 TPS.
-
 ## 5. Repository Structure and File Roles
 
 *   **`mcp-server/`**: Contains the Python scripts and configuration for the MCP servers.
@@ -97,3 +95,9 @@ Native Python/Node.js scripts for MCP services are preferred over external autom
 *   **Performance:** Native services can be monitored and optimized using tools like Spark, ensuring stable TPS.
 
 Tools like DiscordSRV are recommended for remote monitoring and console access, while GitHub Actions are suggested for CI/CD and automated backup workflows.
+
+## 7. Build Coordination Enhancements
+
+*   **Overlap Prevention:** The T2BM pipeline now incorporates pre-deployment 3D AABB overlap detection using `schematics/validate_no_overlaps.py`. This ensures that new schematic generation and deployment are validated against existing build metadata, preventing spatial conflicts and maintaining overall world integrity.
+
+---
