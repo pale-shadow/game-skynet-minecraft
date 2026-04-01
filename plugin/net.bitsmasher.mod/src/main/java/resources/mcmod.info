@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "testmod",
+        "name": "Testing Java mod for MC server",
+        "description": "test description",
+        "version": "0.1",
+        "mcversion": "1.15.2",
+        "url": "https://minecraft.bitsmasher.net",
+        "updateUrl": "",
+        "authorList": ["UnvaluedShoe79"],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]
