@@ -5,14 +5,16 @@ Individual furniture pieces (desk, chair, table, chandelier, etc.) and
 complete room furnishing routines (office, vault, conference, etc.).
 All placement uses blocks.py helpers for correct orientation.
 """
+
 import random
+
 from . import blocks as B
 from .primitives import cuboid_filled, flat_plane, line_y
-
 
 # ═══════════════════════════════════════════════════════════════════
 #  INDIVIDUAL FURNITURE PIECES
 # ═══════════════════════════════════════════════════════════════════
+
 
 def place_desk(schem, x, y, z, facing="south", length=3, mat="dark_oak"):
     """L-shaped or straight desk using slabs on fence legs."""
@@ -56,7 +58,16 @@ def place_chandelier(schem, cx, y, cz, size=3):
         schem.setBlock((cx + dx, y - 2, cz + dz), B.fence("dark_oak"))
         schem.setBlock((cx + dx, y - 3, cz + dz), B.lantern(hanging=True))
     if size >= 5:
-        for dx, dz in [(2, 0), (-2, 0), (0, 2), (0, -2), (1, 1), (-1, 1), (1, -1), (-1, -1)]:
+        for dx, dz in [
+            (2, 0),
+            (-2, 0),
+            (0, 2),
+            (0, -2),
+            (1, 1),
+            (-1, 1),
+            (1, -1),
+            (-1, -1),
+        ]:
             schem.setBlock((cx + dx, y - 2, cz + dz), B.fence("dark_oak"))
             schem.setBlock((cx + dx, y - 3, cz + dz), B.lantern(hanging=True))
 
@@ -79,8 +90,10 @@ def place_counter(schem, x1, y, z, x2, mat="smooth_quartz", facing="south"):
     lo, hi = min(x1, x2), max(x1, x2)
     for cx in range(lo, hi + 1):
         schem.setBlock((cx, y, z), mat if ":" in mat else f"minecraft:{mat}")
-        schem.setBlock((cx, y + 1, z), B.slab(
-            mat.replace("minecraft:", "") if ":" in mat else mat, "bottom"))
+        schem.setBlock(
+            (cx, y + 1, z),
+            B.slab(mat.replace("minecraft:", "") if ":" in mat else mat, "bottom"),
+        )
 
 
 def place_counter_z(schem, x, y, z1, z2, mat="smooth_quartz"):
@@ -88,8 +101,10 @@ def place_counter_z(schem, x, y, z1, z2, mat="smooth_quartz"):
     lo, hi = min(z1, z2), max(z1, z2)
     for cz in range(lo, hi + 1):
         schem.setBlock((x, y, cz), mat if ":" in mat else f"minecraft:{mat}")
-        schem.setBlock((x, y + 1, cz), B.slab(
-            mat.replace("minecraft:", "") if ":" in mat else mat, "bottom"))
+        schem.setBlock(
+            (x, y + 1, cz),
+            B.slab(mat.replace("minecraft:", "") if ":" in mat else mat, "bottom"),
+        )
 
 
 def place_potted_plant(schem, x, y, z, plant=None):
@@ -105,7 +120,9 @@ def place_carpet_area(schem, x1, y, z1, x2, z2, color="red"):
             schem.setBlock((cx, y, cz), B.carpet(color))
 
 
-def place_wall_lights(schem, x1, y, z, x2, facing="south", spacing=4, light_type="lantern"):
+def place_wall_lights(
+    schem, x1, y, z, x2, facing="south", spacing=4, light_type="lantern"
+):
     """Place wall-mounted lights along a wall (X axis)."""
     for lx in range(min(x1, x2), max(x1, x2) + 1, spacing):
         if light_type == "lantern":
@@ -153,14 +170,18 @@ def place_iron_door_pair(schem, x, y, z, facing="south"):
     schem.setBlock((x, y + 1, z), B.iron_door(facing, "upper", "left"))
 
 
-def place_windows(schem, x1, y, z, x2, height=2, block="minecraft:glass_pane", spacing=3):
+def place_windows(
+    schem, x1, y, z, x2, height=2, block="minecraft:glass_pane", spacing=3
+):
     """Place windows along a wall (X axis) with spacing."""
     for wx in range(min(x1, x2) + 1, max(x1, x2), spacing):
         for wy in range(y, y + height):
             schem.setBlock((wx, wy, z), block)
 
 
-def place_windows_z(schem, x, y, z1, z2, height=2, block="minecraft:glass_pane", spacing=3):
+def place_windows_z(
+    schem, x, y, z1, z2, height=2, block="minecraft:glass_pane", spacing=3
+):
     """Place windows along a wall (Z axis) with spacing."""
     for wz in range(min(z1, z2) + 1, max(z1, z2), spacing):
         for wy in range(y, y + height):
@@ -170,6 +191,7 @@ def place_windows_z(schem, x, y, z1, z2, height=2, block="minecraft:glass_pane",
 # ═══════════════════════════════════════════════════════════════════
 #  COMPLETE ROOM FURNISHING FUNCTIONS
 # ═══════════════════════════════════════════════════════════════════
+
 
 def furnish_office(schem, x1, y, z1, x2, z2, facing="south"):
     """Standard office: desk, chair, bookshelf wall, lighting, plant, carpet."""
@@ -189,7 +211,9 @@ def furnish_office(schem, x1, y, z1, x2, z2, facing="south"):
     # Bookshelf on side wall
     place_bookshelf_wall(schem, x1 + 1, y + 1, z1 + 1, x1 + 1 + min(4, w - 3), 2, "x")
     # Lantern on desk
-    schem.setBlock((cx + 1, y + 2, z1 + 1 if facing == "south" else z2 - 1), B.lantern())
+    schem.setBlock(
+        (cx + 1, y + 2, z1 + 1 if facing == "south" else z2 - 1), B.lantern()
+    )
     # Potted plant
     place_potted_plant(schem, x2 - 1, y + 1, z1 + 1)
     # Ceiling light

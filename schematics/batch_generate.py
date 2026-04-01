@@ -7,15 +7,16 @@ Usage:
     python scripts/batch_generate.py
     python scripts/batch_generate.py --output ./custom_output
 """
+
+import glob
 import os
 import sys
-import glob
 import time
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 
-from scripts.generate_schematic import load_prompt, generate
+from scripts.generate_schematic import generate, load_prompt
 
 
 def main():

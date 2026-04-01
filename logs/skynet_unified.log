@@ -848,3 +848,7 @@ re.error: unbalanced parenthesis at position 15
 2026-03-29 21:40:18,359 - [ERROR] - RCON Failure: [Errno 113] No route to host
 2026-03-29 21:40:31,469 - [ERROR] - RCON Failure: [Errno 113] No route to host
 2026-03-29 21:45:34,589 - [ERROR] - RCON Failure: [Errno 113] No route to host
+2026-04-01 14:15:48,630 - [INFO] - AFC is enabled with max remote calls: 10.
+2026-04-01 14:15:48,785 - [INFO] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 400 Bad Request"
+2026-04-01 14:16:40,354 - [INFO] - AFC is enabled with max remote calls: 10.
+2026-04-01 14:16:40,518 - [INFO] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 400 Bad Request"

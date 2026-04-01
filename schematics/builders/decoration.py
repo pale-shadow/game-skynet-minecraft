@@ -4,8 +4,8 @@ decoration.py — Interior decoration and furniture builder.
 Generates furniture groupings: beds, chests, bookshelves, lanterns,
 crafting tables, furnaces, flower pots, barrels, etc.
 """
-import mcschematic
 
+import mcschematic
 
 # Decoration templates — relative block placements for each furniture type
 DECORATION_BLOCKS = {
@@ -13,23 +13,25 @@ DECORATION_BLOCKS = {
         ((0, 0, 0), "minecraft:red_bed[facing=south,part=foot]"),
         ((0, 0, 1), "minecraft:red_bed[facing=south,part=head]"),
     ],
-    "chest":          [((0, 0, 0), "minecraft:chest[facing=south]")],
+    "chest": [((0, 0, 0), "minecraft:chest[facing=south]")],
     "crafting_table": [((0, 0, 0), "minecraft:crafting_table")],
-    "furnace":        [((0, 0, 0), "minecraft:furnace[facing=south]")],
-    "bookshelf":      [((0, 0, 0), "minecraft:bookshelf")],
-    "lantern":        [((0, 0, 0), "minecraft:lantern")],
-    "torch":          [((0, 0, 0), "minecraft:torch")],
-    "flower_pot":     [((0, 0, 0), "minecraft:potted_poppy")],
-    "barrel":         [((0, 0, 0), "minecraft:barrel[facing=up]")],
-    "painting":       [((0, 0, 0), "minecraft:air")],  # Paintings are entities; place frame block
-    "banner":         [((0, 0, 0), "minecraft:white_banner")],
-    "anvil":          [((0, 0, 0), "minecraft:anvil[facing=south]")],
-    "cauldron":       [((0, 0, 0), "minecraft:cauldron")],
-    "brewing_stand":  [((0, 0, 0), "minecraft:brewing_stand")],
+    "furnace": [((0, 0, 0), "minecraft:furnace[facing=south]")],
+    "bookshelf": [((0, 0, 0), "minecraft:bookshelf")],
+    "lantern": [((0, 0, 0), "minecraft:lantern")],
+    "torch": [((0, 0, 0), "minecraft:torch")],
+    "flower_pot": [((0, 0, 0), "minecraft:potted_poppy")],
+    "barrel": [((0, 0, 0), "minecraft:barrel[facing=up]")],
+    "painting": [
+        ((0, 0, 0), "minecraft:air")
+    ],  # Paintings are entities; place frame block
+    "banner": [((0, 0, 0), "minecraft:white_banner")],
+    "anvil": [((0, 0, 0), "minecraft:anvil[facing=south]")],
+    "cauldron": [((0, 0, 0), "minecraft:cauldron")],
+    "brewing_stand": [((0, 0, 0), "minecraft:brewing_stand")],
     "enchanting_table": [((0, 0, 0), "minecraft:enchanting_table")],
-    "armor_stand":    [((0, 0, 0), "minecraft:air")],  # Entity-based
-    "jukebox":        [((0, 0, 0), "minecraft:jukebox")],
-    "bell":           [((0, 0, 0), "minecraft:bell")],
+    "armor_stand": [((0, 0, 0), "minecraft:air")],  # Entity-based
+    "jukebox": [((0, 0, 0), "minecraft:jukebox")],
+    "bell": [((0, 0, 0), "minecraft:bell")],
 }
 
 
@@ -60,6 +62,7 @@ def _get_positions(position_hint, count, w=7, l=7):
 import re
 
 # ... (rest of imports and DECORATION_BLOCKS)
+
 
 def _get_positions(position_hint, count, w=7, l=7):
     """Generate block positions based on placement hints."""
@@ -104,29 +107,35 @@ def build_decoration(schem: mcschematic.MCSchematic, prompt: dict):
             for coord_str, mat_key in blocks.items():
                 try:
                     # Resolve material key first
-                    mat_parts = mat_key.split('.')
-                    if len(mat_parts) == 2 and mat_parts[0] == 'materials':
+                    mat_parts = mat_key.split(".")
+                    if len(mat_parts) == 2 and mat_parts[0] == "materials":
                         block_str = mats.get(mat_parts[1], "minecraft:air")
                     else:
                         block_str = mat_key  # Assume literal block string
 
                     # Handle loops or single points
                     if coord_str.startswith("loop_"):
-                        loop_str = coord_str[5:].replace('_', '')
+                        loop_str = coord_str[5:].replace("_", "")
                         matches = range_parser.finditer(loop_str)
-                        
+
                         ranges = {}
                         for match in matches:
-                            if match.group(1): # x0to12 format
-                                axis, start, end = match.group(1), int(match.group(2)), match.group(3)
-                                ranges[axis] = range(start, int(end) + 1) if end else [start]
-                            elif match.group(4): # x0,2,4 format
+                            if match.group(1):  # x0to12 format
+                                axis, start, end = (
+                                    match.group(1),
+                                    int(match.group(2)),
+                                    match.group(3),
+                                )
+                                ranges[axis] = (
+                                    range(start, int(end) + 1) if end else [start]
+                                )
+                            elif match.group(4):  # x0,2,4 format
                                 axis, vals = match.group(4), match.group(5)
-                                ranges[axis] = [int(v) for v in vals.split(',')]
+                                ranges[axis] = [int(v) for v in vals.split(",")]
 
-                        x_coords = ranges.get('x', [0])
-                        y_coords = ranges.get('y', [0])
-                        z_coords = ranges.get('z', [0])
+                        x_coords = ranges.get("x", [0])
+                        y_coords = ranges.get("y", [0])
+                        z_coords = ranges.get("z", [0])
 
                         for x in x_coords:
                             for y in y_coords:
@@ -136,20 +145,22 @@ def build_decoration(schem: mcschematic.MCSchematic, prompt: dict):
                                     pz = z + pos_offset.get("z", 0)
                                     schem.setBlock((px, py, pz), block_str)
 
-                    else: # Handle single coordinate: x1_y2_z3
-                        parts = coord_str.split('_')
+                    else:  # Handle single coordinate: x1_y2_z3
+                        parts = coord_str.split("_")
                         coords = {}
                         for part in parts:
                             if len(part) > 1:
                                 coords[part[0]] = int(part[1:])
-                        
-                        px = coords.get('x', 0) + pos_offset.get("x", 0)
-                        py = coords.get('y', 0) + pos_offset.get("y", 0)
-                        pz = coords.get('z', 0) + pos_offset.get("z", 0)
+
+                        px = coords.get("x", 0) + pos_offset.get("x", 0)
+                        py = coords.get("y", 0) + pos_offset.get("y", 0)
+                        pz = coords.get("z", 0) + pos_offset.get("z", 0)
                         schem.setBlock((px, py, pz), block_str)
 
                 except (ValueError, IndexError) as e:
-                    print(f"  WARN: Could not parse complex_structure item '{coord_str}': {mat_key} -> {e}")
+                    print(
+                        f"  WARN: Could not parse complex_structure item '{coord_str}': {mat_key} -> {e}"
+                    )
             continue
 
         # --- Legacy simple decoration logic ---

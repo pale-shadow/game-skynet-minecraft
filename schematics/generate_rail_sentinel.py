@@ -22,13 +22,15 @@ You can add this flavor text to your Latest News or District Guide:
     Run: //schem load rail_sentinel and //paste.
 
 """
+
 import nbtlib
-from nbtlib.tag import Compound, Int, Short, ByteArray, String
+from nbtlib.tag import ByteArray, Compound, Int, Short, String
+
 
 def generate_rail_sentinel():
     # Dimensions: 15 (W) x 27 (H) x 15 (L)
     width, height, length = 15, 27, 15
-    
+
     # Define the 1.21.1 Dreamland Palette
     palette = {
         "minecraft:air": 0,
@@ -39,7 +41,7 @@ def generate_rail_sentinel():
         "minecraft:gold_block": 5,
         "minecraft:gray_concrete": 6,
         "minecraft:copper_bulb{lit:true,powered:true}": 7,
-        "minecraft:polished_deepslate_stairs[facing=north]": 8
+        "minecraft:polished_deepslate_stairs[facing=north]": 8,
     }
 
     block_data = [0] * (width * height * length)
@@ -53,17 +55,21 @@ def generate_rail_sentinel():
     for x in range(2, 13):
         for z in range(2, 13):
             for y in range(4):
-                if y == 0: set_block(x, y, z, "minecraft:gray_concrete")
-                else: set_block(x, y, z, "minecraft:polished_deepslate")
+                if y == 0:
+                    set_block(x, y, z, "minecraft:gray_concrete")
+                else:
+                    set_block(x, y, z, "minecraft:polished_deepslate")
 
     # --- 2. The Legs (Y: 4-10) ---
     for y in range(4, 11):
         # Left Leg
         for x in range(4, 7):
-            for z in range(6, 9): set_block(x, y, z, "minecraft:polished_deepslate")
+            for z in range(6, 9):
+                set_block(x, y, z, "minecraft:polished_deepslate")
         # Right Leg
         for x in range(8, 11):
-            for z in range(6, 9): set_block(x, y, z, "minecraft:polished_deepslate")
+            for z in range(6, 9):
+                set_block(x, y, z, "minecraft:polished_deepslate")
 
     # --- 3. The Torso & Power Core (Y: 11-18) ---
     for y in range(11, 19):
@@ -72,7 +78,7 @@ def generate_rail_sentinel():
                 # Core Placement (Bioluminescent Heart)
                 if 13 <= y <= 15 and 6 <= x <= 8 and z == 5:
                     set_block(x, y, z, "minecraft:shroomlight")
-                    set_block(x, y, z-1, "minecraft:cyan_stained_glass")
+                    set_block(x, y, z - 1, "minecraft:cyan_stained_glass")
                 else:
                     set_block(x, y, z, "minecraft:oxidized_copper")
 
@@ -80,10 +86,12 @@ def generate_rail_sentinel():
     for y in range(14, 21):
         # Left Arm (Holding Staff)
         for x in range(1, 4):
-            for z in range(6, 9): set_block(x, y, z, "minecraft:polished_deepslate")
+            for z in range(6, 9):
+                set_block(x, y, z, "minecraft:polished_deepslate")
         # Right Arm (Posed)
         for x in range(11, 14):
-            for z in range(6, 9): set_block(x, y, z, "minecraft:polished_deepslate")
+            for z in range(6, 9):
+                set_block(x, y, z, "minecraft:polished_deepslate")
 
     # --- 5. The "Golden Rail Spike" Staff (Full Height) ---
     for y in range(0, 27):
@@ -104,24 +112,33 @@ def generate_rail_sentinel():
                     set_block(x, y, z, "minecraft:polished_deepslate")
 
     # Finalize NBT
-    schem = nbtlib.File({
-        '': Compound({
-            'Version': Int(2),
-            'Width': Short(width),
-            'Height': Short(height),
-            'Length': Short(length),
-            'Palette': Compound({name: Int(val) for name, val in palette.items()}),
-            'BlockData': ByteArray(block_data),
-            'Metadata': Compound({
-                'Name': String('Rail_Bound_Sentinel'),
-                'Author': String('Gemini_AI'),
-                'Project': String('Dreamland_2026')
-            })
-        })
-    })
+    schem = nbtlib.File(
+        {
+            "": Compound(
+                {
+                    "Version": Int(2),
+                    "Width": Short(width),
+                    "Height": Short(height),
+                    "Length": Short(length),
+                    "Palette": Compound(
+                        {name: Int(val) for name, val in palette.items()}
+                    ),
+                    "BlockData": ByteArray(block_data),
+                    "Metadata": Compound(
+                        {
+                            "Name": String("Rail_Bound_Sentinel"),
+                            "Author": String("Gemini_AI"),
+                            "Project": String("Dreamland_2026"),
+                        }
+                    ),
+                }
+            )
+        }
+    )
 
-    schem.save('rail_sentinel.schem')
+    schem.save("rail_sentinel.schem")
     print("Statue generated: rail_sentinel.schem")
+
 
 if __name__ == "__main__":
     generate_rail_sentinel()

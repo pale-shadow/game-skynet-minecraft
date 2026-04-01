@@ -4,15 +4,21 @@ REMOTE_NODE = skynet
 
 .PHONY: python test remote-audit clean
 
+lint: python
+	@echo "==> Formatting and Ordering Python Modules..."
+	$(VENV)/bin/isort .
+	$(VENV)/bin/black .
+
 python:
 	@echo "==> Synchronizing Stargate Python Environment..."
 	test -d $(VENV) || python3 -m venv $(VENV)
 	$(VENV)/bin/python3 -m pip install -r requirements.txt pytest pytest-asyncio
 
 test: python
-	@echo "==> Initiating Distributed Test Suite..."
+	@echo "==> Initiating Distributed Test Suite with Coverage..."
 	$(PYTHON) -m pytest test/test_gemini_link.py test/test_brain.py
 	$(PYTHON) -m pytest test/test_rcon.py
+	$(PYTHON) -m pytest --cov=schematics --cov=models test/
 	ssh $(REMOTE_NODE) "hailortcli fw-control identify && vcgencmd measure_temp"
 
 remote-audit:

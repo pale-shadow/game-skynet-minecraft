@@ -3,21 +3,23 @@ wall.py — Wall and fence builder.
 
 Generates straight walls with optional crenellations (merlons).
 """
+
 import mcschematic
+
 from .primitives import cuboid_filled, flat_plane
 
 
 def build_wall(schem: mcschematic.MCSchematic, prompt: dict):
     dims = prompt.get("dimensions", {})
-    w = dims.get("width", 20)     # length of wall along X
+    w = dims.get("width", 20)  # length of wall along X
     h = dims.get("height", 5)
-    t = dims.get("length", 1)     # thickness along Z
+    t = dims.get("length", 1)  # thickness along Z
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
     primary = mats.get("primary", "minecraft:stone_bricks")
-    slab    = mats.get("slab",    "minecraft:stone_brick_slab")
-    stairs  = mats.get("secondary", "minecraft:stone_brick_stairs")
+    slab = mats.get("slab", "minecraft:stone_brick_slab")
+    stairs = mats.get("secondary", "minecraft:stone_brick_stairs")
 
     crenellations = feats.get("crenellations", False)
 
@@ -33,7 +35,9 @@ def build_wall(schem: mcschematic.MCSchematic, prompt: dict):
                     schem.setBlock((x, top_y, z), primary)
             else:
                 for z in range(t):
-                    schem.setBlock((x, h - 1, z), f"{slab}[type=top]" if slab else primary)
+                    schem.setBlock(
+                        (x, h - 1, z), f"{slab}[type=top]" if slab else primary
+                    )
 
     # Walkway on top (slab)
     if h >= 3 and t >= 2:

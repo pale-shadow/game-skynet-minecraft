@@ -10,11 +10,14 @@ Generates a massive, highly detailed bank with:
 - Exterior columns, cornice detailing, grand staircase entrance
 - Decorative roof with parapet
 """
+
 import random
+
 import mcschematic
-from .primitives import cuboid_filled, flat_plane, line_y, line_x, line_z
+
 from . import blocks as B
 from . import interiors as I
+from .primitives import cuboid_filled, flat_plane, line_x, line_y, line_z
 
 
 def build_bank(schem: mcschematic.MCSchematic, prompt: dict):
@@ -26,27 +29,27 @@ def build_bank(schem: mcschematic.MCSchematic, prompt: dict):
     # ═══════════════════════════════════════════════════════════════
     #  CONSTANTS
     # ═══════════════════════════════════════════════════════════════
-    EXT = 2          # Exterior wall thickness
-    FLOOR_SP = 9     # Floor spacing (1 slab + 8 air)
-    GF = 2           # Ground floor slab Y
-    F1 = GF + FLOOR_SP          # 11 - Second floor
-    F2 = F1 + FLOOR_SP          # 20 - Third floor
-    F3 = F2 + FLOOR_SP          # 29 - Fourth floor
-    ROOF = F3 + FLOOR_SP        # 38 - Roof slab
+    EXT = 2  # Exterior wall thickness
+    FLOOR_SP = 9  # Floor spacing (1 slab + 8 air)
+    GF = 2  # Ground floor slab Y
+    F1 = GF + FLOOR_SP  # 11 - Second floor
+    F2 = F1 + FLOOR_SP  # 20 - Third floor
+    F3 = F2 + FLOOR_SP  # 29 - Fourth floor
+    ROOF = F3 + FLOOR_SP  # 38 - Roof slab
 
-    INT_H = 7        # Usable interior blocks above slab (y+1..y+7)
+    INT_H = 7  # Usable interior blocks above slab (y+1..y+7)
     IX1, IX2 = EXT, W - EXT - 1
     IZ1, IZ2 = EXT, L - EXT - 1
 
     # Materials
-    WALL   = B.STONE_BRICKS
+    WALL = B.STONE_BRICKS
     ACCENT = B.CHISELED_STONE_B
-    TRIM   = B.SMOOTH_QUARTZ
-    PILR   = B.QUARTZ_PILLAR
-    FLOOR  = B.POLISHED_DIORITE
+    TRIM = B.SMOOTH_QUARTZ
+    PILR = B.QUARTZ_PILLAR
+    FLOOR = B.POLISHED_DIORITE
     FLOOR2 = B.POLISHED_ANDESITE
-    CARP   = "red"
-    CEIL   = B.SMOOTH_STONE
+    CARP = "red"
+    CEIL = B.SMOOTH_STONE
 
     # ═══════════════════════════════════════════════════════════════
     #  1. FOUNDATION
@@ -79,20 +82,21 @@ def build_bank(schem: mcschematic.MCSchematic, prompt: dict):
     # ═══════════════════════════════════════════════════════════════
     #  3. EXTERIOR DECORATION
     # ═══════════════════════════════════════════════════════════════
-    _build_exterior_detail(schem, W, H, L, GF, F1, F2, F3, ROOF, EXT,
-                           WALL, ACCENT, TRIM, PILR)
+    _build_exterior_detail(
+        schem, W, H, L, GF, F1, F2, F3, ROOF, EXT, WALL, ACCENT, TRIM, PILR
+    )
 
     # ═══════════════════════════════════════════════════════════════
     #  4. GROUND FLOOR LAYOUT
     # ═══════════════════════════════════════════════════════════════
-    _build_ground_floor(schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2,
-                        WALL, FLOOR, CEIL, TRIM, CARP)
+    _build_ground_floor(
+        schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2, WALL, FLOOR, CEIL, TRIM, CARP
+    )
 
     # ═══════════════════════════════════════════════════════════════
     #  5. GRAND LOBBY (double height — remove F1 floor in lobby area)
     # ═══════════════════════════════════════════════════════════════
-    _build_grand_lobby(schem, W, L, GF, F1, FLOOR_SP, IX1, IX2,
-                       FLOOR, TRIM, PILR, CARP)
+    _build_grand_lobby(schem, W, L, GF, F1, FLOOR_SP, IX1, IX2, FLOOR, TRIM, PILR, CARP)
 
     # ═══════════════════════════════════════════════════════════════
     #  6. UPPER FLOORS (F1, F2, F3)
@@ -117,8 +121,9 @@ def build_bank(schem: mcschematic.MCSchematic, prompt: dict):
 # ═══════════════════════════════════════════════════════════════════
 #  EXTERIOR DETAILS
 # ═══════════════════════════════════════════════════════════════════
-def _build_exterior_detail(schem, W, H, L, GF, F1, F2, F3, ROOF, EXT,
-                           WALL, ACCENT, TRIM, PILR):
+def _build_exterior_detail(
+    schem, W, H, L, GF, F1, F2, F3, ROOF, EXT, WALL, ACCENT, TRIM, PILR
+):
     # Cornice lines at each floor boundary
     for fy in [GF, F1, F2, F3, ROOF]:
         cy = fy
@@ -149,7 +154,7 @@ def _build_exterior_detail(schem, W, H, L, GF, F1, F2, F3, ROOF, EXT,
     # Windows on all exterior walls (floors 1-4)
     for fy in [GF, F1, F2, F3]:
         wy = fy + 3  # Window starts 3 above floor
-        wh = 3       # Window height
+        wh = 3  # Window height
         # North windows
         I.place_windows(schem, 4, wy, 0, W - 4, wh, B.GLASS_PANE, 5)
         # South windows (skip entrance area)
@@ -166,10 +171,11 @@ def _build_exterior_detail(schem, W, H, L, GF, F1, F2, F3, ROOF, EXT,
 # ═══════════════════════════════════════════════════════════════════
 #  GROUND FLOOR INTERIOR LAYOUT
 # ═══════════════════════════════════════════════════════════════════
-def _build_ground_floor(schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2,
-                        WALL, FLOOR_BLK, CEIL, TRIM, CARP):
-    fy = GF         # Floor slab Y
-    cy = fy + 1     # Interior starts
+def _build_ground_floor(
+    schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2, WALL, FLOOR_BLK, CEIL, TRIM, CARP
+):
+    fy = GF  # Floor slab Y
+    cy = fy + 1  # Interior starts
     iw = IX2 - IX1  # Interior width
     il = IZ2 - IZ1  # Interior length
 
@@ -182,7 +188,7 @@ def _build_ground_floor(schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2,
     # z=IZ1+48:          Wall
     # z=IZ1+49..IZ2:     Grand lobby
 
-    NR_Z2 = IZ1 + 17   # North rooms south edge
+    NR_Z2 = IZ1 + 17  # North rooms south edge
     MID_Z1 = IZ1 + 19  # Mid section north edge
     MID_Z2 = IZ1 + 31
     TLR_Z1 = IZ1 + 33  # Teller area north edge
@@ -190,9 +196,9 @@ def _build_ground_floor(schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2,
     LOB_Z1 = IZ1 + 49  # Lobby north edge
 
     # Side room east/west split
-    SIDE_W = 18         # Width of side rooms
-    WR_X2 = IX1 + SIDE_W - 1     # West rooms east edge
-    ER_X1 = IX2 - SIDE_W + 1     # East rooms west edge
+    SIDE_W = 18  # Width of side rooms
+    WR_X2 = IX1 + SIDE_W - 1  # West rooms east edge
+    ER_X1 = IX2 - SIDE_W + 1  # East rooms west edge
 
     # ── Horizontal walls ──
     cuboid_filled(schem, IX1, cy, IZ1 + 18, IX2, cy + INT_H, IZ1 + 18, WALL)
@@ -249,8 +255,9 @@ def _build_ground_floor(schem, W, L, GF, FLOOR_SP, IX1, IX2, IZ1, IZ2,
 
     # ── Floor finishes ──
     # Lobby floor (polished diorite + carpet runner)
-    I.place_floor_pattern(schem, IX1, fy, LOB_Z1, IX2, IZ2,
-                          B.POLISHED_DIORITE, B.POLISHED_GRANITE)
+    I.place_floor_pattern(
+        schem, IX1, fy, LOB_Z1, IX2, IZ2, B.POLISHED_DIORITE, B.POLISHED_GRANITE
+    )
     I.place_carpet_area(schem, mid_x - 3, fy + 1, LOB_Z1 + 2, mid_x + 3, IZ2 - 2, CARP)
     # Teller area floor
     flat_plane(schem, IX1, fy, TLR_Z1, IX2, TLR_Z2, B.POLISHED_ANDESITE)
@@ -315,10 +322,11 @@ def _build_teller_counter(schem, x1, fy, z, x2):
 # ═══════════════════════════════════════════════════════════════════
 #  GRAND LOBBY (double height)
 # ═══════════════════════════════════════════════════════════════════
-def _build_grand_lobby(schem, W, L, GF, F1, FLOOR_SP, IX1, IX2,
-                       FLOOR_BLK, TRIM, PILR, CARP):
+def _build_grand_lobby(
+    schem, W, L, GF, F1, FLOOR_SP, IX1, IX2, FLOOR_BLK, TRIM, PILR, CARP
+):
     LOB_Z1 = 2 + 49  # IZ1 + 49
-    LOB_Z2 = L - 3   # IZ2
+    LOB_Z2 = L - 3  # IZ2
 
     # Remove second floor slab in lobby area to create double height
     cuboid_filled(schem, IX1, F1, LOB_Z1, IX2, F1, LOB_Z2, B.AIR)
@@ -347,7 +355,9 @@ def _build_grand_lobby(schem, W, L, GF, F1, FLOOR_SP, IX1, IX2,
     # Reception desk near entrance
     desk_z = LOB_Z2 - 6
     desk_x = mid_x - 5
-    I.place_counter(schem, desk_x, GF + 1, desk_z, desk_x + 10, "minecraft:dark_oak_planks")
+    I.place_counter(
+        schem, desk_x, GF + 1, desk_z, desk_x + 10, "minecraft:dark_oak_planks"
+    )
     # Plants flanking desk
     I.place_potted_plant(schem, desk_x - 1, GF + 1, desk_z)
     I.place_potted_plant(schem, desk_x + 11, GF + 1, desk_z)
@@ -361,7 +371,9 @@ def _build_grand_lobby(schem, W, L, GF, F1, FLOOR_SP, IX1, IX2,
             I.place_chair(schem, bx, GF + 1, bz + 2, facing)
 
     # Floor carpet runner (center)
-    I.place_carpet_area(schem, mid_x - 4, GF + 1, LOB_Z1 + 2, mid_x + 4, LOB_Z2 - 2, CARP)
+    I.place_carpet_area(
+        schem, mid_x - 4, GF + 1, LOB_Z1 + 2, mid_x + 4, LOB_Z2 - 2, CARP
+    )
 
     # Wall banners
     for bx in range(IX1 + 8, IX2 - 6, 12):
@@ -371,7 +383,9 @@ def _build_grand_lobby(schem, W, L, GF, F1, FLOOR_SP, IX1, IX2,
 # ═══════════════════════════════════════════════════════════════════
 #  UPPER FLOORS
 # ═══════════════════════════════════════════════════════════════════
-def _build_upper_floor(schem, W, L, floor_y, IX1, IX2, IZ1, IZ2, WALL, FLOOR_BLK, CEIL, tag):
+def _build_upper_floor(
+    schem, W, L, floor_y, IX1, IX2, IZ1, IZ2, WALL, FLOOR_BLK, CEIL, tag
+):
     fy = floor_y
     cy = fy + 1
     mid_x = (IX1 + IX2) // 2
@@ -404,20 +418,28 @@ def _build_upper_floor(schem, W, L, floor_y, IX1, IX2, IZ1, IZ2, WALL, FLOOR_BLK
         rz2 = min(rz1 + office_depth, work_z2)
         # South wall of this room
         if rz2 < work_z2:
-            cuboid_filled(schem, IX1, cy, rz2 + 1, CORR_X1 - 2, cy + INT_H, rz2 + 1, WALL)
-            cuboid_filled(schem, CORR_X2 + 2, cy, rz2 + 1, IX2, cy + INT_H, rz2 + 1, WALL)
+            cuboid_filled(
+                schem, IX1, cy, rz2 + 1, CORR_X1 - 2, cy + INT_H, rz2 + 1, WALL
+            )
+            cuboid_filled(
+                schem, CORR_X2 + 2, cy, rz2 + 1, IX2, cy + INT_H, rz2 + 1, WALL
+            )
 
         # West room
         wx1, wx2 = IX1, CORR_X1 - 2
         # Door into corridor
-        cuboid_filled(schem, CORR_X1 - 1, cy, rz1 + 5, CORR_X1 - 1, cy + 2, rz1 + 5, B.AIR)
+        cuboid_filled(
+            schem, CORR_X1 - 1, cy, rz1 + 5, CORR_X1 - 1, cy + 2, rz1 + 5, B.AIR
+        )
         I.place_door_pair(schem, CORR_X1 - 1, cy, rz1 + 5, "east")
         # Floor
         flat_plane(schem, wx1, fy, rz1, wx2, rz2, B.DARK_OAK_PLANKS)
 
         # East room
         ex1, ex2 = CORR_X2 + 2, IX2
-        cuboid_filled(schem, CORR_X2 + 1, cy, rz1 + 5, CORR_X2 + 1, cy + 2, rz1 + 5, B.AIR)
+        cuboid_filled(
+            schem, CORR_X2 + 1, cy, rz1 + 5, CORR_X2 + 1, cy + 2, rz1 + 5, B.AIR
+        )
         I.place_door_pair(schem, CORR_X2 + 1, cy, rz1 + 5, "west")
         flat_plane(schem, ex1, fy, rz1, ex2, rz2, B.DARK_OAK_PLANKS)
 
@@ -454,7 +476,9 @@ def _build_entrance(schem, W, L, GF, WALL, TRIM):
     mid_x = W // 2
     # Grand steps (5 blocks deep, 3 steps)
     for step in range(3):
-        flat_plane(schem, mid_x - 8 + step, step, L, mid_x + 8 - step, L + 4 - step, TRIM)
+        flat_plane(
+            schem, mid_x - 8 + step, step, L, mid_x + 8 - step, L + 4 - step, TRIM
+        )
     # Wide door opening
     cuboid_filled(schem, mid_x - 3, GF + 1, L - 2, mid_x + 3, GF + 5, L - 1, B.AIR)
     # Double doors
@@ -510,7 +534,9 @@ def _build_roof(schem, W, H, L, ROOF, WALL, ACCENT, TRIM):
                 if dx * dx + dz * dz <= r * r:
                     dist = dx * dx + dz * dz
                     if dist >= (r - 1) * (r - 1) or y_off == 0:
-                        schem.setBlock((dome_cx + dx, ROOF + 1 + y_off, dome_cz + dz), WALL)
+                        schem.setBlock(
+                            (dome_cx + dx, ROOF + 1 + y_off, dome_cz + dz), WALL
+                        )
 
     # Spire on top
     spire_base = ROOF + 1 + dome_h
