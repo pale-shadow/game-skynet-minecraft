@@ -42,10 +42,24 @@ class Config:
     PLAYER_CHECK_INTERVAL = 600 # 10 Minutes
     WARNING_INTERVAL = 30 # 30 Seconds
 
-    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
-    SCHEM_DIR = os.path.join(PROJECT_ROOT, "schematics", "schem_files")
-    HISTORY_FILE = os.path.join(PROJECT_ROOT, "schematics", "input", "build_history.json")
+    # PROJECT_ROOT: Where the skynet_unified.py script (and skynet_core.py) is executed on Stargate MCP.
+    # PROJECT_ROOT: Base directory for skynet_core.py execution on the Minecraft server (chonk).
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
+
+    # LOG_DIR: Directory for logs, relative to PROJECT_ROOT on the Minecraft server (chonk).
+    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs") 
+
+    # SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
+    # This value MUST match the WorldEdit schematics directory on the Minecraft server.
+    MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
+    SCHEM_DIR = MINECRAFT_SCHEM_DIR
+
+    # JSON_METADATA_DIR: Directory for build metadata JSON files on the Minecraft server (chonk).
+    JSON_METADATA_DIR = os.path.join(MINECRAFT_SCHEM_DIR, "build_metadata")
+
+    # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
+    # This is a legacy file and is not actively used for overlap detection.
+    HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json")
 
 def setup_logging(script_name):
     """Standardizes logging to the logs/ folder with absolute paths."""
