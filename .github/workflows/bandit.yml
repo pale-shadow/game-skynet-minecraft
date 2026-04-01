@@ -1,22 +1,7 @@
 name: Bandit Security Scan
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  bandit:
-    name: Bandit Scanname: Bandit Security Scan
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  schedule:
-    - cron: '20 5 * * 1' # Weekly scan on Monday mornings
+  pull_request
 
 jobs:
   bandit:

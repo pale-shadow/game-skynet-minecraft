@@ -2,6 +2,8 @@
 
 Welcome a world that bridges over a decade of history with the cutting edge of AI-driven Minecraft engineering. 
 
+[![Python Code Coverage](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml)
+
 ![tech void nihilism as software architecture](https://github.com/pale-shadow/game-chonk-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
 
 ## 🌐 Server Information
