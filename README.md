@@ -2,7 +2,7 @@
 
 Welcome a world that bridges over a decade of history with the cutting edge of AI-driven Minecraft engineering. 
 
-[![Bandit Security Scan](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml) [![Python Code Coverage](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml)
+[![Bandit Security Scan](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml) [![Python Code Coverage](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml) [![Skynet Unified Test Suite](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/python-test.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/python-test.yml)
 
 ![tech void nihilism as software architecture](https://github.com/pale-shadow/game-chonk-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
 
