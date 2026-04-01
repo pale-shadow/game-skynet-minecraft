@@ -10,3 +10,4 @@ pytest-mock
 diagrams 
 isort
 black
+pytest-cov
