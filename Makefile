@@ -7,7 +7,7 @@ REMOTE_NODE = skynet
 python:
 	@echo "==> Synchronizing Stargate Python Environment..."
 	test -d $(VENV) || python3 -m venv $(VENV)
-	$(VENV)/bin/pip install -r requirements.txt pytest pytest-asyncio
+	$(VENV)/bin/python3 -m pip install -r requirements.txt pytest pytest-asyncio
 
 test: python
 	@echo "==> Initiating Distributed Test Suite..."

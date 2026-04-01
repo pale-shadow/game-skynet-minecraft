@@ -1,9 +1,9 @@
 # Ignore patterns for Gemini CLI
 .git/
-node_modules/
+**/node_modules/
 .venv/
 *.pyc
-__pycache__/
+**/__pycache__/
 *.o
 *.a
 *.so
@@ -11,3 +11,4 @@ __pycache__/
 *.la
 .deps/
 .libs/
+**/.pytest_cache/
