@@ -1,6 +1,8 @@
 import os
+
 import pytest
 from google import genai
+
 
 @pytest.mark.skipif("GOOGLE_API_KEY" not in os.environ, reason="GOOGLE_API_KEY not set")
 def test_connection():

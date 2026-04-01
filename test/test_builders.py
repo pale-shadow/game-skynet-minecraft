@@ -1,6 +1,7 @@
 import mcschematic
 import pytest
 
+
 def test_house_builder():
     """Verify that the house builder runs without error and modifies the schematic."""
     from builders.house import build_house

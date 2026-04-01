@@ -1,11 +1,15 @@
 import os
 import sys
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
 
 # Standardize PYTHONPATH to include the project root and subdirectories
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../schematics")))
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../schematics"))
+)
+
 
 @pytest.fixture
 def mock_rcon():
@@ -15,10 +19,12 @@ def mock_rcon():
     mock.check_health.return_value = True
     return mock
 
+
 @pytest.fixture
 def mock_thermal():
     """Mocked thermal data (70 degrees is safe)."""
     return 70.0
+
 
 @pytest.fixture(autouse=True)
 def mock_env_vars(monkeypatch):

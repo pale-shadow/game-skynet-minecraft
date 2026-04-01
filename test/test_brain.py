@@ -1,6 +1,6 @@
-import pytest
 from unittest.mock import MagicMock, patch
 
+import pytest
 from skynet_core import Config, SkynetCore
 from skynet_unified import SkynetUnifiedDaemon
 

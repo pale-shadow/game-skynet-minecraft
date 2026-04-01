@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
+
 import pytest
 from skynet_core import SkynetCore
+
 
 def test_hub02_rcon_connection():
     """
