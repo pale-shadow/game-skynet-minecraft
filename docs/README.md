@@ -1,4 +1,0 @@
-# docs
-
-## CLIENT resource packs
-

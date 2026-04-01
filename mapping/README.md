@@ -1,5 +1,7 @@
 # mapping
 
+Code and files related to mapping the minecraft server and keeping the BlueMap accurate.
+
 ```sh
 detail: """
     <h3>Skynet NPU Node: PI-5</h3>
