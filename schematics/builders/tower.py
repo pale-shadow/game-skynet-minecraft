@@ -4,17 +4,26 @@ tower.py — Tower and spire builder.
 Generates cylindrical towers with hollow interior, windows, and optional
 peaked/dome roofs and crenellations.
 """
+
 import math
+
 import mcschematic
-from .primitives import circle_xz, cylinder, cone, flat_plane, line_y
-from .void_tech import apply_void_palette, build_ribbed_structure, add_hydro_pod, add_kinetic_signaling, apply_mutation
+
+from .primitives import circle_xz, cone, cylinder, flat_plane, line_y
+from .void_tech import (
+    add_hydro_pod,
+    add_kinetic_signaling,
+    apply_mutation,
+    apply_void_palette,
+    build_ribbed_structure,
+)
 
 
 def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
     # Use v7 Standard if requested
     if prompt.get("features", {}).get("void_tech", False):
         prompt = apply_void_palette(prompt)
-        
+
     dims = prompt.get("dimensions", {})
     w = dims.get("width", 7)
     h = dims.get("height", 20)
@@ -22,24 +31,24 @@ def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
-    primary   = mats.get("primary",   "minecraft:stone_bricks")
+    primary = mats.get("primary", "minecraft:stone_bricks")
     secondary = mats.get("secondary", "minecraft:spruce_planks")
-    stairs    = mats.get("stairs",    "minecraft:stone_brick_stairs")
-    glass     = mats.get("glass",     "minecraft:glass_pane")
-    light     = mats.get("light",     "minecraft:torch")
-    accent    = mats.get("accent",    primary)
-    tertiary  = mats.get("tertiary",  primary)
-    roof_mat  = mats.get("roof",      primary)
-    water_mat = mats.get("water",     "minecraft:water")
+    stairs = mats.get("stairs", "minecraft:stone_brick_stairs")
+    glass = mats.get("glass", "minecraft:glass_pane")
+    light = mats.get("light", "minecraft:torch")
+    accent = mats.get("accent", primary)
+    tertiary = mats.get("tertiary", primary)
+    roof_mat = mats.get("roof", primary)
+    water_mat = mats.get("water", "minecraft:water")
 
-    has_roof      = feats.get("has_roof", True)
-    roof_style    = feats.get("roof_style", "peaked")
-    hollow        = feats.get("hollow", True)
+    has_roof = feats.get("has_roof", True)
+    roof_style = feats.get("roof_style", "peaked")
+    hollow = feats.get("hollow", True)
     crenellations = feats.get("crenellations", False)
-    interior_lit  = feats.get("interior_lit", True)
-    has_water     = feats.get("has_water", False)
-    has_antenna   = feats.get("has_antenna", False)
-    top_deck      = feats.get("top_deck", False)
+    interior_lit = feats.get("interior_lit", True)
+    has_water = feats.get("has_water", False)
+    has_antenna = feats.get("has_antenna", False)
+    top_deck = feats.get("top_deck", False)
 
     radius = min(w, l) // 2
     cx = w // 2
@@ -49,7 +58,16 @@ def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
     if feats.get("void_tech", False):
         build_ribbed_structure(schem, cx, 0, cz, radius, h, mats)
         # Void Core
-        cylinder(schem, cx, 1, cz, radius - 1, h - 1, mats.get("energy", "minecraft:crying_obsidian"), filled=True)
+        cylinder(
+            schem,
+            cx,
+            1,
+            cz,
+            radius - 1,
+            h - 1,
+            mats.get("energy", "minecraft:crying_obsidian"),
+            filled=True,
+        )
         # Kinetic Pulse at base
         add_kinetic_signaling(schem, cx + radius + 1, 0, cz)
         # Hydro Pod at top
@@ -105,6 +123,7 @@ def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
             cone(schem, cx, roof_y, cz, radius + 1, radius + 2, stairs)
         elif roof_style == "dome":
             from .primitives import dome
+
             dome(schem, cx, roof_y, cz, radius, roof_mat, filled=False)
         else:
             circle_xz(schem, cx, roof_y, cz, radius, stairs, filled=True)
@@ -117,8 +136,12 @@ def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
     # Interior lighting (torches on walls)
     if interior_lit and hollow:
         for wy in range(2, h - 1, 4):
-            schem.setBlock((cx + radius - 1, wy, cz), f"minecraft:wall_torch[facing=west]")
-            schem.setBlock((cx - radius + 1, wy, cz), f"minecraft:wall_torch[facing=east]")
+            schem.setBlock(
+                (cx + radius - 1, wy, cz), f"minecraft:wall_torch[facing=west]"
+            )
+            schem.setBlock(
+                (cx - radius + 1, wy, cz), f"minecraft:wall_torch[facing=east]"
+            )
 
     # Door opening at ground level (south side)
     if hollow:

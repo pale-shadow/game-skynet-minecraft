@@ -1,18 +1,21 @@
-import math
 import heapq
 import json
+import math
 import os
+
 from npu_spatial_engine import NPUSpatialEngine
 
 # AI Testing Field Boundaries
 FIELD_BOUNDS = {"min_x": -1539, "max_x": -945, "min_z": -913, "max_z": -489}
-GRID_RES = 5 # 5-block resolution for pathfinding
+GRID_RES = 5  # 5-block resolution for pathfinding
+
 
 class NeuralPathfinder:
     """
     A* Pathfinding optimized for the Hailo-8L NPU.
     Navigates bridges around existing building footprints.
     """
+
     def __init__(self):
         self.engine = NPUSpatialEngine()
         self.obstacles = self._get_obstacles()
@@ -22,12 +25,14 @@ class NeuralPathfinder:
         for build in self.engine.history:
             if "x" in build and "z" in build:
                 # Add a buffer around buildings
-                obs.append({
-                    "x1": build["x"] - 5,
-                    "z1": build["z"] - 5,
-                    "x2": build["x"] + build.get("w", 10) + 5,
-                    "z2": build["z"] + build.get("d", 10) + 5
-                })
+                obs.append(
+                    {
+                        "x1": build["x"] - 5,
+                        "z1": build["z"] - 5,
+                        "x2": build["x"] + build.get("w", 10) + 5,
+                        "z2": build["z"] + build.get("d", 10) + 5,
+                    }
+                )
         return obs
 
     def is_blocked(self, x, z):
@@ -37,7 +42,7 @@ class NeuralPathfinder:
         return False
 
     def heuristic(self, a, b):
-        return math.sqrt((a[0] - b[0])**2 + (a[1] - b[1])**2)
+        return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
     def get_path(self, start, end):
         """
@@ -65,29 +70,48 @@ class NeuralPathfinder:
                 return data[::-1]
 
             close_set.add(current)
-            for i, j in [(0, GRID_RES), (0, -GRID_RES), (GRID_RES, 0), (-GRID_RES, 0), 
-                         (GRID_RES, GRID_RES), (GRID_RES, -GRID_RES), (-GRID_RES, GRID_RES), (-GRID_RES, -GRID_RES)]:
+            for i, j in [
+                (0, GRID_RES),
+                (0, -GRID_RES),
+                (GRID_RES, 0),
+                (-GRID_RES, 0),
+                (GRID_RES, GRID_RES),
+                (GRID_RES, -GRID_RES),
+                (-GRID_RES, GRID_RES),
+                (-GRID_RES, -GRID_RES),
+            ]:
                 neighbor = current[0] + i, current[1] + j
-                
+
                 if self.is_blocked(neighbor[0], neighbor[1]):
                     continue
-                
-                if neighbor[0] < FIELD_BOUNDS["min_x"] or neighbor[0] > FIELD_BOUNDS["max_x"] or \
-                   neighbor[1] < FIELD_BOUNDS["min_z"] or neighbor[1] > FIELD_BOUNDS["max_z"]:
+
+                if (
+                    neighbor[0] < FIELD_BOUNDS["min_x"]
+                    or neighbor[0] > FIELD_BOUNDS["max_x"]
+                    or neighbor[1] < FIELD_BOUNDS["min_z"]
+                    or neighbor[1] > FIELD_BOUNDS["max_z"]
+                ):
                     continue
 
                 tentative_g_score = gscore[current] + self.heuristic(current, neighbor)
-                
-                if neighbor in close_set and tentative_g_score >= gscore.get(neighbor, 0):
+
+                if neighbor in close_set and tentative_g_score >= gscore.get(
+                    neighbor, 0
+                ):
                     continue
-                
-                if tentative_g_score < gscore.get(neighbor, 0) or neighbor not in [i[1] for i in oheap]:
+
+                if tentative_g_score < gscore.get(neighbor, 0) or neighbor not in [
+                    i[1] for i in oheap
+                ]:
                     came_from[neighbor] = current
                     gscore[neighbor] = tentative_g_score
-                    fscore[neighbor] = tentative_g_score + self.heuristic(neighbor, end_grid)
+                    fscore[neighbor] = tentative_g_score + self.heuristic(
+                        neighbor, end_grid
+                    )
                     heapq.heappush(oheap, (fscore[neighbor], neighbor))
-        
+
         return []
+
 
 if __name__ == "__main__":
     print("🧠 Hailo-8L NPU: Testing Neural Pathfinding...")

@@ -5,7 +5,9 @@ These functions place blocks into an MCSchematic using basic geometry:
 filled/hollow cuboids, cylinders, spheres, arches, lines, and circles.
 All coords are relative to the schematic origin (0,0,0).
 """
+
 import math
+
 import mcschematic
 
 
@@ -116,7 +118,9 @@ def arch_xz(schem, x1, y, z, x2, height, block):
     for xi in range(min(x1, x2), max(x1, x2) + 1):
         dx = xi - cx
         if abs(dx) <= radius:
-            arch_h = int(math.sqrt(max(0, radius * radius - dx * dx)) * (height / radius))
+            arch_h = int(
+                math.sqrt(max(0, radius * radius - dx * dx)) * (height / radius)
+            )
             for yi in range(base_y, base_y + arch_h + 1):
                 schem.setBlock((xi, yi, z), block)
 

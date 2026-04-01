@@ -4,8 +4,18 @@ castle.py — Castle and fortification builder.
 Generates a castle with outer walls, corner towers, a courtyard, and a gate.
 Combines wall and tower primitives for a complete fortification.
 """
+
 import mcschematic
-from .primitives import cuboid_filled, cuboid_walls, flat_plane, line_y, cylinder, circle_xz, cone
+
+from .primitives import (
+    circle_xz,
+    cone,
+    cuboid_filled,
+    cuboid_walls,
+    cylinder,
+    flat_plane,
+    line_y,
+)
 
 
 def build_castle(schem: mcschematic.MCSchematic, prompt: dict):
@@ -16,18 +26,18 @@ def build_castle(schem: mcschematic.MCSchematic, prompt: dict):
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
-    primary   = mats.get("primary",   "minecraft:stone_bricks")
+    primary = mats.get("primary", "minecraft:stone_bricks")
     secondary = mats.get("secondary", "minecraft:mossy_stone_bricks")
-    tertiary  = mats.get("tertiary",  "minecraft:cracked_stone_bricks")
-    floor_mat = mats.get("floor",     "minecraft:stone")
-    stairs    = mats.get("stairs",    "minecraft:stone_brick_stairs")
-    slab      = mats.get("slab",      "minecraft:stone_brick_slab")
-    light     = mats.get("light",     "minecraft:torch")
-    fence     = mats.get("fence",     "minecraft:stone_brick_wall")
+    tertiary = mats.get("tertiary", "minecraft:cracked_stone_bricks")
+    floor_mat = mats.get("floor", "minecraft:stone")
+    stairs = mats.get("stairs", "minecraft:stone_brick_stairs")
+    slab = mats.get("slab", "minecraft:stone_brick_slab")
+    light = mats.get("light", "minecraft:torch")
+    fence = mats.get("fence", "minecraft:stone_brick_wall")
 
     crenellations = feats.get("crenellations", True)
-    has_floor     = feats.get("has_floor", True)
-    interior_lit  = feats.get("interior_lit", True)
+    has_floor = feats.get("has_floor", True)
+    interior_lit = feats.get("interior_lit", True)
 
     wall_h = h
     wall_t = 2  # wall thickness
@@ -47,7 +57,16 @@ def build_castle(schem: mcschematic.MCSchematic, prompt: dict):
     cuboid_filled(schem, w - wall_t, 1, 0, w - 1, wall_h, l - 1, primary)
 
     # ---- Interior is air (clear inside walls) ----
-    cuboid_filled(schem, wall_t, 1, wall_t, w - wall_t - 1, wall_h - 1, l - wall_t - 1, "minecraft:air")
+    cuboid_filled(
+        schem,
+        wall_t,
+        1,
+        wall_t,
+        w - wall_t - 1,
+        wall_h - 1,
+        l - wall_t - 1,
+        "minecraft:air",
+    )
 
     # ---- Walkway on top of walls ----
     for x in range(w):
@@ -75,16 +94,18 @@ def build_castle(schem: mcschematic.MCSchematic, prompt: dict):
     tower_r = 3
     tower_h = wall_h + 5
     corners = [
-        (tower_r, tower_r),              # NW
-        (w - 1 - tower_r, tower_r),      # NE
-        (tower_r, l - 1 - tower_r),      # SW
+        (tower_r, tower_r),  # NW
+        (w - 1 - tower_r, tower_r),  # NE
+        (tower_r, l - 1 - tower_r),  # SW
         (w - 1 - tower_r, l - 1 - tower_r),  # SE
     ]
     for tx, tz in corners:
         # Tower body
         cylinder(schem, tx, 0, tz, tower_r, tower_h, primary, filled=True)
         # Hollow interior
-        cylinder(schem, tx, 1, tz, tower_r - 1, tower_h - 1, "minecraft:air", filled=True)
+        cylinder(
+            schem, tx, 1, tz, tower_r - 1, tower_h - 1, "minecraft:air", filled=True
+        )
         # Floor
         circle_xz(schem, tx, 0, tz, tower_r - 1, floor_mat, filled=True)
         # Peaked roof
@@ -102,11 +123,11 @@ def build_castle(schem: mcschematic.MCSchematic, prompt: dict):
                 schem.setBlock((gate_x + dx, dy, gate_z_start + dz), "minecraft:air")
     # Arch top
     schem.setBlock((gate_x - 1, 5, l - 1), f"{stairs}[facing=east,half=bottom]")
-    schem.setBlock((gate_x,     5, l - 1), primary)
+    schem.setBlock((gate_x, 5, l - 1), primary)
     schem.setBlock((gate_x + 1, 5, l - 1), f"{stairs}[facing=west,half=bottom]")
     # Repeat for inner face
     schem.setBlock((gate_x - 1, 5, l - wall_t), f"{stairs}[facing=east,half=bottom]")
-    schem.setBlock((gate_x,     5, l - wall_t), primary)
+    schem.setBlock((gate_x, 5, l - wall_t), primary)
     schem.setBlock((gate_x + 1, 5, l - wall_t), f"{stairs}[facing=west,half=bottom]")
 
     # ---- Interior torches ----
@@ -117,6 +138,7 @@ def build_castle(schem: mcschematic.MCSchematic, prompt: dict):
 
     # ---- Weathering — sprinkle mossy/cracked bricks on walls ----
     import random
+
     random.seed(hash(prompt.get("name", "castle")) % 10000)
     for x in range(w):
         for z in [0, l - 1]:

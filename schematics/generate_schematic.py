@@ -1,7 +1,8 @@
+import json
 import os
 import sys
-import json
 import time
+
 import mcschematic
 
 # Add the parent directory of this script to sys.path so 'builders' can be imported
@@ -13,8 +14,13 @@ if SCRIPT_DIR not in sys.path:
 
 from builders import BUILDERS
 
-VERSION_MAP = {v: getattr(mcschematic.Version, v) for v in dir(mcschematic.Version) if v.startswith("JE_")}
+VERSION_MAP = {
+    v: getattr(mcschematic.Version, v)
+    for v in dir(mcschematic.Version)
+    if v.startswith("JE_")
+}
 DEFAULT_VERSION = "JE_1_21_1"
+
 
 def load_prompt(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -24,6 +30,7 @@ def load_prompt(path):
     if "name" not in prompt:
         prompt["name"] = os.path.splitext(os.path.basename(path))[0]
     return prompt
+
 
 def generate(prompt, output_dir):
     build_type = prompt.get("type", "house")
@@ -42,20 +49,21 @@ def generate(prompt, output_dir):
     builder(schem, prompt)
     elapsed = time.time() - start
     print(f"  Build completed in {elapsed:.2f}s")
-    
+
     os.makedirs(output_dir, exist_ok=True)
     schem.save(output_dir, name, mc_version)
     return os.path.join(output_dir, f"{name}.schem")
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python generate_schematic.py <prompt.json> [--output <dir>]")
         sys.exit(1)
-    
+
     prompt_path = sys.argv[1]
     output_dir = os.path.join(SCRIPT_DIR, "output")
     if "--output" in sys.argv:
         output_dir = sys.argv[sys.argv.index("--output") + 1]
-    
+
     prompt = load_prompt(prompt_path)
     generate(prompt, output_dir)
