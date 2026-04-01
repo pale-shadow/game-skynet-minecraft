@@ -43,18 +43,18 @@ class Config:
     WARNING_INTERVAL = 30 # 30 Seconds
 
     # PROJECT_ROOT: Where the skynet_unified.py script (and skynet_core.py) is executed on Stargate MCP.
-    # This is distinct from where the schematics are ultimately deployed on the Minecraft server (chonk).
+    # PROJECT_ROOT: Base directory for skynet_core.py execution on the Minecraft server (chonk).
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
-    
-    # LOG_DIR: Assumes logs are stored relative to PROJECT_ROOT on the Stargate MCP.
+
+    # LOG_DIR: Directory for logs, relative to PROJECT_ROOT on the Minecraft server (chonk).
     LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs") 
-    
+
     # SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
     # This value MUST match the WorldEdit schematics directory on the Minecraft server.
     MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
     SCHEM_DIR = MINECRAFT_SCHEM_DIR
 
-    # HISTORY_FILE: Assumes build history is stored relative to PROJECT_ROOT on the Stargate MCP.
+    # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
     HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json")
 
 def setup_logging(script_name):
