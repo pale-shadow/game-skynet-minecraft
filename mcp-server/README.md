@@ -1,33 +1,44 @@
-# MCP
+# MCP (Model Context Protocol) Setup Guide
 
-The preparation steps for the Stargate host (10.10.16.66) to connect to the Minecraft host "chonk" (10.10.8.60) via an MCP server.
+This guide outlines the setup and configuration of the Model Context Protocol (MCP) servers on the Stargate host (`stargate.research.bitsmasher.net`), enabling it to act as the central architectural agent and orchestrator for the Skynet AI cluster. This setup leverages Stargate's high-speed NVMe SSD and integrates with the Minecraft server ("Chonk" host at `10.10.8.60`) for autonomous construction and management.
 
-  1. Environment & Infrastructure (Stargate Host)
-   * Storage Migration: Move the project workspace to the high-speed NVMe mount at /mnt/clusterfs2/game-chonk-minecraft to handle T2BM (Text to Building in Minecraft) model weights and
-     schematic I/O with low latency.
-   * Virtual Environment: Create a fresh Python 11+ virtual environment on the NVMe drive and install dependencies, including the MCP Python SDK (pip install mcp).
-   * Hardware Acceleration: Ensure direnv is configured to export CUDA and LD_LIBRARY_PATH for NPU-accelerated (Hailo-8L) inference.
-   * Credential Management: Securely store the RCON_PASS in a root .envrc file, ensuring special characters (like %%) are properly escaped for the RCON client.
+## Purpose
 
-  2. MCP Server Configuration (Stargate Host)
-  Deploy four specialized MCP servers to act as "tools" for the AI Brain:
-   * Filesystem Server: Provides the AI with read/write access to schematics/, models/, and internal/ for blueprint management.
-   * RCON Tool Server: Wraps the SkynetRCON client, allowing the LLM to execute setblock and fill commands as standardized protocol calls.
-   * Git Server: Automates backup_to_git.sh to commit successful "Void-Tech" designs.
-   * Database Context Server: Connects to the database/ folder to query WorldGuard regions and CoreProtect logs, preventing the AI from building over heritage sites.
+The MCP allows the Skynet AI Brain, particularly the T2BM (Text to Building in Minecraft) model, to interact with the Minecraft environment through specialized tools. This includes managing schematics, executing in-game commands via RCON, automating Git backups, and querying server data for safety and heritage preservation.
 
-  3. Orchestrator Migration (skynet_unified.py)
-   * Primary Node Assignment: Update skynet_unified.py to designate Stargate as the Primary Orchestrator & LLM Inference Node.
-   * T2BM Integration: Refactor the orchestrator to use MCP tool calls instead of direct shell commands for the "Sense, Plan, Act" cycle.
-   * Systemd Update: Reconfigure the skynet-daemon.service on Stargate to point to the new /mnt/clusterfs2 working directory and its virtual environment.
+## Key Components
 
-  4. Target Host Preparation (Chonk Host)
-   * Safety Guardrails: Ensure WorldGuard (for region protection), CoreProtect (for auditing/rollbacks), and Spark (for performance profiling) are active on the Minecraft server.
-   * Network Access: Verify that RCON is enabled in server.properties and that Stargate’s IP is whitelisted/accessible on the RCON port (default 25575).
+The MCP setup on Stargate involves deploying several specialized servers:
 
-  By completing these steps, the Stargate host will be ready to act as the centralized MCP hub, orchestrating autonomous construction on chonk with full architectural awareness and safety
-  protocols.
+*   **Filesystem Server:** Provides read/write access to project directories like `schematics/`, `models/`, and `internal/` for blueprint management.
+*   **RCON Tool Server:** Wraps the SkynetRCON client to allow the LLM to execute `setblock` and `fill` commands as standardized protocol calls.
+*   **Git Automation Server:** Integrates `backup_to_git.sh` to automate commits of successful AI-generated designs to Git.
+*   **Database Context Server:** Connects to the MariaDB host (`blowfish.lab.bitsmasher.net`) to query CoreProtect logs and WorldGuard regions, ensuring AI operations do not interfere with protected heritage sites.
+*   **Vision MCP Server:** (Configured on `edge-t` host `10.10.16.4`) Provides vision and terrain audit capabilities using Edge TPUs.
+*   **NPU Skynet Server:** (Configured on Stargate) Leverages Hailo-8L NPUs for AI inference and schematic generation.
 
-## MCP setup
+## Setup Steps
 
-Configure MCP on the `stargate.research.bitsmasher.net` host
+1.  **Environment Preparation on Stargate:**
+    *   Move the project workspace to the NVMe mount (`/mnt/clusterfs2/game-chonk-minecraft`).
+    *   Create and activate a Python 3 virtual environment.
+    *   Install dependencies, including the MCP Python SDK (`pip install mcp`).
+    *   Ensure hardware acceleration exports (CUDA, LD_LIBRARY_PATH) are active.
+    *   Securely manage `RCON_PASS` in `.envrc`.
+
+2.  **MCP Server Configuration:**
+    Initialize the MCP servers as defined in `mcp-servers.json`.
+
+3.  **Orchestrator Integration (`skynet_unified.py`):**
+    *   Update the orchestrator to designate Stargate as the Primary Orchestrator & LLM Inference Node.
+    *   Refactor the "Sense, Plan, Act" cycle to use MCP tool calls instead of direct shell commands.
+    *   Integrate T2BM logic for prompt refining, decoding, and repairing.
+
+4.  **Target Host Preparation (Chonk Host):**
+    *   Ensure WorldGuard, CoreProtect, and Spark are active on the Minecraft server.
+    *   Verify RCON is enabled and Stargate's IP is whitelisted.
+
+5.  **Service Activation:**
+    Update the `skynet-daemon.service` on Stargate to reflect the new working directory and virtual environment.
+
+By following these steps, Stargate acts as a powerful, centralized hub for autonomous AI-driven construction and management within the Minecraft environment.
