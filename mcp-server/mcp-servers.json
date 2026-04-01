@@ -1,3 +1,21 @@
+# MCP (Model Context Protocol) Configuration
+
+This file defines the MCP servers available to the Skynet AI cluster, including their commands, arguments, environment variables, and network configurations. It is used by orchestrator scripts to discover and communicate with these services.
+
+## MCP Server Definitions
+
+Each entry under `mcpServers` describes a single MCP service.
+
+*   **`command`**: The executable command to start the service (e.g., `python3`, `npx`).
+*   **`args`**: Arguments to pass to the command.
+*   **`env`**: Environment variables to set for the service process.
+*   **`remote`**: Specifies if the service runs on a remote host.
+    *   `host`: The IP address or hostname of the remote machine.
+    *   `user`: The username to connect as (e.g., for SSH).
+*   **`port`**: (Optional) Explicitly define the port the service listens on. If omitted, default ports are used.
+
+---
+
 {
   "mcpServers": {
     "filesystem-stargate": {
@@ -10,7 +28,8 @@
       ],
       "env": {
         "SERVER_DIR": "/home/minecraft"
-      }
+      },
+      "port": 8081
     },
     "rcon-chonk": {
       "command": "python3",
@@ -21,7 +40,8 @@
         "RCON_HOST": "10.10.8.60",
         "RCON_PORT": "25575",
         "HUB_ID": "Hub-02"
-      }
+      },
+      "port": 8082
     },
     "git-ledger": {
       "command": "python3",
@@ -30,7 +50,8 @@
       ],
       "env": {
         "BACKUP_SCRIPT": "/home/minecraft/bin/backup_to_git.sh"
-      }
+      },
+      "port": 8083
     },
     "vision-edge-t": {
       "command": "python3",
@@ -45,7 +66,8 @@
       "remote": {
         "host": "10.10.16.4",
         "user": "minecraft"
-      }
+      },
+      "port": 8084
     },
     "npu-skynet": {
       "command": "python3",
@@ -56,7 +78,8 @@
         "HAILO_NPU_ACTIVE": "true",
         "SCHEM_GEN_PATH": "/home/minecraft/game-skynet-minecraft/schem-gen",
         "LOGIC_CORE": "Hub-01"
-      }
+      },
+      "port": 8085
     }
   }
 }
