@@ -42,7 +42,7 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
 
 ## Debugging & Health Check (Mar 26, 2026)
 
-- **RCON Link Restoration**: Fixed a critical `Login failed` error. The `RCON_PASS` in the systemd service file was corrupted with trailing percent signs and single quotes. Corrected the environment definition in `mcp-servers/skynet-daemon.service`.
+- **Schematic Pathing:** (Resolved Mar 30, 2026) Corrected `PROJECT_ROOT`, `LOG_DIR`, `SCHEM_DIR`, and `HISTORY_FILE` configurations in `skynet_core.py` to ensure `.schem` files are saved directly to `/home/minecraft/schematics` when `skynet_unified.py` runs on the `chonk` host.
 - **Deployment Verification**: Verified that `skynet_unified.py` successfully generates and attempts to deploy schematics (e.g., `SKYNET_BRIDGE_3283.schem`) to the server.
 - **Announcement & Logging Standards**: Implemented mandatory coordinate and name reporting for all builds. All server console announcements (`say` commands) and local log file (`skynet_unified.log`) now explicitly include the building name and its $(X, Y, Z)$ coordinates for full traceability.
 - **Hardware Status**: Confirmed Hailo-8L NPU is operational and responding to spatial inference requests.
@@ -60,5 +60,7 @@ To coordinate decentralized processing, the system is segmented as follows:
 
 - **Minecraft Server (`chonk`)**: `chonk.lab.bitsmasher.net` (`10.10.8.60`) - The destination for all generated builds.
 - **AI Hardware (NPU Cluster)**: `10.10.16.10` - High-performance Pi 5 cluster with Hailo-8L NPUs for architectural inference.
-- **Vision Overseer (Edge TPU)**: `10.10.16.4` - ASUS Tinker Edge-T (Mendel Linux) dedicated to real-time image processing and adaptive mutation scans.
+- **Vision Overseer (Edge TPU)**: `10.10.16.4` - ASUS Tinker Edge-T (Mendel Linux) dedicated to real-time image processing, adaptive mutation scans, and **newly empowered for code and building generation.**
 - **Stargate MCP (Master Control)**: `10.10.16.66` - The primary server orchestrating all AI hardware and pushing build commands via RCON.
+---
+*Created for theDevilsVoice | Last Updated: March 30, 2026*

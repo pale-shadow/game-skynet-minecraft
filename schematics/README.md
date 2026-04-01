@@ -2,6 +2,8 @@
 
 This directory contains legacy schematics and the newer **Skynet Procedural Generators** for the 2026 "Void-Tech" era.
 
+- [I like this tool craftmatic](https://github.com/tribixbite/craftmatic)
+
 ## Procedural Generators (Skynet v7+)
 - **`neural_rail_v7_nexus.py`**: Procedurally generates logistics hubs with ribbed geometry.
 - **`neural_bridge_v8_pathfinder.py`**: Dynamically calculates and builds intelligent rail links.
