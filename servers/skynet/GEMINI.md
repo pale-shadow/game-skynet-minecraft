@@ -16,5 +16,6 @@
 - **Stargate MCP Link:** Active (Port 8765)
 - **BlueMap Sector:** Skynet AI Testing Field (X: -1539 to -945)
 - **Deep Rail Anchor:** Hub-02 (Transmission Core)
+- **Build Coordination:** Enhanced with pre-deployment overlap detection to prevent conflicting structures, ensuring spatial integrity across deployments.
 
 > *"The sky above the port was the color of television, tuned to a dead channel."*

@@ -39,7 +39,7 @@ Stargate’s hardware profile—a **Raspberry Pi 5** with a high-speed **476.9G 
 
 ### **3. Centralizing the "Unified Brain"**
 Your GitHub repository shows a move toward **autonomous builders on local hardware**. 
-*   **Unified Interface:** Stargate can act as the MCP "Host," allowing your **Skynet Unified Brain** to communicate with your other AI nodes (Hailo-8L and Edge TPU) through a single, protocol-standardized interface [34, Conversation].
+*   **Unified Interface:** Stargate can act as the MCP "Host," allowing your **Skynet Unified Brain** to communicate with your other AI nodes (Hailo-8L and Edge TPU) through a single, protocol-standardized interface [34, Conversation]. This enhanced coordination includes pre-deployment overlap detection to ensure spatial integrity.
 *   **Automated Maintenance:** You could use MCP to connect your **git backup scripts** (`backup_to_git.sh`) directly to the AI. This would allow the "Brain" to automatically commit successful "Void-Tech" designs to GitHub after they are verified on the server.
 
 ### **Potential Constraints**

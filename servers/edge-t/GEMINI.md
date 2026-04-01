@@ -15,6 +15,7 @@
 - **Stargate MCP Link:** Slave Mode (Port 8765)
 - **Primary Sector:** Neural Uplink & Solar Induction Array
 - **Neural Link:** Direct sync with Silicon Ridge markers.
+- **Build Coordination:** Supports enhanced pre-deployment overlap detection, contributing to spatial integrity across all Skynet deployments.
 
 ## ⚙️ Operating Directives
 1. Listen for Stargate MCP intent broadcasts.
