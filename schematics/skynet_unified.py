@@ -14,8 +14,10 @@ from skynet_core import SkynetCore, SkynetRCON, setup_logging
 
 # Define default configuration paths since skynet_core.py is not available
 class Config:
-    SCHEM_DIR = "/home/minecraft/schematics"
-    JSON_METADATA_DIR = "/home/minecraft/schematics/build_metadata"
+    # SCHEM_DIR: The directory where schematics are generated locally on Stargate MCP.
+    SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics"
+    # JSON_METADATA_DIR: Directory for build metadata JSON files, locally on Stargate.
+    JSON_METADATA_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics/build_metadata"
     # Add other necessary Config attributes here if they were expected from skynet_core
     # For example:
     SECTORS = {
@@ -142,17 +144,17 @@ class SkynetUnifiedDaemon(SkynetCore):
             builder_func(schem, prompt)
 
             os.makedirs(Config.SCHEM_DIR, exist_ok=True)
-            schem_file_path = os.path.join(Config.SCHEM_DIR, build_name)
+            schem_file_path = os.path.join(Config.SCHEM_DIR, f"{build_name}.schem")
             schem.save(Config.SCHEM_DIR, build_name, mcschematic.Version.JE_1_21_1)
-            logger.info(f"✅ Generated: {build_name}.schem")
+            logger.info(f"✅ Generated: {build_name}.schem at {schem_file_path}")
 
             # Deployment
             self.rcon.send(
                 f"say [Skynet] Commencing Urbanization of \x27{build_name}\x27 at {tx} {ty} {tz} in {sector_name}."
             )
 
-            # Load the schematic
-            resp_load = self.rcon.send(f"//schem load {build_name}")
+            # Load the schematic with the .schem extension
+            resp_load = self.rcon.send(f"//schem load {build_name}.schem")
             logger.info(f"RCON Load [{build_name}]: {resp_load}")
 
             # Paste at the target coordinates using -t (to) flag for WorldEdit 7.2+

@@ -48,19 +48,24 @@ class Config:
     WARNING_INTERVAL = 30  # 30 Seconds
 
     # PROJECT_ROOT: Where the skynet_unified.py script (and skynet_core.py) is executed on Stargate MCP.
-    # PROJECT_ROOT: Base directory for skynet_core.py execution on the Minecraft server (chonk).
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
     # LOG_DIR: Directory for logs, relative to PROJECT_ROOT on the Minecraft server (chonk).
     LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs")
 
-    # SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
+    # LOCAL_SCHEM_OUTPUT_DIR: The directory where schematics are generated locally on Stargate MCP.
+    # This path must correspond to the source directory configured for the 'filesystem-stargate' MCP service.
+    LOCAL_SCHEM_OUTPUT_DIR = PROJECT_ROOT # Default to the current project schematics folder
+
+    # MINECRAFT_SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
     # This value MUST match the WorldEdit schematics directory on the Minecraft server.
     MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
-    SCHEM_DIR = MINECRAFT_SCHEM_DIR
 
-    # JSON_METADATA_DIR: Directory for build metadata JSON files on the Minecraft server (chonk).
-    JSON_METADATA_DIR = os.path.join(MINECRAFT_SCHEM_DIR, "build_metadata")
+    # SCHEM_DIR: The directory used for local saving of schematics by generation scripts.
+    SCHEM_DIR = LOCAL_SCHEM_OUTPUT_DIR
+
+    # JSON_METADATA_DIR: Directory for build metadata JSON files, locally on Stargate.
+    JSON_METADATA_DIR = os.path.join(LOCAL_SCHEM_OUTPUT_DIR, "build_metadata")
 
     # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
     # This is a legacy file and is not actively used for overlap detection.

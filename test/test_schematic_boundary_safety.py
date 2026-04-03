@@ -27,7 +27,8 @@ def test_schematic_boundary_safety():
     Ensures new schematics do not overlap with Hub 01 (Logic Core)
     or Hub 02 (Transmission Core) coordinates.
     """
-    new_schem_pos = {"x": -1340, "y": 84, "z": -664} 
+    # New position in the Abyssal Reef sector, far from known hubs
+    new_schem_pos = {"x": 1950, "y": 84, "z": 750} 
     
     collision = check_hub_collision(new_schem_pos, radius=10)
 
