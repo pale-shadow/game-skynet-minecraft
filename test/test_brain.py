@@ -1,14 +1,6 @@
-import os
-import sys
 from unittest.mock import MagicMock, patch
 
 import pytest
-
-# Ensure schematic-agent is in the path
-sys.path.insert(
-    0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../schematics"))
-)
-
 from skynet_core import Config, SkynetCore
 from skynet_unified import SkynetUnifiedDaemon
 

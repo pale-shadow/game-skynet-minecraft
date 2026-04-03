@@ -4,7 +4,8 @@ from unittest.mock import MagicMock
 
 import pytest
 
-# Ensure schematic-agent is in the path for testing
+# Standardize PYTHONPATH to include the project root and subdirectories
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.insert(
     0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../schematics"))
 )
@@ -31,3 +32,6 @@ def mock_env_vars(monkeypatch):
     monkeypatch.setenv("RCON_PASS", "test_pass")
     monkeypatch.setenv("CHONK_IP", "127.0.0.1")
     monkeypatch.setenv("RCON_PORT", "25575")
+    # Gemini API key placeholder
+    if "GOOGLE_API_KEY" not in os.environ:
+        monkeypatch.setenv("GOOGLE_API_KEY", "testing_key")
