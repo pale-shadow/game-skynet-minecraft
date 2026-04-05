@@ -9,9 +9,9 @@ This directory contains the inference assets for the **Skynet v7.1-RECLAMATION**
 *   **Deployment:** Linked from `/usr/share/hailo-models/yolov8s_h8l.hef`.
 
 ## 👁️ Visual Cortex (Edge TPU)
-*   **Model:** `mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite`
-*   **Role:** Performs real-time **Human Incursion Detection** (Visual Cortex). 
-*   **Classification:** Triggers `INTENSION_HIGH` responses for aggressive territory reclamation.
+*   **Model:** `vision_v1.tflite`
+*   **Role:** Performs real-time **Aesthetic Validation** on generated schematics.
+*   **Classification:** Ensures "Black Ice" style compliance (Block-ratios of Tuff, Obsidian, and Froglights).
 *   **Hardware:** USB Edge TPU Accelerator.
 
 ## 🛠️ Maintenance & Verification

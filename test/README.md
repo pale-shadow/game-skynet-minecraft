@@ -1,6 +1,6 @@
 # Skynet Distributed Test Suite
 
-- [Minecraft stuff](https://github.com/pale-shadow/game-chonk-minecraft)
+- [Minecraft stuff](https://github.com/pale-shadow/game-skynet-minecraft)
 
 This directory contains the validation framework for the Stargate MCP and the hardware-accelerated "Void-Tech" infrastructure. These tests ensure that AI-driven urbanization remains within the **20 TPS performance ceiling** [1].
 
@@ -8,7 +8,7 @@ This directory contains the validation framework for the Stargate MCP and the ha
 
 ### AI & Logic (T2BM Pipeline)
   - **test_gemini_link.py**: Validates the **prompt refinement** phase using the Gemini 2.0 Flash API [4].
-  - **test_hailo_npu_decoding_validity.py**: Audits **interlayer representation decoding** on the Raspberry Pi 5 and Hailo-8L NPU [4].
+  - **test_hailo_npu_decoding_validity.py**: Audits the Raspberry Pi 5 and Hailo-8L NPU's **spatial inference capabilities** to find optimal build vectors. This ensures the NPU accurately identifies suitable locations for new structures, rather than decoding raw architectural concepts (which is a Stargate responsibility). [4].
   - **test_builders.py**: Exercises the **repairing and construction** logic for autonomous builders (Tower, Castle) [4].
   - **test_brain.py**: Verifies the core `SkynetUnifiedDaemon` and primary logic core at the Inference Nexus (Hub 01) [5].
 

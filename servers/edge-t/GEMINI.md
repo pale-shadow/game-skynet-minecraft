@@ -8,8 +8,8 @@
 - **OS:** Debian-based Tinker OS / Mendel Linux Environment
 
 ## 🧠 T2BM Logic Partition
-- **Edge TPU Role:** Vision-First Verification. Before any `setblock` command is sent, the onboard TPU performs a "Terrain Scan" to ensure no player-built structures or protected biomes are overwritten by the T2BM expansion.
-- **Protocol:** Executes lightweight TFLite models for reactive mutation at the edges of the sprawl.
+- **Edge TPU Role:** Vision-First Verification. Before any `setblock` command is sent, the onboard TPU performs a "Terrain Scan" to ensure optimal placement and to prevent new constructions from overwriting critical game assets or heritage zones.
+- **Protocol:** Executes lightweight TFLite models for real-time environmental analysis and pre-placement validation.
 
 ## 🛰 Infrastructure Connectivity
 - **Stargate MCP Link:** Slave Mode (Port 8765)
@@ -19,5 +19,5 @@
 
 ## ⚙️ Operating Directives
 1. Listen for Stargate MCP intent broadcasts.
-2. Verify local chunk integrity via TFLite inference.
-3. Deploy "Void-Tech" fragments to maintain the global Skynet mesh.
+2. Verify local chunk integrity via TFLite inference for optimal placement.
+3. Facilitate the strategic deployment of "Void-Tech" structures, ensuring spatial integrity.
