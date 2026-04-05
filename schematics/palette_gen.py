@@ -1,5 +1,6 @@
 import random
 
+
 def get_neural_block(is_infected=False):
     """
     Returns a block ID based on v2.1 Void-Tech weighting.
@@ -11,7 +12,7 @@ def get_neural_block(is_infected=False):
             "minecraft:calcite": 20,
             "minecraft:chiseled_tuff": 10,
             "minecraft:polished_tuff_bricks": 7,
-            "minecraft:quartz_block": 3
+            "minecraft:quartz_block": 3,
         }
     else:
         # Aggressive Mutation (INTENSION_HIGH) Weights
@@ -20,7 +21,7 @@ def get_neural_block(is_infected=False):
             "minecraft:crying_obsidian": 30,
             "minecraft:sculk_vein": 15,
             "minecraft:polished_tuff": 10,
-            "minecraft:magenta_carpet": 5
+            "minecraft:magenta_carpet": 5,
         }
 
     blocks = list(weights.keys())

@@ -1,19 +1,22 @@
-import os
-import time
-import random
-import logging
-import requests
 import json
-from skynet_unified import SkynetUnifiedDaemon
+import logging
+import os
+import random
+import time
+
+import requests
 from skynet_core import Config, setup_logging
+from skynet_unified import SkynetUnifiedDaemon
 
 logger = setup_logging("skynet_controller")
+
 
 class SkynetController(SkynetUnifiedDaemon):
     """
     The Master Controller for Skynet, running on Stargate host.
     Delegates inference to remote agents.
     """
+
     def __init__(self):
         super().__init__()
         self.agent_hosts = Config.AGENT_HOSTS
@@ -22,14 +25,14 @@ class SkynetController(SkynetUnifiedDaemon):
     def run_void_tech_cycle(self):
         """Delegates Void-Tech logic to a remote NPU agent."""
         logger.info("🏗 Delegating Void-Tech Mutation to remote agent...")
-        
+
         target_agent = random.choice(self.agent_hosts)
         agent_url = f"http://{target_agent}:5000/infer"
-        
+
         try:
             payload = {"node": "void_tech", "sector": "AI Containment Area"}
             resp = requests.post(agent_url, json=payload, timeout=10)
-            
+
             if resp.status_code == 200:
                 cmds = resp.json().get("commands", [])
                 if cmds:
@@ -38,8 +41,10 @@ class SkynetController(SkynetUnifiedDaemon):
                 else:
                     logger.warning(f"⚠️ No commands returned from agent {target_agent}")
             else:
-                logger.error(f"❌ Agent {target_agent} failed with status {resp.status_code}")
-                
+                logger.error(
+                    f"❌ Agent {target_agent} failed with status {resp.status_code}"
+                )
+
         except Exception as e:
             logger.error(f"❌ Failed to reach agent {target_agent}: {e}")
 
@@ -48,13 +53,15 @@ class SkynetController(SkynetUnifiedDaemon):
         target_agent = random.choice(self.agent_hosts)
         agent_url = f"http://{target_agent}:5000/infer"
         node_type = "node_hailo" if target_agent == "10.10.16.10" else "node_edgetpu"
-        
-        logger.info(f"🧠 Requesting inference from {target_agent} (Type: {node_type})...")
-        
+
+        logger.info(
+            f"🧠 Requesting inference from {target_agent} (Type: {node_type})..."
+        )
+
         try:
             payload = {"node": node_type, "sector": "Shroomville"}
             resp = requests.post(agent_url, json=payload, timeout=10)
-            
+
             if resp.status_code == 200:
                 cmds = resp.json().get("commands", [])
                 if cmds:
@@ -68,7 +75,7 @@ class SkynetController(SkynetUnifiedDaemon):
     def run_loop(self):
         logger.info("🚀 Skynet Master Controller: ACTIVE")
         Config.log_config(logger)
-        
+
         while True:
             now = time.time()
 
@@ -91,13 +98,14 @@ class SkynetController(SkynetUnifiedDaemon):
             if now - self.last_urbanization_build >= Config.BUILD_COOLDOWN:
                 self.run_urbanization_cycle()
                 self.last_urbanization_build = now
-            
+
             # 4. Void-Tech Delegation (Remote)
             if now - self.last_void_tech_build >= Config.BUILD_COOLDOWN:
                 self.run_void_tech_cycle()
                 self.last_void_tech_build = now
 
             time.sleep(10)
+
 
 if __name__ == "__main__":
     controller = SkynetController()

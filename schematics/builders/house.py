@@ -3,7 +3,9 @@ house.py — House/cabin structure builder.
 
 Generates rectangular buildings with walls, floor, roof, windows, door, chimney, and lighting.
 """
+
 import mcschematic
+
 from .primitives import cuboid_filled, cuboid_walls, flat_plane, line_y
 
 
@@ -15,29 +17,36 @@ def build_house(schem: mcschematic.MCSchematic, prompt: dict):
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
-    primary   = mats.get("primary",   "minecraft:oak_planks")
+    primary = mats.get("primary", "minecraft:oak_planks")
     secondary = mats.get("secondary", "minecraft:oak_log[axis=y]")
-    floor_mat = mats.get("floor",     "minecraft:spruce_planks")
-    roof_mat  = mats.get("roof",      "minecraft:dark_oak_stairs")
-    glass     = mats.get("glass",     "minecraft:glass_pane")
-    door_blk  = mats.get("door",      "minecraft:oak_door")
-    light     = mats.get("light",     "minecraft:lantern")
-    accent    = mats.get("accent",    None)
-    tertiary  = mats.get("tertiary",  mats.get("foundation", "minecraft:cobblestone"))
-    slab_mat  = mats.get("slab",      roof_mat.replace("stairs", "slab") if "stairs" in roof_mat else "minecraft:oak_slab")
+    floor_mat = mats.get("floor", "minecraft:spruce_planks")
+    roof_mat = mats.get("roof", "minecraft:dark_oak_stairs")
+    glass = mats.get("glass", "minecraft:glass_pane")
+    door_blk = mats.get("door", "minecraft:oak_door")
+    light = mats.get("light", "minecraft:lantern")
+    accent = mats.get("accent", None)
+    tertiary = mats.get("tertiary", mats.get("foundation", "minecraft:cobblestone"))
+    slab_mat = mats.get(
+        "slab",
+        (
+            roof_mat.replace("stairs", "slab")
+            if "stairs" in roof_mat
+            else "minecraft:oak_slab"
+        ),
+    )
 
-    has_roof     = feats.get("has_roof", True)
-    roof_style   = feats.get("roof_style", "peaked")
-    has_floor    = feats.get("has_floor", True)
-    has_door     = feats.get("has_door", True)
-    door_pos     = feats.get("door_position", "south")
-    has_windows  = feats.get("has_windows", True)
-    win_spacing  = feats.get("window_spacing", 3)
-    has_chimney  = feats.get("has_chimney", False)
+    has_roof = feats.get("has_roof", True)
+    roof_style = feats.get("roof_style", "peaked")
+    has_floor = feats.get("has_floor", True)
+    has_door = feats.get("has_door", True)
+    door_pos = feats.get("door_position", "south")
+    has_windows = feats.get("has_windows", True)
+    win_spacing = feats.get("window_spacing", 3)
+    has_chimney = feats.get("has_chimney", False)
     interior_lit = feats.get("interior_lit", True)
-    has_found    = feats.get("has_foundation", True)
-    wall_thick   = feats.get("wall_thickness", 1)
-    hollow       = feats.get("hollow", True)
+    has_found = feats.get("has_foundation", True)
+    wall_thick = feats.get("wall_thickness", 1)
+    hollow = feats.get("hollow", True)
 
     # Foundation (one layer below at y=-1)
     if has_found:
@@ -48,7 +57,15 @@ def build_house(schem: mcschematic.MCSchematic, prompt: dict):
     if accent:
         if "cherry_leaves" in accent:
             # Special case for growth chamber
-            flat_plane(schem, 0, 0, 0, w - 1, l - 1, "minecraft:cherry_leaves[waterlogged=true]")
+            flat_plane(
+                schem,
+                0,
+                0,
+                0,
+                w - 1,
+                l - 1,
+                "minecraft:cherry_leaves[waterlogged=true]",
+            )
             floor_y = 1
         else:
             flat_plane(schem, 0, 0, 0, w - 1, l - 1, accent)
@@ -65,11 +82,22 @@ def build_house(schem: mcschematic.MCSchematic, prompt: dict):
 
     # Fill interior if not hollow
     if not hollow:
-        cuboid_filled(schem, wall_thick, floor_y + 1, wall_thick, w - 1 - wall_thick, wall_h, l - 1 - wall_thick, primary)
+        cuboid_filled(
+            schem,
+            wall_thick,
+            floor_y + 1,
+            wall_thick,
+            w - 1 - wall_thick,
+            wall_h,
+            l - 1 - wall_thick,
+            primary,
+        )
 
     # Crafter Core
     if tertiary == "minecraft:crafter":
-        schem.setBlock((w // 2, floor_y + 1, l // 2), "minecraft:crafter[orientation=up_north]")
+        schem.setBlock(
+            (w // 2, floor_y + 1, l // 2), "minecraft:crafter[orientation=up_north]"
+        )
 
     # Corner pillars with secondary material
     for cx, cz in [(0, 0), (w - 1, 0), (0, l - 1), (w - 1, l - 1)]:
@@ -128,8 +156,12 @@ def build_house(schem: mcschematic.MCSchematic, prompt: dict):
                         # Peak — use slab
                         schem.setBlock((x_left, y, z), slab_mat)
                     else:
-                        schem.setBlock((x_left, y, z), f"{roof_mat}[facing=east,half=bottom]")
-                        schem.setBlock((x_right, y, z), f"{roof_mat}[facing=west,half=bottom]")
+                        schem.setBlock(
+                            (x_left, y, z), f"{roof_mat}[facing=east,half=bottom]"
+                        )
+                        schem.setBlock(
+                            (x_right, y, z), f"{roof_mat}[facing=west,half=bottom]"
+                        )
         elif roof_style == "flat":
             flat_plane(schem, 0, roof_base_y, 0, w - 1, l - 1, slab_mat)
         else:
@@ -140,10 +172,14 @@ def build_house(schem: mcschematic.MCSchematic, prompt: dict):
     if has_chimney:
         chimney_x = w - 2
         chimney_z = 1
-        chimney_top = (wall_h + 2 + w // 2 + 2) if roof_style == "peaked" else wall_h + 4
+        chimney_top = (
+            (wall_h + 2 + w // 2 + 2) if roof_style == "peaked" else wall_h + 4
+        )
         for y in range(wall_h + 1, chimney_top):
             schem.setBlock((chimney_x, y, chimney_z), "minecraft:bricks")
-        schem.setBlock((chimney_x, chimney_top, chimney_z), "minecraft:campfire[lit=true]")
+        schem.setBlock(
+            (chimney_x, chimney_top, chimney_z), "minecraft:campfire[lit=true]"
+        )
 
     # Interior lighting
     if interior_lit:
@@ -151,6 +187,9 @@ def build_house(schem: mcschematic.MCSchematic, prompt: dict):
         ceil_y = wall_h
         for x in range(2, w - 2, 4):
             for z in range(2, l - 2, 4):
-                schem.setBlock((x, ceil_y, z), f"{light}[hanging=true]" if "lantern" in light else light)
+                schem.setBlock(
+                    (x, ceil_y, z),
+                    f"{light}[hanging=true]" if "lantern" in light else light,
+                )
 
     return schem

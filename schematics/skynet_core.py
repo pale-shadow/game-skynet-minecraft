@@ -1,86 +1,99 @@
+import logging
+import os
+import random
 import re
 import subprocess
-import random
-import os
-import logging
 import time
 from datetime import datetime
+
 from mcrcon import MCRcon
+
 
 class Config:
     """Centralized configuration and spatial boundaries for Skynet."""
+
     CHONK_IP = os.getenv("CHONK_IP", "10.10.8.60")
     AI_HARDWARE = "10.10.16.10"
     MCP_HOST = "10.10.16.66"
-    AGENT_HOSTS = ["10.10.16.10", "10.10.16.4"] # Pi 5 + Tinker Edge T
+    AGENT_HOSTS = ["10.10.16.10", "10.10.16.4"]  # Pi 5 + Tinker Edge T
     RCON_PASS = os.getenv("RCON_PASS")
     RCON_PORT = int(os.getenv("RCON_PORT", 25575))
 
     @classmethod
     def log_config(cls, logger):
-        logger.info(f"⚙️ Config: IP={cls.CHONK_IP}, Port={cls.RCON_PORT}, Pass={'***' + cls.RCON_PASS[-2:] if cls.RCON_PASS else 'None'}")
+        logger.info(
+            f"⚙️ Config: IP={cls.CHONK_IP}, Port={cls.RCON_PORT}, Pass={'***' + cls.RCON_PASS[-2:] if cls.RCON_PASS else 'None'}"
+        )
 
     FIELD_BOUNDS = {
         "min_x": -1539,
         "max_x": -945,
         "min_z": -913,
         "max_z": -489,
-        "y_base": 64
+        "y_base": 64,
     }
 
     SECTORS = {
         "Shroomville Urban District": {"x": (1600, 1850), "z": (650, 900)},
         "Silicon Ridge (Beta-Zone)": {"x": (1400, 1575), "z": (700, 875)},
-        "Abyssal Reef (Ocean Sector)": {"x": (1900, 2050), "z": (700, 850)}
+        "Abyssal Reef (Ocean Sector)": {"x": (1900, 2050), "z": (700, 850)},
     }
 
     TEMP_THRESHOLD = 75.0  # Celsius
     BUILD_COOLDOWN = 3600  # 1 Hour
     BUILD_COOLDOWN_VOID = 1800  # 30 Minutes
-    BUILD_COOLDOWN_MUTATION = 300 # 5 Minutes
-    RCON_CHECK_INTERVAL = 300 # 5 Minutes
-    PLAYER_CHECK_INTERVAL = 600 # 10 Minutes
-    WARNING_INTERVAL = 30 # 30 Seconds
+    BUILD_COOLDOWN_MUTATION = 300  # 5 Minutes
+    RCON_CHECK_INTERVAL = 300  # 5 Minutes
+    PLAYER_CHECK_INTERVAL = 600  # 10 Minutes
+    WARNING_INTERVAL = 30  # 30 Seconds
 
     # PROJECT_ROOT: Where the skynet_unified.py script (and skynet_core.py) is executed on Stargate MCP.
-    # PROJECT_ROOT: Base directory for skynet_core.py execution on the Minecraft server (chonk).
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
     # LOG_DIR: Directory for logs, relative to PROJECT_ROOT on the Minecraft server (chonk).
-    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs") 
+    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs")
 
-    # SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
+    # LOCAL_SCHEM_OUTPUT_DIR: The directory where schematics are generated locally on Stargate MCP.
+    # This path must correspond to the source directory configured for the 'filesystem-stargate' MCP service.
+    LOCAL_SCHEM_OUTPUT_DIR = PROJECT_ROOT # Default to the current project schematics folder
+
+    # MINECRAFT_SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
     # This value MUST match the WorldEdit schematics directory on the Minecraft server.
     MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
-    SCHEM_DIR = MINECRAFT_SCHEM_DIR
 
-    # JSON_METADATA_DIR: Directory for build metadata JSON files on the Minecraft server (chonk).
-    JSON_METADATA_DIR = os.path.join(MINECRAFT_SCHEM_DIR, "build_metadata")
+    # SCHEM_DIR: The directory used for local saving of schematics by generation scripts.
+    SCHEM_DIR = LOCAL_SCHEM_OUTPUT_DIR
+
+    # JSON_METADATA_DIR: Directory for build metadata JSON files, locally on Stargate.
+    JSON_METADATA_DIR = os.path.join(LOCAL_SCHEM_OUTPUT_DIR, "build_metadata")
 
     # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
     # This is a legacy file and is not actively used for overlap detection.
     HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json")
 
+
 def setup_logging(script_name):
     """Standardizes logging to the logs/ folder with absolute paths."""
     os.makedirs(Config.LOG_DIR, exist_ok=True)
     log_file = os.path.join(Config.LOG_DIR, f"{script_name}.log")
-    
+
     logging.getLogger().handlers = []
-    
+
     handlers = [logging.FileHandler(log_file)]
     if not os.getenv("INVOCATION_ID"):
         handlers.append(logging.StreamHandler())
-    
+
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - [%(levelname)s] - %(message)s',
-        handlers=handlers
+        format="%(asctime)s - [%(levelname)s] - %(message)s",
+        handlers=handlers,
     )
     return logging.getLogger(script_name)
 
+
 class SkynetRCON:
     """Unified, resilient RCON client for Skynet."""
+
     def __init__(self):
         self.host = Config.CHONK_IP
         self.password = Config.RCON_PASS
@@ -91,7 +104,7 @@ class SkynetRCON:
         """Sends a single command or a list of commands."""
         if not isinstance(command, list):
             command = [command]
-            
+
         responses = []
         try:
             with MCRcon(self.host, self.password, port=self.port) as mcr:
@@ -111,9 +124,11 @@ class SkynetRCON:
         """Verifies server connectivity."""
         resp = self.send("list", silent=True)
         return resp is not None
+
     def survey_site(self, x, z, radius=5):
         self.logger.info(f"🔍 Surveying site at ({x}, {z}) with radius {radius}...")
         return Config.FIELD_BOUNDS["y_base"]
+
 
 class SkynetCore:
     def __init__(self, name="skynet_core"):
@@ -127,16 +142,27 @@ class SkynetCore:
     @staticmethod
     def is_within_bounds(x, z, width=5, depth=5):
         bounds = Config.FIELD_BOUNDS
-        return (bounds["min_x"] <= x and (x + width) <= bounds["max_x"]) and \
-               (bounds["min_z"] <= z and (z + depth) <= bounds["max_z"])
+        return (bounds["min_x"] <= x and (x + width) <= bounds["max_x"]) and (
+            bounds["min_z"] <= z and (z + depth) <= bounds["max_z"]
+        )
 
     @staticmethod
     def generate_build_metadata(build_name, sector_name):
         """Generates text for the mandatory Archival Signs based on the 2026 protocol."""
         date_str = datetime.now().strftime("%b %d, %2026")
         return {
-            "front": [f"&b&l{build_name}", f"&3Built: {date_str}", "&0Hardware: Pi5 / Hailo AI", ""],
-            "back": ["&8Daemon: Skynet v1.5", f"&0Sector: {sector_name}", "&2Status: Urbanized", ""]
+            "front": [
+                f"&b&l{build_name}",
+                f"&3Built: {date_str}",
+                "&0Hardware: Pi5 / Hailo AI",
+                "",
+            ],
+            "back": [
+                "&8Daemon: Skynet v1.5",
+                f"&0Sector: {sector_name}",
+                "&2Status: Urbanized",
+                "",
+            ],
         }
 
     def get_temp(self):
@@ -149,7 +175,9 @@ class SkynetCore:
     def check_thermal(self):
         temp = self.get_temp()
         if temp > Config.TEMP_THRESHOLD:
-            self.logger.warning(f"⚠️ Thermal Throttling: {temp}°C > {Config.TEMP_THRESHOLD}°C")
+            self.logger.warning(
+                f"⚠️ Thermal Throttling: {temp}°C > {Config.TEMP_THRESHOLD}°C"
+            )
             return False
         return True
 
@@ -167,14 +195,20 @@ class SkynetCore:
         for name in player_names:
             name = name.strip()
             pos_resp = self.rcon.send(f"data get entity {name} Pos", silent=True)
-            if not pos_resp: continue
-            match = re.search(r"\[(-?[\d.]+)d, (-?[\d.]+)d, (-?[\d.]+)d\]", str(pos_resp))
-            if not match: continue
+            if not pos_resp:
+                continue
+            match = re.search(
+                r"\[(-?[\d.]+)d, (-?[\d.]+)d, (-?[\d.]+)d\]", str(pos_resp)
+            )
+            if not match:
+                continue
             px, _, pz = map(float, match.groups())
             for sector_name, bounds in Config.SECTORS.items():
                 x_b, z_b = bounds["x"], bounds["z"]
                 if x_b[0] <= px <= x_b[1] and z_b[0] <= pz <= z_b[1]:
-                    self.logger.info(f"👤 Player \x27{name}\x27 detected in restricted sector: {sector_name}")
+                    self.logger.info(
+                        f"👤 Player \x27{name}\x27 detected in restricted sector: {sector_name}"
+                    )
                     detected.add(name)
                     break
         return detected

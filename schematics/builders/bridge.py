@@ -3,47 +3,61 @@ bridge.py — Bridge and walkway builder.
 
 Generates flat or arched bridges with optional railings.
 """
+
 import math
+
 import mcschematic
+
 from .primitives import cuboid_filled, flat_plane, line_z
-from .void_tech import apply_void_palette, add_hydro_pod, apply_mutation
+from .void_tech import add_hydro_pod, apply_mutation, apply_void_palette
 
 
 def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
     # Use v7 Standard if requested
     if prompt.get("features", {}).get("void_tech", False):
         prompt = apply_void_palette(prompt)
-        
+
     dims = prompt.get("dimensions", {})
-    w = dims.get("width", 5)       # width of bridge (X)
-    h = dims.get("height", 8)      # arch height
-    l = dims.get("length", 25)     # span of bridge (Z)
+    w = dims.get("width", 5)  # width of bridge (X)
+    h = dims.get("height", 8)  # arch height
+    l = dims.get("length", 25)  # span of bridge (Z)
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
-    primary  = mats.get("primary",  "minecraft:stone_bricks")
-    secondary= mats.get("secondary","minecraft:stone_brick_slab")
-    slab     = mats.get("secondary","minecraft:stone_brick_slab")
-    fence    = mats.get("fence",    "minecraft:stone_brick_wall")
-    roof_mat = mats.get("roof",     primary)
-    light    = mats.get("light",    "minecraft:lantern")
+    primary = mats.get("primary", "minecraft:stone_bricks")
+    secondary = mats.get("secondary", "minecraft:stone_brick_slab")
+    slab = mats.get("secondary", "minecraft:stone_brick_slab")
+    fence = mats.get("fence", "minecraft:stone_brick_wall")
+    roof_mat = mats.get("roof", primary)
+    light = mats.get("light", "minecraft:lantern")
 
-    has_railing     = feats.get("has_railing", True)
-    arch_style      = feats.get("arch_style", "round")
-    has_rail_bed    = feats.get("has_rail_bed", False)
+    has_railing = feats.get("has_railing", True)
+    arch_style = feats.get("arch_style", "round")
+    has_rail_bed = feats.get("has_rail_bed", False)
     vaulted_ceiling = feats.get("vaulted_ceiling", False)
-    side_walkways   = feats.get("side_walkways", False)
+    side_walkways = feats.get("side_walkways", False)
 
     if arch_style == "none" or (has_rail_bed and arch_style == "round"):
         # Flat bridge or rail bed
         flat_plane(schem, 0, 0, 0, w - 1, l - 1, primary)
-        
+
         if has_rail_bed:
             # Place track bed in middle
             mid_x = w // 2
-            line_z(schem, mid_x, 0, 0, l - 1, "minecraft:gray_concrete" if not feats.get("void_tech") else "minecraft:chiseled_tuff")
+            line_z(
+                schem,
+                mid_x,
+                0,
+                0,
+                l - 1,
+                (
+                    "minecraft:gray_concrete"
+                    if not feats.get("void_tech")
+                    else "minecraft:chiseled_tuff"
+                ),
+            )
             line_z(schem, mid_x, 1, 0, l - 1, "minecraft:powered_rail[powered=true]")
-            
+
         # Add Void-Tech specific features
         if feats.get("void_tech", False):
             # Hydro-Pods every 20 blocks
@@ -53,10 +67,10 @@ def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
             apply_mutation(schem, w // 2, 0, l // 2, max(w, l) // 2 + 5, mats)
             # Bioluminescence at ends
             schem.setBlock((0, 1, 0), mats.get("glow"))
-            schem.setBlock((w-1, 1, 0), mats.get("glow"))
-            schem.setBlock((0, 1, l-1), mats.get("glow"))
-            schem.setBlock((w-1, 1, l-1), mats.get("glow"))
-            
+            schem.setBlock((w - 1, 1, 0), mats.get("glow"))
+            schem.setBlock((0, 1, l - 1), mats.get("glow"))
+            schem.setBlock((w - 1, 1, l - 1), mats.get("glow"))
+
         if side_walkways:
             line_z(schem, 0, 0, 0, l - 1, secondary)
             line_z(schem, w - 1, 0, 0, l - 1, secondary)
@@ -65,6 +79,7 @@ def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
         if vaulted_ceiling:
             for z in range(l):
                 from .primitives import arch_xz
+
                 arch_xz(schem, 0, 1, z, w - 1, h, roof_mat)
                 # Interior lighting
                 if z % 4 == 0:
@@ -85,7 +100,10 @@ def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
             dz = z - mid_z
             if arch_style == "round":
                 if abs(dz) <= radius_z:
-                    arch_y = int(math.sqrt(max(0, radius_z * radius_z - dz * dz)) * (h / radius_z))
+                    arch_y = int(
+                        math.sqrt(max(0, radius_z * radius_z - dz * dz))
+                        * (h / radius_z)
+                    )
                 else:
                     arch_y = 0
             elif arch_style == "pointed":
@@ -97,7 +115,9 @@ def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
             for x in range(w):
                 schem.setBlock((x, arch_y, z), primary)
                 # Slab on top for walkway
-                schem.setBlock((x, arch_y + 1, z), f"{slab}[type=bottom]" if slab else primary)
+                schem.setBlock(
+                    (x, arch_y + 1, z), f"{slab}[type=bottom]" if slab else primary
+                )
 
             # Support pillars underneath (every 5 blocks)
             if z % 5 == 0:

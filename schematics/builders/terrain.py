@@ -4,8 +4,10 @@ terrain.py — Terrain, landscape, and garden builder.
 Generates natural-looking terrain blobs and flat gardens with scattered decorations.
 Uses simplex-style noise approximation for organic shapes.
 """
+
 import math
 import random
+
 import mcschematic
 
 
@@ -18,7 +20,11 @@ def _terrain_height(x, z, w, l, max_h, seed=42):
     for i, (ox, oz) in enumerate(offsets):
         freq = (i + 1) * 0.3
         amp = 1.0 / (i + 1)
-        value += amp * math.sin((x + ox) * freq * math.pi / w) * math.cos((z + oz) * freq * math.pi / l)
+        value += (
+            amp
+            * math.sin((x + ox) * freq * math.pi / w)
+            * math.cos((z + oz) * freq * math.pi / l)
+        )
     # Normalize to 0..max_h
     norm = (value + 1.0) / 2.0
     return max(1, int(norm * max_h))
@@ -31,9 +37,9 @@ def build_terrain(schem: mcschematic.MCSchematic, prompt: dict):
     l = dims.get("length", 15)
     feats = prompt.get("features", {})
 
-    fill_block    = feats.get("fill_block",    "minecraft:dirt")
+    fill_block = feats.get("fill_block", "minecraft:dirt")
     surface_block = feats.get("surface_block", "minecraft:grass_block")
-    scatter       = feats.get("scatter_decorations", False)
+    scatter = feats.get("scatter_decorations", False)
 
     FLOWERS = [
         "minecraft:poppy",
