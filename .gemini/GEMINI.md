@@ -53,7 +53,7 @@
 - **Industry:** Western Blacksmith and Villager Hutt (Staff Housing).
 
 ### 7. Administrative Workflows
-- **Autonomous Operation:** The "Skynet" daemon (`skynet_unified.py`) runs as a systemd service (`skynet-daemon.service`) from the Stargate MCP (`10.10.16.66`). It manages hourly procedural urbanization builds and monitors restricted zones. 
+- **Autonomous Operation:** The "Skynet" daemon (`skynet_unified.py`) runs as a systemd service (`skynet-daemon.service`) from the Stargate MCP (`10.10.16.66`). It manages daily procedural urbanization builds and monitors restricted zones. 
 - **RCON Integrity:** (Resolved Mar 26, 2026) Fixed authentication failure caused by corrupted `RCON_PASS` quoting in systemd environment definitions. Verified RCON link is active and responding to `list` and `data get` commands.
 - **Urbanization Cycle:** Automated deployment of high-fidelity v5 schematics (e.g., houses, bridges) to the AI Containment Area is functional.
 - **Chunk Regeneration:** Use `bluemap fix-edges` for visual continuity after terrain resets.
@@ -64,4 +64,4 @@
    - **JSON Metadata Generation (Implemented Apr 1, 2026):** All new builds now include a comprehensive JSON metadata file (e.g., `BUILD_ID.json`) stored in `MINECRAFT_SCHEM_DIR/build_metadata/`. This metadata includes spatial data, provenance, and hardware telemetry, crucial for build traceability and overlap prevention.
    - **Build Overlap Prevention (Implemented Apr 1, 2026):** Implemented pre-deployment 3D AABB overlap detection using `schematics/validate_no_overlaps.py`. New builds are now validated against existing metadata in `MINECRAFT_SCHEM_DIR/build_metadata/` before deployment, and any spatial conflicts will automatically abort the build cycle, ensuring structural integrity.
 ---
-*Created for theDevilsVoice | Last Updated: April 2, 2026*
+*Created for theDevilsVoice | Last Updated: April 5, 2026*

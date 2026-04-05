@@ -40,3 +40,32 @@ def test_skynet_unified_daemon_logic():
         players = daemon.get_players_in_zones()
         assert isinstance(players, set)
         assert len(players) == 0
+
+def test_skynet_core_transfer_file():
+    """Verify that transfer_file calls scp with correct arguments."""
+    with patch("skynet_core.setup_logging"):
+        core = SkynetCore(name="test_core")
+        core.rcon = MagicMock()
+        core.rcon.host = "10.10.8.60"
+        
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0)
+            
+            local_path = "/tmp/test.schem"
+            remote_path = "/home/minecraft/schematics/test.schem"
+            
+            result = core.transfer_file(local_path, remote_path)
+            
+            assert result is True
+            mock_run.assert_called_once()
+            cmd = mock_run.call_args[0][0]
+            assert "scp" in cmd
+            assert local_path in cmd
+            assert f"minecraft@10.10.8.60:{remote_path}" in cmd
+
+        with patch("subprocess.run") as mock_run:
+            from subprocess import CalledProcessError
+            mock_run.side_effect = CalledProcessError(1, "scp", stderr="Permission denied")
+            
+            result = core.transfer_file("/tmp/test.schem", "/remote/test.schem")
+            assert result is False
