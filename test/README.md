@@ -19,6 +19,7 @@ This directory contains the validation framework for the Stargate MCP and the ha
   - **test_neural_vault_logging_persistence.py**: Ensures encrypted AI logs are successfully persisted to the **Neural-Data Vault (Hub 07)** [5].
 
 ### Spatial Safety & Performance
+  - **test_schematic_metadata_integrity.py**: Verifies that every schematic file has a corresponding, valid JSON metadata file with correct hardware attribution and spatial coordinates for overlap detection.
   - **test_schematic_boundary_safety.py**: Uses the **NPUSpatialEngine** to prevent collisions with existing builds or designated hubs [5, 6].
   - **test_schematic_tps_impact_threshold.py**: Simulates the tick-time cost of new mutations to ensure they do not exceed the 20 TPS threshold [1, 2].
 
