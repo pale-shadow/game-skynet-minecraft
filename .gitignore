@@ -5,3 +5,13 @@
 **/venv/
 *.log
 .tox/
+
+COPYING
+INSTALL
+Makefile.old
+autom4te.cache/
+config.guess
+config.status
+config.sub
+configure
+configure~
