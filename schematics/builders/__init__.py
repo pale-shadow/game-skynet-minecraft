@@ -7,6 +7,7 @@ from .decoration import build_decoration
 from .house import build_house
 from .primitives import *
 from .station2 import build as build_station
+from .t2bm_expander import build_t2bm
 from .terrain import build_terrain
 from .tower import build_tower
 from .wall import build_wall
@@ -21,5 +22,6 @@ BUILDERS = {
     "castle": build_castle,
     "bank": build_bank,
     "cyberdyne": build_cyberdyne,
-    "station": build_station,  # ADD THIS LINE
+    "station": build_station,
+    "t2bm": build_t2bm,
 }

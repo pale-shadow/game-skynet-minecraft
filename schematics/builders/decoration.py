@@ -60,6 +60,9 @@ def _get_positions(position_hint, count, w=7, l=7):
 
 
 import re
+from .t2bm_expander import T2BMExpander
+
+T2BM_Expander = T2BMExpander
 
 # ... (rest of imports and DECORATION_BLOCKS)
 
