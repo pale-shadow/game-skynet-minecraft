@@ -16,6 +16,8 @@ from skynet_core import SkynetCore, SkynetRCON, setup_logging
 class Config:
     # SCHEM_DIR: The directory where schematics are generated locally on Stargate MCP.
     SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics"
+    # MINECRAFT_SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
+    MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
     # JSON_METADATA_DIR: Directory for build metadata JSON files, locally on Stargate.
     JSON_METADATA_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics/build_metadata"
     # Add other necessary Config attributes here if they were expected from skynet_core
@@ -31,7 +33,7 @@ class Config:
     RCON_CHECK_INTERVAL = 60
     PLAYER_CHECK_INTERVAL = 30
     WARNING_INTERVAL = 300
-    BUILD_COOLDOWN = 3600 # Hourly builds
+    BUILD_COOLDOWN = 86400 # Daily builds
     BUILD_COOLDOWN_VOID = 1800 # 30-min Void-Tech
     BUILD_COOLDOWN_MUTATION = 300 # 5-min Adaptive Mutation
     def log_config(logger):
@@ -148,6 +150,14 @@ class SkynetUnifiedDaemon(SkynetCore):
             schem.save(Config.SCHEM_DIR, build_name, mcschematic.Version.JE_1_21_1)
             logger.info(f"✅ Generated: {build_name}.schem at {schem_file_path}")
 
+            # Transfer to Minecraft Server (chonk)
+            remote_schem_path = os.path.join(Config.MINECRAFT_SCHEM_DIR, f"{build_name}.schem")
+            if self.transfer_file(schem_file_path, remote_schem_path):
+                logger.info(f"✅ Transferred {build_name}.schem to {Config.MINECRAFT_SCHEM_DIR}")
+            else:
+                logger.error(f"❌ Aborting: Schematic transfer failed for {build_name}.")
+                return
+
             # Deployment
             self.rcon.send(
                 f"say [Skynet] Commencing Urbanization of \x27{build_name}\x27 at {tx} {ty} {tz} in {sector_name}."
@@ -166,6 +176,7 @@ class SkynetUnifiedDaemon(SkynetCore):
                 not resp_paste
                 or "Incorrect" in str(resp_paste)
                 or "Unknown flag" in str(resp_paste)
+                or "Too many arguments" in str(resp_paste)
             ):
                 logger.info(
                     "Retrying with \x27execute positioned ... run //paste -a\x27"

@@ -6,7 +6,7 @@ import subprocess
 import time
 from datetime import datetime
 
-from mcrcon import MCRcon
+from mcrcon.mcrcon import MCRcon
 
 
 class Config:
@@ -40,7 +40,7 @@ class Config:
     }
 
     TEMP_THRESHOLD = 75.0  # Celsius
-    BUILD_COOLDOWN = 3600  # 1 Hour
+    BUILD_COOLDOWN = 86400  # 24 Hours
     BUILD_COOLDOWN_VOID = 1800  # 30 Minutes
     BUILD_COOLDOWN_MUTATION = 300  # 5 Minutes
     RCON_CHECK_INTERVAL = 300  # 5 Minutes
@@ -212,6 +212,24 @@ class SkynetCore:
                     detected.add(name)
                     break
         return detected
+
+    def transfer_file(self, local_path, remote_path):
+        """Transfers a file to the Minecraft server (chonk) via scp."""
+        try:
+            # Ensure the destination directory exists (optional, but scp needs it)
+            # cmd_mkdir = ["ssh", f"minecraft@{self.rcon.host}", f"mkdir -p {os.path.dirname(remote_path)}"]
+            # subprocess.run(cmd_mkdir, check=True)
+            
+            cmd = ["scp", local_path, f"minecraft@{self.rcon.host}:{remote_path}"]
+            subprocess.run(cmd, check=True, capture_output=True, text=True)
+            self.logger.info(f"📤 Transferred {local_path} to {self.rcon.host}:{remote_path}")
+            return True
+        except subprocess.CalledProcessError as e:
+            self.logger.error(f"❌ Transfer Failure (scp): {e.stderr}")
+            return False
+        except Exception as e:
+            self.logger.error(f"❌ Transfer Failure: {e}")
+            return False
 
     def send_warning(self, player_name):
         msg = f"tellraw {player_name} [SKYNET] Restricted Zone Incursion Detected. Proceed with caution."

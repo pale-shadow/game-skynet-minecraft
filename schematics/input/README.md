@@ -4,16 +4,14 @@ This directory contains the core logic for the **Skynet Architect** system, powe
 
 ## Dual-Inference Architecture (Hailo-8L + USB TPU)
 
-The project now utilizes a dual-inference model to manage complex world interactions:
-- **`vision_lite_overseer.py`**: A simulated **USB Edge TPU** 'Visual Cortex' that scans for human incursions (Oak, Cobblestone, etc.).
-- **`adaptive_mutation_v7.py`**: Executes the **v7.1-RECLAMATION** protocol, infecting detected human areas with Sculk and Crying Obsidian based on incursion scores.
+The project utilizes a dual-inference model to manage complex world interactions and ensure architectural style compliance:
+- **`vision_lite_overseer.py`**: A simulated **USB Edge TPU** 'Visual Cortex' that performs **Aesthetic Validation** on generated schematics.
+- **`adaptive_mutation_v7.py`**: While its name implies mutation, this script (now leveraging the Edge TPU's aesthetic validation) ensures new builds adhere to the "Black Ice" style compliance (Block-ratios of Tuff, Obsidian, and Froglights).
 
-### Key Logic:
-- **`INTENSION_HIGH`**: Triggered when the TPU detects dense human activity. Leads to aggressive territory reclamation.
-- **`CLASS_B_INCURSION`**: Triggers mycelial overgrowth to slowly assimilate the environment.
+
 
 ## Architectural Standard (v7+)
-All builds adhere to the **"Void-Tech" Tier**:
+All sophisticated architectural builds adhere to the **"Void-Tech" Tier** and ensure "Black Ice" style compliance:
 - **Foundation**: Polished/Chiseled Tuff and Calcite.
 - **Energy**: Crying Obsidian and Tinted Glass housing redstone cores.
 - **Girders**: Dark Prismarine suspended via lightning rods and end rods.

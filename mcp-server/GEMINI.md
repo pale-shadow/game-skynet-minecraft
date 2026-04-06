@@ -84,7 +84,7 @@ The MCP is central to the T2BM pipeline, facilitating three key stages:
     *   `mcp-servers.json`: Configuration file for all MCP servers.
     *   `setup.txt`: High-level setup instructions.
     *   `mcp-notes.txt`: Detailed notes on MCP setup and integration.
-    *   `README.md` (this file, before consolidation): Original README for MCP.
+    *   `README.md`: Original README for MCP.
     *   `__init__.py`: Python package initialization file (currently empty).
 
 ## 6. Alternative Considerations (vs. Zapier)

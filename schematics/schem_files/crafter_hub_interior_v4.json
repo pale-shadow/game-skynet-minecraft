@@ -6,17 +6,24 @@
     "logic_core": "unknown",
     "t2bm_version": "v2.1-urbanization",
     "legacy_build_pre_overlap_detection": true
-
   },
   "hardware_telemetry": {
-    "inference_node": "unknown",
+    "inference_node": "Pi5 / NVMe (Stargate)",
     "vision_audit_node": "unknown",
     "total_render_time_ms": 0,
     "npu_utilization_peak": "0%"
   },
   "spatial_data": {
-    "origin": {"x": 0, "y": 0, "z": 0},
-    "dimensions": {"width": 0, "height": 0, "length": 0},
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "dimensions": {
+      "width": 0,
+      "height": 0,
+      "length": 0
+    },
     "stability_index": 0.0,
     "worldguard_region": "unknown"
   },

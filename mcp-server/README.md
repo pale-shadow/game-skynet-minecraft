@@ -11,16 +11,16 @@ The MCP allows the Skynet AI Brain, particularly the T2BM (Text to Building in M
 The MCP setup on Stargate involves deploying several specialized servers:
 
 *   **Filesystem Server:** Provides read/write access to project directories like `schematics/`, `models/`, and `internal/` for blueprint management.
-*   **RCON Tool Server:** Wraps the SkynetRCON client to allow the LLM to execute `setblock` and `fill` commands as standardized protocol calls.
+*   **RCON Tool Server:** Implemented by `mcp-server/rcon_service.py`, this server wraps the SkynetRCON client to allow the LLM to execute `setblock` and `fill` commands as standardized protocol calls.
 *   **Git Automation Server:** Integrates `backup_to_git.sh` to automate commits of successful AI-generated designs to Git.
-*   **Database Context Server:** Connects to the MariaDB host (`blowfish.lab.bitsmasher.net`) to query CoreProtect logs and WorldGuard regions, ensuring AI operations do not interfere with protected heritage sites.
+
 *   **Vision MCP Server:** (Configured on `edge-t` host `10.10.16.4`) Provides vision and terrain audit capabilities using Edge TPUs.
 *   **NPU Skynet Server:** (Configured on Stargate) Leverages Hailo-8L NPUs for AI inference and schematic generation.
 
 ## Setup Steps
 
 1.  **Environment Preparation on Stargate:**
-    *   Move the project workspace to the NVMe mount (`/mnt/clusterfs2/game-chonk-minecraft`).
+    *   Move the project workspace to the NVMe mount (`/mnt/clusterfs2/game-skynet-minecraft`).
     *   Create and activate a Python 3 virtual environment.
     *   Install dependencies, including the MCP Python SDK (`pip install mcp`).
     *   Ensure hardware acceleration exports (CUDA, LD_LIBRARY_PATH) are active.

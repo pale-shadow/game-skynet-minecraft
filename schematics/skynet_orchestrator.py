@@ -7,7 +7,7 @@ import time
 from datetime import datetime, timedelta
 
 import mcschematic
-from mcrcon import MCRcon
+from mcrcon.mcrcon import MCRcon
 
 # --- Configuration ---
 # TODO: Move to a dedicated config file (e.g., config.json)
@@ -15,7 +15,7 @@ RCON_HOST = "localhost"
 RCON_PORT = 25575
 RCON_PASSWORD = "YourUltraSecurePassword"  # Replace with your actual RCON password
 
-BUILD_COOLDOWN_HOURS = 1
+BUILD_COOLDOWN_HOURS = 24
 PLAYER_CHECK_SECONDS = 600  # 10 minutes
 WARNING_INTERVAL_SECONDS = 30  # 30 seconds
 
@@ -101,7 +101,7 @@ def get_players_in_zones():
 
 def run_build_cycle():
     """Selects a random build, generates it, and deploys it via RCON."""
-    logging.info("Initiating hourly autonomous build cycle.")
+    logging.info("Initiating daily autonomous build cycle.")
 
     structure_types = ["house", "tower", "bridge", "castle"]
     palettes = ["Nature vs Engineering", "Void-Tech Overgrowth"]
@@ -173,11 +173,9 @@ def run_build_cycle():
 
 
 def schedule_next_build_time(current_time):
-    """Schedules the next build for a random minute within the next hour."""
-    minutes_from_now = random.randint(0, 59)
-    return current_time + timedelta(
-        hours=BUILD_COOLDOWN_HOURS, minutes=minutes_from_now
-    )
+    """Schedules the next build for a random minute within the next 24 hours."""
+    minutes_from_now = random.randint(0, 1439)  # 24 * 60 = 1440
+    return current_time + timedelta(minutes=minutes_from_now)
 
 
 # --- Main Daemon Loop ---
@@ -196,7 +194,7 @@ def main():
     while True:
         now = datetime.now()
 
-        # 1. Handle Hourly Random Build
+        # 1. Handle Daily Random Build
         if now >= next_build_time:
             run_build_cycle()
             next_build_time = schedule_next_build_time(now)

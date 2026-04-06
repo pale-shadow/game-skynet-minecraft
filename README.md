@@ -4,11 +4,11 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 
 [![Bandit Security Scan](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml) [![Python Code Coverage](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml) [![Skynet Unified Test Suite](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/python-test.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/python-test.yml)
 
-![tech void nihilism as software architecture](https://github.com/pale-shadow/game-chonk-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
+![tech void nihilism as software architecture](https://github.com/pale-shadow/game-skynet-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
 
 ## 🌐 Server Information
 *   **Server Address:** `minecraft.bitsmasher.net`
-*   **Version:** Paper 1.21.11 (Java 21)
+*   **Version:** Paper 1.21.1 (Java 21)
 *   **Web Map (BlueMap):** [Click Here to View Port 8100]
 *   **Established:** 2012
 
@@ -31,6 +31,6 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 ## ✨ Current Features
 *   **The Deep-Rail Project:** Experience vertical logistics connecting the **Rail Yard (Y:63)** to the **Deep Station (Y:31)**
 *   **Void-Tech Architecture:** Explore the newest "Urbanized" districts featuring high-tech mycelial aesthetics
-*   **Autonomous Builders:** Witness a world built by AI logic cores running on dedicated local hardware
+*   **Autonomous Builders:** Witness a world built by AI logic cores running on dedicated local hardware, now with pre-deployment overlap prevention for structural integrity.
 
-![tech void nihilism as building fashion](https://github.com/pale-shadow/game-chonk-minecraft/blob/main/static/images/infographic.png)
+![tech void nihilism as building fashion](https://github.com/pale-shadow/game-skynet-minecraft/blob/main/static/images/infographic.png)

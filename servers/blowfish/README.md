@@ -7,7 +7,7 @@ SQL
 CREATE DATABASE IF NOT EXISTS bluemap;
 
 -- 2. Create the user and allow connections from your Minecraft server IP
-CREATE USER 'bluemap'@'10.10.8.60' IDENTIFIED BY 'your_password_here';
+CREATE USER 'bluemap'@'10.10.8.60' IDENTIFIED BY 'your_password_here'; -- IMPORTANT: Replace 'your_password_here' with a strong, unique password. Refer to .envrc guidelines for secure credential management.
 
 -- 3. Give the user full access to the bluemap database
 GRANT ALL PRIVILEGES ON bluemap.* TO 'bluemap'@'10.10.8.60';
