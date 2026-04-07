@@ -13,3 +13,5 @@
 .libs/
 **/.pytest_cache/
 .tox/
+**/autom4th.cache/
+aclocal/
