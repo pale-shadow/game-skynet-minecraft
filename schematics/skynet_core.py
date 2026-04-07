@@ -6,7 +6,7 @@ import subprocess
 import time
 from datetime import datetime
 
-from mcrcon.mcrcon import MCRcon
+from src.mcrcon.mcrcon import MCRcon
 
 
 class Config:

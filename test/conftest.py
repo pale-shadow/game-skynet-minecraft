@@ -28,10 +28,8 @@ def mock_thermal():
 
 @pytest.fixture(autouse=True)
 def mock_env_vars(monkeypatch):
-    """Ensure tests don't fail due to missing environment variables."""
     monkeypatch.setenv("RCON_PASS", "test_pass")
     monkeypatch.setenv("CHONK_IP", "127.0.0.1")
     monkeypatch.setenv("RCON_PORT", "25575")
-    # Gemini API key placeholder
     if "GOOGLE_API_KEY" not in os.environ:
         monkeypatch.setenv("GOOGLE_API_KEY", "testing_key")

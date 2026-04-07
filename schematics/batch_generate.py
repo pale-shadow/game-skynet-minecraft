@@ -4,8 +4,8 @@ batch_generate.py — Batch processor for all JSON prompts.
 Scans the /prompts/ directory for .json files and generates schematics for each.
 
 Usage:
-    python scripts/batch_generate.py
-    python scripts/batch_generate.py --output ./custom_output
+    python schematics/batch_generate.py
+    python schematics/batch_generate.py --output ./custom_output
 """
 
 import glob
@@ -16,12 +16,12 @@ import time
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 
-from scripts.generate_schematic import generate, load_prompt
+from schematics.generate_schematic import generate, load_prompt
 
 
 def main():
-    prompts_dir = os.path.join(PROJECT_ROOT, "prompts")
-    output_dir = os.path.join(PROJECT_ROOT, "output")
+    prompts_dir = os.path.join(PROJECT_ROOT, "schematics/prompts")
+    output_dir = os.path.join(PROJECT_ROOT, "schematics/schem_files")
 
     # Parse optional --output flag
     if "--output" in sys.argv:
