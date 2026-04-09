@@ -1,8 +1,9 @@
 import os
 import json
 import pytest
+from skynet_core import Config
 
-SCHEM_DIR = "schematics/schem_files"
+SCHEM_DIR = Config.SCHEM_DIR
 
 def get_schematic_files():
     """Retrieve all schematic files from the project directory."""

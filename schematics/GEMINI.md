@@ -47,6 +47,7 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
     - Integrate `schematics/validate_no_overlaps.py` for pre-deployment 3D AABB overlap detection to prevent conflicting builds. New builds are now validated against existing metadata before deployment, and any overlaps will abort the build cycle.
     - Ensure `.schem` files are saved directly to `/home/minecraft/schematics` and corresponding metadata JSON files are saved to `JSON_METADATA_DIR` when `skynet_unified.py` runs on the `chonk` host.
 - **Deployment Verification**: Verified that `skynet_unified.py` successfully generates and attempts to deploy schematics (e.g., `SKYNET_BRIDGE_3283.schem`) to the server.
+- **NFS Mount Standardization:** (Resolved Apr 8, 2026) Standardized all schematic and metadata storage to the `/mnt/clusterfs/minecraft/schematics` NFS mount. This ensures all AI nodes share a single, consistent source of truth for architectural deployments and overlap detection.
 - **Announcement & Logging Standards**: Implemented mandatory coordinate and name reporting for all builds. All server console announcements (`say` commands) and local log file (`skynet_unified.log`) now explicitly include the building name and its $(X, Y, Z)$ coordinates for full traceability.
 - **Hardware Status**: Confirmed Hailo-8L NPU is operational and responding to spatial inference requests.
 
