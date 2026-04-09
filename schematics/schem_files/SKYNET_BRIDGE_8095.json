@@ -14,9 +14,9 @@
   },
   "spatial_data": {
     "origin": {
-      "x": 0,
+      "x": -1010,
       "y": 0,
-      "z": 0
+      "z": -835
     },
     "dimensions": {
       "width": 0,
