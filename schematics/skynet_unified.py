@@ -10,38 +10,7 @@ from datetime import datetime, timedelta
 
 import mcschematic
 from adaptive_mutation_v7 import AdaptiveMutator
-from skynet_core import SkynetCore, SkynetRCON, setup_logging
-
-# Define default configuration paths since skynet_core.py is not available
-class Config:
-    # SCHEM_DIR: The directory where schematics are generated locally on Stargate MCP.
-    SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics"
-    # MINECRAFT_SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
-    MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
-    # JSON_METADATA_DIR: Directory for build metadata JSON files, locally on Stargate.
-    JSON_METADATA_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/schematics/build_metadata"
-    # Add other necessary Config attributes here if they were expected from skynet_core
-    # For example:
-    SECTORS = {
-        "ai_field_alpha": {"x": [-1000, 0], "z": [-1000, 0]},
-        "ai_field_beta": {"x": [0, 1000], "z": [-1000, 0]},
-        "ai_field_gamma": {"x": [-1000, 0], "z": [0, 1000]},
-        "ai_field_delta": {"x": [0, 1000], "z": [0, 1000]}
-    }
-    FIELD_BOUNDS = {"min_x": -1000, "max_x": 1000, "min_z": -1000, "max_z": 1000, "y_base": 64}
-    TEMP_THRESHOLD = 75.0
-    RCON_CHECK_INTERVAL = 60
-    PLAYER_CHECK_INTERVAL = 30
-    WARNING_INTERVAL = 300
-    BUILD_COOLDOWN = 86400 # Daily builds
-    BUILD_COOLDOWN_VOID = 1800 # 30-min Void-Tech
-    BUILD_COOLDOWN_MUTATION = 300 # 5-min Adaptive Mutation
-    def log_config(logger):
-        logger.info(f"Config: SCHEM_DIR={Config.SCHEM_DIR}")
-        logger.info(f"Config: JSON_METADATA_DIR={Config.JSON_METADATA_DIR}")
-        logger.info(f"Config: SECTORS={Config.SECTORS}")
-        logger.info(f"Config: FIELD_BOUNDS={Config.FIELD_BOUNDS}")
-        logger.info(f"Config: TEMP_THRESHOLD={Config.TEMP_THRESHOLD}")
+from skynet_core import Config, SkynetCore, SkynetRCON, setup_logging
 
 
 from validate_no_overlaps import check_overlaps

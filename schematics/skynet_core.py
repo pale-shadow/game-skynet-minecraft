@@ -53,18 +53,18 @@ class Config:
     # LOG_DIR: Directory for logs, relative to PROJECT_ROOT on the Minecraft server (chonk).
     LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs")
 
-    # LOCAL_SCHEM_OUTPUT_DIR: The directory where schematics are generated locally on Stargate MCP.
-    # This path must correspond to the source directory configured for the 'filesystem-stargate' MCP service.
-    LOCAL_SCHEM_OUTPUT_DIR = PROJECT_ROOT # Default to the current project schematics folder
-
     # MINECRAFT_SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
     # This value MUST match the WorldEdit schematics directory on the Minecraft server.
-    MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", "/home/minecraft/schematics")
+    MINECRAFT_SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
+
+    # LOCAL_SCHEM_OUTPUT_DIR: The directory where schematics are generated locally.
+    # Updated to point directly to the NFS mount for seamless deployment.
+    LOCAL_SCHEM_OUTPUT_DIR = "/mnt/clusterfs/minecraft/schematics"
 
     # SCHEM_DIR: The directory used for local saving of schematics by generation scripts.
     SCHEM_DIR = LOCAL_SCHEM_OUTPUT_DIR
 
-    # JSON_METADATA_DIR: Directory for build metadata JSON files, locally on Stargate.
+    # JSON_METADATA_DIR: Directory for build metadata JSON files.
     JSON_METADATA_DIR = os.path.join(LOCAL_SCHEM_OUTPUT_DIR, "build_metadata")
 
     # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
@@ -214,7 +214,10 @@ class SkynetCore:
         return detected
 
     def transfer_file(self, local_path, remote_path):
-        """Transfers a file to the Minecraft server (chonk) via scp."""
+        """Transfers a file to the Minecraft server (chonk) via scp if needed."""
+        if os.path.abspath(local_path) == os.path.abspath(remote_path):
+            self.logger.info(f"📁 File already at destination (NFS): {remote_path}")
+            return True
         try:
             # Ensure the destination directory exists (optional, but scp needs it)
             # cmd_mkdir = ["ssh", f"minecraft@{self.rcon.host}", f"mkdir -p {os.path.dirname(remote_path)}"]

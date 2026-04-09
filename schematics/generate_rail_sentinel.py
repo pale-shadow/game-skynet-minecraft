@@ -136,8 +136,11 @@ def generate_rail_sentinel():
         }
     )
 
-    schem.save("rail_sentinel.schem")
-    print("Statue generated: rail_sentinel.schem")
+    from skynet_core import Config
+    import os
+    output_path = os.path.join(Config.SCHEM_DIR, "rail_sentinel.schem")
+    schem.save(output_path)
+    print(f"Statue generated: {output_path}")
 
 
 if __name__ == "__main__":

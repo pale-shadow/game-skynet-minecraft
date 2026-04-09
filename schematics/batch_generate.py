@@ -16,12 +16,13 @@ import time
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 
+from schematics.skynet_core import Config
 from schematics.generate_schematic import generate, load_prompt
 
 
 def main():
     prompts_dir = os.path.join(PROJECT_ROOT, "schematics/prompts")
-    output_dir = os.path.join(PROJECT_ROOT, "schematics/schem_files")
+    output_dir = Config.SCHEM_DIR
 
     # Parse optional --output flag
     if "--output" in sys.argv:

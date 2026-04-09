@@ -93,9 +93,14 @@ def check_overlaps(schem_files_dir, proposed_build=None):
 
 
 if __name__ == "__main__":
-    schem_dir = os.path.join(os.path.dirname(__file__), "schem_files")
-    print("Running overlap check on existing schematics...")
-    check_overlaps(schem_dir)
+    try:
+        from skynet_core import Config
+        metadata_dir = Config.JSON_METADATA_DIR
+    except ImportError:
+        metadata_dir = os.path.join(os.path.dirname(__file__), "build_metadata")
+
+    print(f"Running overlap check on existing builds in {metadata_dir}...")
+    check_overlaps(metadata_dir)
 
     # Example of how to use with a proposed build
     print("\n--- Testing with a proposed new build ---")
@@ -107,10 +112,10 @@ if __name__ == "__main__":
         "x2": -1040,
         "y2": 80,
         "z2": -510,
-        "file": "/home/minecraft/schematics/build_metadata/TEST_PROPOSED_HOUSE.json",
+        "file": os.path.join(metadata_dir, "TEST_PROPOSED_HOUSE.json"),
     }
     print(f"Proposing build: {test_proposed_build['id']}")
-    conflicts = check_overlaps(schem_dir, test_proposed_build)
+    conflicts = check_overlaps(metadata_dir, test_proposed_build)
     if conflicts:
         print(f"Proposed build CONFLICTS: {len(conflicts)} conflicts found.")
     else:

@@ -66,8 +66,11 @@ def generate_industrial_bridge():
         }
     )
 
-    schem.save("rail_bridge.schem")
-    print("Bridge segment 'rail_bridge.schem' generated.")
+    from skynet_core import Config
+    import os
+    output_path = os.path.join(Config.SCHEM_DIR, "rail_bridge.schem")
+    schem.save(output_path)
+    print(f"Bridge segment '{output_path}' generated.")
 
 
 if __name__ == "__main__":

@@ -134,7 +134,13 @@ def build_t2bm(schem, prompt):
 
 if __name__ == "__main__":
     # Test generation
+    try:
+        from skynet_core import Config
+        output_dir = Config.SCHEM_DIR
+    except ImportError:
+        output_dir = "."
+
     expander = T2BMExpander()
     test_schem = expander.generate("neural_anchor", [0, 64, 0], [7, 12, 7])
-    test_schem.save(".", "test_t2bm_anchor", mcschematic.Version.JE_1_21_1)
-    print("Test schematic 'test_t2bm_anchor.schem' generated.")
+    test_schem.save(output_dir, "test_t2bm_anchor", mcschematic.Version.JE_1_21_1)
+    print(f"Test schematic 'test_t2bm_anchor.schem' generated in {output_dir}.")

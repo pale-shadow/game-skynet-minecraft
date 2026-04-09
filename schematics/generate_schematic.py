@@ -13,6 +13,7 @@ if SCRIPT_DIR not in sys.path:
     sys.path.insert(0, SCRIPT_DIR)
 
 from builders import BUILDERS
+from skynet_core import Config
 
 VERSION_MAP = {
     v: getattr(mcschematic.Version, v)
@@ -32,7 +33,7 @@ def load_prompt(path):
     return prompt
 
 
-def generate(prompt, output_dir):
+def generate(prompt, output_dir=Config.SCHEM_DIR):
     build_type = prompt.get("type", "house")
     name = prompt.get("name", "untitled")
     version_str = prompt.get("version", DEFAULT_VERSION)
@@ -61,7 +62,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     prompt_path = sys.argv[1]
-    output_dir = os.path.join(SCRIPT_DIR, "output")
+    output_dir = Config.SCHEM_DIR
     if "--output" in sys.argv:
         output_dir = sys.argv[sys.argv.index("--output") + 1]
 

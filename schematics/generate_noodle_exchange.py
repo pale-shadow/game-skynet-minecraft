@@ -98,8 +98,11 @@ def generate_noodle_exchange():
         }
     )
 
-    schem.save("noodle_exchange.schem")
-    print("Schematic 'noodle_exchange.schem' generated.")
+    from skynet_core import Config
+    import os
+    output_path = os.path.join(Config.SCHEM_DIR, "noodle_exchange.schem")
+    schem.save(output_path)
+    print(f"Schematic '{output_path}' generated.")
 
 
 if __name__ == "__main__":
