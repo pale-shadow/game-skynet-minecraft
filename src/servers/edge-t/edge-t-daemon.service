@@ -1,0 +1,28 @@
+[Unit]
+Description=Skynet Edge-T Vision & Construction Daemon (Asus Tinker)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# User should match your Minecraft/Stargate system user
+User=franklin
+Group=minecraft
+
+# Use the absolute path to your virtual environment's python
+WorkingDirectory=/home/minecraft/game-skynet-minecraft/src/servers/edge-t
+ExecStart=/home/minecraft/venv/bin/python3 edge-t-daemon.py
+
+# Neuromancer Resilience Protocol: Auto-restart on failure
+Restart=always
+RestartSec=10
+
+# Logging for Gemini-CLI & Stargate MCP auditing
+StandardOutput=append:/home/minecraft/logs/edge-t.log
+StandardError=append:/home/minecraft/logs/edge-t-error.log
+
+# Resource management for the NXP i.MX 8M
+CPUAccounting=true
+MemoryAccounting=true
+
+[Install]
+WantedBy=multi-user.target

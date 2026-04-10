@@ -40,3 +40,41 @@ def test_skynet_unified_daemon_logic():
         players = daemon.get_players_in_zones()
         assert isinstance(players, set)
         assert len(players) == 0
+
+def test_skynet_core_transfer_file():
+    """Verify that transfer_file calls scp with correct arguments and handles NFS optimization."""
+    with patch("skynet_core.setup_logging"):
+        core = SkynetCore(name="test_core")
+        core.rcon = MagicMock()
+        core.rcon.host = "10.10.8.60"
+        
+        # Test 1: Standard transfer (different paths)
+        with patch("subprocess.run") as mock_run:
+            mock_run.return_value = MagicMock(returncode=0)
+            
+            local_path = "/tmp/test.schem"
+            remote_path = Config.MINECRAFT_SCHEM_DIR + "/test.schem"
+            
+            result = core.transfer_file(local_path, remote_path)
+            
+            assert result is True
+            mock_run.assert_called_once()
+            cmd = mock_run.call_args[0][0]
+            assert "scp" in cmd
+            assert local_path in cmd
+            assert f"minecraft@10.10.8.60:{remote_path}" in cmd
+
+        # Test 2: NFS Optimization (same paths)
+        with patch("subprocess.run") as mock_run:
+            path = Config.MINECRAFT_SCHEM_DIR + "/test.schem"
+            result = core.transfer_file(path, path)
+            assert result is True
+            mock_run.assert_not_called()
+
+        # Test 3: Failure handling
+        with patch("subprocess.run") as mock_run:
+            from subprocess import CalledProcessError
+            mock_run.side_effect = CalledProcessError(1, "scp", stderr="Permission denied")
+            
+            result = core.transfer_file("/tmp/test.schem", "/remote/test.schem")
+            assert result is False

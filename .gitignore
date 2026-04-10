@@ -3,5 +3,24 @@
 *.tflite
 **/.venv/
 **/venv/
-*.log
+# *.log
 .tox/
+
+AUTHORS
+ChangeLog
+NEWS
+COPYING
+INSTALL
+Makefile.old
+autom4te.cache/
+config.guess
+config.log
+config.status
+config.sub
+configure
+configure~
+Makefile.in
+aclocal.m4
+install-sh
+missing
+Makefile
