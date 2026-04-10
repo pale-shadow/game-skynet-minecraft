@@ -3,10 +3,8 @@ import logging
 import os
 import random
 import time
-
 import requests
-from skynet_core import Config, setup_logging
-from skynet_unified import SkynetUnifiedDaemon
+from src.schematics.config_utils import Config, SkynetUnifiedDaemon, setup_logging
 
 logger = setup_logging("skynet_controller")
 

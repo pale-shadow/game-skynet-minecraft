@@ -1,30 +1,25 @@
+import json
 import logging
 import os
 import random
-import re
-import subprocess
 import time
-from datetime import datetime, timedelta
+import requests
+from src.schematics.config_utils import Config, setup_logging
+from skynet_unified import SkynetUnifiedDaemon
 
-import mcschematic
-from adaptive_mutation_v7 import AdaptiveMutator
-from place_ai_warning_signs import place_random_warning
-from skynet_process import get_node_logic, push_build_to_chonk
-
-# Setup standardized logging
-logger = setup_logging("skynet_unified")
+logger = setup_logging("skynet_orchestrator")
 
 
-class SkynetController(SkynetUnifiedDaemon):
+class SkynetOrchestrator(SkynetUnifiedDaemon):
     """
-    The Master Controller for Skynet, running on Stargate host.
-    Delegates inference to remote agents.
+    Orchestrates AI tasks across Skynet nodes.
+    Runs on the Stargate MCP host.
     """
 
     def __init__(self):
         super().__init__()
         self.agent_hosts = Config.AGENT_HOSTS
-        logger.info(f"📡 Controller initialized with agents: {self.agent_hosts}")
+        logger.info(f"📡 Orchestrator initialized with agents: {self.agent_hosts}")
 
     def run_void_tech_cycle(self):
         """Delegates Void-Tech logic to a remote NPU agent."""
@@ -77,7 +72,7 @@ class SkynetController(SkynetUnifiedDaemon):
             logger.error(f"❌ Agent {target_agent} error: {e}")
 
     def run_loop(self):
-        logger.info("🚀 Skynet Master Controller: ACTIVE")
+        logger.info("🚀 Skynet Orchestrator: ACTIVE")
         Config.log_config(logger)
 
         while True:
@@ -112,5 +107,5 @@ class SkynetController(SkynetUnifiedDaemon):
 
 
 if __name__ == "__main__":
-    controller = SkynetController()
-    controller.run_loop()
+    orchestrator = SkynetOrchestrator()
+    orchestrator.run_loop()

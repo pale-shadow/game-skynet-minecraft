@@ -3,8 +3,7 @@ import os
 import random
 import time
 
-from npu_spatial_engine import NPUSpatialEngine
-from skynet_core import Config, SkynetRCON, setup_logging
+from src.schematics.config_utils import Config, SkynetRCON, setup_logging
 from vision_lite_overseer import VisionLiteOverseer
 
 # Setup standardized logging

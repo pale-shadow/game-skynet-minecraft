@@ -4,13 +4,8 @@ import os
 import random
 import sys
 
-# Ensure we can import skynet_core if run as a script
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-try:
-    from skynet_core import Config
-except ImportError:
-    # Fallback for different execution contexts
-    from .skynet_core import Config
+from src.schematics.config_utils import Config 
 
 
 class NPUSpatialEngine:

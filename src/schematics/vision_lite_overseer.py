@@ -1,7 +1,7 @@
 import os
 import random
 
-from skynet_core import Config, SkynetRCON, setup_logging
+from src.schematics.config_utils import Config, SkynetRCON, setup_logging
 
 # Setup standardized logging
 logger = setup_logging("vision_overseer")

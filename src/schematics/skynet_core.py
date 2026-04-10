@@ -1,12 +1,5 @@
-import logging
-import os
-import random
-import re
-import subprocess
-import time
-from datetime import datetime, timedelta
-
 import mcschematic
+from src.schematics.config_utils import Config, SkynetRCON, SkynetUnifiedDaemon, setup_logging
 from adaptive_mutation_v7 import AdaptiveMutator
 from place_ai_warning_signs import place_random_warning
 from skynet_process import get_node_logic, push_build_to_chonk
@@ -20,16 +13,12 @@ class SkynetController(SkynetUnifiedDaemon):
     The Master Controller for Skynet, running on Stargate host.
     Delegates inference to remote agents.
     """
-
     def __init__(self):
-    # ... (rest of __init__ and other methods)
-    super().__init__()
-    self.agent_hosts = Config.AGENT_HOSTS
-    logger.info(f"📡 Controller initialized with agents: {self.agent_hosts}")
+        super().__init__()
+        self.agent_hosts = Config.AGENT_HOSTS
+        logger.info(f"📡 Controller initialized with agents: {self.agent_hosts}")
 
-    # ... (rest of the class)
 
-# --- SkynetCore Base Class ---
 class SkynetCore:
     """
     The core logic for Skynet daemons, providing shared utilities.
@@ -71,8 +60,7 @@ class SkynetCore:
     def get_temp(self):
         try:
             res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
-            return float(res.replace("temp=", "").replace("'C
-", "")) # Corrected string literal
+            return float(res.replace("temp=", "").replace("C", ""))
         except Exception as e:
             self.logger.error(f"Thermal Hardware Failure: {e}")
             return 0.0
