@@ -11,7 +11,6 @@ from datetime import datetime, timedelta
 import mcschematic
 from adaptive_mutation_v7 import AdaptiveMutator
 from skynet_core import Config, SkynetCore, SkynetRCON, setup_logging
-
 from validate_no_overlaps import check_overlaps
 
 # Setup standardized logging
@@ -119,11 +118,17 @@ class SkynetUnifiedDaemon(SkynetCore):
             logger.info(f"✅ Generated: {build_name}.schem at {schem_file_path}")
 
             # Transfer to Minecraft Server (chonk)
-            remote_schem_path = os.path.join(Config.MINECRAFT_SCHEM_DIR, f"{build_name}.schem")
+            remote_schem_path = os.path.join(
+                Config.MINECRAFT_SCHEM_DIR, f"{build_name}.schem"
+            )
             if self.transfer_file(schem_file_path, remote_schem_path):
-                logger.info(f"✅ Transferred {build_name}.schem to {Config.MINECRAFT_SCHEM_DIR}")
+                logger.info(
+                    f"✅ Transferred {build_name}.schem to {Config.MINECRAFT_SCHEM_DIR}"
+                )
             else:
-                logger.error(f"❌ Aborting: Schematic transfer failed for {build_name}.")
+                logger.error(
+                    f"❌ Aborting: Schematic transfer failed for {build_name}."
+                )
                 return
 
             # Deployment

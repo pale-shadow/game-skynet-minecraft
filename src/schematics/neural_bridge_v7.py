@@ -4,8 +4,9 @@ import os
 import random
 import time
 
-import mcrcon
 from bluemap_api import create_bluemap_marker
+
+import mcrcon
 
 # Configuration
 CHONK_IP = os.getenv("CHONK_IP")

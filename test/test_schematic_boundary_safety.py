@@ -1,4 +1,5 @@
 import math
+
 import pytest
 
 SKYNET_HUBS = {
@@ -11,16 +12,20 @@ SKYNET_HUBS = {
     "Hub 07": {"x": -1144, "z": -631},
 }
 
+
 def check_hub_collision(pos, radius=10):
     """
-    Calculates proximity to established Skynet Hubs to prevent 
+    Calculates proximity to established Skynet Hubs to prevent
     overlapping 'Void-Tech' mutations.
     """
     for hub_name, coords in SKYNET_HUBS.items():
-        distance = math.sqrt((pos["x"] - coords["x"])**2 + (pos["z"] - coords["z"])**2)
+        distance = math.sqrt(
+            (pos["x"] - coords["x"]) ** 2 + (pos["z"] - coords["z"]) ** 2
+        )
         if distance < radius:
             return True
     return False
+
 
 def test_schematic_boundary_safety():
     """
@@ -28,8 +33,8 @@ def test_schematic_boundary_safety():
     or Hub 02 (Transmission Core) coordinates.
     """
     # New position in the Abyssal Reef sector, far from known hubs
-    new_schem_pos = {"x": 1950, "y": 84, "z": 750} 
-    
+    new_schem_pos = {"x": 1950, "y": 84, "z": 750}
+
     collision = check_hub_collision(new_schem_pos, radius=10)
 
     assert (

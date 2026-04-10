@@ -79,8 +79,10 @@ def generate_signal_core():
         }
     )
 
-    from skynet_core import Config
     import os
+
+    from skynet_core import Config
+
     output_path = os.path.join(Config.SCHEM_DIR, "signal_core.schem")
     schem.save(output_path)
     print(f"Schematic '{output_path}' generated successfully.")

@@ -1,2 +1,1 @@
 """Defines application routes."""
-

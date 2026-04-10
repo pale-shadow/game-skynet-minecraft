@@ -1,8 +1,9 @@
 import os
 import time
 
-import mcrcon
 import requests
+
+import mcrcon
 
 # Load from .envrc
 CHONK_IP = os.getenv("CHONK_IP")

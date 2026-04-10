@@ -95,6 +95,7 @@ def check_overlaps(schem_files_dir, proposed_build=None):
 if __name__ == "__main__":
     try:
         from skynet_core import Config
+
         metadata_dir = Config.JSON_METADATA_DIR
     except ImportError:
         metadata_dir = os.path.join(os.path.dirname(__file__), "build_metadata")

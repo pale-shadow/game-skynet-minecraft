@@ -39,7 +39,12 @@ def my_history():
 def my_status():
     """Generate a server status page"""
     logger.debug("Generate a server status page.")
-    return render_template("status.html", status=my_server.status, latency=my_server.latency, query=my_server.query)
+    return render_template(
+        "status.html",
+        status=my_server.status,
+        latency=my_server.latency,
+        query=my_server.query,
+    )
 
 
 if __name__ == "__main__":

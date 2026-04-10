@@ -6,7 +6,6 @@ from mcstatus import JavaServer
 class McServer:
     """McServer."""
 
-
     def __init__(self, ip, port):
         # You can pass the same address you'd enter into the address field in minecraft into the 'lookup' function
         # If you know the host and port, you may skip this and use JavaServer("example.org", 1234)
@@ -14,7 +13,7 @@ class McServer:
         self.latency = self.server.ping()
         self.status = self.server.status()
         self.query = status.players.online
-        
+
     def mc_status(self):
         # 'status' is supported by all Minecraft servers that are version 1.7 or higher.
         # Don't expect the player list to always be complete, because many servers run

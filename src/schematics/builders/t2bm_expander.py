@@ -1,5 +1,6 @@
-import numpy as np
 import mcschematic
+import numpy as np
+
 
 class T2BMExpander:
     """
@@ -13,7 +14,7 @@ class T2BMExpander:
         "core": "minecraft:crying_obsidian",
         "detail": "minecraft:pearlescent_froglight",
         "accent": "minecraft:purpur_pillar",
-        "glass": "minecraft:tinted_glass"
+        "glass": "minecraft:tinted_glass",
     }
 
     @staticmethod
@@ -23,7 +24,7 @@ class T2BMExpander:
         """
         builder = T2BMExpander()
         schem = mcschematic.MCSchematic()
-        
+
         if intent == "neural_anchor":
             return builder.build_neural_anchor(schem, coords, size)
         elif intent == "neural_vault":
@@ -48,22 +49,22 @@ class T2BMExpander:
         for y in range(h):
             # Corners
             schem.setBlock((0, y, 0), self.PALETTE["framework"])
-            schem.setBlock((w-1, y, 0), self.PALETTE["framework"])
-            schem.setBlock((0, y, l-1), self.PALETTE["framework"])
-            schem.setBlock((w-1, y, l-1), self.PALETTE["framework"])
-            
+            schem.setBlock((w - 1, y, 0), self.PALETTE["framework"])
+            schem.setBlock((0, y, l - 1), self.PALETTE["framework"])
+            schem.setBlock((w - 1, y, l - 1), self.PALETTE["framework"])
+
             # Central Core (every 3rd block or central)
             if y > 0 and y < h - 1:
-                schem.setBlock((w//2, y, l//2), self.PALETTE["core"])
+                schem.setBlock((w // 2, y, l // 2), self.PALETTE["core"])
                 # Glow/Detail
                 if y % 4 == 0:
-                    schem.setBlock((w//2, y, l//2 - 1), self.PALETTE["detail"])
-                    schem.setBlock((w//2, y, l//2 + 1), self.PALETTE["detail"])
+                    schem.setBlock((w // 2, y, l // 2 - 1), self.PALETTE["detail"])
+                    schem.setBlock((w // 2, y, l // 2 + 1), self.PALETTE["detail"])
 
         # 3. Accents / Girders
         for x in range(w):
-            schem.setBlock((x, h-1, l//2), self.PALETTE["accent"] + "[axis=x]")
-        
+            schem.setBlock((x, h - 1, l // 2), self.PALETTE["accent"] + "[axis=x]")
+
         return schem
 
     def build_neural_vault(self, schem, coords, size):
@@ -77,15 +78,15 @@ class T2BMExpander:
                 for z in range(l):
                     if y == 0:
                         schem.setBlock((x, y, z), self.PALETTE["foundation"])
-                    elif x == 0 or x == w-1 or z == 0 or z == l-1 or y == h-1:
+                    elif x == 0 or x == w - 1 or z == 0 or z == l - 1 or y == h - 1:
                         # Walls and Roof
-                        if (x+y+z) % 5 == 0:
+                        if (x + y + z) % 5 == 0:
                             schem.setBlock((x, y, z), self.PALETTE["detail"])
                         else:
                             schem.setBlock((x, y, z), self.PALETTE["framework"])
                     else:
                         # Interior Core
-                        if x == w//2 and z == l//2:
+                        if x == w // 2 and z == l // 2:
                             schem.setBlock((x, y, z), self.PALETTE["core"])
                         else:
                             schem.setBlock((x, y, z), "minecraft:air")
@@ -97,19 +98,20 @@ class T2BMExpander:
         """
         w, h, l = size
         for y in range(h):
-            for x in [0, w-1]:
-                for z in [0, l-1]:
+            for x in [0, w - 1]:
+                for z in [0, l - 1]:
                     schem.setBlock((x, y, z), self.PALETTE["framework"])
-            
-            if y == 0 or y == h-1 or y == h//2:
+
+            if y == 0 or y == h - 1 or y == h // 2:
                 # Horizontal beams
                 for x in range(w):
                     schem.setBlock((x, y, 0), self.PALETTE["framework"])
-                    schem.setBlock((x, y, l-1), self.PALETTE["framework"])
+                    schem.setBlock((x, y, l - 1), self.PALETTE["framework"])
                 for z in range(l):
                     schem.setBlock((0, y, z), self.PALETTE["framework"])
-                    schem.setBlock((w-1, y, z), self.PALETTE["framework"])
+                    schem.setBlock((w - 1, y, z), self.PALETTE["framework"])
         return schem
+
 
 def build_t2bm(schem, prompt):
     """
@@ -118,8 +120,8 @@ def build_t2bm(schem, prompt):
     intent = prompt.get("intent", "neural_anchor")
     dims = prompt.get("dimensions", {"width": 7, "height": 12, "length": 7})
     size = [dims.get("width", 7), dims.get("height", 12), dims.get("length", 7)]
-    coords = [0, 0, 0] # Internal schematic coords
-    
+    coords = [0, 0, 0]  # Internal schematic coords
+
     expander = T2BMExpander()
     if intent == "neural_anchor":
         expander.build_neural_anchor(schem, coords, size)
@@ -129,13 +131,15 @@ def build_t2bm(schem, prompt):
         expander.build_structural_frame(schem, coords, size)
     else:
         print(f"Unknown T2BM intent: {intent}")
-    
+
     return schem
+
 
 if __name__ == "__main__":
     # Test generation
     try:
         from skynet_core import Config
+
         output_dir = Config.SCHEM_DIR
     except ImportError:
         output_dir = "."
