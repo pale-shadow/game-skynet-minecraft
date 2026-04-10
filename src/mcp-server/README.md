@@ -10,8 +10,8 @@ The MCP allows the Skynet AI Brain, particularly the T2BM (Text to Building in M
 
 The MCP setup on Stargate involves deploying several specialized servers:
 
-*   **Filesystem Server:** Provides read/write access to project directories like `schematics/`, `models/`, and `internal/` for blueprint management.
-*   **RCON Tool Server:** Implemented by `mcp-server/rcon_service.py`, this server wraps the SkynetRCON client to allow the LLM to execute `setblock` and `fill` commands as standardized protocol calls.
+*   **Filesystem Server:** Provides read/write access to project directories like `src/schematics/`, `src/models/`, and `internal/` for blueprint management.
+*   **RCON Tool Server:** Implemented by `src/mcp-server/rcon_service.py`, this server wraps the SkynetRCON client to allow the LLM to execute `setblock` and `fill` commands as standardized protocol calls.
 *   **Git Automation Server:** Integrates `backup_to_git.sh` to automate commits of successful AI-generated designs to Git.
 
 *   **Vision MCP Server:** (Configured on `edge-t` host `10.10.16.4`) Provides vision and terrain audit capabilities using Edge TPUs.
@@ -27,7 +27,7 @@ The MCP setup on Stargate involves deploying several specialized servers:
     *   Securely manage `RCON_PASS` in `.envrc`.
 
 2.  **MCP Server Configuration:**
-    Initialize the MCP servers as defined in `mcp-servers.json`.
+    Initialize the MCP servers as defined in `src/mcp-server/mcp-servers.json`.
 
 3.  **Orchestrator Integration (`skynet_unified.py`):**
     *   Update the orchestrator to designate Stargate as the Primary Orchestrator & LLM Inference Node.

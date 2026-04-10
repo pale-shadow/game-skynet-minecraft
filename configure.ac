@@ -4,7 +4,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
 AC_INIT([game-chonk-minecraft], [1.0], [franklin@bitsmasher.net])
-AC_CONFIG_SRCDIR([schematics/npu_spatial_engine.py])
+AC_CONFIG_SRCDIR([src/schematics/npu_spatial_engine.py])
 
 AC_CANONICAL_HOST
 

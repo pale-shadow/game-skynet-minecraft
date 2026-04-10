@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=franklin
-WorkingDirectory=/home/minecraft/schematics
+WorkingDirectory=/home/minecraft/game-skynet-minecraft/src/schematics
 Environment="RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575"
 ExecStart=/usr/bin/python3 skynet_unified.py
 Restart=always

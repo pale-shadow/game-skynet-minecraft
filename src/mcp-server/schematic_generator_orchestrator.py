@@ -9,7 +9,7 @@ import requests
 # --- Configuration Loading ---
 # Assumes mcp-servers.json is located in the same directory as this script
 # or accessible via a known path.
-MCP_CONFIG_PATH = "mcp-server/mcp-servers.json"
+MCP_CONFIG_PATH = "src/mcp-server/mcp-servers.json"
 
 # Placeholder for default ports if not specified in config
 DEFAULT_PORTS = {

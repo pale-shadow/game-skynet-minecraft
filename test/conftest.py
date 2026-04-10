@@ -7,7 +7,7 @@ import pytest
 # Standardize PYTHONPATH to include the project root and subdirectories
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.insert(
-    0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../schematics"))
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/schematics"))
 )
 
 

@@ -4,138 +4,41 @@ import random
 import re
 import subprocess
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
-from src.mcrcon.mcrcon import MCRcon
+import mcschematic
+from adaptive_mutation_v7 import AdaptiveMutator
+from place_ai_warning_signs import place_random_warning
+from skynet_process import get_node_logic, push_build_to_chonk
 
-
-class Config:
-    """Centralized configuration and spatial boundaries for Skynet."""
-
-    CHONK_IP = os.getenv("CHONK_IP", "10.10.8.60")
-    AI_HARDWARE = "10.10.16.10"
-    MCP_HOST = "10.10.16.66"
-    AGENT_HOSTS = ["10.10.16.10", "10.10.16.4"]  # Pi 5 + Tinker Edge T
-    RCON_PASS = os.getenv("RCON_PASS")
-    RCON_PORT = int(os.getenv("RCON_PORT", 25575))
-
-    @classmethod
-    def log_config(cls, logger):
-        logger.info(
-            f"⚙️ Config: IP={cls.CHONK_IP}, Port={cls.RCON_PORT}, Pass={'***' + cls.RCON_PASS[-2:] if cls.RCON_PASS else 'None'}"
-        )
-
-    FIELD_BOUNDS = {
-        "min_x": -1539,
-        "max_x": -945,
-        "min_z": -913,
-        "max_z": -489,
-        "y_base": 64,
-    }
-
-    SECTORS = {
-        "Shroomville Urban District": {"x": (1600, 1850), "z": (650, 900)},
-        "Silicon Ridge (Beta-Zone)": {"x": (1400, 1575), "z": (700, 875)},
-        "Abyssal Reef (Ocean Sector)": {"x": (1900, 2050), "z": (700, 850)},
-    }
-
-    TEMP_THRESHOLD = 75.0  # Celsius
-    BUILD_COOLDOWN = 86400  # 24 Hours
-    BUILD_COOLDOWN_VOID = 1800  # 30 Minutes
-    BUILD_COOLDOWN_MUTATION = 300  # 5 Minutes
-    RCON_CHECK_INTERVAL = 300  # 5 Minutes
-    PLAYER_CHECK_INTERVAL = 600  # 10 Minutes
-    WARNING_INTERVAL = 30  # 30 Seconds
-
-    # PROJECT_ROOT: Where the skynet_unified.py script (and skynet_core.py) is executed on Stargate MCP.
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-    # LOG_DIR: Directory for logs, relative to PROJECT_ROOT on the Minecraft server (chonk).
-    LOG_DIR = os.path.join(PROJECT_ROOT, "..", "logs")
-
-    # MINECRAFT_SCHEM_DIR: The target directory for schematics on the Minecraft server (chonk).
-    # This value MUST match the WorldEdit schematics directory on the Minecraft server.
-    MINECRAFT_SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
-
-    # LOCAL_SCHEM_OUTPUT_DIR: The directory where schematics are generated locally.
-    # Updated to point directly to the NFS mount for seamless deployment.
-    LOCAL_SCHEM_OUTPUT_DIR = "/mnt/clusterfs/minecraft/schematics"
-
-    # SCHEM_DIR: The directory used for local saving of schematics by generation scripts.
-    SCHEM_DIR = LOCAL_SCHEM_OUTPUT_DIR
-
-    # JSON_METADATA_DIR: Directory for build metadata JSON files.
-    JSON_METADATA_DIR = os.path.join(LOCAL_SCHEM_OUTPUT_DIR, "build_metadata")
-
-    # HISTORY_FILE: Build history file, relative to PROJECT_ROOT on the Minecraft server (chonk).
-    # This is a legacy file and is not actively used for overlap detection.
-    HISTORY_FILE = os.path.join(PROJECT_ROOT, "input", "build_history.json")
+# Setup standardized logging
+logger = setup_logging("skynet_unified")
 
 
-def setup_logging(script_name):
-    """Standardizes logging to the logs/ folder with absolute paths."""
-    os.makedirs(Config.LOG_DIR, exist_ok=True)
-    log_file = os.path.join(Config.LOG_DIR, f"{script_name}.log")
-
-    logging.getLogger().handlers = []
-
-    handlers = [logging.FileHandler(log_file)]
-    if not os.getenv("INVOCATION_ID"):
-        handlers.append(logging.StreamHandler())
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - [%(levelname)s] - %(message)s",
-        handlers=handlers,
-    )
-    return logging.getLogger(script_name)
-
-
-class SkynetRCON:
-    """Unified, resilient RCON client for Skynet."""
+class SkynetController(SkynetUnifiedDaemon):
+    """
+    The Master Controller for Skynet, running on Stargate host.
+    Delegates inference to remote agents.
+    """
 
     def __init__(self):
-        self.host = Config.CHONK_IP
-        self.password = Config.RCON_PASS
-        self.port = Config.RCON_PORT
-        self.logger = logging.getLogger("RCON")
+    # ... (rest of __init__ and other methods)
+    super().__init__()
+    self.agent_hosts = Config.AGENT_HOSTS
+    logger.info(f"📡 Controller initialized with agents: {self.agent_hosts}")
 
-    def send(self, command, silent=False):
-        """Sends a single command or a list of commands."""
-        if not isinstance(command, list):
-            command = [command]
+    # ... (rest of the class)
 
-        responses = []
-        try:
-            with MCRcon(self.host, self.password, port=self.port) as mcr:
-                for cmd in command:
-                    resp = mcr.command(cmd)
-                    responses.append(resp)
-                    if not silent and resp:
-                        self.logger.info(f"RCON Response: {resp}")
-                    if len(command) > 1:
-                        time.sleep(0.01)
-            return responses if len(responses) > 1 else responses[0]
-        except Exception as e:
-            self.logger.error(f"RCON Failure: {e}")
-            return None
-
-    def check_health(self):
-        """Verifies server connectivity."""
-        resp = self.send("list", silent=True)
-        return resp is not None
-
-    def survey_site(self, x, z, radius=5):
-        self.logger.info(f"🔍 Surveying site at ({x}, {z}) with radius {radius}...")
-        return Config.FIELD_BOUNDS["y_base"]
-
-
+# --- SkynetCore Base Class ---
 class SkynetCore:
+    """
+    The core logic for Skynet daemons, providing shared utilities.
+    """
     def __init__(self, name="skynet_core"):
         self.name = name
         self.logger = setup_logging(name)
         self.rcon = SkynetRCON()
-        self.last_thermal_check = 0
+        self.last_rcon_check = 0
         self.last_player_check = 0
         self.players_in_zone = {}
 
@@ -168,8 +71,10 @@ class SkynetCore:
     def get_temp(self):
         try:
             res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
-            return float(res.replace("temp=", "").replace("\x27C\\n", ""))
-        except Exception:
+            return float(res.replace("temp=", "").replace("'C
+", "")) # Corrected string literal
+        except Exception as e:
+            self.logger.error(f"Thermal Hardware Failure: {e}")
             return 0.0
 
     def check_thermal(self):
@@ -207,7 +112,7 @@ class SkynetCore:
                 x_b, z_b = bounds["x"], bounds["z"]
                 if x_b[0] <= px <= x_b[1] and z_b[0] <= pz <= z_b[1]:
                     self.logger.info(
-                        f"👤 Player \x27{name}\x27 detected in restricted sector: {sector_name}"
+                        f"👤 Player '{name}' detected in restricted sector: {sector_name}"
                     )
                     detected.add(name)
                     break
@@ -238,3 +143,39 @@ class SkynetCore:
         msg = f"tellraw {player_name} [SKYNET] Restricted Zone Incursion Detected. Proceed with caution."
         self.rcon.send(msg)
         self.players_in_zone[player_name] = time.time()
+
+    # --- SkynetCore specific methods ---
+    def run_loop(self):
+        """Main daemon loop for core functionalities."""
+        logger.info(f"🚀 Skynet Core Daemon '{self.name}': ACTIVE")
+        Config.log_config(logger)
+
+        while True:
+            now = time.time()
+
+            # 1. RCON Health Check
+            if now - self.last_rcon_check >= Config.RCON_CHECK_INTERVAL:
+                if self.rcon.check_health():
+                    logger.info("📡 RCON Link: ACTIVE")
+                self.last_rcon_check = now
+
+            # 2. Player Check in Zones
+            if now - self.last_player_check >= Config.PLAYER_CHECK_INTERVAL:
+                detected = self.get_players_in_zones()
+                for name in detected:
+                    last_warn = self.players_in_zone.get(name, 0)
+                    if now - last_warn >= Config.WARNING_INTERVAL:
+                        self.send_warning(name)
+                self.last_player_check = now
+            
+            # Add more core daemon tasks here if needed
+            
+            time.sleep(10) # Short sleep to avoid busy-waiting
+
+
+# --- Main Execution Block ---
+if __name__ == "__main__":
+    # Example of how to run core daemon components if needed
+    # core = SkynetCore()
+    # core.run_loop() # This would need to be managed by systemd or similar
+    pass # Placeholder if this file is imported elsewhere

@@ -3,7 +3,7 @@ import os
 import nbtlib
 
 file_path = (
-    "/home/franklin/workspace/gaming/game-skynet-minecraft/schematics/schem_files/"
+    "/home/franklin/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files/"
 )
 
 

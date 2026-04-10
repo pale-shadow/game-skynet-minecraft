@@ -6,8 +6,8 @@ import time
 import mcschematic
 
 # Add the parent directory of this script to sys.path so 'builders' can be imported
-# This assumes generate_schematic.py is in src/schematics/scripts/
-# and 'builders' is in src/schematics/scripts/builders/
+# This assumes generate_schematic.py is in src/schematics/
+# and 'builders' is in src/schematics/builders/
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 if SCRIPT_DIR not in sys.path:
     sys.path.insert(0, SCRIPT_DIR)

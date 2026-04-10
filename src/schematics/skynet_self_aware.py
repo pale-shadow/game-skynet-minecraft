@@ -12,7 +12,7 @@ from skynet_process import get_node_logic, push_build_to_chonk
 # Unified Configuration: Phase 2.1 [378, 416, Conversation]
 SLEEP_INTERVAL = 3600  # Exact 1-hour cycle
 TEMP_THRESHOLD = 75.0  # Pi 5 Thermal Limit
-LOG_FILE = "../logs/skynet_unified.log"
+LOG_FILE = "../../logs/skynet_unified.log"
 SECTORS = [
     "Shroomville Urban District",
     "Silicon Ridge (Beta-Zone)",
@@ -68,7 +68,7 @@ def run_unified_brain():
     )
 
     mutator = AdaptiveMutator()
-    mutator.engine.history_file = "input/build_history.json"
+    mutator.engine.history_file = "src/schematics/input/build_history.json"
 
     cycle_count = 0
     while True:

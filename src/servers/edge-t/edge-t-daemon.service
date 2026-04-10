@@ -9,7 +9,7 @@ User=franklin
 Group=minecraft
 
 # Use the absolute path to your virtual environment's python
-WorkingDirectory=/home/minecraft/servers/edge-t
+WorkingDirectory=/home/minecraft/game-skynet-minecraft/src/servers/edge-t
 ExecStart=/home/minecraft/venv/bin/python3 edge-t-daemon.py
 
 # Neuromancer Resilience Protocol: Auto-restart on failure

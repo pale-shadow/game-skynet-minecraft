@@ -19,7 +19,7 @@ Functional Integration: The model specifically supports the placement of functio
 Integration with the Skynet Unified Brain
 To use T2BM effectively, the Skynet Unified AI Brain delegates tasks to node_stargate using the following parameters from your project's configuration:
 Hardware Mapping: Stargate is identified in the cluster as the "LLM Building Inference" node (Conversation).
-Prompt Selection: The brain pulls from specialized T2BM-ready JSON prompts stored in your schematics/prompts/ directory, which the T2BM model uses to define the building's style and complexity [34, 92, Conversation].
+Prompt Selection: The brain pulls from specialized T2BM-ready JSON prompts stored in your src/schematics/prompts/ directory, which the T2BM model uses to define the building's style and complexity [34, 92, Conversation].
 Historical Documentation: Every T2BM-generated structure is marked with Archival Signs noting the hardware origin as "Pi5 / NVMe (Stargate)" to maintain the server's technical ledger (Conversation).
 By offloading this LLM-based generation to Stargate, you ensure the Chonk server maintains its 20 TPS performance while populating the world with buildings that feature complete, human-satisfying interiors and structures [44, 92, Conversation].
 

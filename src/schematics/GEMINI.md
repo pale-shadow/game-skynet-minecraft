@@ -43,8 +43,8 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
 ## Debugging & Health Check (Mar 26, 2026)
 
 - **Schematic Pathing & Overlap Prevention:** (Resolved Apr 1, 2026) Updated `skynet_core.py` and `skynet_unified.py` to:
-    - Define `JSON_METADATA_DIR` (`/home/minecraft/schematics/build_metadata`) for storing comprehensive build metadata JSON files.
-    - Integrate `schematics/validate_no_overlaps.py` for pre-deployment 3D AABB overlap detection to prevent conflicting builds. New builds are now validated against existing metadata before deployment, and any overlaps will abort the build cycle.
+    - Define `JSON_METADATA_DIR` (`/home/minecraft/game-skynet-minecraft/src/schematics/build_metadata`) for storing comprehensive build metadata JSON files.
+    - Integrate `src/schematics/validate_no_overlaps.py` for pre-deployment 3D AABB overlap detection to prevent conflicting builds. New builds are now validated against existing metadata before deployment, and any overlaps will abort the build cycle.
     - Ensure `.schem` files are saved directly to `/home/minecraft/schematics` and corresponding metadata JSON files are saved to `JSON_METADATA_DIR` when `skynet_unified.py` runs on the `chonk` host.
 - **Deployment Verification**: Verified that `skynet_unified.py` successfully generates and attempts to deploy schematics (e.g., `SKYNET_BRIDGE_3283.schem`) to the server.
 - **NFS Mount Standardization:** (Resolved Apr 8, 2026) Standardized all schematic and metadata storage to the `/mnt/clusterfs/minecraft/schematics` NFS mount. This ensures all AI nodes share a single, consistent source of truth for architectural deployments and overlap detection.

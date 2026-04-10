@@ -18,7 +18,7 @@ This directory contains the inference assets for the **Skynet v7.1-RECLAMATION**
 To verify the status of the Neural Core, run the health check script:
 
 ```bash
-python3 models/verify_models.py
+python3 src/models/verify_models.py
 ```
 
 ## 🔄 Hybrid Workflow

@@ -5,7 +5,7 @@ Directory Structure
 bluemap_api.py: A Python-based interface designed to interact with the BlueMap API
 . It is used for the dynamic injection of markers and landmarks, such as the Skynet Inference Nexus (Hub 01) and the Neural-Data Vault (Hub 07), into the live web-app
 .
-verify_ai_field_coords.py: A critical validation script used to audit and verify the coordinates of the Skynet AI Testing Field hubs. This script is crucial for ensuring "Reactive Mutations" are correctly positioned and for preventing overlap or chunk corruption within existing zones. For pre-deployment 3D AABB overlap detection of *new* builds, `schematics/validate_no_overlaps.py` is utilized.
+verify_ai_field_coords.py: A critical validation script used to audit and verify the coordinates of the Skynet AI Testing Field hubs. This script is crucial for ensuring "Reactive Mutations" are correctly positioned and for preventing overlap or chunk corruption within existing zones. For pre-deployment 3D AABB overlap detection of *new* builds, `src/schematics/validate_no_overlaps.py` is utilized.
 push.sh: A deployment utility script for pushing local mapping configurations and HTML assets to the live Stargate node and webserver. It complements the broader bin/backup_to_git.sh workflow for maintaining the server's technical ledger
 .
 mapping.html / mapping.md: Core documentation and front-end assets for the BlueMap Telemetry interface, providing the historical context for landmarks like Glass City and the Severed Legacy Rail

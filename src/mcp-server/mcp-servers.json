@@ -23,7 +23,7 @@ Each entry under `mcpServers` describes a single MCP service.
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/home/minecraft/game-skynet-minecraft/schematics",
+        "/home/minecraft/game-skynet-minecraft/src/schematics",
         "/home/minecraft/schematics"
       ],
       "env": {
@@ -34,7 +34,7 @@ Each entry under `mcpServers` describes a single MCP service.
     "rcon-chonk": {
       "command": "python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/mcp-server/rcon_service.py"
+        "/home/minecraft/game-skynet-minecraft/src/mcp-server/rcon_service.py"
       ],
       "env": {
         "RCON_HOST": "10.10.8.60",
@@ -46,7 +46,7 @@ Each entry under `mcpServers` describes a single MCP service.
     "git-ledger": {
       "command": "python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/mcp-server/git_service.py"
+        "/home/minecraft/game-skynet-minecraft/src/mcp-server/git_service.py"
       ],
       "env": {
         "BACKUP_SCRIPT": "/home/minecraft/bin/backup_to_git.sh"
@@ -56,11 +56,11 @@ Each entry under `mcpServers` describes a single MCP service.
     "vision-edge-t": {
       "command": "python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/mcp-server/vision_service.py"
+        "/home/minecraft/game-skynet-minecraft/src/mcp-server/vision_service.py"
       ],
       "env": {
         "EDGETPU_SHARED_LIB": "libedgetpu.so.1",
-        "MODEL_PATH": "/home/minecraft/game-skynet-minecraft/models/vision_v1.tflite",
+        "MODEL_PATH": "/home/minecraft/game-skynet-minecraft/src/models/vision_v1.tflite",
         "SENSE_NET_HUB": "Hub-06"
       },
       "remote": {
@@ -72,11 +72,11 @@ Each entry under `mcpServers` describes a single MCP service.
     "npu-skynet": {
       "command": "python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/mcp-server/npu_service.py"
+        "/home/minecraft/game-skynet-minecraft/src/mcp-server/npu_service.py"
       ],
       "env": {
         "HAILO_NPU_ACTIVE": "true",
-        "SCHEM_GEN_PATH": "/home/minecraft/game-skynet-minecraft/schem-gen",
+        "SCHEM_GEN_PATH": "/home/minecraft/game-skynet-minecraft/src/schem-gen",
         "LOGIC_CORE": "Hub-01"
       },
       "port": 8085

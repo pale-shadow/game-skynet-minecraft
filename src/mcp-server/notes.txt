@@ -1,7 +1,7 @@
 iFor setting up and orchestrating your MCP (Model Context Protocol) server on Stargate, native Python or Node.js scripts are significantly better alternatives to Zapier. Based on your current repository structure and the requirements of the T2BM (Text to Building in Minecraft) pipeline, native implementations offer the performance and security needed to maintain your 20 TPS goal
 .
 1. Native Python/Node.js MCP Services
-The most robust alternative is the architecture you have already begun to implement in your mcp-server/ directory.
+The most robust alternative is the architecture you have already begun to implement in your src/mcp-server/ directory.
 Why it's better: Zapier introduces external latency and requires exposing webhooks to the public internet, which increases your attack surface
 . By using native scripts like rcon_service.py and vision_service.py, your Stargate node communicates directly with the Chonk and edge-t hosts over your local 10.10.16.x subnet, ensuring zero-latency "Void-Tech" triggers [34, 114, Conversation].
 Implementation: You can continue to use npx for filesystem tasks and Python 3 for your specialized AI logic, as registered in your mcp-servers.json [Conversation].

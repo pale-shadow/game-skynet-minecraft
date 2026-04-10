@@ -5,7 +5,7 @@ This directory contains legacy schematics and the newer **Skynet Procedural Gene
 - [I like this tool craftmatic](https://github.com/tribixbite/craftmatic)
 
 ## Procedural Generators (Skynet v7+)
-The Skynet system now includes various modular builder functions for different structure types (e.g., high-fidelity industrial stations, houses, interiors, banks). For a comprehensive and up-to-date list of active builders, refer to `schematics/GEMINI.md`.
+The Skynet system now includes various modular builder functions for different structure types (e.g., high-fidelity industrial stations, houses, interiors, banks). For a comprehensive and up-to-date list of active builders, refer to `src/schematics/GEMINI.md`.
 - **`neural_rail_v7_nexus.py`**: Procedurally generates logistics hubs with ribbed geometry.
 - **`neural_bridge_v8_pathfinder.py`**: Dynamically calculates and builds intelligent rail links.
 - **`generate_signal_core.py`**: Python-based generator for "Signal Core" data hubs.
@@ -28,7 +28,7 @@ go get github.com/Tnze/go-mc@master
 ```
 
 ## Hybrid Workflow
-The 2026 architecture combines **pre-built schematics** with **NPU-driven procedural logic** to create an evolving, reactive environment in the AI Testing Field. This now includes robust pre-deployment 3D AABB overlap detection (`schematics/validate_no_overlaps.py`) to ensure structural integrity and prevent conflicting builds.
+The 2026 architecture combines **pre-built schematics** with **NPU-driven procedural logic** to create an evolving, reactive environment in the AI Testing Field. This now includes robust pre-deployment 3D AABB overlap detection (`src/schematics/validate_no_overlaps.py`) to ensure structural integrity and prevent conflicting builds.
 
 ## v5 Architectural Standards (Industrial)
 To match high-fidelity reference aesthetics, v5 schematics must adhere to the following technical specifications:
