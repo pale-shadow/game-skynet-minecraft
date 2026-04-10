@@ -15,7 +15,7 @@ To entice players to leave the legacy hubs like **Washington Station**, we will 
 *   **The "Noodle" Economy:** Launch the **Noodle Economy Exchange** to allow players to trade materials harvested from the "Industrial Spine" for unique AI-crafted rewards [11, 12].
 
 ### 3. Technical Roadmap
-*   **Optimization:** Implement **Aikar’s Flags** on the Paper 1.21.11 instance to minimize garbage collection lag during massive AI-led chunk generation [13, 14].
+*   **Optimization:** Implement **Aikar’s Flags** on the Paper 1.21.1 instance to minimize garbage collection lag during massive AI-led chunk generation [13, 14].
 *   **Pre-generation:** Use the **Chunky** plugin to pre-render the AI Fields within a 10,000-block radius to ensure smooth travel via Elytra [13].
 *   **Security:** Enforce strict **LuckPerms** weights to protect legacy 2012 sites while granting "Hacker" and "Sheriff" ranks limited building permissions in the experimental AI zones [15, 16].
 

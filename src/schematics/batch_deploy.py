@@ -4,8 +4,8 @@ import os
 import sys
 import time
 import mcschematic # Added import for mcschematic
-from src.schematics.config_utils import Config # Corrected import path
-from src.schematics.npu_spatial_engine import NPUSpatialEngine # Corrected import path
+from config_utils import Config
+from npu_spatial_engine import NPUSpatialEngine
 
 # Import MCRcon if it's an external library; otherwise, it might need mocking.
 # Assuming MCRcon is an external library for RCON communication.

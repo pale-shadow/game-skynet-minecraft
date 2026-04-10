@@ -5,7 +5,7 @@ import random
 import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from src.schematics.config_utils import Config 
+from config_utils import Config 
 
 
 class NPUSpatialEngine:

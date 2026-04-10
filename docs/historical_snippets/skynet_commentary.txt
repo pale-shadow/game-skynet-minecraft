@@ -12,7 +12,7 @@ import time
 import select
 
 # Configuration
-LOG_PATH = "/home/franklin/minecraft/logs/latest.log" # Update to your actual path
+LOG_PATH = "/home/minecraft/logs/latest.log" # Standardized path
 CLI_PATH = "./gemini-cli"
 
 def tail_f(filename):
@@ -80,7 +80,5 @@ python3 scripts/skynet_commentary.py
 | **Builder (NPU)** | Voxel Math | Places "Infected" Blocks | RCON Command |
 | **Narrator (CLI)** | `latest.log` | **NEW:** Analyzes Construction | **Witty Commentary** |
 
-### Next Step for Skynet
-Now that Gemini can "speak" about the builds, would you like me to show you how to **broadcast the commentary back into the Minecraft chat** via RCON? 
-
-This would allow players on the server to see Skynet's "thoughts" as their bases are being mutated. **Should I add the `server.command(f"say {commentary}")` logic to the script?**
+### Implementation Status (Apr 10, 2026)
+This narrator logic is now fully integrated into the `skynet_unified.py` core. Build events are analyzed by Gemini and broadcasted back to the Minecraft server using the `say` command via the Hub-02 RCON transceiver.

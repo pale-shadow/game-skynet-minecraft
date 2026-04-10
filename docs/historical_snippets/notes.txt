@@ -1,3 +1,7 @@
+# [LEGACY CONTENT - ARCHIVAL PURPOSES ONLY]
+# Note: Many instructions below (Forge, Java 17, ftbranks) are outdated. 
+# Current server core is Paper 1.21.1 (Java 21).
+
 Client:
 
 install 64 bit java

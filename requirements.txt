@@ -12,3 +12,4 @@ isort
 black
 pytest-cov
 gemini-cli
+mariadb 

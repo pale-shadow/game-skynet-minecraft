@@ -4,7 +4,7 @@ import os
 import random
 import time
 import requests
-from src.schematics.config_utils import Config, setup_logging
+from config_utils import Config, setup_logging
 from skynet_unified import SkynetUnifiedDaemon
 
 logger = setup_logging("skynet_orchestrator")

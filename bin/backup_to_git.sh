@@ -5,18 +5,18 @@
 # SPDX-License-Identifier: MIT
 
 # ChangeLog:
+
 # v 0.1 02/07/2026 franklin - initial version
 # v0.2 03/29/2026 franklin - skynet version
+# v 0.3 04/10/2026 franklin -fix the robot screw ups
 
 set -euo pipefail
-IFS=$'
-	'
+IFS=$' '
 LRED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# Corrected path to the project root where bin/common.sh is expected
-PROJECT_ROOT="/home/minecraft/game-skynet-minecraft"
-SERVER_DIR="${PROJECT_ROOT}/servers" # Assuming server configs are under src/servers/
+PROJECT_ROOT="/home/skynet"
+SERVER_DIR="${PROJECT_ROOT}/src/servers"
 MY_HOSTNAME=$(cat /proc/sys/kernel/hostname)
 
 function world_backup() {
@@ -30,7 +30,6 @@ function world_backup() {
 }
 
 function host_backup() {
-  # This path seems to refer to the cloned repository for configuration/scripts
   HOST_REPO_DIR="${PROJECT_ROOT}"
   while true; do
     log_header "[$(date)] Starting skynet host backup."
@@ -42,24 +41,18 @@ function host_backup() {
 }
 
 function main() {
-  echo -e "
-" && figlet -f /usr/share/figlet/fonts/pagga Backup to GitHub && echo -e "
-"
-  if [ -f "${SERVER_DIR}/bin/common.sh" ]; then
-    source "${SERVER_DIR}/bin/common.sh"
+  if [ -f "${PROJECT_ROOT}/bin/common.sh" ]; then
+    source "${PROJECT_ROOT}/bin/common.sh"
   else
     echo -e "${LRED}Cannot find ${SERVER_DIR}/bin/common.sh.${NC}"
     exit 1
   fi
-  log_info "Successfully sourced ${SERVER_DIR}/bin/common.sh" && echo -e "
-"
+  log_info "Successfully sourced ${SERVER_DIR}/bin/common.sh"
 
-  # Determine which backup function to run based on hostname
-  # Assuming 'chonk.lab.bitsmasher.net' is the world server and others are host backups
   if [[ "$MY_HOSTNAME" == "chonk.lab.bitsmasher.net" ]]; then   
     world_backup
   else
-   host_backup
+    host_backup
   fi 
 }
 
