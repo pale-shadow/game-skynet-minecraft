@@ -1,0 +1,2 @@
+mcstatus # https://github.com/py-mine/mcstatus 
+rcon # https://pypi.org/project/rcon/
