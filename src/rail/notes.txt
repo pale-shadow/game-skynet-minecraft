@@ -1,19 +1,6 @@
-Your three-phase implementation for the Rail Builder AI agent effectively transitions the Skynet Unified AI Brain from static construction to dynamic infrastructure expansion within the Shroomville Urban District [34, Conversation]. By leveraging your existing four-node AI cluster and the Model Context Protocol (MCP) on Node Stargate, the agent can manage complex environmental factors while maintaining server stability [44, Conversation].
-Phase 1: Pathfinding and Spatial Analysis
-In this initial phase, the Rail Builder utilizes the Vision Node to perform high-density spatial scans of the terrain [34, Conversation].
-Terrain and Depth Mapping: The agent analyzes the mapping/ data to search for optimal paths based on terrain elevation and distance [34, Conversation]. This process aligns with the "Refining Prompts" stage of the T2BM framework, where environmental requirements are refined into detailed architectural prompts
-.
-Heritage Preservation: The agent cross-references its pathing with WorldGuard regions and the database/ history to ensure the proposed route does not intersect with Permanent Cultural Heritage Zones like the 2012 Washington Station [9, 34, Conversation].
-NPU Efficiency: By offloading these complex pathfinding calculations to the Vision Node, the Chonk server avoids the CPU spikes typically associated with large-scale world-scanning, preserving your 20 TPS performance goal [44, 45, Conversation].
-Phase 2: Option Presentation and Decision Logic
-Once the spatial analysis is complete, Node Stargate—acting as the MCP Host—processes the data to present the most efficient "Void-Tech" rail solutions [92, Conversation].
-LLM-Driven Evaluation: Stargate uses the T2BM model to explain its "best" choice, justifying the selection based on distance, depth, and resource efficiency [92, Conversation].
-Contextual Justification: Through the Model Context Protocol, the AI can pull real-time data from the server's Spark profiler to predict the impact of different rail designs on the server's tick timing, ensuring the chosen path minimizes lag [17, 18, 45, Conversation].
-Archival Documentation: The proposed plan is logged in the logs/skynet_daemon.log, creating a persistent record for the historical ledger before construction begins [34, Conversation].
-Phase 3: Autonomous Construction and Engineering
-The final phase delegates the actual labor to the Pi 5 / Hailo-8L node, utilizing high-speed building tools for rapid deployment [34, Conversation].
-Terrain Clearing and Tunneling: The agent uses FastAsyncWorldEdit (FAWE) to asynchronously clear terrain and dig tunnels, which drastically reduces block update lag during large edits [69, Conversation].
-Rail and Signal Deployment: Following the "Decoding and Repairing" stages of the T2BM pipeline, the agent lays tracks and installs functional redstone signal lights, note-block bells, and railroad crossings [92, Conversation].
-Safety Guardrails: During construction, CoreProtect logs every block change, allowing for instant rollbacks if the agent encounters a logic error
-. Simultaneously, the backup_to_git.sh script automatically pushes the updated world state to the GitHub repository upon completion [62, 63, Conversation].
-This unified approach ensures that your railway extension is not only architecturally sound but also fully integrated into the Dreamland server's 2026 technical infrastructure without compromising stability [40, 44, Conversation].
+The AI nodes will help with the signaling and track switch in the rail network. 
+
+- The stargate.reserach.bitsmasher.net MCP host should orchestrate the work done by the AI and other nodes.
+- The user should be able to tell the AI a destination in the rail network and get to that destination. 
+- The AI should track and route rail carts that contain chests, hoppers, and other non-player items.
+

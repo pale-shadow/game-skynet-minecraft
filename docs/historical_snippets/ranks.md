@@ -1,3 +1,6 @@
+# [LEGACY CONTENT - ARCHIVAL PURPOSES ONLY]
+# Note: ftbranks is legacy. Current permission hierarchy is managed via LuckPerms.
+
 https://gist.github.com/LatvianModder/54ccaee3af7a55d23831eac20f248a3f/0ba8846e95ba1b9f4057b81cae74de96dc262f15
 
 

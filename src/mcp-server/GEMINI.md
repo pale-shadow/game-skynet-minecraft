@@ -6,7 +6,7 @@ This document provides a detailed technical overview of the Model Context Protoc
 
 The MCP is designed to bridge high-level LLM reasoning (specifically the T2BM - Text to Building in Minecraft pipeline) with the Minecraft server's low-level administrative tools. Its primary goals are:
 
-*   **Low-Latency I/O:** Leveraging Stargate's 476.9G NVMe SSD (`/mnt/clusterfs2/`) for fast access to model weights, schematics, and intermediate data.
+*   **Low-Latency I/O:** Leveraging Stargate's 476.9G NVMe SSD (`/mnt/clusterfs/`) for fast access to model weights, schematics, and intermediate data.
 *   **Standardized Tool Interface:** Abstracting complex operations (like RCON commands, file manipulation, Git commits) into standardized MCP "Tool Calls" that the LLM can invoke.
 *   **Performance Optimization:** Offloading heavy AI inference and orchestration to Stargate to maintain the Minecraft server's target 20 TPS.
 *   **Safety and Heritage Preservation:** Integrating with server-side plugins (WorldGuard, CoreProtect) to prevent AI constructions from overwriting critical game assets or historical sites.
@@ -21,7 +21,7 @@ The `mcp-servers.json` file defines the MCP servers running on Stargate and thei
 *   **Command:** `npx -y @modelcontextprotocol/server-filesystem`
 *   **Arguments:**
     *   `/home/minecraft/game-skynet-minecraft/src/schematics`: Source directory for schematics.
-    *   `/home/minecraft/schematics`: Target directory for schematics.
+    *   `/mnt/clusterfs/minecraft/schematics`: Standardized target directory for schematics (NFS).
 *   **Environment Variables:**
     *   `SERVER_DIR`: `/home/minecraft` (Sets the base server directory).
 
@@ -62,6 +62,10 @@ The `mcp-servers.json` file defines the MCP servers running on Stargate and thei
     *   `SCHEM_GEN_PATH`: `/home/minecraft/game-skynet-minecraft/src/schem-gen` (Path for schematic generation tools).
     *   `LOGIC_CORE`: `Hub-01` (Identifier for the core logic unit).
 
+### `database-context` (Planned/Testing)
+
+*   **Purpose:** (In development) Queries WorldGuard via MariaDB to identify and avoid building within protected heritage zones (e.g., 2012 Washington Station).
+
 ## 3. T2BM Pipeline Integration
 
 The MCP is central to the T2BM pipeline, facilitating three key stages:
@@ -72,7 +76,7 @@ The MCP is central to the T2BM pipeline, facilitating three key stages:
 
 ## 4. Safety and Heritage Safeguards
 
-*   **WorldGuard Regions:** The `database-context` server queries WorldGuard to identify and avoid building within protected heritage zones (e.g., 2012 Washington Station).
+*   **WorldGuard Regions:** The `database-context` server (when active) queries WorldGuard to identify and avoid building within protected heritage zones (e.g., 2012 Washington Station).
 *   **CoreProtect Auditing:** CoreProtect logs AI block mutations, enabling rollbacks if the "Repairing" stage fails.
 ## 5. Repository Structure and File Roles
 

@@ -1,3 +1,6 @@
+# [LEGACY CONTENT - ARCHIVAL PURPOSES ONLY]
+# Note: This plugin reference is from the Forge era and is no longer used in Paper 1.21.1.
+
 This mod provides customizable login messages.
 
 [https://www.curseforge.com/minecraft/mc-mods/miraisoftloginmessages](https://www.curseforge.com/minecraft/mc-mods/miraisoftloginmessages)

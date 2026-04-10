@@ -24,7 +24,7 @@ Each entry under `mcpServers` describes a single MCP service.
         "-y",
         "@modelcontextprotocol/server-filesystem",
         "/home/minecraft/game-skynet-minecraft/src/schematics",
-        "/home/minecraft/schematics"
+        "/mnt/clusterfs/minecraft/schematics"
       ],
       "env": {
         "SERVER_DIR": "/home/minecraft"

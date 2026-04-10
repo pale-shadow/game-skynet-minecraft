@@ -1,6 +1,6 @@
 # Host: EDGE-T-NODE
 **System Role:** Peripheral Vision & Tactical Construction Daemon
-**Network ID:** Hub-04/05 Variant
+**Network ID:** Hub-06 (Vision Overseer)
 
 ## 🛠 Hardware Profile
 - **Compute:** ASUS Tinker Edge T (SBC)
