@@ -1,22 +1,14 @@
+from datetime import datetime
 import mcschematic
-from .config_utils import Config, SkynetRCON, SkynetUnifiedDaemon, setup_logging
-from src.schematics.adaptive_mutation_v7 import AdaptiveMutator
-from src.schematics.place_ai_warning_signs import place_random_warning
-from src.schematics.skynet_orchestrator import get_node_logic, push_build_to_chonk
+import os
+import re
+import subprocess
+import time
+
+from config_utils import Config, SkynetRCON, setup_logging
 
 # Setup standardized logging
-logger = setup_logging("skynet_unified")
-
-
-class SkynetController(SkynetUnifiedDaemon):
-    """
-    The Master Controller for Skynet, running on Stargate host.
-    Delegates inference to remote agents.
-    """
-    def __init__(self):
-        super().__init__()
-        self.agent_hosts = Config.AGENT_HOSTS
-        logger.info(f"📡 Controller initialized with agents: {self.agent_hosts}")
+logger = setup_logging("skynet_core")
 
 
 class SkynetCore:
@@ -41,7 +33,7 @@ class SkynetCore:
     @staticmethod
     def generate_build_metadata(build_name, sector_name):
         """Generates text for the mandatory Archival Signs based on the 2026 protocol."""
-        date_str = datetime.now().strftime("%b %d, %2026")
+        date_str = datetime.now().strftime("%b %d, 2026")
         return {
             "front": [
                 f"&b&l{build_name}",
@@ -59,11 +51,17 @@ class SkynetCore:
 
     def get_temp(self):
         try:
+            # Command to get temperature on Raspberry Pi
             res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
-            return float(res.replace("temp=", "").replace("C", ""))
+            return float(res.replace("temp=", "").replace("'C", ""))
         except Exception as e:
-            self.logger.error(f"Thermal Hardware Failure: {e}")
-            return 0.0
+            # Fallback for non-Pi environments (like testing on laptop)
+            try:
+                with open("/sys/class/thermal/thermal_zone0/temp", "r") as f:
+                    return float(f.read().strip()) / 1000.0
+            except:
+                self.logger.error(f"Thermal Hardware Failure: {e}")
+                return 0.0
 
     def check_thermal(self):
         temp = self.get_temp()
@@ -71,6 +69,7 @@ class SkynetCore:
             self.logger.warning(
                 f"⚠️ Thermal Throttling: {temp}°C > {Config.TEMP_THRESHOLD}°C"
             )
+            time.sleep(60) # Cool down period
             return False
         return True
 
@@ -112,10 +111,6 @@ class SkynetCore:
             self.logger.info(f"📁 File already at destination (NFS): {remote_path}")
             return True
         try:
-            # Ensure the destination directory exists (optional, but scp needs it)
-            # cmd_mkdir = ["ssh", f"minecraft@{self.rcon.host}", f"mkdir -p {os.path.dirname(remote_path)}"]
-            # subprocess.run(cmd_mkdir, check=True)
-            
             cmd = ["scp", local_path, f"minecraft@{self.rcon.host}:{remote_path}"]
             subprocess.run(cmd, check=True, capture_output=True, text=True)
             self.logger.info(f"📤 Transferred {local_path} to {self.rcon.host}:{remote_path}")
@@ -132,11 +127,10 @@ class SkynetCore:
         self.rcon.send(msg)
         self.players_in_zone[player_name] = time.time()
 
-    # --- SkynetCore specific methods ---
     def run_loop(self):
         """Main daemon loop for core functionalities."""
-        logger.info(f"🚀 Skynet Core Daemon '{self.name}': ACTIVE")
-        Config.log_config(logger)
+        self.logger.info(f"🚀 Skynet Core Daemon '{self.name}': ACTIVE")
+        Config.log_config(self.logger)
 
         while True:
             now = time.time()
@@ -144,7 +138,7 @@ class SkynetCore:
             # 1. RCON Health Check
             if now - self.last_rcon_check >= Config.RCON_CHECK_INTERVAL:
                 if self.rcon.check_health():
-                    logger.info("📡 RCON Link: ACTIVE")
+                    self.logger.info("📡 RCON Link: ACTIVE")
                 self.last_rcon_check = now
 
             # 2. Player Check in Zones
@@ -156,14 +150,8 @@ class SkynetCore:
                         self.send_warning(name)
                 self.last_player_check = now
             
-            # Add more core daemon tasks here if needed
-            
-            time.sleep(10) # Short sleep to avoid busy-waiting
+            time.sleep(10)
 
 
-# --- Main Execution Block ---
 if __name__ == "__main__":
-    # Example of how to run core daemon components if needed
-    # core = SkynetCore()
-    # core.run_loop() # This would need to be managed by systemd or similar
-    pass # Placeholder if this file is imported elsewhere
+    pass

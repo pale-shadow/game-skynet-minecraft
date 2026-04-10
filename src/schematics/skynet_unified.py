@@ -9,9 +9,8 @@ import time
 from datetime import datetime, timedelta
 
 import mcschematic
-from src.schematics.adaptive_mutation_v7 import AdaptiveMutator
-from src.schematics.skynet_core import Config, SkynetCore, SkynetRCON, setup_logging
-
+from adaptive_mutation_v7 import AdaptiveMutator
+from skynet_core import Config, SkynetCore, SkynetRCON, setup_logging
 
 from validate_no_overlaps import check_overlaps
 

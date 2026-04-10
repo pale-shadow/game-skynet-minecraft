@@ -3,13 +3,11 @@
 *.tflite
 **/.venv/
 **/venv/
-# *.log
 .tox/
 
 # Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
-*.log
 *.lot
 *.fls
 *.out
@@ -280,7 +278,6 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 
-# Makeindex log files
 *.lpz
 
 Makefile
@@ -302,10 +299,7 @@ AUTHORS
 ChangeLog
 NEWS
 Makefile.old
-autom4te.cache/
 config.guess
-config.log
-config.status
 config.sub
 aclocal.m4
 install-sh
