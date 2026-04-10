@@ -4,7 +4,7 @@ import random
 import time
 
 import mcrcon
-from skynet_core import Config
+from src.schematics.skynet_core import Config
 
 # Void Reclamation Project Messages [378, 423, Conversation]
 VOID_MESSAGES = [
