@@ -1,14 +1,23 @@
 import mariadb
+
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Identify the physical location to bypass clusterfs symlink issues
+CURRENT_FILE = os.path.realpath(__file__)
+DATABASE_DIR = os.path.dirname(CURRENT_FILE)
+SRC_DIR = os.path.dirname(DATABASE_DIR)
+SCHEMATICS_DIR = os.path.join(SRC_DIR, "schematics")
+
+# Inject the schematics directory to resolve skynet_core.py
+if SCHEMATICS_DIR not in sys.path:
+    sys.path.insert(0, SCHEMATICS_DIR)
 
 try:
     from skynet_core import Config
-except ImportError:
-    # Fallback for environments where the script is executed from the project root
-    sys.path.append(os.path.join(os.getcwd(), "src"))
-    from skynet_core import Config
+except ImportError as e:
+    print(f"FATAL: Database orchestrator could not load skynet_core from {SCHEMATICS_DIR}: {e}")
+    sys.exit(1)
 
 class VaultManager:
     """
