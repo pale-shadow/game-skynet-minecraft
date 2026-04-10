@@ -9,22 +9,30 @@ from datetime import datetime
 # --- Mock Configuration ---
 class MockConfig:
     """Mock configuration class with example attributes."""
-    HISTORY_FILE = "/home/franklin/workspace/gaming/game-skynet-minecraft/input/build_history.json" # Corrected path based on batch_deploy.py comment
-    FIELD_BOUNDS = {"min_x": -1600, "max_x": 1600, "min_z": -1600, "max_z": 1600, "y_base": 64} # Example bounds
-    TEMP_THRESHOLD = 75.0 # Example temperature
-    AGENT_HOSTS = ["10.10.16.10", "10.10.16.4", "10.10.16.66"] # Example agent IPs
-    SECTORS = { # Example sectors
+    HISTORY_FILE = "/home/franklin/workspace/gaming/game-skynet-minecraft/input/build_history.json"
+    FIELD_BOUNDS = {"min_x": -1600, "max_x": 1600, "min_z": -1600, "max_z": 1600, "y_base": 64}
+    TEMP_THRESHOLD = 75.0
+    AGENT_HOSTS = ["10.10.16.10", "10.10.16.4", "10.10.16.66"]
+    SECTORS = {
         "spawn": {"x": [-50, 50], "z": [-50, 50]},
-        "ai_containment": {"x": [-1539, -945], "z": [-1539, -945]}, # From GEMINI.md
+        "ai_containment": {"x": [-1539, -945], "z": [-1539, -945]},
     }
-    RCON_CHECK_INTERVAL = 30 # seconds
-    PLAYER_CHECK_INTERVAL = 10 # seconds
-    WARNING_INTERVAL = 60 # seconds
+    RCON_CHECK_INTERVAL = 30
+    PLAYER_CHECK_INTERVAL = 10
+    WARNING_INTERVAL = 60
     
-    # Added RCON_PASS, RCON_PORT, CHONK_IP as they are used by batch_deploy.py
-    RCON_PASS = "dinosaur_password" # Placeholder for RCON password
-    RCON_PORT = 25575 # Default RCON port
-    CHONK_IP = "10.10.8.60" # IP address of the Chonk Minecraft server
+    RCON_PASS = "dinosaur_password"
+    RCON_PORT = 25575
+    CHONK_IP = "10.10.8.60"
+
+    # Directory settings based on 2026 protocol
+    SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
+    MINECRAFT_SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
+    JSON_METADATA_DIR = "/mnt/clusterfs/minecraft/schematics/build_metadata"
+
+    BUILD_COOLDOWN = 3600 # 1 hour
+    BUILD_COOLDOWN_VOID = 1800 # 30 min
+    BUILD_COOLDOWN_MUTATION = 300 # 5 min
 
     @staticmethod
     def log_config(logger):
@@ -40,6 +48,7 @@ class MockConfig:
         logger.info(f"WARNING_INTERVAL: {MockConfig.WARNING_INTERVAL}s")
         logger.info(f"RCON_PORT: {MockConfig.RCON_PORT}")
         logger.info(f"CHONK_IP: {MockConfig.CHONK_IP}")
+        logger.info(f"MINECRAFT_SCHEM_DIR: {MockConfig.MINECRAFT_SCHEM_DIR}")
         logger.info("---------------------")
 
 Config = MockConfig()
@@ -59,7 +68,7 @@ def setup_logging(name):
 class SkynetRCON:
     """Mock RCON class."""
     def __init__(self):
-        self.host = "10.10.8.60" # Default Minecraft server host
+        self.host = "10.10.8.60"
         print("Mock SkynetRCON initialized.")
     def send(self, command, silent=False):
         print(f"Mock RCON send: {command}")
@@ -67,6 +76,8 @@ class SkynetRCON:
     def check_health(self):
         print("Mock RCON health check.")
         return True
+    def survey_site(self, x, z):
+        return 63
 
 # --- Mock Base Daemon Class ---
 class SkynetUnifiedDaemon:
