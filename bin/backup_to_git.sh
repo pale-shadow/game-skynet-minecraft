@@ -30,7 +30,6 @@ function world_backup() {
 }
 
 function host_backup() {
-  # This path seems to refer to the cloned repository for configuration/scripts
   HOST_REPO_DIR="${PROJECT_ROOT}"
   while true; do
     log_header "[$(date)] Starting skynet host backup."
