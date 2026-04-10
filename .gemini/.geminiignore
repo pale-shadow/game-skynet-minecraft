@@ -1,5 +1,4 @@
 # Ignore patterns for Gemini CLI
-.git/
 **/node_modules/
 .venv/
 *.pyc

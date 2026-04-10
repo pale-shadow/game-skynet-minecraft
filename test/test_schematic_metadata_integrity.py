@@ -1,8 +1,9 @@
 import os
 import json
 import pytest
+from skynet_core import Config
 
-SCHEM_DIR = "schematics/schem_files"
+SCHEM_DIR = Config.SCHEM_DIR
 
 def get_schematic_files():
     """Retrieve all schematic files from the project directory."""
@@ -18,11 +19,25 @@ def test_metadata_integrity(schem_path):
     """
     Validates that every schematic has a corresponding JSON metadata file
     and that the JSON structure is complete and valid.
+    Checks both the side-by-side location and the centralized build_metadata directory.
     """
-    json_path = schem_path.rsplit(".", 1)[0] + ".json"
+    schem_filename = os.path.basename(schem_path)
+    schem_name = os.path.splitext(schem_filename)[0]
     
-    # 1. Check for existence
-    assert os.path.exists(json_path), f"Missing metadata for {schem_path}"
+    # Path 1: Side-by-side
+    json_path_side = os.path.splitext(schem_path)[0] + ".json"
+    
+    # Path 2: Centralized metadata dir
+    json_path_central = os.path.join(Config.JSON_METADATA_DIR, f"{schem_name}.json")
+    
+    # 1. Check for existence in either location
+    json_path = None
+    if os.path.exists(json_path_side):
+        json_path = json_path_side
+    elif os.path.exists(json_path_central):
+        json_path = json_path_central
+        
+    assert json_path is not None, f"Missing metadata for {schem_path} (checked side-by-side and {Config.JSON_METADATA_DIR})"
     
     # 2. Validate JSON formatting
     try:

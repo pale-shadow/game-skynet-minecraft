@@ -1,0 +1,3752 @@
+[
+    {
+        "name": "SKYNET_BRIDGE_1111",
+        "x": -1254,
+        "z": -716,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_1111.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1391",
+        "x": -1018,
+        "z": -770,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_1391.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1596",
+        "x": -1444,
+        "z": -825,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_1596.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1810",
+        "x": -1394,
+        "z": -610,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_1810.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1918",
+        "x": -970,
+        "z": -859,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_BRIDGE_1918.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1928",
+        "x": -1154,
+        "z": -715,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_1928.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1985",
+        "x": -1166,
+        "z": -557,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_1985.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_2293",
+        "x": -976,
+        "z": -567,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_2293.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_2540",
+        "x": -971,
+        "z": -803,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_2540.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_2776",
+        "x": -1491,
+        "z": -908,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_2776.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_3283",
+        "x": -1187,
+        "z": -565,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_3283.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_3390",
+        "x": -1238,
+        "z": -611,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_3390.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_3430",
+        "x": -1336,
+        "z": -886,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_BRIDGE_3430.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_3626",
+        "x": -1366,
+        "z": -550,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_3626.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_3767",
+        "x": -1312,
+        "z": -522,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_3767.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_3891",
+        "x": -1004,
+        "z": -691,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_BRIDGE_3891.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4228",
+        "x": -1435,
+        "z": -602,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_BRIDGE_4228.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4240",
+        "x": -1182,
+        "z": -837,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4240.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4393",
+        "x": -1389,
+        "z": -505,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4393.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4458",
+        "x": -1038,
+        "z": -821,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4458.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4552",
+        "x": -1106,
+        "z": -551,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4552.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4652",
+        "x": -1184,
+        "z": -589,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4652.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4761",
+        "x": -1429,
+        "z": -727,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4761.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_4771",
+        "x": -1374,
+        "z": -641,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_4771.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_5023",
+        "x": -971,
+        "z": -897,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_5023.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_5088",
+        "x": -1188,
+        "z": -750,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_5088.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_5237",
+        "x": -1267,
+        "z": -838,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_BRIDGE_5237.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_1070",
+        "x": -1289,
+        "z": -895,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_1070.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_1120",
+        "x": -1265,
+        "z": -801,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_1120.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_1459",
+        "x": -1111,
+        "z": -568,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_1459.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_1543",
+        "x": -970,
+        "z": -570,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_1543.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_2044",
+        "x": -1522,
+        "z": -593,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_2044.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_2416",
+        "x": -1104,
+        "z": -667,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_2416.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_2594",
+        "x": -1321,
+        "z": -775,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_2594.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_2712",
+        "x": -1481,
+        "z": -636,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_2712.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_2731",
+        "x": -1481,
+        "z": -776,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_2731.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_2834",
+        "x": -972,
+        "z": -772,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_2834.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3057",
+        "x": -1172,
+        "z": -521,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_3057.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3232",
+        "x": -1427,
+        "z": -825,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_3232.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3269",
+        "x": -1145,
+        "z": -591,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_3269.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3421",
+        "x": -1364,
+        "z": -783,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_3421.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3433",
+        "x": -1348,
+        "z": -659,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_3433.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3495",
+        "x": -998,
+        "z": -764,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_3495.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3600",
+        "x": -1009,
+        "z": -532,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_3600.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3753",
+        "x": -1000,
+        "z": -830,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_3753.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3815",
+        "x": -1036,
+        "z": -908,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_3815.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_3861",
+        "x": -1470,
+        "z": -692,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_3861.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_4313",
+        "x": -1281,
+        "z": -577,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_4313.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_4720",
+        "x": -1401,
+        "z": -722,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_4720.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_4830",
+        "x": -1517,
+        "z": -709,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_4830.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_4867",
+        "x": -1336,
+        "z": -615,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_4867.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_4927",
+        "x": -1194,
+        "z": -629,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_4927.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_4959",
+        "x": -1385,
+        "z": -699,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_4959.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_5116",
+        "x": -1519,
+        "z": -887,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_5116.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_5148",
+        "x": -952,
+        "z": -525,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_5148.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_5274",
+        "x": -1023,
+        "z": -731,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_5274.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_5571",
+        "x": -1071,
+        "z": -779,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_5571.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_5763",
+        "x": -1275,
+        "z": -869,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_5763.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6147",
+        "x": -1118,
+        "z": -827,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6147.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6166",
+        "x": -1167,
+        "z": -607,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6166.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6191",
+        "x": -1218,
+        "z": -881,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_6191.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6309",
+        "x": -1451,
+        "z": -514,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6309.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6333",
+        "x": -1465,
+        "z": -509,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6333.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6348",
+        "x": -948,
+        "z": -806,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6348.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6359",
+        "x": -1173,
+        "z": -906,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6359.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6382",
+        "x": -1406,
+        "z": -682,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6382.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6544",
+        "x": -1081,
+        "z": -537,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_6544.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6945",
+        "x": -1209,
+        "z": -816,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6945.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_6982",
+        "x": -1260,
+        "z": -583,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_6982.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7005",
+        "x": -1373,
+        "z": -691,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_7005.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7095",
+        "x": -1264,
+        "z": -543,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_7095.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7232",
+        "x": -1035,
+        "z": -832,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_7232.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7412",
+        "x": -1528,
+        "z": -850,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_7412.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7542",
+        "x": -1227,
+        "z": -790,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_7542.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7545",
+        "x": -1393,
+        "z": -666,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_7545.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7550",
+        "x": -1007,
+        "y": 64,
+        "z": -548,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_7550.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7731",
+        "x": -1230,
+        "z": -804,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_7731.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7804",
+        "x": -1259,
+        "y": 64,
+        "z": -832,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_7804.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_7836",
+        "x": -1408,
+        "z": -565,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_7836.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_8314",
+        "x": -1407,
+        "y": 64,
+        "z": -754,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_CASTLE_8314.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_8609",
+        "x": -1028,
+        "z": -611,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_8609.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_8808",
+        "x": -1084,
+        "y": 64,
+        "z": -655,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_8808.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9055",
+        "x": -1220,
+        "y": 64,
+        "z": -853,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_CASTLE_9055.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9160",
+        "x": -1027,
+        "z": -650,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9160.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9290",
+        "x": -1262,
+        "z": -757,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9290.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9326",
+        "x": -1368,
+        "z": -507,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9326.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9542",
+        "x": -959,
+        "z": -708,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9542.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9558",
+        "x": -1480,
+        "z": -902,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9558.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9656",
+        "x": -1152,
+        "z": -597,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9656.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9660",
+        "x": -1400,
+        "z": -719,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9660.schem"
+    },
+    {
+        "name": "SKYNET_CASTLE_9835",
+        "x": -1318,
+        "z": -907,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_CASTLE_9835.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_1098",
+        "x": -1258,
+        "y": 64,
+        "z": -898,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_1098.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_1532",
+        "x": -1499,
+        "z": -858,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_1532.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_1533",
+        "x": -1461,
+        "z": -900,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_1533.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_1696",
+        "x": -1254,
+        "y": 64,
+        "z": -763,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_1696.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_1790",
+        "x": -1041,
+        "z": -591,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_1790.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_1820",
+        "x": -1058,
+        "y": 64,
+        "z": -776,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_HOUSE_1820.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_2149",
+        "x": -1254,
+        "z": -816,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_2149.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_2617",
+        "x": -1497,
+        "y": 64,
+        "z": -507,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_HOUSE_2617.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_2832",
+        "x": -1329,
+        "z": -496,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_2832.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3316",
+        "x": -1407,
+        "z": -533,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3316.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3320",
+        "x": -1319,
+        "z": -822,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3320.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3524",
+        "x": -1490,
+        "z": -625,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3524.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3525",
+        "x": -1104,
+        "z": -842,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3525.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3641",
+        "x": -1209,
+        "z": -556,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3641.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3782",
+        "x": -1472,
+        "z": -763,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3782.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3884",
+        "x": -1097,
+        "z": -647,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3884.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3929",
+        "x": -1431,
+        "z": -893,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3929.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3947",
+        "x": -977,
+        "z": -826,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3947.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_3974",
+        "x": -1230,
+        "z": -851,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_3974.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4205",
+        "x": -1309,
+        "z": -801,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4205.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4214",
+        "x": -1400,
+        "z": -610,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4214.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4229",
+        "x": -1340,
+        "z": -755,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4229.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4409",
+        "x": -1141,
+        "y": 64,
+        "z": -793,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_4409.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4444",
+        "x": -1014,
+        "z": -499,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4444.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4584",
+        "x": -1094,
+        "z": -884,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4584.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4624",
+        "x": -1302,
+        "z": -757,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4624.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4656",
+        "x": -1113,
+        "y": 64,
+        "z": -796,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_HOUSE_4656.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4796",
+        "x": -1178,
+        "z": -521,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4796.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4892",
+        "x": -1407,
+        "y": 64,
+        "z": -818,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_4892.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4911",
+        "x": -1451,
+        "z": -829,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4911.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_4961",
+        "x": -1002,
+        "z": -558,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_4961.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_5175",
+        "x": -1309,
+        "z": -801,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_5175.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_5523",
+        "x": -1095,
+        "y": 64,
+        "z": -688,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_5523.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_5644",
+        "x": -1278,
+        "z": -855,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_5644.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_5713",
+        "x": -1217,
+        "z": -516,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_5713.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_5751",
+        "x": -1397,
+        "z": -761,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_5751.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_5924",
+        "x": -1339,
+        "z": -560,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_5924.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6123",
+        "x": -1427,
+        "y": 64,
+        "z": -852,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_6123.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6169",
+        "x": -1183,
+        "y": 64,
+        "z": -811,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_6169.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6237",
+        "x": -1374,
+        "z": -728,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6237.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6383",
+        "x": -1178,
+        "z": -776,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6383.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6447",
+        "x": -1166,
+        "z": -654,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6447.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6517",
+        "x": -1365,
+        "z": -631,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6517.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6595",
+        "x": -1306,
+        "y": 64,
+        "z": -835,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_6595.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6663",
+        "x": -1412,
+        "z": -700,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6663.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6674",
+        "x": -1427,
+        "z": -572,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6674.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_6956",
+        "x": -1439,
+        "z": -534,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_6956.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_7169",
+        "x": -1179,
+        "z": -521,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_7169.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_7488",
+        "x": -1258,
+        "y": 64,
+        "z": -793,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_HOUSE_7488.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_7668",
+        "x": -1425,
+        "z": -678,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_7668.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_7712",
+        "x": -962,
+        "z": -631,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_7712.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_8159",
+        "x": -945,
+        "z": -742,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_8159.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_8503",
+        "x": -1109,
+        "z": -753,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_8503.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_8841",
+        "x": -1504,
+        "z": -612,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_8841.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_8851",
+        "x": -1477,
+        "z": -822,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_8851.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_9287",
+        "x": -1229,
+        "z": -864,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_9287.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_9474",
+        "x": -1463,
+        "z": -906,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_9474.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_9511",
+        "x": -1081,
+        "z": -883,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_9511.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_9725",
+        "x": -1304,
+        "y": 64,
+        "z": -752,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_HOUSE_9725.schem"
+    },
+    {
+        "name": "SKYNET_HOUSE_9768",
+        "x": -1521,
+        "z": -856,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_HOUSE_9768.schem"
+    },
+    {
+        "name": "SKYNET_STATION_1379",
+        "x": -1222,
+        "z": -899,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_1379.schem"
+    },
+    {
+        "name": "SKYNET_STATION_1465",
+        "x": -1248,
+        "y": 64,
+        "z": -586,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_STATION_1465.schem"
+    },
+    {
+        "name": "SKYNET_STATION_1493",
+        "x": -1336,
+        "z": -651,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_1493.schem"
+    },
+    {
+        "name": "SKYNET_STATION_1586",
+        "x": -950,
+        "z": -558,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_1586.schem"
+    },
+    {
+        "name": "SKYNET_STATION_1587",
+        "x": -1171,
+        "z": -905,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_1587.schem"
+    },
+    {
+        "name": "SKYNET_STATION_1645",
+        "x": -1170,
+        "z": -509,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_1645.schem"
+    },
+    {
+        "name": "SKYNET_STATION_2392",
+        "x": -1289,
+        "y": 64,
+        "z": -757,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_2392.schem"
+    },
+    {
+        "name": "SKYNET_STATION_2517",
+        "x": -1234,
+        "z": -705,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_2517.schem"
+    },
+    {
+        "name": "SKYNET_STATION_2536",
+        "x": -1074,
+        "z": -805,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_2536.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3018",
+        "x": -1434,
+        "y": 64,
+        "z": -545,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_3018.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3164",
+        "x": -1463,
+        "z": -737,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_3164.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3341",
+        "x": -1067,
+        "y": 64,
+        "z": -816,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_3341.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3366",
+        "x": -1463,
+        "y": 64,
+        "z": -632,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_3366.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3489",
+        "x": -1250,
+        "z": -855,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_3489.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3538",
+        "x": -1096,
+        "z": -900,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_3538.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3593",
+        "x": -1318,
+        "z": -542,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_3593.schem"
+    },
+    {
+        "name": "SKYNET_STATION_3846",
+        "x": -1047,
+        "z": -492,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_3846.schem"
+    },
+    {
+        "name": "SKYNET_STATION_4249",
+        "x": -1487,
+        "y": 64,
+        "z": -555,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_4249.schem"
+    },
+    {
+        "name": "SKYNET_STATION_4478",
+        "x": -1288,
+        "z": -645,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_4478.schem"
+    },
+    {
+        "name": "SKYNET_STATION_4498",
+        "x": -1297,
+        "z": -518,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_4498.schem"
+    },
+    {
+        "name": "SKYNET_STATION_4520",
+        "x": -1318,
+        "z": -523,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_4520.schem"
+    },
+    {
+        "name": "SKYNET_STATION_5110",
+        "x": -1380,
+        "y": 64,
+        "z": -885,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_5110.schem"
+    },
+    {
+        "name": "SKYNET_STATION_5411",
+        "x": -1155,
+        "z": -763,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_5411.schem"
+    },
+    {
+        "name": "SKYNET_STATION_5441",
+        "x": -1484,
+        "y": 64,
+        "z": -732,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_5441.schem"
+    },
+    {
+        "name": "SKYNET_STATION_5561",
+        "x": -1400,
+        "z": -594,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_5561.schem"
+    },
+    {
+        "name": "SKYNET_STATION_5913",
+        "x": -1227,
+        "z": -843,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_5913.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6035",
+        "x": -1044,
+        "z": -858,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_6035.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6074",
+        "x": -1538,
+        "y": 64,
+        "z": -626,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_STATION_6074.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6170",
+        "x": -1079,
+        "z": -886,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_6170.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6471",
+        "x": -1097,
+        "z": -834,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_6471.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6621",
+        "x": -1039,
+        "z": -803,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_6621.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6864",
+        "x": -1304,
+        "z": -688,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_6864.schem"
+    },
+    {
+        "name": "SKYNET_STATION_6939",
+        "x": -1307,
+        "z": -868,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_6939.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7172",
+        "x": -1229,
+        "y": 64,
+        "z": -599,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_STATION_7172.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7336",
+        "x": -1448,
+        "z": -861,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7336.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7495",
+        "x": -1257,
+        "z": -603,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7495.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7545",
+        "x": -1461,
+        "z": -737,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7545.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7596",
+        "x": -1318,
+        "z": -607,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7596.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7623",
+        "x": -1440,
+        "z": -879,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7623.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7726",
+        "x": -955,
+        "z": -758,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7726.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7855",
+        "x": -1354,
+        "z": -607,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7855.schem"
+    },
+    {
+        "name": "SKYNET_STATION_7933",
+        "x": -1428,
+        "z": -831,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_7933.schem"
+    },
+    {
+        "name": "SKYNET_STATION_8053",
+        "x": -1272,
+        "z": -681,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_8053.schem"
+    },
+    {
+        "name": "SKYNET_STATION_8622",
+        "x": -1077,
+        "z": -796,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_8622.schem"
+    },
+    {
+        "name": "SKYNET_STATION_8769",
+        "x": -1075,
+        "z": -501,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_8769.schem"
+    },
+    {
+        "name": "SKYNET_STATION_8786",
+        "x": -1337,
+        "z": -561,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_8786.schem"
+    },
+    {
+        "name": "SKYNET_STATION_9050",
+        "x": -1520,
+        "z": -913,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_9050.schem"
+    },
+    {
+        "name": "SKYNET_STATION_9237",
+        "x": -1183,
+        "z": -747,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_9237.schem"
+    },
+    {
+        "name": "SKYNET_STATION_9305",
+        "x": -1230,
+        "z": -495,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_9305.schem"
+    },
+    {
+        "name": "SKYNET_STATION_9377",
+        "x": -950,
+        "z": -694,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_9377.schem"
+    },
+    {
+        "name": "SKYNET_STATION_9383",
+        "x": -1376,
+        "z": -840,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_STATION_9383.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_1011",
+        "x": -1453,
+        "z": -697,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_1011.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_1530",
+        "x": -1445,
+        "z": -821,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_1530.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_1829",
+        "x": -1042,
+        "y": 64,
+        "z": -687,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_1829.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_1969",
+        "x": -1145,
+        "y": 64,
+        "z": -904,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_1969.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2088",
+        "x": -957,
+        "z": -629,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_2088.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2196",
+        "x": -1040,
+        "z": -499,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_2196.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2299",
+        "x": -1081,
+        "z": -794,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_2299.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2327",
+        "x": -1439,
+        "z": -646,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_2327.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2500",
+        "x": -1087,
+        "y": 64,
+        "z": -908,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_TOWER_2500.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2584",
+        "x": -1221,
+        "y": 64,
+        "z": -548,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_2584.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2791",
+        "x": -1044,
+        "z": -677,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_2791.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2798",
+        "x": -1354,
+        "y": 64,
+        "z": -581,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_TOWER_2798.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_2888",
+        "x": -1365,
+        "y": 64,
+        "z": -656,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_2888.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_3067",
+        "x": -1239,
+        "z": -685,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_3067.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_3192",
+        "x": -1046,
+        "y": 64,
+        "z": -560,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_3192.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_3523",
+        "x": -1114,
+        "z": -565,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_3523.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_3816",
+        "x": -1187,
+        "z": -643,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_3816.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_3859",
+        "x": -1083,
+        "z": -567,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_3859.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_3880",
+        "x": -1496,
+        "z": -599,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_3880.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4078",
+        "x": -977,
+        "y": 64,
+        "z": -622,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_4078.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4100",
+        "x": -1166,
+        "z": -657,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4100.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4125",
+        "x": -1439,
+        "z": -646,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4125.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4129",
+        "x": -1488,
+        "z": -599,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4129.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4387",
+        "x": -1137,
+        "z": -716,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4387.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4398",
+        "x": -1000,
+        "z": -714,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4398.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4569",
+        "x": -1103,
+        "z": -638,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4569.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4717",
+        "x": -1204,
+        "y": 64,
+        "z": -721,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_4717.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4799",
+        "x": -1212,
+        "z": -493,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4799.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4951",
+        "x": -1495,
+        "y": 64,
+        "z": -876,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_4951.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_4957",
+        "x": -1044,
+        "z": -500,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_4957.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6294",
+        "x": -1522,
+        "z": -875,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6294.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6332",
+        "x": -1161,
+        "z": -706,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6332.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6401",
+        "x": -1225,
+        "z": -777,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6401.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6559",
+        "x": -1009,
+        "z": -594,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6559.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6778",
+        "x": -1496,
+        "z": -599,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6778.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6887",
+        "x": -1058,
+        "z": -676,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6887.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_6921",
+        "x": -1180,
+        "z": -814,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "SKYNET_TOWER_6921.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_7897",
+        "x": -1164,
+        "y": 64,
+        "z": -721,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_7897.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_7931",
+        "x": -1250,
+        "y": 64,
+        "z": -814,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_TOWER_7931.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_8012",
+        "x": -1229,
+        "y": 64,
+        "z": -728,
+        "w": 25,
+        "d": 25,
+        "schematic_name": "SKYNET_TOWER_8012.schem"
+    },
+    {
+        "name": "SKYNET_TOWER_8184",
+        "x": -1118,
+        "y": 64,
+        "z": -684,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "SKYNET_TOWER_8184.schem"
+    },
+    {
+        "name": "crafter_hub_interior_v2",
+        "x": -1224,
+        "z": -565,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "crafter_hub_interior_v2.schem"
+    },
+    {
+        "name": "crafter_hub_interior_v4",
+        "x": -1184,
+        "z": -892,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "crafter_hub_interior_v4.schem"
+    },
+    {
+        "name": "crafter_hub_master_control_v5",
+        "x": -1337,
+        "z": -748,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "crafter_hub_master_control_v5.schem"
+    },
+    {
+        "name": "crafter_hub_v2",
+        "x": -1220,
+        "z": -599,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "crafter_hub_v2.schem"
+    },
+    {
+        "name": "crafter_hub_v4",
+        "x": -1184,
+        "z": -892,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "crafter_hub_v4.schem"
+    },
+    {
+        "name": "crafter_hub_v5_industrial",
+        "x": -1491,
+        "z": -829,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "crafter_hub_v5_industrial.schem"
+    },
+    {
+        "name": "cyberdyne_rd_tower",
+        "x": -1410,
+        "z": -635,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "cyberdyne_rd_tower.schem"
+    },
+    {
+        "name": "end_industrial_station_v5",
+        "x": -1364,
+        "y": 64,
+        "z": -817,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "end_industrial_station_v5.schem"
+    },
+    {
+        "name": "mycelial_guardian",
+        "x": -1094,
+        "z": -844,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "mycelial_guardian.schem"
+    },
+    {
+        "name": "mycelial_guardian_v3",
+        "x": -1479,
+        "y": 64,
+        "z": -909,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "mycelial_guardian_v3.schem"
+    },
+    {
+        "name": "neural_bridge_infected_v7",
+        "x": -1364,
+        "y": 64,
+        "z": -817,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "neural_bridge_infected_v7.schem"
+    },
+    {
+        "name": "noodle_exchange_v2",
+        "x": -1303,
+        "y": 64,
+        "z": -779,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "noodle_exchange_v2.schem"
+    },
+    {
+        "name": "noodle_exchange_v3",
+        "x": -1043,
+        "y": 64,
+        "z": -744,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "noodle_exchange_v3.schem"
+    },
+    {
+        "name": "sentry_prism_v2",
+        "x": -1031,
+        "z": -567,
+        "w": 10,
+        "d": 10,
+        "schematic_name": "sentry_prism_v2.schem"
+    },
+    {
+        "name": "sentry_rest_v3",
+        "x": -1426,
+        "y": 64,
+        "z": -809,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "sentry_rest_v3.schem"
+    },
+    {
+        "name": "signal_core_data_hub_v2",
+        "x": -1278,
+        "y": 64,
+        "z": -582,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "signal_core_data_hub_v2.schem"
+    },
+    {
+        "name": "signal_core_v3",
+        "x": -1202,
+        "y": 64,
+        "z": -521,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "signal_core_v3.schem"
+    },
+    {
+        "name": "vertical_sump_tower",
+        "x": -1157,
+        "y": 64,
+        "z": -793,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "vertical_sump_tower.schem"
+    },
+    {
+        "name": "vertical_sump_v3",
+        "x": -1501,
+        "y": 64,
+        "z": -526,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "vertical_sump_v3.schem"
+    },
+    {
+        "name": "void_rail_v2",
+        "x": -1318,
+        "y": 64,
+        "z": -851,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "void_rail_v2.schem"
+    },
+    {
+        "name": "void_uplink_v2",
+        "x": -1351,
+        "y": 64,
+        "z": -740,
+        "w": 15,
+        "d": 15,
+        "schematic_name": "void_uplink_v2.schem"
+    },
+    {
+        "name": "SKYNET_BRIDGE_1111",
+        "x": -1254,
+        "y": 63,
+        "z": -716
+    },
+    {
+        "name": "SKYNET_BRIDGE_1391",
+        "x": -1018,
+        "y": 63,
+        "z": -770
+    },
+    {
+        "name": "SKYNET_BRIDGE_1596",
+        "x": -1444,
+        "y": 63,
+        "z": -825
+    },
+    {
+        "name": "SKYNET_BRIDGE_1810",
+        "x": -1394,
+        "y": 63,
+        "z": -610
+    },
+    {
+        "name": "SKYNET_BRIDGE_1918",
+        "x": -970,
+        "y": 63,
+        "z": -859
+    },
+    {
+        "name": "SKYNET_BRIDGE_1928",
+        "x": -1154,
+        "y": 63,
+        "z": -715
+    },
+    {
+        "name": "SKYNET_BRIDGE_1985",
+        "x": -1166,
+        "y": 63,
+        "z": -557
+    },
+    {
+        "name": "SKYNET_BRIDGE_2293",
+        "x": -976,
+        "y": 63,
+        "z": -567
+    },
+    {
+        "name": "SKYNET_BRIDGE_2540",
+        "x": -971,
+        "y": 63,
+        "z": -803
+    },
+    {
+        "name": "SKYNET_BRIDGE_2776",
+        "x": -1491,
+        "y": 63,
+        "z": -908
+    },
+    {
+        "name": "SKYNET_BRIDGE_3283",
+        "x": -1187,
+        "y": 63,
+        "z": -565
+    },
+    {
+        "name": "SKYNET_BRIDGE_3390",
+        "x": -1238,
+        "y": 63,
+        "z": -611
+    },
+    {
+        "name": "SKYNET_BRIDGE_3430",
+        "x": -1336,
+        "y": 63,
+        "z": -886
+    },
+    {
+        "name": "SKYNET_BRIDGE_3626",
+        "x": -1366,
+        "y": 63,
+        "z": -550
+    },
+    {
+        "name": "SKYNET_BRIDGE_3767",
+        "x": -1312,
+        "y": 63,
+        "z": -522
+    },
+    {
+        "name": "SKYNET_BRIDGE_3891",
+        "x": -1004,
+        "y": 63,
+        "z": -691
+    },
+    {
+        "name": "SKYNET_BRIDGE_4228",
+        "x": -1435,
+        "y": 63,
+        "z": -602
+    },
+    {
+        "name": "SKYNET_BRIDGE_4240",
+        "x": -1182,
+        "y": 63,
+        "z": -837
+    },
+    {
+        "name": "SKYNET_BRIDGE_4393",
+        "x": -1389,
+        "y": 63,
+        "z": -505
+    },
+    {
+        "name": "SKYNET_BRIDGE_4458",
+        "x": -1038,
+        "y": 63,
+        "z": -821
+    },
+    {
+        "name": "SKYNET_BRIDGE_4552",
+        "x": -1106,
+        "y": 63,
+        "z": -551
+    },
+    {
+        "name": "SKYNET_BRIDGE_4652",
+        "x": -1184,
+        "y": 63,
+        "z": -589
+    },
+    {
+        "name": "SKYNET_BRIDGE_4761",
+        "x": -1429,
+        "y": 63,
+        "z": -727
+    },
+    {
+        "name": "SKYNET_BRIDGE_4771",
+        "x": -1374,
+        "y": 63,
+        "z": -641
+    },
+    {
+        "name": "SKYNET_BRIDGE_5023",
+        "x": -971,
+        "y": 63,
+        "z": -897
+    },
+    {
+        "name": "SKYNET_BRIDGE_5088",
+        "x": -1188,
+        "y": 63,
+        "z": -750
+    },
+    {
+        "name": "SKYNET_BRIDGE_5237",
+        "x": -1267,
+        "y": 63,
+        "z": -838
+    },
+    {
+        "name": "SKYNET_CASTLE_1070",
+        "x": -1289,
+        "y": 63,
+        "z": -895
+    },
+    {
+        "name": "SKYNET_CASTLE_1120",
+        "x": -1265,
+        "y": 63,
+        "z": -801
+    },
+    {
+        "name": "SKYNET_CASTLE_1459",
+        "x": -1111,
+        "y": 63,
+        "z": -568
+    },
+    {
+        "name": "SKYNET_CASTLE_1543",
+        "x": -970,
+        "y": 63,
+        "z": -570
+    },
+    {
+        "name": "SKYNET_CASTLE_2044",
+        "x": -1522,
+        "y": 63,
+        "z": -593
+    },
+    {
+        "name": "SKYNET_CASTLE_2416",
+        "x": -1104,
+        "y": 63,
+        "z": -667
+    },
+    {
+        "name": "SKYNET_CASTLE_2594",
+        "x": -1321,
+        "y": 63,
+        "z": -775
+    },
+    {
+        "name": "SKYNET_CASTLE_2712",
+        "x": -1481,
+        "y": 63,
+        "z": -636
+    },
+    {
+        "name": "SKYNET_CASTLE_2731",
+        "x": -1481,
+        "y": 63,
+        "z": -776
+    },
+    {
+        "name": "SKYNET_CASTLE_2834",
+        "x": -972,
+        "y": 63,
+        "z": -772
+    },
+    {
+        "name": "SKYNET_CASTLE_3057",
+        "x": -1172,
+        "y": 63,
+        "z": -521
+    },
+    {
+        "name": "SKYNET_CASTLE_3232",
+        "x": -1427,
+        "y": 63,
+        "z": -825
+    },
+    {
+        "name": "SKYNET_CASTLE_3269",
+        "x": -1145,
+        "y": 63,
+        "z": -591
+    },
+    {
+        "name": "SKYNET_CASTLE_3421",
+        "x": -1364,
+        "y": 63,
+        "z": -783
+    },
+    {
+        "name": "SKYNET_CASTLE_3433",
+        "x": -1348,
+        "y": 63,
+        "z": -659
+    },
+    {
+        "name": "SKYNET_CASTLE_3495",
+        "x": -998,
+        "y": 63,
+        "z": -764
+    },
+    {
+        "name": "SKYNET_CASTLE_3600",
+        "x": -1009,
+        "y": 63,
+        "z": -532
+    },
+    {
+        "name": "SKYNET_CASTLE_3753",
+        "x": -1000,
+        "y": 63,
+        "z": -830
+    },
+    {
+        "name": "SKYNET_CASTLE_3815",
+        "x": -1036,
+        "y": 63,
+        "z": -908
+    },
+    {
+        "name": "SKYNET_CASTLE_3861",
+        "x": -1470,
+        "y": 63,
+        "z": -692
+    },
+    {
+        "name": "SKYNET_CASTLE_4313",
+        "x": -1281,
+        "y": 63,
+        "z": -577
+    },
+    {
+        "name": "SKYNET_CASTLE_4720",
+        "x": -1401,
+        "y": 63,
+        "z": -722
+    },
+    {
+        "name": "SKYNET_CASTLE_4830",
+        "x": -1517,
+        "y": 63,
+        "z": -709
+    },
+    {
+        "name": "SKYNET_CASTLE_4867",
+        "x": -1336,
+        "y": 63,
+        "z": -615
+    },
+    {
+        "name": "SKYNET_CASTLE_4927",
+        "x": -1194,
+        "y": 63,
+        "z": -629
+    },
+    {
+        "name": "SKYNET_CASTLE_4959",
+        "x": -1385,
+        "y": 63,
+        "z": -699
+    },
+    {
+        "name": "SKYNET_CASTLE_5116",
+        "x": -1519,
+        "y": 63,
+        "z": -887
+    },
+    {
+        "name": "SKYNET_CASTLE_5148",
+        "x": -952,
+        "y": 63,
+        "z": -525
+    },
+    {
+        "name": "SKYNET_CASTLE_5274",
+        "x": -1023,
+        "y": 63,
+        "z": -731
+    },
+    {
+        "name": "SKYNET_CASTLE_5571",
+        "x": -1071,
+        "y": 63,
+        "z": -779
+    },
+    {
+        "name": "SKYNET_CASTLE_5763",
+        "x": -1275,
+        "y": 63,
+        "z": -869
+    },
+    {
+        "name": "SKYNET_CASTLE_6147",
+        "x": -1118,
+        "y": 63,
+        "z": -827
+    },
+    {
+        "name": "SKYNET_CASTLE_6166",
+        "x": -1167,
+        "y": 63,
+        "z": -607
+    },
+    {
+        "name": "SKYNET_CASTLE_6191",
+        "x": -1218,
+        "y": 63,
+        "z": -881
+    },
+    {
+        "name": "SKYNET_CASTLE_6309",
+        "x": -1451,
+        "y": 63,
+        "z": -514
+    },
+    {
+        "name": "SKYNET_CASTLE_6333",
+        "x": -1465,
+        "y": 63,
+        "z": -509
+    },
+    {
+        "name": "SKYNET_CASTLE_6348",
+        "x": -948,
+        "y": 63,
+        "z": -806
+    },
+    {
+        "name": "SKYNET_CASTLE_6359",
+        "x": -1173,
+        "y": 63,
+        "z": -906
+    },
+    {
+        "name": "SKYNET_CASTLE_6382",
+        "x": -1406,
+        "y": 63,
+        "z": -682
+    },
+    {
+        "name": "SKYNET_CASTLE_6544",
+        "x": -1081,
+        "y": 63,
+        "z": -537
+    },
+    {
+        "name": "SKYNET_CASTLE_6945",
+        "x": -1209,
+        "y": 63,
+        "z": -816
+    },
+    {
+        "name": "SKYNET_CASTLE_6982",
+        "x": -1260,
+        "y": 63,
+        "z": -583
+    },
+    {
+        "name": "SKYNET_CASTLE_7005",
+        "x": -1373,
+        "y": 63,
+        "z": -691
+    },
+    {
+        "name": "SKYNET_CASTLE_7095",
+        "x": -1264,
+        "y": 63,
+        "z": -543
+    },
+    {
+        "name": "SKYNET_CASTLE_7232",
+        "x": -1035,
+        "y": 63,
+        "z": -832
+    },
+    {
+        "name": "SKYNET_CASTLE_7412",
+        "x": -1528,
+        "y": 63,
+        "z": -850
+    },
+    {
+        "name": "SKYNET_CASTLE_7542",
+        "x": -1227,
+        "y": 63,
+        "z": -790
+    },
+    {
+        "name": "SKYNET_CASTLE_7545",
+        "x": -1393,
+        "y": 63,
+        "z": -666
+    },
+    {
+        "name": "SKYNET_CASTLE_7550",
+        "x": -1007,
+        "y": 64,
+        "z": -548
+    },
+    {
+        "name": "SKYNET_CASTLE_7731",
+        "x": -1230,
+        "y": 63,
+        "z": -804
+    },
+    {
+        "name": "SKYNET_CASTLE_7804",
+        "x": -1259,
+        "y": 64,
+        "z": -832
+    },
+    {
+        "name": "SKYNET_CASTLE_7836",
+        "x": -1408,
+        "y": 63,
+        "z": -565
+    },
+    {
+        "name": "SKYNET_CASTLE_8314",
+        "x": -1407,
+        "y": 64,
+        "z": -754
+    },
+    {
+        "name": "SKYNET_CASTLE_8609",
+        "x": -1028,
+        "y": 63,
+        "z": -611
+    },
+    {
+        "name": "SKYNET_CASTLE_8808",
+        "x": -1084,
+        "y": 64,
+        "z": -655
+    },
+    {
+        "name": "SKYNET_CASTLE_9055",
+        "x": -1220,
+        "y": 64,
+        "z": -853
+    },
+    {
+        "name": "SKYNET_CASTLE_9160",
+        "x": -1027,
+        "y": 63,
+        "z": -650
+    },
+    {
+        "name": "SKYNET_CASTLE_9290",
+        "x": -1262,
+        "y": 63,
+        "z": -757
+    },
+    {
+        "name": "SKYNET_CASTLE_9326",
+        "x": -1368,
+        "y": 63,
+        "z": -507
+    },
+    {
+        "name": "SKYNET_CASTLE_9542",
+        "x": -959,
+        "y": 63,
+        "z": -708
+    },
+    {
+        "name": "SKYNET_CASTLE_9558",
+        "x": -1480,
+        "y": 63,
+        "z": -902
+    },
+    {
+        "name": "SKYNET_CASTLE_9656",
+        "x": -1152,
+        "y": 63,
+        "z": -597
+    },
+    {
+        "name": "SKYNET_CASTLE_9660",
+        "x": -1400,
+        "y": 63,
+        "z": -719
+    },
+    {
+        "name": "SKYNET_CASTLE_9835",
+        "x": -1318,
+        "y": 63,
+        "z": -907
+    },
+    {
+        "name": "SKYNET_HOUSE_1098",
+        "x": -1258,
+        "y": 64,
+        "z": -898
+    },
+    {
+        "name": "SKYNET_HOUSE_1532",
+        "x": -1499,
+        "y": 63,
+        "z": -858
+    },
+    {
+        "name": "SKYNET_HOUSE_1533",
+        "x": -1461,
+        "y": 63,
+        "z": -900
+    },
+    {
+        "name": "SKYNET_HOUSE_1696",
+        "x": -1254,
+        "y": 64,
+        "z": -763
+    },
+    {
+        "name": "SKYNET_HOUSE_1790",
+        "x": -1041,
+        "y": 63,
+        "z": -591
+    },
+    {
+        "name": "SKYNET_HOUSE_1820",
+        "x": -1058,
+        "y": 64,
+        "z": -776
+    },
+    {
+        "name": "SKYNET_HOUSE_2149",
+        "x": -1254,
+        "y": 63,
+        "z": -816
+    },
+    {
+        "name": "SKYNET_HOUSE_2617",
+        "x": -1497,
+        "y": 64,
+        "z": -507
+    },
+    {
+        "name": "SKYNET_HOUSE_2832",
+        "x": -1329,
+        "y": 63,
+        "z": -496
+    },
+    {
+        "name": "SKYNET_HOUSE_3316",
+        "x": -1407,
+        "y": 63,
+        "z": -533
+    },
+    {
+        "name": "SKYNET_HOUSE_3320",
+        "x": -1319,
+        "y": 63,
+        "z": -822
+    },
+    {
+        "name": "SKYNET_HOUSE_3524",
+        "x": -1490,
+        "y": 63,
+        "z": -625
+    },
+    {
+        "name": "SKYNET_HOUSE_3525",
+        "x": -1104,
+        "y": 63,
+        "z": -842
+    },
+    {
+        "name": "SKYNET_HOUSE_3641",
+        "x": -1209,
+        "y": 63,
+        "z": -556
+    },
+    {
+        "name": "SKYNET_HOUSE_3782",
+        "x": -1472,
+        "y": 63,
+        "z": -763
+    },
+    {
+        "name": "SKYNET_HOUSE_3884",
+        "x": -1097,
+        "y": 63,
+        "z": -647
+    },
+    {
+        "name": "SKYNET_HOUSE_3929",
+        "x": -1431,
+        "y": 63,
+        "z": -893
+    },
+    {
+        "name": "SKYNET_HOUSE_3947",
+        "x": -977,
+        "y": 63,
+        "z": -826
+    },
+    {
+        "name": "SKYNET_HOUSE_3974",
+        "x": -1230,
+        "y": 63,
+        "z": -851
+    },
+    {
+        "name": "SKYNET_HOUSE_4205",
+        "x": -1309,
+        "y": 63,
+        "z": -801
+    },
+    {
+        "name": "SKYNET_HOUSE_4214",
+        "x": -1400,
+        "y": 63,
+        "z": -610
+    },
+    {
+        "name": "SKYNET_HOUSE_4229",
+        "x": -1340,
+        "y": 63,
+        "z": -755
+    },
+    {
+        "name": "SKYNET_HOUSE_4409",
+        "x": -1141,
+        "y": 64,
+        "z": -793
+    },
+    {
+        "name": "SKYNET_HOUSE_4444",
+        "x": -1014,
+        "y": 63,
+        "z": -499
+    },
+    {
+        "name": "SKYNET_HOUSE_4584",
+        "x": -1094,
+        "y": 63,
+        "z": -884
+    },
+    {
+        "name": "SKYNET_HOUSE_4624",
+        "x": -1302,
+        "y": 63,
+        "z": -757
+    },
+    {
+        "name": "SKYNET_HOUSE_4656",
+        "x": -1113,
+        "y": 64,
+        "z": -796
+    },
+    {
+        "name": "SKYNET_HOUSE_4796",
+        "x": -1178,
+        "y": 63,
+        "z": -521
+    },
+    {
+        "name": "SKYNET_HOUSE_4892",
+        "x": -1407,
+        "y": 64,
+        "z": -818
+    },
+    {
+        "name": "SKYNET_HOUSE_4911",
+        "x": -1451,
+        "y": 63,
+        "z": -829
+    },
+    {
+        "name": "SKYNET_HOUSE_4961",
+        "x": -1002,
+        "y": 63,
+        "z": -558
+    },
+    {
+        "name": "SKYNET_HOUSE_5175",
+        "x": -1309,
+        "y": 63,
+        "z": -801
+    },
+    {
+        "name": "SKYNET_HOUSE_5523",
+        "x": -1095,
+        "y": 64,
+        "z": -688
+    },
+    {
+        "name": "SKYNET_HOUSE_5644",
+        "x": -1278,
+        "y": 63,
+        "z": -855
+    },
+    {
+        "name": "SKYNET_HOUSE_5713",
+        "x": -1217,
+        "y": 63,
+        "z": -516
+    },
+    {
+        "name": "SKYNET_HOUSE_5751",
+        "x": -1397,
+        "y": 63,
+        "z": -761
+    },
+    {
+        "name": "SKYNET_HOUSE_5924",
+        "x": -1339,
+        "y": 63,
+        "z": -560
+    },
+    {
+        "name": "SKYNET_HOUSE_6123",
+        "x": -1427,
+        "y": 64,
+        "z": -852
+    },
+    {
+        "name": "SKYNET_HOUSE_6169",
+        "x": -1183,
+        "y": 64,
+        "z": -811
+    },
+    {
+        "name": "SKYNET_HOUSE_6237",
+        "x": -1374,
+        "y": 63,
+        "z": -728
+    },
+    {
+        "name": "SKYNET_HOUSE_6383",
+        "x": -1178,
+        "y": 63,
+        "z": -776
+    },
+    {
+        "name": "SKYNET_HOUSE_6447",
+        "x": -1166,
+        "y": 63,
+        "z": -654
+    },
+    {
+        "name": "SKYNET_HOUSE_6517",
+        "x": -1365,
+        "y": 63,
+        "z": -631
+    },
+    {
+        "name": "SKYNET_HOUSE_6595",
+        "x": -1306,
+        "y": 64,
+        "z": -835
+    },
+    {
+        "name": "SKYNET_HOUSE_6663",
+        "x": -1412,
+        "y": 63,
+        "z": -700
+    },
+    {
+        "name": "SKYNET_HOUSE_6674",
+        "x": -1427,
+        "y": 63,
+        "z": -572
+    },
+    {
+        "name": "SKYNET_HOUSE_6956",
+        "x": -1439,
+        "y": 63,
+        "z": -534
+    },
+    {
+        "name": "SKYNET_HOUSE_7169",
+        "x": -1179,
+        "y": 63,
+        "z": -521
+    },
+    {
+        "name": "SKYNET_HOUSE_7488",
+        "x": -1258,
+        "y": 64,
+        "z": -793
+    },
+    {
+        "name": "SKYNET_HOUSE_7668",
+        "x": -1425,
+        "y": 63,
+        "z": -678
+    },
+    {
+        "name": "SKYNET_HOUSE_7712",
+        "x": -962,
+        "y": 63,
+        "z": -631
+    },
+    {
+        "name": "SKYNET_HOUSE_8159",
+        "x": -945,
+        "y": 63,
+        "z": -742
+    },
+    {
+        "name": "SKYNET_HOUSE_8503",
+        "x": -1109,
+        "y": 63,
+        "z": -753
+    },
+    {
+        "name": "SKYNET_HOUSE_8841",
+        "x": -1504,
+        "y": 63,
+        "z": -612
+    },
+    {
+        "name": "SKYNET_HOUSE_8851",
+        "x": -1477,
+        "y": 63,
+        "z": -822
+    },
+    {
+        "name": "SKYNET_HOUSE_9287",
+        "x": -1229,
+        "y": 63,
+        "z": -864
+    },
+    {
+        "name": "SKYNET_HOUSE_9474",
+        "x": -1463,
+        "y": 63,
+        "z": -906
+    },
+    {
+        "name": "SKYNET_HOUSE_9511",
+        "x": -1081,
+        "y": 63,
+        "z": -883
+    },
+    {
+        "name": "SKYNET_HOUSE_9725",
+        "x": -1304,
+        "y": 64,
+        "z": -752
+    },
+    {
+        "name": "SKYNET_HOUSE_9768",
+        "x": -1521,
+        "y": 63,
+        "z": -856
+    },
+    {
+        "name": "SKYNET_STATION_1379",
+        "x": -1222,
+        "y": 63,
+        "z": -899
+    },
+    {
+        "name": "SKYNET_STATION_1465",
+        "x": -1248,
+        "y": 64,
+        "z": -586
+    },
+    {
+        "name": "SKYNET_STATION_1493",
+        "x": -1336,
+        "y": 63,
+        "z": -651
+    },
+    {
+        "name": "SKYNET_STATION_1586",
+        "x": -950,
+        "y": 63,
+        "z": -558
+    },
+    {
+        "name": "SKYNET_STATION_1587",
+        "x": -1171,
+        "y": 63,
+        "z": -905
+    },
+    {
+        "name": "SKYNET_STATION_1645",
+        "x": -1170,
+        "y": 63,
+        "z": -509
+    },
+    {
+        "name": "SKYNET_STATION_2392",
+        "x": -1289,
+        "y": 64,
+        "z": -757
+    },
+    {
+        "name": "SKYNET_STATION_2517",
+        "x": -1234,
+        "y": 63,
+        "z": -705
+    },
+    {
+        "name": "SKYNET_STATION_2536",
+        "x": -1074,
+        "y": 63,
+        "z": -805
+    },
+    {
+        "name": "SKYNET_STATION_3018",
+        "x": -1434,
+        "y": 64,
+        "z": -545
+    },
+    {
+        "name": "SKYNET_STATION_3164",
+        "x": -1463,
+        "y": 63,
+        "z": -737
+    },
+    {
+        "name": "SKYNET_STATION_3341",
+        "x": -1067,
+        "y": 64,
+        "z": -816
+    },
+    {
+        "name": "SKYNET_STATION_3366",
+        "x": -1463,
+        "y": 64,
+        "z": -632
+    },
+    {
+        "name": "SKYNET_STATION_3489",
+        "x": -1250,
+        "y": 63,
+        "z": -855
+    },
+    {
+        "name": "SKYNET_STATION_3538",
+        "x": -1096,
+        "y": 63,
+        "z": -900
+    },
+    {
+        "name": "SKYNET_STATION_3593",
+        "x": -1318,
+        "y": 63,
+        "z": -542
+    },
+    {
+        "name": "SKYNET_STATION_3846",
+        "x": -1047,
+        "y": 63,
+        "z": -492
+    },
+    {
+        "name": "SKYNET_STATION_4249",
+        "x": -1487,
+        "y": 64,
+        "z": -555
+    },
+    {
+        "name": "SKYNET_STATION_4478",
+        "x": -1288,
+        "y": 63,
+        "z": -645
+    },
+    {
+        "name": "SKYNET_STATION_4498",
+        "x": -1297,
+        "y": 63,
+        "z": -518
+    },
+    {
+        "name": "SKYNET_STATION_4520",
+        "x": -1318,
+        "y": 63,
+        "z": -523
+    },
+    {
+        "name": "SKYNET_STATION_5110",
+        "x": -1380,
+        "y": 64,
+        "z": -885
+    },
+    {
+        "name": "SKYNET_STATION_5411",
+        "x": -1155,
+        "y": 63,
+        "z": -763
+    },
+    {
+        "name": "SKYNET_STATION_5441",
+        "x": -1484,
+        "y": 64,
+        "z": -732
+    },
+    {
+        "name": "SKYNET_STATION_5561",
+        "x": -1400,
+        "y": 63,
+        "z": -594
+    },
+    {
+        "name": "SKYNET_STATION_5913",
+        "x": -1227,
+        "y": 63,
+        "z": -843
+    },
+    {
+        "name": "SKYNET_STATION_6035",
+        "x": -1044,
+        "y": 63,
+        "z": -858
+    },
+    {
+        "name": "SKYNET_STATION_6074",
+        "x": -1538,
+        "y": 64,
+        "z": -626
+    },
+    {
+        "name": "SKYNET_STATION_6170",
+        "x": -1079,
+        "y": 63,
+        "z": -886
+    },
+    {
+        "name": "SKYNET_STATION_6471",
+        "x": -1097,
+        "y": 63,
+        "z": -834
+    },
+    {
+        "name": "SKYNET_STATION_6621",
+        "x": -1039,
+        "y": 63,
+        "z": -803
+    },
+    {
+        "name": "SKYNET_STATION_6864",
+        "x": -1304,
+        "y": 63,
+        "z": -688
+    },
+    {
+        "name": "SKYNET_STATION_6939",
+        "x": -1307,
+        "y": 63,
+        "z": -868
+    },
+    {
+        "name": "SKYNET_STATION_7172",
+        "x": -1229,
+        "y": 64,
+        "z": -599
+    },
+    {
+        "name": "SKYNET_STATION_7336",
+        "x": -1448,
+        "y": 63,
+        "z": -861
+    },
+    {
+        "name": "SKYNET_STATION_7495",
+        "x": -1257,
+        "y": 63,
+        "z": -603
+    },
+    {
+        "name": "SKYNET_STATION_7545",
+        "x": -1461,
+        "y": 63,
+        "z": -737
+    },
+    {
+        "name": "SKYNET_STATION_7596",
+        "x": -1318,
+        "y": 63,
+        "z": -607
+    },
+    {
+        "name": "SKYNET_STATION_7623",
+        "x": -1440,
+        "y": 63,
+        "z": -879
+    },
+    {
+        "name": "SKYNET_STATION_7726",
+        "x": -955,
+        "y": 63,
+        "z": -758
+    },
+    {
+        "name": "SKYNET_STATION_7855",
+        "x": -1354,
+        "y": 63,
+        "z": -607
+    },
+    {
+        "name": "SKYNET_STATION_7933",
+        "x": -1428,
+        "y": 63,
+        "z": -831
+    },
+    {
+        "name": "SKYNET_STATION_8053",
+        "x": -1272,
+        "y": 63,
+        "z": -681
+    },
+    {
+        "name": "SKYNET_STATION_8622",
+        "x": -1077,
+        "y": 63,
+        "z": -796
+    },
+    {
+        "name": "SKYNET_STATION_8769",
+        "x": -1075,
+        "y": 63,
+        "z": -501
+    },
+    {
+        "name": "SKYNET_STATION_8786",
+        "x": -1337,
+        "y": 63,
+        "z": -561
+    },
+    {
+        "name": "SKYNET_STATION_9050",
+        "x": -1520,
+        "y": 63,
+        "z": -913
+    },
+    {
+        "name": "SKYNET_STATION_9237",
+        "x": -1183,
+        "y": 63,
+        "z": -747
+    },
+    {
+        "name": "SKYNET_STATION_9305",
+        "x": -1230,
+        "y": 63,
+        "z": -495
+    },
+    {
+        "name": "SKYNET_STATION_9377",
+        "x": -950,
+        "y": 63,
+        "z": -694
+    },
+    {
+        "name": "SKYNET_STATION_9383",
+        "x": -1376,
+        "y": 63,
+        "z": -840
+    },
+    {
+        "name": "SKYNET_TOWER_1011",
+        "x": -1453,
+        "y": 63,
+        "z": -697
+    },
+    {
+        "name": "SKYNET_TOWER_1530",
+        "x": -1445,
+        "y": 63,
+        "z": -821
+    },
+    {
+        "name": "SKYNET_TOWER_1829",
+        "x": -1042,
+        "y": 64,
+        "z": -687
+    },
+    {
+        "name": "SKYNET_TOWER_1969",
+        "x": -1145,
+        "y": 64,
+        "z": -904
+    },
+    {
+        "name": "SKYNET_TOWER_2088",
+        "x": -957,
+        "y": 63,
+        "z": -629
+    },
+    {
+        "name": "SKYNET_TOWER_2196",
+        "x": -1040,
+        "y": 63,
+        "z": -499
+    },
+    {
+        "name": "SKYNET_TOWER_2299",
+        "x": -1081,
+        "y": 63,
+        "z": -794
+    },
+    {
+        "name": "SKYNET_TOWER_2327",
+        "x": -1439,
+        "y": 63,
+        "z": -646
+    },
+    {
+        "name": "SKYNET_TOWER_2500",
+        "x": -1087,
+        "y": 64,
+        "z": -908
+    },
+    {
+        "name": "SKYNET_TOWER_2584",
+        "x": -1221,
+        "y": 64,
+        "z": -548
+    },
+    {
+        "name": "SKYNET_TOWER_2791",
+        "x": -1044,
+        "y": 63,
+        "z": -677
+    },
+    {
+        "name": "SKYNET_TOWER_2798",
+        "x": -1354,
+        "y": 64,
+        "z": -581
+    },
+    {
+        "name": "SKYNET_TOWER_2888",
+        "x": -1365,
+        "y": 64,
+        "z": -656
+    },
+    {
+        "name": "SKYNET_TOWER_3067",
+        "x": -1239,
+        "y": 63,
+        "z": -685
+    },
+    {
+        "name": "SKYNET_TOWER_3192",
+        "x": -1046,
+        "y": 64,
+        "z": -560
+    },
+    {
+        "name": "SKYNET_TOWER_3523",
+        "x": -1114,
+        "y": 63,
+        "z": -565
+    },
+    {
+        "name": "SKYNET_TOWER_3816",
+        "x": -1187,
+        "y": 63,
+        "z": -643
+    },
+    {
+        "name": "SKYNET_TOWER_3859",
+        "x": -1083,
+        "y": 63,
+        "z": -567
+    },
+    {
+        "name": "SKYNET_TOWER_3880",
+        "x": -1496,
+        "y": 63,
+        "z": -599
+    },
+    {
+        "name": "SKYNET_TOWER_4078",
+        "x": -977,
+        "y": 64,
+        "z": -622
+    },
+    {
+        "name": "SKYNET_TOWER_4100",
+        "x": -1166,
+        "y": 63,
+        "z": -657
+    },
+    {
+        "name": "SKYNET_TOWER_4125",
+        "x": -1439,
+        "y": 63,
+        "z": -646
+    },
+    {
+        "name": "SKYNET_TOWER_4129",
+        "x": -1488,
+        "y": 63,
+        "z": -599
+    },
+    {
+        "name": "SKYNET_TOWER_4387",
+        "x": -1137,
+        "y": 63,
+        "z": -716
+    },
+    {
+        "name": "SKYNET_TOWER_4398",
+        "x": -1000,
+        "y": 63,
+        "z": -714
+    },
+    {
+        "name": "SKYNET_TOWER_4569",
+        "x": -1103,
+        "y": 63,
+        "z": -638
+    },
+    {
+        "name": "SKYNET_TOWER_4717",
+        "x": -1204,
+        "y": 64,
+        "z": -721
+    },
+    {
+        "name": "SKYNET_TOWER_4799",
+        "x": -1212,
+        "y": 63,
+        "z": -493
+    },
+    {
+        "name": "SKYNET_TOWER_4951",
+        "x": -1495,
+        "y": 64,
+        "z": -876
+    },
+    {
+        "name": "SKYNET_TOWER_4957",
+        "x": -1044,
+        "y": 63,
+        "z": -500
+    },
+    {
+        "name": "SKYNET_TOWER_6294",
+        "x": -1522,
+        "y": 63,
+        "z": -875
+    },
+    {
+        "name": "SKYNET_TOWER_6332",
+        "x": -1161,
+        "y": 63,
+        "z": -706
+    },
+    {
+        "name": "SKYNET_TOWER_6401",
+        "x": -1225,
+        "y": 63,
+        "z": -777
+    },
+    {
+        "name": "SKYNET_TOWER_6559",
+        "x": -1009,
+        "y": 63,
+        "z": -594
+    },
+    {
+        "name": "SKYNET_TOWER_6778",
+        "x": -1496,
+        "y": 63,
+        "z": -599
+    },
+    {
+        "name": "SKYNET_TOWER_6887",
+        "x": -1058,
+        "y": 63,
+        "z": -676
+    },
+    {
+        "name": "SKYNET_TOWER_6921",
+        "x": -1180,
+        "y": 63,
+        "z": -814
+    },
+    {
+        "name": "SKYNET_TOWER_7897",
+        "x": -1164,
+        "y": 64,
+        "z": -721
+    },
+    {
+        "name": "SKYNET_TOWER_7931",
+        "x": -1250,
+        "y": 64,
+        "z": -814
+    },
+    {
+        "name": "SKYNET_TOWER_8012",
+        "x": -1229,
+        "y": 64,
+        "z": -728
+    },
+    {
+        "name": "SKYNET_TOWER_8184",
+        "x": -1118,
+        "y": 64,
+        "z": -684
+    },
+    {
+        "name": "crafter_hub_interior_v2",
+        "x": -1224,
+        "y": 63,
+        "z": -565
+    },
+    {
+        "name": "crafter_hub_interior_v4",
+        "x": -1184,
+        "y": 63,
+        "z": -892
+    },
+    {
+        "name": "crafter_hub_master_control_v5",
+        "x": -1337,
+        "y": 63,
+        "z": -748
+    },
+    {
+        "name": "crafter_hub_v2",
+        "x": -1220,
+        "y": 63,
+        "z": -599
+    },
+    {
+        "name": "crafter_hub_v4",
+        "x": -1184,
+        "y": 63,
+        "z": -892
+    },
+    {
+        "name": "crafter_hub_v5_industrial",
+        "x": -1491,
+        "y": 63,
+        "z": -829
+    },
+    {
+        "name": "cyberdyne_rd_tower",
+        "x": -1410,
+        "y": 63,
+        "z": -635
+    },
+    {
+        "name": "end_industrial_station_v5",
+        "x": -1364,
+        "y": 64,
+        "z": -817
+    },
+    {
+        "name": "mycelial_guardian",
+        "x": -1094,
+        "y": 63,
+        "z": -844
+    },
+    {
+        "name": "mycelial_guardian_v3",
+        "x": -1479,
+        "y": 64,
+        "z": -909
+    },
+    {
+        "name": "neural_bridge_infected_v7",
+        "x": -1364,
+        "y": 64,
+        "z": -817
+    },
+    {
+        "name": "noodle_exchange_v2",
+        "x": -1303,
+        "y": 64,
+        "z": -779
+    },
+    {
+        "name": "noodle_exchange_v3",
+        "x": -1043,
+        "y": 64,
+        "z": -744
+    },
+    {
+        "name": "sentry_prism_v2",
+        "x": -1031,
+        "y": 63,
+        "z": -567
+    },
+    {
+        "name": "sentry_rest_v3",
+        "x": -1426,
+        "y": 64,
+        "z": -809
+    },
+    {
+        "name": "signal_core_data_hub_v2",
+        "x": -1278,
+        "y": 64,
+        "z": -582
+    },
+    {
+        "name": "signal_core_v3",
+        "x": -1202,
+        "y": 64,
+        "z": -521
+    },
+    {
+        "name": "vertical_sump_tower",
+        "x": -1157,
+        "y": 64,
+        "z": -793
+    },
+    {
+        "name": "vertical_sump_v3",
+        "x": -1501,
+        "y": 64,
+        "z": -526
+    },
+    {
+        "name": "void_rail_v2",
+        "x": -1318,
+        "y": 64,
+        "z": -851
+    },
+    {
+        "name": "void_uplink_v2",
+        "x": -1351,
+        "y": 64,
+        "z": -740
+    }
+]

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# SPDX-FileCopyrightText: © 2025 franklin
+# SPDX-FileCopyrightText: ©2012-2026 franklin
 #
 # SPDX-License-Identifier: MIT
 
@@ -9,11 +9,14 @@
 # v0.2 03/29/2026 franklin - skynet version
 
 set -euo pipefail
-IFS=$'\n\t'
+IFS=$'
+	'
 LRED='\033[0;31m'
 NC='\033[0m' # No Color
 
-SERVER_DIR="/home/minecraft"
+# Corrected path to the project root where bin/common.sh is expected
+PROJECT_ROOT="/home/minecraft/game-skynet-minecraft"
+SERVER_DIR="${PROJECT_ROOT}/servers" # Assuming server configs are under src/servers/
 MY_HOSTNAME=$(cat /proc/sys/kernel/hostname)
 
 function world_backup() {
@@ -27,27 +30,33 @@ function world_backup() {
 }
 
 function host_backup() {
-  SERVER_DIR="/home/franklin/workspace/gaming/game-skynet-minecraft"
+  # This path seems to refer to the cloned repository for configuration/scripts
+  HOST_REPO_DIR="${PROJECT_ROOT}"
   while true; do
-    log_header "[$(date)] Starting skynet backup."
-    git add "${SERVER_DIR}/"
-    git commit -m "Skynet Backup: $(date)"
+    log_header "[$(date)] Starting skynet host backup."
+    git add "${HOST_REPO_DIR}/"
+    git commit -m "Skynet Host Backup: $(date)"
     git push origin $(git rev-parse --abbrev-ref HEAD)
-    log_info "[$(date)] Backup complete."
+    log_info "[$(date)] Host backup complete."
   done
 }
 
 function main() {
-  echo -e "\n" && figlet -f /usr/share/figlet/fonts/pagga Backup to GitHub && echo -e "\n"
+  echo -e "
+" && figlet -f /usr/share/figlet/fonts/pagga Backup to GitHub && echo -e "
+"
   if [ -f "${SERVER_DIR}/bin/common.sh" ]; then
     source "${SERVER_DIR}/bin/common.sh"
   else
-    echo -e "${LRED}can not find ${SERVER_DIR}/bin/common.sh.${NC}"
+    echo -e "${LRED}Cannot find ${SERVER_DIR}/bin/common.sh.${NC}"
     exit 1
   fi
-  log_info "successfully sourced ${SERVER_DIR}/bin/common.sh" && echo -e "\n"
+  log_info "Successfully sourced ${SERVER_DIR}/bin/common.sh" && echo -e "
+"
 
-  if  [ "$HOSTNAME" = "chonk.lab.bitsmasher.net" ]; then   
+  # Determine which backup function to run based on hostname
+  # Assuming 'chonk.lab.bitsmasher.net' is the world server and others are host backups
+  if [[ "$MY_HOSTNAME" == "chonk.lab.bitsmasher.net" ]]; then   
     world_backup
   else
    host_backup

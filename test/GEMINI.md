@@ -25,6 +25,7 @@ The Skynet Distributed Test Suite is designed to validate the Stargate MCP and t
 ### 2.3. Spatial Safety & Performance
 
 *   **`test_schematic_boundary_safety.py`**: Uses the **NPUSpatialEngine** to prevent collisions with existing builds or designated hubs, ensuring that new constructions do not interfere with critical infrastructure.
+*   **`test_schematic_metadata_integrity.py`**: Validates the consistency between schematic files and their JSON metadata on the NFS mount, ensuring correct spatial data and hardware attribution.
 *   **`test_schematic_tps_impact_threshold.py`**: Simulates the tick-time cost of new mutations to ensure they do not exceed the 20 TPS threshold, crucial for server stability.
 
 ## 3. Performance Monitoring
