@@ -6,11 +6,21 @@ import subprocess
 import time
 from datetime import datetime
 
+
 # --- Mock Configuration ---
 class MockConfig:
     """Mock configuration class with example attributes."""
-    HISTORY_FILE = "/home/franklin/workspace/gaming/game-skynet-minecraft/input/build_history.json"
-    FIELD_BOUNDS = {"min_x": -1600, "max_x": 1600, "min_z": -1600, "max_z": 1600, "y_base": 64}
+
+    HISTORY_FILE = (
+        "/home/franklin/workspace/gaming/game-skynet-minecraft/input/build_history.json"
+    )
+    FIELD_BOUNDS = {
+        "min_x": -1600,
+        "max_x": 1600,
+        "min_z": -1600,
+        "max_z": 1600,
+        "y_base": 64,
+    }
     TEMP_THRESHOLD = 75.0
     AGENT_HOSTS = ["10.10.16.10", "10.10.16.4", "10.10.16.66"]
     SECTORS = {
@@ -20,7 +30,7 @@ class MockConfig:
     RCON_CHECK_INTERVAL = 30
     PLAYER_CHECK_INTERVAL = 10
     WARNING_INTERVAL = 60
-    
+
     RCON_PASS = "dinosaur_password"
     RCON_PORT = 25575
     CHONK_IP = "10.10.8.60"
@@ -30,9 +40,9 @@ class MockConfig:
     MINECRAFT_SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
     JSON_METADATA_DIR = "/mnt/clusterfs/minecraft/schematics/build_metadata"
 
-    BUILD_COOLDOWN = 3600 # 1 hour
-    BUILD_COOLDOWN_VOID = 1800 # 30 min
-    BUILD_COOLDOWN_MUTATION = 300 # 5 min
+    BUILD_COOLDOWN = 3600  # 1 hour
+    BUILD_COOLDOWN_VOID = 1800  # 30 min
+    BUILD_COOLDOWN_MUTATION = 300  # 5 min
 
     @staticmethod
     def log_config(logger):
@@ -51,7 +61,9 @@ class MockConfig:
         logger.info(f"MINECRAFT_SCHEM_DIR: {MockConfig.MINECRAFT_SCHEM_DIR}")
         logger.info("---------------------")
 
+
 Config = MockConfig()
+
 
 # --- Mock Logging Setup ---
 def setup_logging(name):
@@ -59,29 +71,40 @@ def setup_logging(name):
     log_level = os.environ.get("LOG_LEVEL", "INFO").upper()
     numeric_level = getattr(logging, log_level, None)
     if not isinstance(numeric_level, int):
-        raise ValueError(f'Invalid log level: {log_level}')
-    
-    logging.basicConfig(level=numeric_level, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        raise ValueError(f"Invalid log level: {log_level}")
+
+    logging.basicConfig(
+        level=numeric_level,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     return logging.getLogger(name)
+
 
 # --- Mock RCON Class ---
 class SkynetRCON:
     """Mock RCON class."""
+
     def __init__(self):
         self.host = "10.10.8.60"
         print("Mock SkynetRCON initialized.")
+
     def send(self, command, silent=False):
         print(f"Mock RCON send: {command}")
         return "(Mock response)"
+
     def check_health(self):
         print("Mock RCON health check.")
         return True
+
     def survey_site(self, x, z):
         return 63
+
 
 # --- Mock Base Daemon Class ---
 class SkynetUnifiedDaemon:
     """Mock base class for daemons."""
+
     def __init__(self):
         print("Mock SkynetUnifiedDaemon initialized.")
+
     pass

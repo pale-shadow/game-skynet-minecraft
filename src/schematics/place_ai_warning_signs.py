@@ -3,8 +3,9 @@ import os
 import random
 import time
 
-import mcrcon
 from skynet_core import Config
+
+import mcrcon
 
 # Void Reclamation Project Messages [378, 423, Conversation]
 VOID_MESSAGES = [

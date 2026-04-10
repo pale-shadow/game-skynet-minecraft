@@ -4,7 +4,6 @@
 
 import logging.config
 
-
 logging.config.fileConfig(
     "logging.conf",
     defaults={"logfilename": "server_tools.log"},

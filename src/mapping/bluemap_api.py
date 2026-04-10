@@ -1,8 +1,9 @@
 import json
 import os
 
-import mcrcon
 import requests
+
+import mcrcon
 
 # Configuration
 CHONK_IP = os.getenv("CHONK_IP")

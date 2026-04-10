@@ -4,8 +4,8 @@ import random
 import time
 
 from config_utils import Config, SkynetRCON, setup_logging
-from vision_lite_overseer import VisionLiteOverseer
 from npu_spatial_engine import NPUSpatialEngine
+from vision_lite_overseer import VisionLiteOverseer
 
 # Setup standardized logging
 logger = setup_logging("adaptive_mutation")

@@ -1,6 +1,7 @@
 mport time
+from skynet_core import Config  # Infrastructure constants
+
 from mcrcon import MCRcon
-from skynet_core import Config # Infrastructure constants
 
 # Configuration for Node Stargate
 ST_IP = Config.NODE_STARGATE_IP

@@ -11,12 +11,17 @@ sys.path.insert(0, PROJECT_ROOT)
 
 # Import necessary modules after adjusting sys.path
 try:
-    from mcrcon import MCRcon # Assuming mcrcon is installed or available in the environment
     from npu_spatial_engine import NPUSpatialEngine
     from skynet_core import Config
+
+    from mcrcon import (
+        MCRcon,
+    )  # Assuming mcrcon is installed or available in the environment
 except ImportError as e:
     print(f"Error importing modules: {e}")
-    print("Please ensure the project is set up correctly and dependencies are installed.")
+    print(
+        "Please ensure the project is set up correctly and dependencies are installed."
+    )
     print(f"Current sys.path: {sys.path}")
     sys.exit(1)
 
@@ -64,7 +69,9 @@ def generate(prompt, output_dir=Config.SCHEM_DIR):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python src/schematics/batch_generate.py <prompt.json> [--output <dir>]")
+        print(
+            "Usage: python src/schematics/batch_generate.py <prompt.json> [--output <dir>]"
+        )
         sys.exit(1)
 
     prompt_path = sys.argv[1]

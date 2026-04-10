@@ -2,9 +2,10 @@ import os
 import random
 import time
 
-import mcrcon
 from bluemap_api import create_bluemap_marker
 from npu_spatial_engine import NPUSpatialEngine
+
+import mcrcon
 
 # Configuration
 CHONK_IP = os.getenv("CHONK_IP")

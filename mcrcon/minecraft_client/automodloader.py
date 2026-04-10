@@ -1,7 +1,8 @@
-from urllib.request import urlopen
-import time
-from pretty_downloader import pretty_downloader
 import os
+import time
+from urllib.request import urlopen
+
+from pretty_downloader import pretty_downloader
 
 modlistlink = (
     "https://github.com/Rayrsn/Minecraft-Auto-Mod-Downloader/raw/main/mods.list"

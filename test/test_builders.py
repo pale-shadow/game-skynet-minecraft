@@ -1,6 +1,7 @@
 import mcschematic
 import pytest
 
+
 def test_house_builder():
     """Verify that the house builder runs without error and modifies the schematic."""
     from builders.house import build_house
@@ -18,6 +19,7 @@ def test_house_builder():
         assert len(schem.getStructure().getBlocks()) > 0
     except AttributeError:
         assert str(schem) != "MCSchematic()"
+
 
 def test_station2_builder():
     """Verify that the advanced industrial station builder runs correctly."""

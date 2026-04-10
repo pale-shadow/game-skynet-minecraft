@@ -2,8 +2,9 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import os
 import logging
+import os
+
 from mcrcon import MCRcon
 
 logger = logging.getLogger("mcserver")
@@ -24,4 +25,3 @@ if __name__ == "__main__":
 # detect MC client version (?)
 # detect OS
 # check mods folder
-
