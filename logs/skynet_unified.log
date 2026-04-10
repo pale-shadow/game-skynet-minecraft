@@ -1606,3 +1606,7 @@ Traceback (most recent call last):
   File "/home/franklin/workspace/gaming/game-skynet-minecraft/src/schematics/skynet_unified.py", line 12, in <module>
     from src.schematics.adaptive_mutation_v7 import AdaptiveMutator
 ModuleNotFoundError: No module named 'src'
+Traceback (most recent call last):
+  File "/home/franklin/workspace/gaming/game-skynet-minecraft/src/schematics/skynet_unified.py", line 12, in <module>
+    from src.schematics.adaptive_mutation_v7 import AdaptiveMutator
+ModuleNotFoundError: No module named 'src'
