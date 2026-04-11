@@ -4,3 +4,32 @@ The AI nodes will help with the signaling and track switch in the rail network.
 - The user should be able to tell the AI a destination in the rail network and get to that destination. 
 - The AI should track and route rail carts that contain chests, hoppers, and other non-player items.
 
+
+### Option 1: The Simple Lamp Signal
+This is the easiest to build. Replace your item frames/wool with Redstone Lamps.
+
+1.  **Detection:** Replace a piece of your normal rail about 10–15 blocks before the signal with a **Detector Rail**.
+2.  **The Logic:**
+    * Place a **Redstone Torch** behind the "Green" lamp so it is always ON by default.
+    * Run a redstone wire from the Detector Rail to a block holding that torch. When the cart hits the rail, the torch turns OFF (turning the green light off).
+    * Branch that same wire directly into the "Red" lamp. When the cart hits the rail, the red light turns ON.
+3.  **Timing:** Use **Redstone Repeaters** in the line to keep the signal active for longer if you want the light to stay red until the train has fully passed.
+
+---
+
+### Option 2: The Block Swapper (Mechanical Feel)
+If you want to keep the wool look, you can use pistons to swap the blocks behind the iron bars.
+
+* **Setup:** Use two **Sticky Pistons** behind the signal frame. One holds the Green Wool, the other holds the Red Wool.
+* **The "Flip-Flop":** Use a **T Flip-Flop** circuit or a simple **RS Nor Latch**.
+    * **Input A (Detector Rail 1):** Placed far back, sets the signal to **Red**.
+    * **Input B (Detector Rail 2):** Placed after the station, sets the signal back to **Green**.
+
+
+---
+
+### Pro-Tips for your Build:
+* **Hide the Wiring:** Since your signal is on a "gallows" style frame, you can run the redstone dust up the back of the iron bars or replace the center support with a solid block (like stone bricks) to hide a vertical redstone torch tower.
+* **Bidirectional Sensing:** I see you have two tracks. If the tracks are one-way, use the Detector Rail method above. If they are two-way, you’ll want the Detector Rail to trigger a **Pulse Extender** so the light doesn't just flicker for a split second.
+
+**Which track direction are you prioritizing?** If you tell me which side is the "entrance," I can give you a specific block-by-block layout for the wiring.

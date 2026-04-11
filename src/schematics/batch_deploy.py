@@ -82,7 +82,7 @@ def deploy_batch():
         # The schematic loading path needs to be correct for the RCON commands
         # Assuming schematics are accessible via RCON commands from the server's perspective
         schematic_base_path = (
-            "/mnt/clusterfs/minecraft/schematics"  # User specified path
+            "/home/franklin/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files/"
         )
 
         with MCRcon(rcon_ip, rcon_pass, port=rcon_port) as mcr:
