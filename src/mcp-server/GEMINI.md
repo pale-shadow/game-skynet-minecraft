@@ -17,7 +17,7 @@ The `mcp-servers.json` file defines the MCP servers running on Stargate and thei
 
 ### `filesystem-stargate`
 
-*   **Purpose:** Manages file system access for the AI. Grants read/write capabilities to `src/schematics/`, `src/models/`, and `internal/` directories on the NVMe mount.
+*   **Purpose:** Manages file system access for the AI. Grants read/write capabilities to `src/schematics/`, `src/models/`, and `internal/` directories on the NVMe mount. This optimizes I/O operations for schematic storage and retrieval, directly contributing to faster build deployments and reduced server-side latency.
 *   **Command:** `npx -y @modelcontextprotocol/server-filesystem`
 *   **Arguments:**
     *   `/home/minecraft/game-skynet-minecraft/src/schematics`: Source directory for schematics.
@@ -27,7 +27,7 @@ The `mcp-servers.json` file defines the MCP servers running on Stargate and thei
 
 ### `rcon-chonk`
 
-*   **Purpose:** Acts as an RCON client interface, translating LLM commands into Minecraft RCON protocol calls (`setblock`, `fill`, etc.).
+*   **Purpose:** Acts as an RCON client interface, translating LLM commands into Minecraft RCON protocol calls (`setblock`, `fill`, etc.). By centralizing RCON commands, this service ensures efficient and controlled interaction with the Minecraft server, minimizing direct command spam and helping maintain the target 20 TPS.
 *   **Command:** `python3 /home/minecraft/game-skynet-minecraft/src/mcp-server/rcon_service.py`
 *   **Environment Variables:**
     *   `RCON_HOST`: `10.10.8.60` (The Minecraft server's IP address).
@@ -36,14 +36,14 @@ The `mcp-servers.json` file defines the MCP servers running on Stargate and thei
 
 ### `git-ledger`
 
-*   **Purpose:** Automates the Git backup process for successful AI-generated designs and world state changes.
+*   **Purpose:** Automates the Git backup process for successful AI-generated designs and world state changes. This ensures data integrity and traceability without burdening the main Minecraft server with version control operations, indirectly supporting TPS stability by offloading I/O.
 *   **Command:** `python3 /home/minecraft/game-skynet-minecraft/src/mcp-server/git_service.py`
 *   **Environment Variables:**
     *   `BACKUP_SCRIPT`: `/home/minecraft/bin/backup_to_git.sh` (Path to the backup script).
 
 ### `vision-edge-t`
 
-*   **Purpose:** (Runs remotely on `edge-t` host `10.10.16.4`) Provides vision and terrain audit capabilities using Edge TPUs. This server exposes tools like `audit_terrain` and `get_traversability_map`.
+*   **Purpose:** (Runs remotely on `edge-t` host `10.10.16.4`) Provides vision and terrain audit capabilities using Edge TPUs. This server exposes tools like `audit_terrain` and `get_traversability_map`. Its pre-placement validation prevents costly errors and rollbacks on the Minecraft server, which directly contributes to sustained TPS.
 *   **Command:** `python3 /home/minecraft/game-skynet-minecraft/src/mcp-server/vision_service.py`
 *   **Environment Variables:**
     *   `EDGETPU_SHARED_LIB`: `libedgetpu.so.1` (Path to the Edge TPU shared library).
@@ -55,16 +55,16 @@ The `mcp-servers.json` file defines the MCP servers running on Stargate and thei
 
 ### `npu-skynet`
 
-*   **Purpose:** Orchestrates AI inference using Hailo-8L NPUs for schematic generation and other AI tasks.
+*   **Purpose:** Orchestrates AI inference using Hailo-8L NPUs for schematic generation and other AI tasks. By offloading heavy computational tasks like voxel array generation to dedicated NPUs, this service significantly reduces the CPU load on the Minecraft server, which is critical for maintaining high TPS.
 *   **Command:** `python3 /home/minecraft/game-skynet-minecraft/src/mcp-server/npu_service.py`
 *   **Environment Variables:**
     *   `HAILO_NPU_ACTIVE`: `true` (Enables NPU hardware acceleration).
     *   `SCHEM_GEN_PATH`: `/home/minecraft/game-skynet-minecraft/src/schem-gen` (Path for schematic generation tools).
     *   `LOGIC_CORE`: `Hub-01` (Identifier for the core logic unit).
 
-### `database-context` (Planned/Testing)
+### `database-context` (Operational)
 
-*   **Purpose:** (In development) Queries WorldGuard via MariaDB to identify and avoid building within protected heritage zones (e.g., 2012 Washington Station).
+*   **Purpose:** Queries WorldGuard via MariaDB to identify and avoid building within protected heritage zones (e.g., 2012 Washington Station). This prevents AI builds from corrupting critical game areas, which could otherwise necessitate rollbacks and significant TPS impact from recovery operations.
 
 ## 3. T2BM Pipeline Integration
 
@@ -105,3 +105,4 @@ Tools like DiscordSRV are recommended for remote monitoring and console access, 
 *   **Overlap Prevention:** The T2BM pipeline now incorporates pre-deployment 3D AABB overlap detection using `src/schematics/validate_no_overlaps.py`. This ensures that new schematic generation and deployment are validated against existing build metadata, preventing spatial conflicts and maintaining overall world integrity.
 
 ---
+*Created for theDevilsVoice | Last Updated: April 26, 2026*

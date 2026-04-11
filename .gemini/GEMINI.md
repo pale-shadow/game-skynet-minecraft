@@ -16,13 +16,13 @@
 - **Partner Node (femputer)**: `10.10.15.15` (Owner: slyb0rg). Migrated from Digital Ocean on Jan 26, 2026. Backup: [slyb0t/Stream-Minecraft-Server-](https://github.com/slyb0t/Stream-Minecraft-Server-)
 
 - **Performance Profile (2026 Audit):**
- - **Redstone:** `ALTERNATE_CURRENT` implementation enabled.
-  - **Villager Logic:** Optimized POI pings (`60` ticks) and inactive ticking disabled.
-  - **Chunk System:** Async loading with auto-detecting IO threads.
+ - **Redstone:** `ALTERNATE_CURRENT` implementation enabled, utilizing optimized plugin settings (e.g., `paper.yml` redstone-dust-lag-compensate) for reduced tick impact.
+  - **Villager Logic:** Optimized POI pings (`60` ticks) and inactive ticking disabled, configured in `paper.yml` to minimize entity processing overhead.
+  - **Chunk System:** Async loading with auto-detecting IO threads, configured via `paper.yml` (`chunk-loading.async` and `chunk-loading.auto-config-by-distance`) for smoother world generation and reduced server strain.
 - **Directory Structure:** - `~/bin/`: Custom management scripts (`common.sh`, `backup_to_git.sh`).
   - `~/config/`: Centralized Paper/Spigot/Global configuration hub.
   - `~/docs/`: Historical records (HISTORY.md) and BlueMap manifests.
-- **Environment Management:** Use `direnv` for local environment variable management. The RCON password must be stored as `RCON_PASS` in the `.envrc` file and referenced by all scripts and tools needing console access.
+- **Environment Management:** Use `direnv` for local environment variable management. Storing sensitive information like `RCON_PASS` securely in `.envrc` ensures consistent, secure, and efficient access for all scripts and tools, preventing authentication issues and streamlining automated tasks that impact TPS.
 
 ### 3. Current Permission Hierarchy (LuckPerms)
 | Rank | Weight | Description |
@@ -47,7 +47,13 @@
 - **Historical Awareness:** Prioritize the 2012 legacy (Washington Station); safeguard 2014 "Chunk Glitch" heritage sites.
 - **No Discord:** Coordination is strictly in-game.
 
-### 6. 2026 Landmark Registry (Shroomville District)
+### 6. AI Interaction Best Practices for TPS
+- **Batch Commands:** When interacting via RCON, consolidate multiple `setblock` or `fill` operations into single, batched commands to reduce command overhead and minimize server ticks. 
+- **Spatial Cohesion:** AI-driven builds should prioritize contiguous placement and avoid fragmented, sparse constructions that can lead to inefficient chunk loading.
+- **Rate Limiting:** Implement rate limits for AI-initiated RCON commands and schematic deployments to prevent command spam and sudden TPS drops. 
+- **Asynchronous Operations:** Whenever possible, AI tasks that do not require immediate server feedback (e.g., complex calculations, metadata updates) should be offloaded to asynchronous processes or dedicated AI nodes to avoid blocking the main server thread.
+
+### 7. 2026 Landmark Registry (Shroomville District)
 - **Logistics:** Deep-Rail Station ($1832, 31, 688$) and Rail Yard/Repair Shed ($1618, 63, 676$).
 - **Defense:** Western Gate ($1484, 63, 750$) - Automated Night-Lock.
 - **Culture:** SS Shroomville Museum, Aviary, and Cathedral Plaza.
@@ -55,13 +61,14 @@
 
 ### 7. Administrative Workflows
 - **Autonomous Operation:** The "Skynet" daemon (`skynet_unified.py`) runs as a systemd service (`skynet-daemon.service`) from the Stargate MCP (`10.10.16.66`). It manages daily procedural urbanization builds and monitors restricted zones. 
-- **RCON Integrity:** (Resolved Mar 26, 2026) Fixed authentication failure caused by corrupted `RCON_PASS` quoting in systemd environment definitions. Verified RCON link is active and responding to `list` and `data get` commands.
-- **Urbanization Cycle:** Automated deployment of high-fidelity v5 schematics (e.g., houses, bridges) to the AI Containment Area is functional.
-- **Chunk Regeneration:** Use `bluemap fix-edges` for visual continuity after terrain resets.
-- **Region Management:** Use `WorldGuard` to prevent "Ghost" chunk corruption in legacy zones.
+- **RCON Integrity:** Authentication for RCON is robust, with `RCON_PASS` managed via `direnv` to prevent quoting issues. The RCON link is active and verifies with `list` and `data get` commands.
+- **Urbanization Cycle:** Automated deployment of high-fidelity v5 schematics (e.g., houses, bridges) to the AI Containment Area is functional and includes pre-deployment validation to prevent overlaps.
+- **Chunk Regeneration:** `bluemap fix-edges` is used for visual continuity after terrain resets.
+- **Region Management:** `WorldGuard` is utilized to prevent "Ghost" chunk corruption in legacy zones.
+- **Schematic & Metadata Management:** All schematic (`.schem`) files and their corresponding JSON metadata are stored and managed via the standardized `/mnt/clusterfs/minecraft/schematics` NFS mount. This ensures consistent state awareness and eliminates manual transfers across AI nodes.
 
 ### 8. Multi-Host Repository & Artifact Organization
-- **Unified Codebase:** The entire `game-skynet-minecraft` repository is cloned on every host in the network (Chonk, Stargate, Skynet, Edge-T). This ensures version parity and simplifies deployment.
+- **Unified Codebase:** The entire `game-skynet-minecraft` repository is cloned on every host in the network (Chonk, Stargate, Skynet, Edge-T), ensuring version parity and simplified deployment.
 - **Artifact Registry (`/src/servers/`):** Host-specific configurations, systemd units, and local daemon scripts are stored in subdirectories of `/src/servers/`.
   - **Organization Standard:** Each host folder (e.g., `/src/servers/skynet/`) must contain:
     - `[host]-daemon.service`: The systemd unit file (symlinked to `/etc/systemd/system/`).
@@ -74,10 +81,5 @@
   sudo systemctl enable --now [host]-daemon.service
   ```
 ---
-   - **Schematic Deployment:** (Resolved Mar 30, 2026) Corrected pathing for `.schem` files generated by `skynet_unified.py` to ensure they are saved directly into the **Stargate MCP's local schematic output directory** (configured for `filesystem-stargate` MCP service) for transfer to the `chonk` host. Schematics are generated locally on Stargate and then transferred. JSON metadata files may include a `"legacy_build_pre_overlap_detection": true` flag for builds created before overlap detection was fully implemented.
-   - **Cross-Host Schematic Deployment (Implemented Mar 31, 2026, Refined Apr 2, 2026):** The `skynet_unified.py` daemon now uses the `MINECRAFT_SCHEM_DIR` environment variable (defaulting to `/home/minecraft/schematics`) to specify the target directory for `.schem` files on the `chonk` host. The systemd service `skynet-daemon.service` on the Stargate MCP must be updated to set this environment variable to ensure correct deployment.
-   - **JSON Metadata Generation (Implemented Apr 1, 2026):** All new builds now include a comprehensive JSON metadata file (e.g., `BUILD_ID.json`) stored in `MINECRAFT_SCHEM_DIR/build_metadata/`. This metadata includes spatial data, provenance, and hardware telemetry, crucial for build traceability and overlap prevention.
-   - **Build Overlap Prevention (Implemented Apr 1, 2026):** Implemented pre-deployment 3D AABB overlap detection using `src/schematics/validate_no_overlaps.py`. New builds are now validated against existing metadata in `MINECRAFT_SCHEM_DIR/build_metadata/` before deployment, and any spatial conflicts will automatically abort the build cycle, ensuring structural integrity.
-   - **NFS Mount Standardization (Implemented Apr 8, 2026):** Standardized all schematic and metadata storage to the `/mnt/clusterfs/minecraft/schematics` NFS mount. All AI nodes now output directly to this directory, eliminating the need for manual file transfers and ensuring a consistent state-aware environment across the cluster.
----
-*Created for theDevilsVoice | Last Updated: April 11, 2026*
+
+*Created for theDevilsVoice | Last Updated: April 26, 2026*
