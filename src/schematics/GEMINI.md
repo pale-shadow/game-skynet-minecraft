@@ -43,11 +43,12 @@ To match high-fidelity reference aesthetics, v5 schematics must adhere to the fo
 ## Debugging & Health Check (Mar 26, 2026)
 
 - **Schematic Pathing & Overlap Prevention:** (Resolved Apr 1, 2026) Updated `skynet_core.py` and `skynet_unified.py` to:
-    - Define `JSON_METADATA_DIR` (`/home/minecraft/game-skynet-minecraft/src/schematics/build_metadata`) for storing comprehensive build metadata JSON files.
+    - Define `JSON_METADATA_DIR` (`/mnt/clusterfs/minecraft/schematics/build_metadata`) for storing comprehensive build metadata JSON files.
     - Integrate `src/schematics/validate_no_overlaps.py` for pre-deployment 3D AABB overlap detection to prevent conflicting builds. New builds are now validated against existing metadata before deployment, and any overlaps will abort the build cycle.
-    - Ensure `.schem` files are saved directly to `/home/minecraft/schematics` and corresponding metadata JSON files are saved to `JSON_METADATA_DIR` when `skynet_unified.py` runs on the `chonk` host.
+    - Ensure `.schem` files are saved directly to `/mnt/clusterfs/minecraft/schematics` and corresponding metadata JSON files are saved to `JSON_METADATA_DIR` when `skynet_unified.py` runs on the `chonk` host.
 - **Deployment Verification**: Verified that `skynet_unified.py` successfully generates and attempts to deploy schematics (e.g., `SKYNET_BRIDGE_3283.schem`) to the server.
 - **NFS Mount Standardization:** (Resolved Apr 8, 2026) Standardized all schematic and metadata storage to the `/mnt/clusterfs/minecraft/schematics` NFS mount. This ensures all AI nodes share a single, consistent source of truth for architectural deployments and overlap detection.
+- **Documentation Audit:** (Apr 11, 2026) Performed a comprehensive review of all GEMINI.md files to ensure consistency across the distributed network.
 - **Announcement & Logging Standards**: Implemented mandatory coordinate and name reporting for all builds. All server console announcements (`say` commands) and local log file (`skynet_unified.log`) now explicitly include the building name and its $(X, Y, Z)$ coordinates for full traceability.
 - **Hardware Status**: Confirmed Hailo-8L NPU is operational and responding to spatial inference requests.
 
@@ -67,4 +68,4 @@ To coordinate decentralized processing, the system is segmented as follows:
 - **Vision Overseer (Edge TPU)**: `10.10.16.4` - ASUS Tinker Edge-T (Mendel Linux) dedicated to real-time image processing, adaptive mutation scans, and **newly empowered for code and building generation.**
 - **Stargate MCP (Master Control)**: `10.10.16.66` - The primary server orchestrating all AI hardware and pushing build commands via RCON.
 ---
-*Created for theDevilsVoice | Last Updated: April 5, 2026*
+*Created for theDevilsVoice | Last Updated: April 11, 2026*

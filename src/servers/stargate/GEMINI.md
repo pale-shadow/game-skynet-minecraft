@@ -48,3 +48,13 @@ Your GitHub repository shows a move toward **autonomous builders on local hardwa
 
 **Recommendation:**
 It is highly recommended to deploy MCP on Stargate to act as the **API bridge** between your **LLM architectural logic** and your **RCON deployment tools**. This transforms Stargate from a simple "inference worker" into a sophisticated **Architectural Agent** that can "understand" the server's history before adding new "Void-Tech" structures to the world.
+
+## 🚀 Status & Recent Updates (April 2026)
+
+- **NFS Mount Standardization:** (Resolved Apr 8, 2026) Fully integrated with the standardized `/mnt/clusterfs/minecraft/schematics` NFS mount for all schematic generation and metadata storage.
+- **T2BM Pipeline Optimization:** (Apr 11, 2026) Refined the "Repairing" stage to leverage the high-speed NVMe I/O for faster block-state validation.
+- **MCP Integration:** (Active) Standardized toolsets for `filesystem-stargate`, `rcon-chonk`, and `git-ledger` are operational and being utilized by the T2BM pipeline.
+- **Hardware Health:** Monitoring Pi 5 thermals during heavy T2BM inference; current temps stable at ~62°C.
+
+---
+*Created for theDevilsVoice | Last Updated: April 11, 2026*
