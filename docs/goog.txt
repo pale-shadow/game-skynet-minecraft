@@ -1,1 +1,9 @@
 https://antigravity.google/download/linux
+
+facts:
+
+The hosts are:
+
+
+The public git repo https://github.com/pale-shadow/game-skynet-minecraft is clond to @/home/skynet" on each machine.
+We use the direnv program to manage the environment variables.
