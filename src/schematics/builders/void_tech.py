@@ -15,7 +15,7 @@ def apply_void_palette(prompt):
     mats.update(
         {
             "primary": "minecraft:polished_tuff",
-            "secondary": "minecraft:chiseled_tuff",
+            "secondary": "minecraft:chiseled_stone_bricks",
             "panel": "minecraft:calcite",
             "energy": "minecraft:crying_obsidian",
             "window": "minecraft:tinted_glass",
