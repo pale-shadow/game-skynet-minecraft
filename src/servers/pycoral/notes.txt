@@ -1,1 +1,39 @@
 There is a "Google Coral USB Accelerator – Edge TPU ML – ARM Cortex M0" attached to the skynet host via USB. 
+
+Software Requirements
+Python:
+Version 3.5, 3.6, 3.7 or later is required to run TensorFlow Lite models and use the Edge TPU API.
+Edge TPU Runtime and API Library:
+These must be installed on your host computer to communicate with the USB Accelerator.
+Follow the installation steps in the official guide.
+TensorFlow Lite Models:
+TensorFlow Lite model specifically compiled for the Edge TPU.
+Specifications
+Specification	Details
+Processor	ARM Cortex M0+
+Co-processor	Google Edge TPU
+Peak Performance	4 TOPS (int8)
+Power Efficiency	2 TOPS per watt
+Power Consumption	Powered via USB, up to 900 mA at 5 V (max speed)
+Interface	USB 3.0 (USB 3.1 Gen 1) Type-C
+Supported Operating Systems	
+Linux Debian 10 or derivatives (e.g., Ubuntu 18.04; supports x86-64, Armv7, Armv8)
+macOS 10.15 (with MacPorts or Homebrew)
+Windows 10
+Model Compatibility	TensorFlow Lite models compiled for Edge TPU
+Dimensions	65mm x 30mm
+Operating Temperature	
+Reduced frequency: Up to 35°C
+Maximum frequency: Up to 25°C
+
+
+Applications
+Real-Time Object Detection: Identify objects in video feeds for security or monitoring systems.
+Image Classification: Sort and categorize images for automation or analysis.
+Pose Estimation: Track movements for fitness, gaming, or healthcare solutions.
+Keyphrase Detection: Enable voice-activated features in smart devices.
+On-Device Transfer Learning: Customize ML models directly on the device for unique projects.
+TensorFlow Lite Projects: Accelerate any compatible ML inferencing task.
+
+https://gweb-coral-full.uc.r.appspot.com/docs/accelerator/get-started/
+
