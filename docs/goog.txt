@@ -1,9 +1,26 @@
-https://antigravity.google/download/linux
+# facts
 
-facts:
+- [antigravity](https://antigravity.google/download/linux)
 
-The hosts are:
+## hardware
+
+| Host / Hub ID | Primary Function | Key Infrastructure & Components | Location |
+| ------- | ------------ | ------- | ------- |
+| Stargate | Master Control Node | Host for the MCP Master Control Program and primary LLM weight storage. | "Denver" |
+|  Hailo | Spatial Inference,Distributed Pi 5 + Hailo-8L cluster running NPUSpatialEngine. | Distributed Cluster |
+| Hub 01 | Skynet Inference Nexus,Primary logic core running reactive_mutation2.1.py; central decision-making hub.,Skynet AI Testing Field |
+| Hub 02 | Transmission Core,RCON data transceiver and Deep Rail anchor point.,Skynet AI Testing Field |
+| Hub 03 | Neural Anchor,Void-Tech stabilization point; regulates local mutation spread.,Skynet AI Testing Field |
+| Hub 04 | Neural Uplink,Long-range signal array linking the Testing Field to Washington Station.,Skynet AI Testing Field |
+| Hub 05 | Solar Induction Array,High-altitude energy collection; powers Black Ice nodes.,Skynet AI Testing Field |
+| Hub 06 | Mono-Eye Sensor,Physical housing for Edge TPU Vision surveillance nodes.,Skynet AI Testing Field |
+| Hub 07 | Neural-Data Vault,Deep-storage cold cells for encrypted AI logs and Sense/Net archives.,Skynet AI Testing Field |
+| AI Research Lab | Integration Facility | Integration point for Gemini/Skynet; Deep Rail construction start-point. | Skynet AI Testing Field |
+
+## skynet Host
+- The [public git repo](https://github.com/pale-shadow/game-skynet-minecraft) is cloned to @/home/skynet" on each machine.
+
+## chonk Host
 
 
-The public git repo https://github.com/pale-shadow/game-skynet-minecraft is clond to @/home/skynet" on each machine.
 We use the direnv program to manage the environment variables.
