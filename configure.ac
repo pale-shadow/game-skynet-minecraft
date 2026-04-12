@@ -59,6 +59,7 @@ AM_INIT_AUTOMAKE
 
 AC_CONFIG_FILES([
   Makefile
+  docs/slides/Makefile
 ])
 
 AC_OUTPUT

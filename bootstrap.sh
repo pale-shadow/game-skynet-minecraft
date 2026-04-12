@@ -96,17 +96,11 @@ function main() {
   fi
 
   required_files
-
-  if [ ! -f "./config.status" ]; then
-    log_warn "no config.status$"
-    if [ ! -d "aclocal" ]; then mkdir aclocal; fi
-    run_aclocal
-    run_autoconf
-    run_automake
-    ./configure
-  else
-    ./config.status
-  fi
+  if [ ! -d "aclocal" ]; then mkdir aclocal; fi
+  run_aclocal
+  run_autoconf
+  run_automake
+  ./configure
 }
 
 main "$@"

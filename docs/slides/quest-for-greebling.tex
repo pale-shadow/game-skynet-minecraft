@@ -1,76 +1,77 @@
 \documentclass{beamer}
 \usetheme{metropolis}
 
-\title{The Greebling}
-\subtitle{Scaling Neural-Data Vaults and AI Urbanization in the Bitsmasher Network}
-\author{Franklin}
-\institute{bitsmasher.net}
-\date{April 10, 2026}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
 
+\title{Autonomous Urbanization: Engreeblification: Phase 2.1}
+\subtitle{NPU-Accelerated Schematic Generation \& Voxel Placement}
+\author{Senior Infrastructure Architect :: MCP}
+\date{April 2026}
 \begin{document}
 	
-	\begin{frame}
-		\titlepage
+\maketitle
+
+\begin{frame}{Infrastructural Thesis}
+	As the Dreamland network transitions from manual survival builds to high-density urbanization, the reliance on human-input architectural design introduces unacceptable latency. 
+	
+	The deployment of local edge-AI hardware facilitates a closed-loop system: 
+	\begin{itemize}
+		\item Spatial scanning of current voxel density.
+		\item Inference of optimal "Neural Node" locations.
+		\item On-the-fly schematic generation via LLM-to-Voxel (T2BM) pipelines.
+		\item RCON-mediated placement within the Skynet AI Testing Field.
+	\end{itemize}
+\end{frame}
+
+
+
+	\begin{frame}{Hardware Specification: The Hailo-8L Cluster}
+		To maintain a strict 20 TPS baseline, inference workloads are offloaded from the primary Stargate node to a distributed Raspberry Pi 5 array equipped with Hailo-8L NPUs.
+		
+		 %\text{Total TOPS} = \sum_{n=1}^{i} (\text{Node}_n \times 13)
+		
+		By utilizing the NPU for spatial density analysis, we avoid CPU interrupts on the main game thread, ensuring that the "Weaver" agents can construct complex geometries without triggering watchdog timeouts or tick-skip events.
 	\end{frame}
 	
-	\begin{frame}{Abstract}
-		Infrastructure expansion within the Skynet AI Testing Field necessitates a transition from legacy flat-file storage to high-density SQL architectures. This session details the technical recovery and scaling of the blowfish node, focusing on the 274GB filesystem exhaustion event, OpenBSD disk re-initialization, and the deployment of the Hub 07 Neural-Data Vault to support the NPUSpatialEngine and T2BM pipeline.
+	\begin{frame}{The T2BM (Text to Building) Pipeline}
+		Building generation follows a three-stage refinement process:
+		\begin{enumerate}
+			\item \textbf{Prompt Refinement:} Distilling urban requirements into structural tokens.
+			\item \textbf{Interlayer Decoding:} Translating latent representations into 3D NBT schematics.
+			\item \textbf{Automated Repair:} Validating block-state connectivity (e.g., ensuring doors and stairs maintain correct orientation).
+		\end{enumerate}
+		This enables the generation of functional facades and indoor scenes that adhere to the 2026 Urbanization style guide.
 	\end{frame}
 	
-	\begin{frame}{The 274GB Log Bloat Crisis}
+	\begin{frame}{The Skynet AI Testing Field: Containment Strategy}
+		All AI-generated schematics are confined to the defined testing field to prevent unauthorized mutation of "Heritage Zones."
+		
 		\begin{itemize}
-			\item \textbf{Detection:} Filesystem exhaustion on the /home partition of the blowfish database host.
-			\item \textbf{Root Cause:} Rapid expansion of \texttt{mysqld.log} reaching 255 GiB, indicative of service-level error loops.
-			\item \textbf{Emergency Response:} Truncation of the log file and implementation of \texttt{newsyslog} rotation policies using the \texttt{rcctl restart mysqld} directive.
+			\item \textbf{Hub 01 (Logic Core):} Primary inference nexus running reactive mutation scripts.
+			\item \textbf{Hub 07 (Neural-Data Vault):} Cold storage for successful architectural seeds.
+			\item \textbf{Spatial Masks:} WorldGuard regions enforced to prevent construction overlap with the Noodlington Deep-Works or the 2012 Legacy Rail.
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{Storage Node Re-Initialization}
+	\begin{frame}{Evolutionary Analysis: 2012 to 2026}
+		Buildings on the Bitsmasher network have evolved through three distinct epochs:
 		\begin{itemize}
-			\item \textbf{Hardware:} Integration of Western Digital 2.8TB My Passport and 1TB Black drives.
-			\item \textbf{Filesystem:} Utilization of GUID Partition Table (GPT) and OpenBSD Fast File System (FFS).
-			\item \textbf{Optimization:} Alignment for 4096-byte sectors and establishing permanent mounts via DUID in \texttt{/etc/fstab} with \texttt{nodev} and \texttt{nosuid} security flags.
+			\item \textbf{Legacy Epoch (2012-2014):} Cobblestone-heavy, manual placement, primarily centered around Shroomville and the original rail line.
+			\item \textbf{Expansion Epoch (2020-2024):} Introduction of stylized fantasy elements (Wizard Tower) and southern frontier outposts.
+			\item \textbf{Neural Epoch (2025-2026):} High-density voxel architecture characterized by Void-Tech aesthetics and automated redstone integration, generated on local Hailo hardware.
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{The Neural-Data Vault (Hub 07)}
-		\begin{itemize}
-			\item \textbf{Database Migration:} Relocating the MariaDB \texttt{datadir} to the 1TB expansion volume to offload BlueMap SQL tiles.
-			\item \textbf{Schema Design:} Deployment of the \texttt{skynet\_vault} database and \texttt{build\_history} table.
-			\item \textbf{Telemetry Tracking:} Implementation of the \texttt{ai\_hardware} field to audit inferences from the Hailo-8L NPU and Google Edge TPU.
-		\end{itemize}
+	\begin{frame}{Conclusion: The Future of Uptime}
+		The integration of the NPUSpatialEngine and the T2BM pipeline represents the final step in decoupling server growth from player-led resource constraints. By treating the world as a dynamic canvas for architectural inference, we ensure the Dreamland network remains the premier destination for high-density technical survival.
+		
+		\vspace{10pt}
+		\textbf{Status: [Inference Active]} \\
+		\textbf{Target: 20 TPS Sustained}
 	\end{frame}
 	
-	\begin{frame}{Spatial Inference and Density Logic}
-		\begin{itemize}
-			\item \textbf{NPUSpatialEngine:} Simulating neural signal spread using 10x10 block cells.
-			\item \textbf{Collision Detection:} Utilizing SQL-backed build history to prevent structural overlaps in the Testing Field.
-			\item \textbf{Vector Selection:} NPU Density Logic for optimal site selection based on 'cluster' or 'void' preferences.
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{NFS Cluster Interconnectivity}
-		\begin{itemize}
-			\item \textbf{Transport:} Configuring NFSv3 over TCP (\texttt{-3, -T}) for stability.
-			\item \textbf{Troubleshooting:} Resolving \texttt{rpc.mountd} authentication failures and \texttt{unmatched host} errors on the chonk node.
-			\item \textbf{Access Control:} Transitioning to \texttt{no\_root\_squash} to ensure consistent ownership for the \texttt{\_mysql} user across the cluster.
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{BlueMap and High-Resolution SQL Storage}
-		\begin{itemize}
-			\item \textbf{Transition:} Moving from legacy \texttt{storage: "file"} to \texttt{storage: "sql"} for the dreamland (overworld) map.
-			\item \textbf{Infrastructure Impact:} Managing high-volume SQL writes generated by the hires-layer and architectural telemetry.
-			\item \textbf{Persistence:} Ensuring the 20 TPS performance ceiling is maintained during concurrent re-render operations.
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{Future Directions: Urbanizing the Testing Field}
-		\begin{itemize}
-			\item \textbf{T2BM Pipeline:} Text to Building in Minecraft via Large Language Models.
-			\item \textbf{Deep-Rail Integration:} Expanding the transit network from Hub 01 through Hub 07.
-			\item \textbf{Ledger Synchronization:} Continuous updates to the GitHub technical ledger to secure infrastructure state.
-		\end{itemize}
-	\end{frame}
+
 	
 \end{document}
