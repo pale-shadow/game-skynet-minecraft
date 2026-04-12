@@ -1,0 +1,14 @@
+[Unit]
+Description=Skynet Edge TPU Vision Listener
+After=network.target
+
+[Service]
+User=skynet
+WorkingDirectory=/home/skynet
+Environment="PATH=/home/skynet/.venv/bin:/usr/bin"
+ExecStart=/home/skynet/.venv/bin/python3 src/vision/tpu_service.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
