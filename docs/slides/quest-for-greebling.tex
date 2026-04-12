@@ -1,0 +1,77 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Autonomous Urbanization: Engreeblification: Phase 2.1}
+\subtitle{NPU-Accelerated Schematic Generation \& Voxel Placement}
+\author{Senior Infrastructure Architect :: MCP}
+\date{April 2026}
+\begin{document}
+	
+\maketitle
+
+\begin{frame}{Infrastructural Thesis}
+	As the Dreamland network transitions from manual survival builds to high-density urbanization, the reliance on human-input architectural design introduces unacceptable latency. 
+	
+	The deployment of local edge-AI hardware facilitates a closed-loop system: 
+	\begin{itemize}
+		\item Spatial scanning of current voxel density.
+		\item Inference of optimal "Neural Node" locations.
+		\item On-the-fly schematic generation via LLM-to-Voxel (T2BM) pipelines.
+		\item RCON-mediated placement within the Skynet AI Testing Field.
+	\end{itemize}
+\end{frame}
+
+
+
+	\begin{frame}{Hardware Specification: The Hailo-8L Cluster}
+		To maintain a strict 20 TPS baseline, inference workloads are offloaded from the primary Stargate node to a distributed Raspberry Pi 5 array equipped with Hailo-8L NPUs.
+		
+		 %\text{Total TOPS} = \sum_{n=1}^{i} (\text{Node}_n \times 13)
+		
+		By utilizing the NPU for spatial density analysis, we avoid CPU interrupts on the main game thread, ensuring that the "Weaver" agents can construct complex geometries without triggering watchdog timeouts or tick-skip events.
+	\end{frame}
+	
+	\begin{frame}{The T2BM (Text to Building) Pipeline}
+		Building generation follows a three-stage refinement process:
+		\begin{enumerate}
+			\item \textbf{Prompt Refinement:} Distilling urban requirements into structural tokens.
+			\item \textbf{Interlayer Decoding:} Translating latent representations into 3D NBT schematics.
+			\item \textbf{Automated Repair:} Validating block-state connectivity (e.g., ensuring doors and stairs maintain correct orientation).
+		\end{enumerate}
+		This enables the generation of functional facades and indoor scenes that adhere to the 2026 Urbanization style guide.
+	\end{frame}
+	
+	\begin{frame}{The Skynet AI Testing Field: Containment Strategy}
+		All AI-generated schematics are confined to the defined testing field to prevent unauthorized mutation of "Heritage Zones."
+		
+		\begin{itemize}
+			\item \textbf{Hub 01 (Logic Core):} Primary inference nexus running reactive mutation scripts.
+			\item \textbf{Hub 07 (Neural-Data Vault):} Cold storage for successful architectural seeds.
+			\item \textbf{Spatial Masks:} WorldGuard regions enforced to prevent construction overlap with the Noodlington Deep-Works or the 2012 Legacy Rail.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Evolutionary Analysis: 2012 to 2026}
+		Buildings on the Bitsmasher network have evolved through three distinct epochs:
+		\begin{itemize}
+			\item \textbf{Legacy Epoch (2012-2014):} Cobblestone-heavy, manual placement, primarily centered around Shroomville and the original rail line.
+			\item \textbf{Expansion Epoch (2020-2024):} Introduction of stylized fantasy elements (Wizard Tower) and southern frontier outposts.
+			\item \textbf{Neural Epoch (2025-2026):} High-density voxel architecture characterized by Void-Tech aesthetics and automated redstone integration, generated on local Hailo hardware.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Conclusion: The Future of Uptime}
+		The integration of the NPUSpatialEngine and the T2BM pipeline represents the final step in decoupling server growth from player-led resource constraints. By treating the world as a dynamic canvas for architectural inference, we ensure the Dreamland network remains the premier destination for high-density technical survival.
+		
+		\vspace{10pt}
+		\textbf{Status: [Inference Active]} \\
+		\textbf{Target: 20 TPS Sustained}
+	\end{frame}
+	
+
+	
+\end{document}

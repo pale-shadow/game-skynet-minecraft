@@ -1,15 +1,7 @@
 rcon
 requests
-google-genai
 mcrcon
-pycoral-pi5
-tflite-runtime
 mcschematic>=0.7.2
-pytest
-pytest-mock
-diagrams 
-isort
-black
-pytest-cov
+google-genai
 gemini-cli
 mariadb 

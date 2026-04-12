@@ -1,4 +1,4 @@
-docs/slides/document.log
+docs/slides/*.log
 .envrc
 **/__pycache__/
 *.tflite
