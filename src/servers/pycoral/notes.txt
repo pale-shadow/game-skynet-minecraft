@@ -1,0 +1,1 @@
+There is a "Google Coral USB Accelerator – Edge TPU ML – ARM Cortex M0" attached to the skynet host via USB. 
