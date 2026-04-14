@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 User=franklin
-WorkingDirectory=/home/minecraft/game-skynet-minecraft/src/schematics
+WorkingDirectory=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft
 Environment="RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575"
-ExecStart=/usr/bin/python3 skynet_unified.py
+ExecStart=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 src/servers/stargate/stargate-daemon.py
 Restart=always
 RestartSec=10
 StandardOutput=append:/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/logs/skynet_agent.log
