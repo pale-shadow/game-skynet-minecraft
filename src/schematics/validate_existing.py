@@ -8,7 +8,7 @@ import mcschematic
 def validate_schematics(directory):
     if not os.path.isdir(directory):
         print(f"Error: Directory not found: {directory}")
-        return
+        directory="/home/skynet/src/schematics/schem_files"
 
     files = [
         f
@@ -39,7 +39,7 @@ def validate_schematics(directory):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Validate Minecraft schematic files.")
     parser.add_argument(
-        "--dir", type=str, required=True, help="Directory containing schematics."
+        "--dir", type=str, required=False, help="Directory containing schematics."
     )
     args = parser.parse_args()
     validate_schematics(args.dir)

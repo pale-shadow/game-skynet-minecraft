@@ -36,9 +36,9 @@ class MockConfig:
     CHONK_IP = "10.10.8.60"
 
     # Directory settings based on 2026 protocol
-    SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
-    MINECRAFT_SCHEM_DIR = "/mnt/clusterfs/minecraft/schematics"
-    JSON_METADATA_DIR = "/mnt/clusterfs/minecraft/schematics/build_metadata"
+    SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files"
+    MINECRAFT_SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files"
+    JSON_METADATA_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/build_metadata"
 
     BUILD_COOLDOWN = 3600  # 1 hour
     BUILD_COOLDOWN_VOID = 1800  # 30 min
