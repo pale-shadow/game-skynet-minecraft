@@ -18,23 +18,32 @@ Each entry under `mcpServers` describes a single MCP service.
 
 {
   "mcpServers": {
+    "stargate-utility": {
+      "command": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3",
+      "args": [
+        "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mcp_server/mcp-server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft"
+      }
+    },
     "filesystem-stargate": {
       "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/home/minecraft/game-skynet-minecraft/src/schematics",
+        "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics",
         "/mnt/clusterfs/minecraft/schematics"
       ],
       "env": {
-        "SERVER_DIR": "/home/minecraft"
+        "SERVER_DIR": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft"
       },
       "port": 8081
     },
     "rcon-chonk": {
-      "command": "python3",
+      "command": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/src/mcp-server/rcon_service.py"
+        "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mcp_server/rcon_service.py"
       ],
       "env": {
         "RCON_HOST": "10.10.8.60",
@@ -44,23 +53,23 @@ Each entry under `mcpServers` describes a single MCP service.
       "port": 8082
     },
     "git-ledger": {
-      "command": "python3",
+      "command": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/src/mcp-server/git_service.py"
+        "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mcp_server/git_service.py"
       ],
       "env": {
-        "BACKUP_SCRIPT": "/home/minecraft/bin/backup_to_git.sh"
+        "BACKUP_SCRIPT": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/bin/backup_to_git.sh"
       },
       "port": 8083
     },
     "vision-edge-t": {
-      "command": "python3",
+      "command": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/src/mcp-server/vision_service.py"
+        "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mcp_server/vision_service.py"
       ],
       "env": {
         "EDGETPU_SHARED_LIB": "libedgetpu.so.1",
-        "MODEL_PATH": "/home/minecraft/game-skynet-minecraft/src/models/vision_v1.tflite",
+        "MODEL_PATH": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/models/vision_v1.tflite",
         "SENSE_NET_HUB": "Hub-06"
       },
       "remote": {
@@ -70,13 +79,13 @@ Each entry under `mcpServers` describes a single MCP service.
       "port": 8084
     },
     "npu-skynet": {
-      "command": "python3",
+      "command": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3",
       "args": [
-        "/home/minecraft/game-skynet-minecraft/src/mcp-server/npu_service.py"
+        "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mcp_server/npu_service.py"
       ],
       "env": {
         "HAILO_NPU_ACTIVE": "true",
-        "SCHEM_GEN_PATH": "/home/minecraft/game-skynet-minecraft/src/schem-gen",
+        "SCHEM_GEN_PATH": "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schem-gen",
         "LOGIC_CORE": "Hub-01"
       },
       "port": 8085

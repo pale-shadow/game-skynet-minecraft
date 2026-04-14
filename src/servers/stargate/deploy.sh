@@ -3,7 +3,7 @@
 # Run with: sudo ./deploy.sh
 
 SERVICE_NAME="stargate-daemon"
-SOURCE_SERVICE="/home/minecraft/game-skynet-minecraft/servers/stargate/${SERVICE_NAME}.service"
+SOURCE_SERVICE="/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/servers/stargate/${SERVICE_NAME}.service"
 TARGET_SERVICE="/etc/systemd/system/${SERVICE_NAME}.service"
 
 echo "Deploying ${SERVICE_NAME}..."

@@ -10,6 +10,7 @@ The MCP allows the Skynet AI Brain, particularly the T2BM (Text to Building in M
 
 The MCP setup on Stargate involves deploying several specialized servers:
 
+*   **Stargate Utility Server:** Implemented by `src/mcp-server/mcp-server.py`, provides utility tools like system load monitoring.
 *   **Filesystem Server:** Provides read/write access to project directories like `src/schematics/`, `src/models/`, and `internal/` for blueprint management.
 *   **RCON Tool Server:** Implemented by `src/mcp-server/rcon_service.py`, this server wraps the SkynetRCON client to allow the LLM to execute `setblock` and `fill` commands as standardized protocol calls.
 *   **Git Automation Server:** Integrates `backup_to_git.sh` to automate commits of successful AI-generated designs to Git.
@@ -20,10 +21,8 @@ The MCP setup on Stargate involves deploying several specialized servers:
 ## Setup Steps
 
 1.  **Environment Preparation on Stargate:**
-    *   Move the project workspace to the NVMe mount (`/mnt/clusterfs2/game-skynet-minecraft`).
-    *   Create and activate a Python 3 virtual environment.
-    *   Install dependencies, including the MCP Python SDK (`pip install mcp`).
-    *   Ensure hardware acceleration exports (CUDA, LD_LIBRARY_PATH) are active.
+    *   Ensure the project is cloned to `/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft`.
+    *   Run `make stargate` to synchronize the Python environment and install MCP-specific requirements.
     *   Securely manage `RCON_PASS` in `.envrc`.
 
 2.  **MCP Server Configuration:**
@@ -39,6 +38,6 @@ The MCP setup on Stargate involves deploying several specialized servers:
     *   Verify RCON is enabled and Stargate's IP is whitelisted.
 
 5.  **Service Activation:**
-    Update the `skynet-daemon.service` on Stargate to reflect the new working directory and virtual environment.
+    Deploy the `stargate-daemon.service` located in `src/servers/stargate/` to your systemd configuration.
 
 By following these steps, Stargate acts as a powerful, centralized hub for autonomous AI-driven construction and management within the Minecraft environment.

@@ -1,0 +1,919 @@
+┌─(.venv)[franklin][stargate][±][dev63-20260412 {7} ✓][/home/skynet]
+└─▪  tox                                                                                                                                   
+py310: skipped because could not find python interpreter with spec(s): py310
+py310: SKIP ⚠ in 0.15 seconds
+py311: recreate env because requirements removed: isort tflite-runtime pytest-mock pycoral-pi5 diagrams black
+py311: remove tox env folder /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.tox/py311
+py311: install_deps> python -I -m pip install pytest pytest-asyncio pytest-cov -r requirements.txt
+py311: commands[0]> pytest --cov=src/schematics --cov=src/models --cov-report=term-missing test/
+=========================================================== test session starts ===========================================================
+platform linux -- Python 3.11.2, pytest-9.0.3, pluggy-1.6.0
+cachedir: .tox/py311/.pytest_cache
+rootdir: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft
+configfile: tox.ini
+plugins: asyncio-1.3.0, anyio-4.13.0, cov-7.1.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 14 items / 1 error                                                                                                              
+
+================================================================= ERRORS ==================================================================
+____________________________________________________ ERROR collecting test/test_tpu.py ____________________________________________________
+ImportError while importing test module '/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/test/test_tpu.py'.
+Hint: make sure your test modules/packages have valid Python names.                                                                        
+Traceback:                                                                                                                                 
+/usr/lib/python3.11/importlib/__init__.py:126: in import_module                                                                            
+    return _bootstrap._gcd_import(name[level:], package, level)                                                                            
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                                                            
+test/test_tpu.py:3: in <module>                                                                                                            
+    import tflite_runtime.interpreter as tflite                                                                                            
+E   ModuleNotFoundError: No module named 'tflite_runtime'                                                                                  
+========================================================= short test summary info =========================================================
+ERROR test/test_tpu.py
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+============================================================ 1 error in 2.36s =============================================================
+py311: exit 2 (3.72 seconds) /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft> pytest --cov=src/schematics --cov=src/models --cov-report=term-missing test/ pid=472034                                                                                                          
+py311: FAIL ✖ in 43.99 seconds
+lint: commands[0]> isort --check-only .
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mapping/bluemap_linter.py Imports are incorrectly sorted and/or formatted.                                                                                                                                          
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/mapping/bluemap-linter.py Imports are incorrectly sorted and/or formatted.                                                                                                                                          
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/vision/tpu_service.py Imports are incorrectly sorted and/or formatted.   
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/vision/visual_inference.py Imports are incorrectly sorted and/or formatted.                                                                                                                                         
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/batch_generate.py Imports are incorrectly sorted and/or formatted.                                                                                                                                       
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/builders/castle.py Imports are incorrectly sorted and/or formatted.                                                                                                                                      
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/builders/tower.py Imports are incorrectly sorted and/or formatted.                                                                                                                                       
+ERROR: /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/diagrams/net_diag2.py Imports are incorrectly sorted and/or formatted.   
+ERROR: /usr/local/bin/mcrcon Imports are incorrectly sorted and/or formatted.                                                              
+Skipped 4 files                                                                                                                            
+lint: exit 1 (0.41 seconds) /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft> isort --check-only . pid=472054
+lint: FAIL ✖ in 0.42 seconds
+security: commands[0]> bandit -r src/schematics/ src/models/ -x test/
+[main]  INFO    profile include tests: None
+[main]  INFO    profile exclude tests: None                                                                                                
+[main]  INFO    cli include tests: None                                                                                                    
+[main]  INFO    cli exclude tests: None                                                                                                    
+[main]  INFO    running on Python 3.11.2                                                                                                   
+Working... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Run started:2026-04-14 22:07:37.331967+00:00
+
+Test results:                                                                                                                              
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:52:25                                                                                  
+51                  for _ in range(intensity):
+52                      rx = x + random.randint(-radius, radius)
+53                      rz = z + random.randint(-radius, radius)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:53:25                                                                                  
+52                      rx = x + random.randint(-radius, radius)
+53                      rz = z + random.randint(-radius, radius)
+54                      ry = y_base + random.randint(-1, 5)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:54:30                                                                                  
+53                      rz = z + random.randint(-radius, radius)
+54                      ry = y_base + random.randint(-1, 5)
+55                      # Replace human blocks or desert with sculk
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:59:19                                                                                  
+58                      )
+59                      if random.random() > 0.7:
+60                          cmds.append(
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:66:25                                                                                  
+65                  for _ in range(3):
+66                      sx = x + random.randint(-5, 5)
+67                      sz = z + random.randint(-5, 5)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:67:25                                                                                  
+66                      sx = x + random.randint(-5, 5)
+67                      sz = z + random.randint(-5, 5)
+68                      cmds.append(f"setblock {sx} {y_base+1} {sz} minecraft:tinted_glass")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:78:25                                                                                  
+77                  for _ in range(intensity):
+78                      rx = x + random.randint(-radius, radius)
+79                      rz = z + random.randint(-radius, radius)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:79:25                                                                                  
+78                      rx = x + random.randint(-radius, radius)
+79                      rz = z + random.randint(-radius, radius)
+80                      block = random.choice(INFECTED_PALETTE["mutation"])
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/adaptive_mutation_v7.py:80:24                                                                                  
+79                      rz = z + random.randint(-radius, radius)
+80                      block = random.choice(INFECTED_PALETTE["mutation"])
+81                      cmds.append(f"setblock {rx} {y_base} {rz} {block} keep")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/ai_architect.py:100:13                                                                                         
+99              # Pick random coordinates, constrained within safe bounds for the larger build size
+100             tx = random.randint(
+101                 FIELD_BOUNDS["min_x"] + 10, FIELD_BOUNDS["max_x"] - width - 10
+102             )
+103             tz = random.randint(
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/ai_architect.py:103:13                                                                                         
+102             )
+103             tz = random.randint(
+104                 FIELD_BOUNDS["min_z"] + 10, FIELD_BOUNDS["max_z"] - depth - 10
+105             )
+106
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/ai_high_density_infra.py:32:8                                                                                  
+31          # Boundary-safe random placement for 30x30 footprint
+32          x = random.randint(FIELD_BOUNDS["min_x"] + 30, FIELD_BOUNDS["max_x"] - 30)
+33          z = random.randint(FIELD_BOUNDS["min_z"] + 30, FIELD_BOUNDS["max_z"] - 30)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/ai_high_density_infra.py:33:8                                                                                  
+32          x = random.randint(FIELD_BOUNDS["min_x"] + 30, FIELD_BOUNDS["max_x"] - 30)
+33          z = random.randint(FIELD_BOUNDS["min_z"] + 30, FIELD_BOUNDS["max_z"] - 30)
+34          y = FIELD_BOUNDS["y"]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/castle.py:146:19                                                                                      
+145                 for y in range(1, wall_h + 1):
+146                     if random.random() < 0.15:
+147                         schem.setBlock((x, y, z), secondary)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/castle.py:148:21                                                                                      
+147                         schem.setBlock((x, y, z), secondary)
+148                     elif random.random() < 0.10:
+149                         schem.setBlock((x, y, z), tertiary)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/castle.py:153:19                                                                                      
+152                 for y in range(1, wall_h + 1):
+153                     if random.random() < 0.15:
+154                         schem.setBlock((x, y, z), secondary)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/castle.py:155:21                                                                                      
+154                         schem.setBlock((x, y, z), secondary)
+155                     elif random.random() < 0.10:
+156                         schem.setBlock((x, y, z), tertiary)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/interiors.py:113:39                                                                                   
+112         plants = [B.POTTED_FERN, B.POTTED_POPPY, B.POTTED_OAK, B.POTTED_AZALEA]
+113         schem.setBlock((x, y, z), plant or random.choice(plants))
+114
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/terrain.py:18:16                                                                                      
+17          random.seed(seed)
+18          offsets = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(4)]
+19          value = 0.0
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/terrain.py:18:40                                                                                      
+17          random.seed(seed)
+18          offsets = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(4)]
+19          value = 0.0
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/terrain.py:80:23                                                                                      
+79                      random.seed(seed + x * 1000 + z)
+80                      roll = random.random()
+81                      if roll < 0.12:
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/terrain.py:82:54                                                                                      
+81                      if roll < 0.12:
+82                          schem.setBlock((x, col_h + 1, z), random.choice(FLOWERS))
+83                      elif roll < 0.25:
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/terrain.py:84:54                                                                                      
+83                      elif roll < 0.25:
+84                          schem.setBlock((x, col_h + 1, z), random.choice(EXTRAS))
+85
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/void_tech.py:91:15                                                                                    
+90              for dz in range(-radius, radius + 1):
+91                  if random.random() > 0.8:
+92                      block = random.choice(mutation_list)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/builders/void_tech.py:92:24                                                                                    
+91                  if random.random() > 0.8:
+92                      block = random.choice(mutation_list)
+93                      schem.setBlock((x + dx, y, z + dz), block)
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess                              
+   Location: src/schematics/config_utils.py:5:0                                                                                            
+4       import os
+5       import subprocess
+6       import time
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'dinosaur_password'
+   Severity: Low   Confidence: Medium                                                                                                      
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html                                           
+   Location: src/schematics/config_utils.py:34:16                                                                                          
+33
+34          RCON_PASS = "dinosaur_password"
+35          RCON_PORT = 25575
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/kinetic_rail_v5.py:44:15                                                                                       
+43              for dz in range(-15, 16):
+44                  if random.random() > 0.7:
+45                      commands.append(f"setblock {x+dx} {y-1} {z+dz} minecraft:mycelium")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/kinetic_rail_v5.py:46:19                                                                                       
+45                      commands.append(f"setblock {x+dx} {y-1} {z+dz} minecraft:mycelium")
+46                      if random.random() > 0.5:
+47                          commands.append(
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/kinetic_rail_v5.py:50:19                                                                                       
+49                          )
+50                      if random.random() > 0.8:
+51                          commands.append(f"setblock {x+dx} {y} {z+dz} minecraft:sculk_vein")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_bridge_v7.py:111:11                                                                                     
+110             # --- PHASE 2: MUTATION LAYER (Randomized) ---
+111             if random.random() > 0.7:
+112                 mx = final_x + random.randint(-2, 2)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_bridge_v7.py:112:27                                                                                     
+111             if random.random() > 0.7:
+112                 mx = final_x + random.randint(-2, 2)
+113                 mz = final_z + random.randint(-2, 2)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_bridge_v7.py:113:27                                                                                     
+112                 mx = final_x + random.randint(-2, 2)
+113                 mz = final_z + random.randint(-2, 2)
+114                 block = p["mutation_1"] if random.random() > 0.5 else p["mutation_2"]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_bridge_v7.py:114:39                                                                                     
+113                 mz = final_z + random.randint(-2, 2)
+114                 block = p["mutation_1"] if random.random() > 0.5 else p["mutation_2"]
+115                 cmds.append(f"setblock {mx} {final_y+1} {mz} {block}")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_rail.py:25:8                                                                                            
+24      def get_v6_hailo_iterated_hub():
+25          x = random.randint(FIELD_BOUNDS["min_x"] + 50, FIELD_BOUNDS["max_x"] - 50)
+26          z = random.randint(FIELD_BOUNDS["min_z"] + 50, FIELD_BOUNDS["max_z"] - 50)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_rail.py:26:8                                                                                            
+25          x = random.randint(FIELD_BOUNDS["min_x"] + 50, FIELD_BOUNDS["max_x"] - 50)
+26          z = random.randint(FIELD_BOUNDS["min_z"] + 50, FIELD_BOUNDS["max_z"] - 50)
+27          y = FIELD_BOUNDS["y"]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_rail.py:35:29                                                                                           
+34                  dist = (dx**2 + dz**2) ** 0.5
+35                  if dist < 22 and random.random() > 0.4:
+36                      cmds.append(f"setblock {x+dx} {y-1} {z+dz} minecraft:mycelium")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_rail.py:37:19                                                                                           
+36                      cmds.append(f"setblock {x+dx} {y-1} {z+dz} minecraft:mycelium")
+37                      if random.random() > 0.7:
+38                          cmds.append(f"setblock {x+dx} {y} {z+dz} minecraft:purple_carpet")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/neural_rail.py:39:19                                                                                           
+38                          cmds.append(f"setblock {x+dx} {y} {z+dz} minecraft:purple_carpet")
+39                      if random.random() > 0.9:
+40                          cmds.append(f"setblock {x+dx} {y} {z+dz} minecraft:sculk_vein")
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/npu_spatial_engine.py:73:17                                                                                    
+72                  # Coordinates must be within bounds minus build dimensions
+73                  tx = random.randint(
+74                      self.bounds["min_x"] + 10, self.bounds["max_x"] - width - 10
+75                  )
+76                  tz = random.randint(
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/npu_spatial_engine.py:76:17                                                                                    
+75                  )
+76                  tz = random.randint(
+77                      self.bounds["min_z"] + 10, self.bounds["max_z"] - depth - 10
+78                  )
+79
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/palette_gen.py:29:11                                                                                           
+28          probabilities = list(weights.values())
+29          return random.choices(blocks, weights=probabilities, k=1)[0]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/place_ai_field_signs.py:51:15                                                                                  
+50          # 1. Select Random Location & Message
+51          target_x = random.randint(MIN_X, MAX_X)
+52          target_z = random.randint(MIN_Z, MAX_Z)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/place_ai_field_signs.py:52:15                                                                                  
+51          target_x = random.randint(MIN_X, MAX_X)
+52          target_z = random.randint(MIN_Z, MAX_Z)
+53          msg_set = random.choice(VOID_MESSAGES)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/place_ai_field_signs.py:53:14                                                                                  
+52          target_z = random.randint(MIN_Z, MAX_Z)
+53          msg_set = random.choice(VOID_MESSAGES)
+54          nbt = get_sign_nbt(msg_set)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/place_ai_warning_signs.py:30:15                                                                                
+29          bounds = Config.FIELD_BOUNDS
+30          target_x = random.randint(bounds["min_x"], bounds["max_x"])
+31          target_z = random.randint(bounds["min_z"], bounds["max_z"])
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/place_ai_warning_signs.py:31:15                                                                                
+30          target_x = random.randint(bounds["min_x"], bounds["max_x"])
+31          target_z = random.randint(bounds["min_z"], bounds["max_z"])
+32          y_level = bounds["y_base"]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/place_ai_warning_signs.py:34:14                                                                                
+33
+34          msg_set = random.choice(VOID_MESSAGES)
+35          nbt = get_sign_nbt(msg_set)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/reactive_mutation.py:77:21                                                                                     
+76                  # Random coordinate within build footprint + buffer
+77                  mx = x + random.randint(-2, w + 2)
+78                  mz = z + random.randint(-2, d + 2)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/reactive_mutation.py:78:21                                                                                     
+77                  mx = x + random.randint(-2, w + 2)
+78                  mz = z + random.randint(-2, d + 2)
+79                  my = y + random.randint(-1, 5)  # Ground up to lower floors
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/reactive_mutation.py:79:21                                                                                     
+78                  mz = z + random.randint(-2, d + 2)
+79                  my = y + random.randint(-1, 5)  # Ground up to lower floors
+80
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/reactive_mutation.py:81:20                                                                                     
+80
+81                  block = random.choice(self.void_tech_palette)
+82
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/reactive_mutation.py:95:11                                                                                     
+94              # Chance to spawn a "Void Spire" (End Rods)
+95              if random.random() < 0.2:
+96                  cmds.append(f"fill {x} {y} {z} {x} {y+10} {z} minecraft:end_rod replace")
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'skynet_admin'
+   Severity: Low   Confidence: Medium                                                                                                      
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html                                           
+   Location: src/schematics/reactive_mutation2.py:10:4                                                                                     
+9           "port": 25575,
+10          "password": "skynet_admin",
+11          "threshold": 0.85,  # Confidence score from Edge TPU
+12      }
+13
+14
+15      def handle_tpu_handshake(inference_results):
+16          """
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_controller.py:29:23                                                                                     
+28
+29              target_agent = random.choice(self.agent_hosts)
+30              agent_url = f"http://{target_agent}:5000/infer"
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_controller.py:53:23                                                                                     
+52              """Standard node inference delegation."""
+53              target_agent = random.choice(self.agent_hosts)
+54              agent_url = f"http://{target_agent}:5000/infer"
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess                              
+   Location: src/schematics/skynet_core.py:3:0                                                                                             
+2       import re
+3       import subprocess
+4       import time
+
+--------------------------------------------------
+>> Issue: [B607:start_process_with_partial_path] Starting a process with a partial executable path
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html                                     
+   Location: src/schematics/skynet_core.py:56:18                                                                                           
+55                  # Command to get temperature on Raspberry Pi
+56                  res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
+57                  return float(res.replace("temp=", "").replace("'C", ""))
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html                                
+   Location: src/schematics/skynet_core.py:56:18                                                                                           
+55                  # Command to get temperature on Raspberry Pi
+56                  res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
+57                  return float(res.replace("temp=", "").replace("'C", ""))
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html                                
+   Location: src/schematics/skynet_core.py:116:12                                                                                          
+115                 cmd = ["scp", local_path, f"minecraft@{self.rcon.host}:{remote_path}"]
+116                 subprocess.run(cmd, check=True, capture_output=True, text=True)
+117                 self.logger.info(
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_orchestrator.py:29:23                                                                                   
+28
+29              target_agent = random.choice(self.agent_hosts)
+30              agent_url = f"http://{target_agent}:5000/infer"
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_orchestrator.py:53:23                                                                                   
+52              """Standard node inference delegation."""
+53              target_agent = random.choice(self.agent_hosts)
+54              agent_url = f"http://{target_agent}:5000/infer"
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess                              
+   Location: src/schematics/skynet_self_aware.py:4:0                                                                                       
+3       import random
+4       import subprocess
+5       import time
+
+--------------------------------------------------
+>> Issue: [B607:start_process_with_partial_path] Starting a process with a partial executable path
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html                                     
+   Location: src/schematics/skynet_self_aware.py:39:14                                                                                     
+38          try:
+39              res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
+40              return float(res.replace("temp=", "").replace("'C\n", ""))
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html                                
+   Location: src/schematics/skynet_self_aware.py:39:14                                                                                     
+38          try:
+39              res = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
+40              return float(res.replace("temp=", "").replace("'C\n", ""))
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_self_aware.py:102:22                                                                                    
+101             try:
+102                 node_id = random.choice(list(AI_CLUSTER.keys()))
+103                 node_info = AI_CLUSTER[node_id]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_self_aware.py:105:38                                                                                    
+104                 sector = "AI Containment Area"
+105                 build_name = f"Void-Tech {random.randint(100, 999)}"
+106
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)                                                                            
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess                              
+   Location: src/schematics/skynet_unified.py:7:0                                                                                          
+6       import re
+7       import subprocess
+8       import time
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:46:24                                                                                        
+45              types = ["house", "tower", "bridge", "castle", "station"]
+46              selected_type = random.choice(types)
+47              build_name = f"SKYNET_{selected_type.upper()}_{random.randint(1000, 9999)}"
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:47:55                                                                                        
+46              selected_type = random.choice(types)
+47              build_name = f"SKYNET_{selected_type.upper()}_{random.randint(1000, 9999)}"
+48
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:49:22                                                                                        
+48
+49              sector_name = random.choice(list(Config.SECTORS.keys()))
+50              bounds = Config.SECTORS[sector_name]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:53:16                                                                                        
+52              # Determine schematic dimensions dynamically
+53              width = random.randint(10, 20)
+54              height = random.randint(15, 35)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:54:17                                                                                        
+53              width = random.randint(10, 20)
+54              height = random.randint(15, 35)
+55              length = random.randint(10, 20)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:55:17                                                                                        
+54              height = random.randint(15, 35)
+55              length = random.randint(10, 20)
+56
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:57:13                                                                                        
+56
+57              tx = random.randint(
+58                  bounds["x"][0], bounds["x"][1] - width
+59              )  # Adjust max_x to prevent out-of-bounds
+60              tz = random.randint(
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:60:13                                                                                        
+59              )  # Adjust max_x to prevent out-of-bounds
+60              tz = random.randint(
+61                  bounds["z"][0], bounds["z"][1] - length
+62              )  # Adjust max_z to prevent out-of-bounds
+63              ty = self.rcon.survey_site(tx, tz)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:241:26                                                                                       
+240             try:
+241                 sector_name = random.choice(list(Config.SECTORS.keys()))
+242                 bounds = Config.SECTORS[sector_name]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:243:17                                                                                       
+242                 bounds = Config.SECTORS[sector_name]
+243                 tx = random.randint(bounds["x"][0], bounds["x"][1])
+244                 tz = random.randint(bounds["z"][0], bounds["z"][1])
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:244:17                                                                                       
+243                 tx = random.randint(bounds["x"][0], bounds["x"][1])
+244                 tz = random.randint(bounds["z"][0], bounds["z"][1])
+245                 ty = Config.FIELD_BOUNDS["y_base"]
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/skynet_unified.py:247:38                                                                                       
+246
+247                 build_name = f"VOID_CORE_{random.randint(100, 999)}"
+248
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/vision_lite_overseer.py:40:21                                                                                  
+39              for _ in range(samples):
+40                  rx = x + random.randint(-radius, radius)
+41                  rz = z + random.randint(-radius, radius)
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High                                                                                                        
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)                                                                          
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b311-random                                           
+   Location: src/schematics/vision_lite_overseer.py:41:21                                                                                  
+40                  rx = x + random.randint(-radius, radius)
+41                  rz = z + random.randint(-radius, radius)
+42                  # We check Y levels around the desert floor
+
+--------------------------------------------------
+
+Code scanned:                                                                                                                              
+        Total lines of code: 4736
+        Total lines skipped (#nosec): 0
+
+Run metrics:                                                                                                                               
+        Total issues (by severity):
+                Undefined: 0
+                Low: 82
+                Medium: 0
+                High: 0
+        Total issues (by confidence):
+                Undefined: 0
+                Low: 0
+                Medium: 2
+                High: 80
+Files skipped (0):
+security: exit 1 (0.96 seconds) /mnt/clusterfs2/workspace/gaming/game-skynet-minecraft> bandit -r src/schematics/ src/models/ -x test/ pid=472069                                                                                                                                     
+  py310: SKIP (0.15 seconds)
+  py311: FAIL code 2 (43.99=setup[40.27]+cmd[3.72] seconds)
+  lint: FAIL code 1 (0.42=setup[0.02]+cmd[0.41] seconds)
+  security: FAIL code 1 (0.97=setup[0.01]+cmd[0.96] seconds)
+  evaluation failed :( (45.63 seconds)
+
+┌─(.venv)[franklin][stargate][±][dev63-20260412 {7} ✓][/home/skynet]
+└─▪                                                                  
