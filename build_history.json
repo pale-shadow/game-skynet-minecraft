@@ -1,0 +1,16 @@
+[
+    {
+        "x": -1147,
+        "z": -621,
+        "w": 3,
+        "d": 3,
+        "label": "Initial_Stone_Tower"
+    },
+    {
+        "x": -1299,
+        "z": -553,
+        "w": 9,
+        "d": 7,
+        "label": "Void_Tech_Station_A"
+    }
+]
