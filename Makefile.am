@@ -3,7 +3,7 @@ PYTHON = $(VENV)/bin/python3
 HUB01_NODE = skynet
 HUB06_NODE = edge-t
 
-.PHONY: python test remote-audit backup clean lint stargate
+.PHONY: python test remote-audit backup clean lint stargate edge-t
 
 # Project: game-chonk-minecraft (bitsmasher.net)
 # Environment: Paper 1.21.11
@@ -22,6 +22,10 @@ python:
 stargate: python
 	@echo "==> Deploying Stargate MCP Services..."
 	$(PYTHON) -m pip install -r src/servers/stargate/requirements-stargate.txt
+
+edge-t: python
+	@echo "==> Deploying Edge-T Vision Services..."
+	$(PYTHON) -m pip install -r src/servers/edge-t/requirements-edge-t.txt
 
 test: python
 	@echo "==> Initiating BSFR Distributed Test Suite..."
