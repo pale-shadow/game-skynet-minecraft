@@ -1,7 +1,15 @@
 import asyncio
 import json
+import logging
+import os
+from src.servers.stargate.telemetry_listener import TelemetryListener
 
-import websockets  # Using WebSockets for low-latency "Matrix" comms
+# Configure Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+)
+logger = logging.getLogger("STARGATE_DAEMON")
 
 # Registry of remote construction hosts
 REMOTE_HOSTS = {
@@ -9,11 +17,11 @@ REMOTE_HOSTS = {
     "edge-t": "ws://tpu-host.local:8765",
 }
 
-
 async def dispatch_build_intent(host_key, intent_type, location, dimensions):
     """
     Sends a T2BM 'Intent' to a specific hardware host.
     """
+    import websockets
     payload = {
         "protocol": "T2BM_V1",
         "intent": intent_type,
@@ -23,12 +31,36 @@ async def dispatch_build_intent(host_key, intent_type, location, dimensions):
     }
 
     uri = REMOTE_HOSTS.get(host_key)
-    async with websockets.connect(uri) as websocket:
-        print(f"[STARGATE] Dispatching {intent_type} to {host_key}...")
-        await websocket.send(json.dumps(payload))
-        response = await websocket.recv()
-        print(f"[{host_key}] Status: {response}")
+    if not uri:
+        logger.error(f"Unknown host key: {host_key}")
+        return
 
+    try:
+        async with websockets.connect(uri) as websocket:
+            logger.info(f"Dispatching {intent_type} to {host_key}...")
+            await websocket.send(json.dumps(payload))
+            response = await websocket.recv()
+            logger.info(f"[{host_key}] Status: {response}")
+    except Exception as e:
+        logger.error(f"Failed to dispatch intent to {host_key}: {e}")
 
-# Example usage: Building a Neural Anchor via the Skynet Host
-# asyncio.run(dispatch_build_intent("skynet", "neural_anchor", [-1458, 84, -623], [7, 12, 7]))
+async def main():
+    # Environment variables for configuration
+    telemetry_port = int(os.getenv("TELEMETRY_PORT", 5005))
+    
+    logger.info("Initializing Stargate Daemon...")
+    
+    # Initialize Telemetry Listener
+    listener = TelemetryListener(port=telemetry_port)
+    
+    # Start both the listener and any other background tasks
+    await asyncio.gather(
+        listener.start(),
+        # We can add more async tasks here as needed
+    )
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logger.info("Stargate Daemon shutting down.")
