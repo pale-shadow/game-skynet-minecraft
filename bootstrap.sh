@@ -76,14 +76,14 @@ function main() {
     echo -e "\n\n" && figlet -f "${HOME}/workspace/fonts/figlet/pagga" ENGREEBLENATOR && echo -e "\n"
   fi
   
-  if [ -f "${HOME}/workspace/bin/common.sh" ]; then
-    source "${HOME}/workspace/bin/common.sh"
+  if [ -f "bin/common.sh" ]; then
+    source "bin/common.sh"
   else
-    echo -e "${LRED}can not find ${HOME}/workspace/bin/common.sh.${NC}"
+    echo -e "${LRED}can not find bin/common.sh.${NC}"
     exit 1
   fi
 
-  log_info "successfully sourced ${HOME}/workspace/bin/common.sh" && echo -e "\n"
+  log_info "successfully sourced bin/common.sh" && echo -e "\n"
 
   if [ ! -d "aclocal" ]; then
     log_info "create aclocal dir"
