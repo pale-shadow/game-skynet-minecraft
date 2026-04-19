@@ -6,6 +6,7 @@ Stargate is the specialized inference node for complex structures within the Sky
 
 *   **LLM Inference Hub:** Executes T2BM models for architectural design.
 *   **MCP Orchestrator:** Hosts the Model Context Protocol (MCP) servers that bridge AI reasoning with server-side tools.
+*   **Telemetry & Event Hub:** Acts as a reactive control hub, listening for real-time redstone signals and minecart triggers (e.g., `CART_PASS`) from the Chonk host.
 *   **Technical Ledger:** Manages the Git-based history of all AI-generated builds.
 
 ## Setup and Deployment
