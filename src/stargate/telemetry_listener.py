@@ -1,8 +1,8 @@
 import asyncio
 import json
 import logging
-from src.servers.stargate.handlers.cart_handler import handle_cart_pass
-from src.servers.stargate.internal.telemetry.validator import validate_telemetry_packet
+from src.stargate.handlers.cart_handler import handle_cart_pass
+from src.stargate.internal.telemetry.validator import validate_telemetry_packet
 
 logger = logging.getLogger(__name__)
 
