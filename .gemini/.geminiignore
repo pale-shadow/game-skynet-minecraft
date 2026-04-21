@@ -1,6 +1,4 @@
-# Ignore patterns for Gemini CLI
 **/node_modules/
-.venv/
 *.pyc
 **/__pycache__/
 *.o
@@ -13,4 +11,3 @@
 **/.pytest_cache/
 .tox/
 **/autom4th.cache/
-aclocal/

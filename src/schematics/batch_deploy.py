@@ -5,7 +5,7 @@ import sys
 import time
 
 import mcschematic  # Added import for mcschematic
-from config_utils import Config
+from utils.config_utils import Config
 from npu_spatial_engine import NPUSpatialEngine
 
 # Import MCRcon if it's an external library; otherwise, it might need mocking.
