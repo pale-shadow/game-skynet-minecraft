@@ -1,0 +1,215 @@
+To update our "Source Truth" based on your T2BM (Text-to-Building Minecraft) and urbanization protocols, we are moving into a **Multiprocessor Control Plane (MCP)** architecture. 
+
+In this setup, the **Stargate MCP** acts as the "Neuromancer" (the central conductor/deck), while the **Skynet Host** and **Edge-T Host** act as "Constructs" (remote hardware executing the muscle work).
+
+### The Architecture
+1.  **Stargate MCP (Central Hub):** Orchestrates intent. It decides *what* to build and *where* based on high-level goals.
+2.  **Skynet Host (Pi 5 / Hailo-8L):** Receives complex architectural intents and expands them using the T2BM interlayer logic.
+3.  **Edge-T Host (TensorFlow Lite / TPU):** Receives specific block-data streams or simplified T2BM intents optimized for low-latency visual verification and construction.
+
+---
+
+### 1. Stargate MCP: Top-Level Orchestrator (Python)
+This script runs on your central "Stargate" server. It uses an asynchronous queue to dispatch "Intent" to your remote hardware hosts.
+
+
+
+```python
+import asyncio
+import json
+import websockets # Using WebSockets for low-latency "Matrix" comms
+
+# Registry of remote construction hosts
+REMOTE_HOSTS = {
+    "skynet": "ws://skynet-pi5.local:8765",
+    "edge-t": "ws://tpu-host.local:8765"
+}
+
+async def dispatch_build_intent(host_key, intent_type, location, dimensions):
+    """
+    Sends a T2BM 'Intent' to a specific hardware host.
+    """
+    payload = {
+        "protocol": "T2BM_V1",
+        "intent": intent_type,
+        "coords": location,
+        "size": dimensions,
+        "metadata": {"origin": "STARGATE_MCP", "auth": "BAMA_DECK_01"}
+    }
+    
+    uri = REMOTE_HOSTS.get(host_key)
+    async with websockets.connect(uri) as websocket:
+        print(f"[STARGATE] Dispatching {intent_type} to {host_key}...")
+        await websocket.send(json.dumps(payload))
+        response = await websocket.recv()
+        print(f"[{host_key}] Status: {response}")
+
+# Example usage: Building a Neural Anchor via the Skynet Host
+# asyncio.run(dispatch_build_intent("skynet", "neural_anchor", [-1458, 84, -623], [7, 12, 7]))
+```
+
+---
+
+### 2. Edge-T Host: TFLite Construction Daemon (Python)
+This script runs on the **Edge-T host**. It waits for the Stargate's command, then uses the local **TensorFlow Lite** or **Edge TPU** environment to validate the "Vision" before executing the build via RCON.
+
+
+
+```python
+import asyncio
+import websockets
+import json
+from decoration import T2BM_Expander # Your logic from the previous step
+
+# Mock function for TPU validation
+def tpu_verify_site(coords):
+    print(f"[EDGE-T] Running TFLite Vision check at {coords}...")
+    # Inference logic here: Is the terrain clear?
+    return True 
+
+async def construction_server():
+    async with websockets.serve(None, "0.0.0.0", 8765) as server:
+        print("[EDGE-T] Listening for Stargate MCP commands...")
+        async for message in server:
+            data = json.loads(message)
+            
+            if data['protocol'] == "T2BM_V1":
+                # 1. Vision Phase (TPU/TFLite)
+                if tpu_verify_site(data['coords']):
+                    # 2. Expansion Phase
+                    print(f"[EDGE-T] Intent Received: {data['intent']}")
+                    schematic = T2BM_Expander.generate(data['intent'], data['coords'])
+                    
+                    # 3. Execution Phase (RCON)
+                    # execute_rcon_flood(schematic)
+                    
+                    await server.send("SUCCESS: BUILD_COMPLETE")
+                else:
+                    await server.send("ERROR: SITE_OBSTRUCTED")
+
+if __name__ == "__main__":
+    asyncio.run(construction_server())
+```
+
+---
+
+### Implementation Road-Map Updates
+* **Protocol Sync:** Ensure both hosts use the same `T2BM_Expander` library so that "structural_frame" means the same thing (Polished Tuff) on both Skynet and Edge-T.
+* **BlueMap Integration:** The Stargate MCP should automatically update your `world.conf.txt` (the marker sets we just updated) the moment a `SUCCESS` signal is returned from a host.
+* **ICE Layer:** You can now add "ICE" (security) to the Stargate dispatch. If a player hasn't "hacked" the terminal, the `dispatch_build_intent` function will return `ACCESS_DENIED`.
+
+**Would you like me to create the `T2BM_Expander` class logic that defines how "Void-Tech" components are mathematically calculated for these scripts?**
+
+To align with your **T2BM (Text-to-Building Minecraft)** architecture, the **Skynet Host** acts as the high-capacity "Structural Fabricator." While the Edge-T host handles quick TFLite vision checks, the Skynet Host uses the **Hailo-8L** to calculate complex geometric expansions and the **USB TPU** to verify the "Void-Tech" block-state consistency.
+
+Here is the top-level Python intent script for the **Skynet Host**.
+
+### 1. Skynet Host: Hardware-Accelerated Construction Daemon
+This script runs on your Pi 5. It listens for "Intents" from the Stargate MCP, uses the Hailo-8L for the heavy mathematical lifting of the interlayer expansion, and uses the TPU for final architectural validation.
+
+
+
+```python
+import asyncio
+import websockets
+import json
+import numpy as np
+# Assuming your Hailo and TPU libraries are initialized here
+# from hailo_objects import HailoInference
+# from pycoral.utils import edgetpu
+
+class SkynetBuilder:
+    def __init__(self):
+        self.host_name = "SKYNET_CORE_PI5"
+        self.palette = {
+            "foundation": "minecraft:deepslate_tiles",
+            "frame": "minecraft:polished_tuff",
+            "core": "minecraft:crying_obsidian",
+            "detail": "minecraft:pearlescent_froglight"
+        }
+
+    async def expand_layer_hailo(self, intent, size):
+        """
+        Uses Hailo-8L to calculate the voxel-map for complex structures.
+        Offloading the geometry math to the NPU.
+        """
+        print(f"[{self.host_name}] Hailo-8L: Computing geometry for {intent}...")
+        # Simulated NPU expansion logic
+        width, height, depth = size
+        return np.zeros((width, height, depth)) 
+
+    def tpu_integrity_check(self, schematic):
+        """
+        Uses the USB TPU to run a quick classification check on the 
+        generated schematic to ensure it meets 'Void-Tech' standards.
+        """
+        print(f"[{self.host_name}] USB TPU: Validating structural aesthetics...")
+        return True
+
+    async def handle_mcp_command(self, websocket, path):
+        async for message in websocket:
+            data = json.loads(message)
+            intent = data.get("intent")
+            origin = data.get("coords")
+            size = data.get("size", [5, 5, 5])
+
+            # 1. Hailo-8L Expansion
+            voxel_map = await self.expand_layer_hailo(intent, size)
+            
+            # 2. TPU Verification
+            if self.tpu_integrity_check(voxel_map):
+                print(f"[{self.host_name}] Construction Authorized at {origin}")
+                
+                # 3. RCON Execution (Lore: Sending the bits to the Sprawl)
+                # await self.execute_build(origin, voxel_map)
+                
+                await websocket.send(json.dumps({
+                    "status": "CONSTRUCTED",
+                    "hub": data.get("intent"),
+                    "hardware": "HAILO-8L+TPU"
+                }))
+            else:
+                await websocket.send(json.dumps({"status": "ICE_BREACH_FAILED"}))
+
+# Start the Skynet Daemon
+builder = SkynetBuilder()
+start_server = websockets.serve(builder.handle_mcp_command, "0.0.0.0", 8765)
+
+print(f"--- SKYNET HOST ONLINE ---")
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
+```
+
+---
+
+### 2. T2BM Component Library (The "Interlayer" Bridge)
+To make the script above work, your `T2BM_Expander` logic needs to define what the components actually look like. This ensures the Stargate MCP can send a simple word like `"neural_anchor"`, and the Skynet host knows exactly how to build it.
+
+
+
+| Component | T2BM Interlayer Representation | Skynet Host Execution (Blocks) |
+| :--- | :--- | :--- |
+| **Foundation** | `plate[base]` | 1-block thick **Deepslate Tiles** |
+| **Framework** | `skeleton[pillars]` | **Polished Tuff** at 4 corners + crossbeams |
+| **Data Core** | `nexus[central]` | **Crying Obsidian** encased in **Glass** |
+| **Signage** | `metadata[archival]` | **Glow Oak Sign** with TPU-generated serial # |
+
+### 3. Stargate MCP Dispatch (Example Call)
+To trigger the Skynet host from your central Stargate server, you would use this JSON payload:
+
+```python
+# Dispatch to Skynet (Pi 5)
+asyncio.run(dispatch_build_intent(
+    host_key="skynet", 
+    intent_type="neural_vault", 
+    location=[-1144, 73, -631], 
+    dimensions=[5, 15, 5]
+))
+```
+
+### Why this dual-hardware setup is superior:
+1.  **Parallelism:** The **Hailo-8L** handles the 3D array math (matrix multiplications for the building's shape).
+2.  **Specialization:** The **USB TPU** runs a specific "Style-Check" model to ensure the build doesn't look like a generic player house, maintaining the "Neuromancer" aesthetic.
+3.  **Low Overhead:** Your Minecraft server never sees the math; it only receives the final `setblock` stream via RCON.
+
+**Should I now draft the "Style-Check" validation logic that the TPU uses to verify if a build contains enough "Void-Tech" blocks (Purple/Tuff/Crying Obsidian) before it's allowed to spawn?**

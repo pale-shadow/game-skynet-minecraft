@@ -29,7 +29,7 @@ edge-t: python
 
 test: python
 	@echo "==> Initiating BSFR Distributed Test Suite..."
-	$(PYTHON) -m pytest test/test_gemini_link.py \
+	PYTHONPATH=./src $(PYTHON) -m pytest test/test_gemini_link.py \
 			test/test_brain.py \
 			test/test_hardware.py \
 			test/test_neural_vault_logging_persistence.py \

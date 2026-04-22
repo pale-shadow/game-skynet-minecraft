@@ -1,8 +1,8 @@
 import asyncio
 import json
 import logging
-from src.servers.stargate.handlers.cart_handler import handle_cart_pass
-from src.servers.stargate.internal.telemetry.validator import validate_telemetry_packet
+from src.stargate.handlers.cart_handler import handle_cart_pass
+from src.stargate.internal.telemetry.validator import validate_telemetry_packet
 
 logger = logging.getLogger(__name__)
 
@@ -64,6 +64,10 @@ class TelemetryListener:
             await server.serve_forever()
 
 if __name__ == "__main__":
+    import sys
+    import os
+    # Add the project root to sys.path to resolve absolute imports
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '''..''', '''..''')))
     # Basic standalone test run
     logging.basicConfig(level=logging.INFO)
     listener = TelemetryListener()

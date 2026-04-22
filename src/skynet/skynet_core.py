@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 
 import mcschematic
-from config_utils import Config, SkynetRCON, setup_logging
+from utils.config_utils import Config, SkynetRCON, setup_logging
 
 # Setup standardized logging
 logger = setup_logging("skynet_core")

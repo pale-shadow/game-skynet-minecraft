@@ -3,7 +3,7 @@ import os
 import random
 import time
 
-from config_utils import Config, SkynetRCON, setup_logging
+from utils.config_utils import Config, SkynetRCON, setup_logging
 from npu_spatial_engine import NPUSpatialEngine
 from vision_lite_overseer import VisionLiteOverseer
 

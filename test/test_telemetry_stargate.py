@@ -1,7 +1,7 @@
 import pytest
 import asyncio
 import json
-from src.servers.stargate.telemetry_listener import TelemetryListener
+from src.stargate.telemetry_listener import TelemetryListener
 
 @pytest.mark.asyncio
 async def test_telemetry_listener_ingestion():

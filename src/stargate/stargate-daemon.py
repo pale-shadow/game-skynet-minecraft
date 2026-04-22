@@ -2,7 +2,7 @@ import asyncio
 import json
 import logging
 import os
-from src.servers.stargate.telemetry_listener import TelemetryListener
+from src.stargate.telemetry_listener import TelemetryListener
 
 # Configure Logging
 logging.basicConfig(
