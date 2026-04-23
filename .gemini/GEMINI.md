@@ -3,7 +3,7 @@
 
 ### 1. Server Essence
 - **Founded:** 2012
-- **Current Core:** Paper 1.21.1 (Java 21)
+- **Current Core:** Paper 1.21.11 (Java 25)
 - **Legacy:** Originally Paper/CraftBukkit -> Long Forge/Modded Era -> Modern Paper.
 - **2026 Focus:** Urbanization of the Shroomville Biome and "Deep-Rail" connectivity.
 

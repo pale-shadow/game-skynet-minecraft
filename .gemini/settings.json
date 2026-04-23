@@ -2,8 +2,8 @@
   "general": {
     "sessionRetention": {
       "enabled": true,
-      "maxAge": "30d",
-      "maxCount": 50
+      "maxAge": "7d",
+      "maxCount": 20
     },
     "checkpointing": {
       "enabled": true
