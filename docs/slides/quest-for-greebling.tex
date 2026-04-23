@@ -44,6 +44,25 @@
 \setbeamercolor{titlelike}{fg=white}
 % ---------------------------------------
 
+\usepackage{qrcode}
+
+\setbeamertemplate{footline}{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\usebeamerfont{date in head/foot}\href{https://github.com/pale-shadow/game-skynet-minecraft/blob/main/docs/slides/quest-for-greebling.pdf}{download PDF sldies} \hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+	\end{beamercolorbox}}%
+	\begin{beamercolorbox}[ht=0.1ex]{}%
+	\end{beamercolorbox}%
+}
+
 \begin{document}
 	
 % \maketitle
@@ -158,7 +177,26 @@
 	\end{itemize}
 \end{frame}
 
-% Slide 12: Q&A
+\begin{frame}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\Huge \textbf{Questions?}
+			\vspace{1em}
+			\normalsize
+			\begin{itemize}
+				\item \textbf{Repo:} \texttt{pale-shadow/game-skynet-minecraft}
+				\item \textbf{Email:} franklin.d@protonmail.ch
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\qrcode[height=3cm]{https://github.com/pale-shadow/game-skynet-minecraft/raw/main/docs/chonk_slides.pdf}
+			\vfill
+			\scriptsize \texttt{Scan to download PDF}
+		\end{column}
+	\end{columns}
+\end{frame}
+
 \begin{frame}
 	\begin{center}
 		\Huge \textbf{Thank You!}\\

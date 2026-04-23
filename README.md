@@ -4,11 +4,13 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 
 [![Bandit Security Scan](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml) [![Python Code Coverage](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/coverage.yml) [![Skynet Unified Test Suite](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/python-test.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/python-test.yml)
 
+[![View Slides](https://img.shields.io/badge/Presentation-Download_PDF-blue?logo=adobe-acrobat-reader&logoColor=white)](https://github.com/pale-shadow/game-skynet-minecraft/raw/main/docs/chonk_slides.pdf)
+
 ![tech void nihilism as software architecture](https://github.com/pale-shadow/game-skynet-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
 
 ## 🌐 Server Information
 *   **Server Address:** `minecraft.bitsmasher.net`
-*   **Version:** Paper 1.21.1 (Java 21)
+*   **Version:** Paper 1.21.11 (Java 25)
 *   **Web Map (BlueMap):** [Click Here to View Port 8100]
 *   **Established:** 2012
 
@@ -19,14 +21,6 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 2.  Click on **Multiplayer** then **Add Server**
 3.  Enter `minecraft.bitsmasher.net` in the Server Address field
 4.  Join and start your journey at **Washington Station (The Zero Point)**
-
-### **Bedrock Edition (Cross-Platform)**
-1.  Open Minecraft and select the **Servers** tab
-2.  Click **Add Server** and enter the following:
-    *   **Server Name:** Bitsmasher
-    *   **Server Address:** `minecraft.bitsmasher.net`
-    *   **Port:** `19132` (Default)
-3.  Click **Play** to enter the world
 
 ## ✨ Current Features
 *   **The Deep-Rail Project:** Experience vertical logistics connecting the **Rail Yard (Y:63)** to the **Deep Station (Y:31)**
