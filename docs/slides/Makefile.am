@@ -1,5 +1,5 @@
 EXTRA_DIST = quest-for-greebling.tex
-TEX_FILES := docs/slides/*.tex
+TEX_FILES = docs/slides/*.tex
 
 .PHONY: lint
 
