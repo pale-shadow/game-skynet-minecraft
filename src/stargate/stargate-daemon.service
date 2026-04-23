@@ -9,7 +9,7 @@ WorkingDirectory=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft
 Environment="RCON_PASS=dinosaurExTraVaGanZa1969" "RCON_PORT=25575" "TELEMETRY_PORT=5005" "CHONK_IP=10.10.8.60"
 # Ensure the project root is in PYTHONPATH
 Environment="PYTHONPATH=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft"
-ExecStart=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 src/servers/stargate/stargate-daemon.py
+ExecStart=/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/.venv/bin/python3 src/stargate/stargate-daemon.py
 Restart=always
 RestartSec=10
 StandardOutput=append:/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/logs/skynet_agent.log

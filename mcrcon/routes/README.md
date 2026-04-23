@@ -1,4 +1,0 @@
-# routes
-
-Defines application routes.
-
