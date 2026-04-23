@@ -1,182 +1,223 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = quest-for-greebling.tex
+% !TeX TXS-program:compile = txs:///xelatex/[--shell-escape]
+% https://orcid.org/0000-0003-4586-8500
+
 \documentclass{beamer}
 \usetheme{Madrid}
 
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{amsmath}
-
-% --- Document Metadata ---
-\author{Franklin D.}
-% \institute{CU Denver}
-%\institute{\includegraphics[scale=0.45]{images/ucd-wide.jpg}}
-\date{\today}
-% \title{Autonomous Urbanization: Engreeblification: Phase 2.1}
-% \subtitle{NPU-Accelerated Schematic Generation \& Voxel Placement}
-\title[The Quest]{The Quest for Greebling}
-\subtitle{Recreational AI Orchestration of Minecraft Activities}
-% ---------------------------------------
-
-
-% --- DARK THEME COLOR CONFIGURATION ---
-% Define your custom dark and light colors
-\definecolor{darkcharcoal}{RGB}{33, 33, 33}
-\definecolor{offwhite}{RGB}{240, 240, 240}
-\definecolor{deepblue}{RGB}{20, 40, 60} % Adjust for Madrid's accents
-
-% Apply the colors globally
-\setbeamercolor{background canvas}{bg=darkcharcoal}
-\setbeamercolor{normal text}{fg=offwhite}
-\setbeamercolor{frametitle}{bg=darkcharcoal, fg=white}
-\setbeamercolor{title}{bg=darkcharcoal, fg=white}
-\setbeamercolor{item}{fg=white}
-\setbeamercolor{subitem}{fg=white}
-
-% Adjust the Madrid-specific footer/header blocks
-\setbeamercolor{author in head/foot}{bg=black, fg=white}
-\setbeamercolor{title in head/foot}{bg=deepblue, fg=white}
-\setbeamercolor{date in head/foot}{bg=black, fg=white}
-
-% Ensure block environments (like theorems or examples) contrast well
-\setbeamercolor{block title}{bg=deepblue, fg=white}
-\setbeamercolor{block body}{bg=darkcharcoal!90!white, fg=offwhite}
-
-% Update the title page specifically if needed
-\setbeamercolor{titlelike}{fg=white}
-% ---------------------------------------
-
-\usepackage{qrcode}
-
-\setbeamertemplate{footline}{
-	\leavevmode%
-	\hbox{%
-		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-			\usebeamerfont{author in head/foot}\insertshortauthor
-		\end{beamercolorbox}%
-		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-			\usebeamerfont{title in head/foot}\insertshorttitle
-		\end{beamercolorbox}%
-		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-			\usebeamerfont{date in head/foot}\href{https://github.com/pale-shadow/game-skynet-minecraft/blob/main/docs/slides/quest-for-greebling.pdf}{download PDF sldies} \hspace*{2em}
-			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
-	\end{beamercolorbox}}%
-	\begin{beamercolorbox}[ht=0.1ex]{}%
-	\end{beamercolorbox}%
-}
+\input{preamble}
 
 \begin{document}
 	
-% \maketitle
+	% \maketitle
+	
+	% Slide 1: Title Slide
+	\begin{frame}
+		\begin{center}
+			\includegraphics[scale=0.12]{images/Gemini\_Generated\_Image\_e2extne2extne2ex.png}\\
+			The Quest for Greebling\\
+			Recreational AI Orchestration of Minecraft Activities
+		\end{center}
+	\end{frame}
+	
+	\section{Introduction}
+	
+	% Slide 2: The Distributed Architecture
+	\begin{frame}{System Topology and Node Roles}
+		\begin{itemize}
+			\item \textbf{Skynet:} AI orchestration, neural routing, and high-level agent management.
+			\item \textbf{Stargate:} Control plane, handling MCP integration and inter-server bridging.
+			\item \textbf{Chonk:} World-state execution layer running the live Minecraft instance.
+			\item \textbf{Edge-T:} Telemetry collection and peripheral edge computing tasks.
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 3: The Chonk Execution Layer
+	\begin{frame}{The Chonk Execution Layer}
+		\begin{itemize}
+			\item \textbf{Environment:} Debian 12 (Bookworm) and Java 25.
+			\item \textbf{Core Engine:} Paper 1.21.11 / Forge integration.
+			\item \textbf{Role:} Handles active game simulation and local physical mechanics.
+			\item \textbf{Design Choice:} Fully isolated from heavy NPU/TPU AI orchestration to maintain high TPS and server stability.
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 4: Physical Detection Mechanics
+	\begin{frame}{Physical Detection in World-Space}
+		\begin{itemize}
+			\item \textbf{Mechanism:} Detector rails capture the spatial movement of minecarts.
+			\item \textbf{Signal Conditioning:} 1-tick repeaters stabilize redstone pulses during high-speed transits.
+			\item \textbf{Triggering:} Stabilized pulses reliably activate adjacent Command Blocks.
+			\item \textbf{Result:} Smoothly converts physical entity movement into discrete digital events.
+		\end{itemize}
+		\begin{center}\includegraphics[scale=0.07]{images/Gemini_Generated_Image_xz297bxz297bxz29.png}\end{center}
+	\end{frame}
+	
+	% Slide 5: Telemetry Encapsulation
+	\begin{frame}{Telemetry Encapsulation}
+		\begin{itemize}
+			\item \textbf{Action:} Command Blocks execute targeted \texttt{tellraw} payloads.
+			\item \textbf{Syntax:} \texttt{... run tellraw @a \{"text":"[TELEMETRY] NODE:CHONK EVENT:CART\_PASS"\}}
+			\item \textbf{Rationale:} Bypasses standard JVM and "Server" prefix clutter in console logs.
+			\item \textbf{Output:} Clean, standardized string injected directly into the RCON buffer.
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 6: The Local Bridge Service
+	\begin{frame}{The Local Bridge Service}
+		\begin{itemize}
+			\item \textbf{Architecture:} Python/Go-based bridge script running locally on the Chonk host.
+			\item \textbf{Monitoring:} Actively tails \texttt{logs/latest.log} and monitors the RCON stream.
+			\item \textbf{Pattern Matching:} Filters for the \texttt{[TELEMETRY]} identifier.
+			\item \textbf{Transformation:} Extracts metadata (NODE, EVENT) and encapsulates it into a network-routable JSON payload.
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 7: Inter-Node Network Transit
+	\begin{frame}{Inter-Node Network Transit}
+		\begin{itemize}
+			\item \textbf{Protocol:} Asynchronous TCP/UDP socket communication.
+			\item \textbf{Direction:} Forwards JSON payloads from Chonk directly to the Stargate host.
+			\item \textbf{Performance:} Network transit occurs in an isolated thread.
+			\item \textbf{Benefit:} Prevents network latency from causing "tick lag" on the live Minecraft server.
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 8: Ingestion and MCP Integration
+	\begin{frame}{Stargate Ingestion \& MCP Integration}
+		\begin{itemize}
+			\item \textbf{Ingestion:} Stargate daemon listens asynchronously on port 5005.
+			\item \textbf{Translation:} Decodes incoming JSON telemetry packets.
+			\item \textbf{Action Mapping:} Translates \texttt{CART\_PASS} events into Model Context Protocol (MCP) commands.
+			\item \textbf{Execution:} Facilitates AI-driven world-state manipulation (e.g., automated schematic injection).
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 9: Safe Schematic Deployment
+	\begin{frame}{Safe Schematic Deployment}
+		\begin{itemize}
+			\item \textbf{Challenge:} Preventing AI-generated structures from overwriting player zones or telemetry transit lines.
+			\item \textbf{Solution:} Spatial intersection middleware.
+			\item \textbf{Validation:} Pre-deployment checks ensure NBT integrity and correct origin coordinates.
+			\item \textbf{Result:} Eliminates chunk corruption and "silent deployment failures."
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 10: Codebase Organization
+	\begin{frame}{Managing the Distributed Codebase}
+		\begin{itemize}
+			\item \textbf{Structure:} Server-centric organization (e.g., \texttt{src/servers/chonk/}, \texttt{src/servers/stargate/}).
+			\item \textbf{Isolation:} Hardware-specific dependencies are strictly siloed.
+			\item \textbf{Efficiency:} Hailo/Coral ML libraries remain entirely off the JVM-focused Chonk host.
+			\item \textbf{Security:} Reduces the attack surface and enables targeted deployment scripts.
+		\end{itemize}
+	\end{frame}
+	
+	% Slide 11: Hardware Acceleration Roadmap
+	\begin{frame}{Hardware Acceleration Roadmap}
+		\begin{itemize}
+			\item \textbf{Objective:} Offload spatial parsing and visual inference from standard CPUs.
+			\item \textbf{Edge TPUs:} Utilizing Coral Edge TPUs via the Mendel Development Tool (MDT).
+			\item \textbf{NPUs:} Deploying compiled \texttt{.hef} models to Hailo architecture.
+			\item \textbf{Impact:} Rapid object detection and schematic synthesis without impacting the live game simulation.
+		\end{itemize}
+	\end{frame}
+	
 
+	
+	\begin{frame}
+		\begin{center}
+			\Huge \textbf{Thank You!}\vspace{0.5cm}
+			\includegraphics[scale=0.10]{images/Gemini_Generated_Image_xz297bxz297bxz29.png}
+		\end{center}
+	\end{frame}
+	
 % Slide 1: Title Slide
 \begin{frame}
-	\begin{center}
-	\includegraphics[scale=0.12]{images/Gemini\_Generated\_Image\_e2extne2extne2ex.png}\\
-	The Quest for Greebling\\
-	Recreational AI Orchestration of Minecraft Activities
-	\end{center}
+	% Note: The following line is commented out because the file 'images/ucd-wide.jpg' 
+	% was not found in the repository, which causes compilation failure.
+	% \titlegraphic{\includegraphics[scale=0.75]{images/ucd-wide.jpg}}
+	\titlepage
 \end{frame}
 
-% Slide 2: The Distributed Architecture
-\begin{frame}{System Topology and Node Roles}
+% Slide 2: Infrastructural Thesis
+\begin{frame}{Infrastructural Thesis}
+	As the network transitions from manual builds to high-density urbanization, human-input latency becomes a bottleneck. 
+	
+	The deployment of local edge-AI hardware facilitates a closed-loop system: 
 	\begin{itemize}
-		\item \textbf{Skynet:} AI orchestration, neural routing, and high-level agent management.
-		\item \textbf{Stargate:} Control plane, handling MCP integration and inter-server bridging.
-		\item \textbf{Chonk:} World-state execution layer running the live Minecraft instance.
-		\item \textbf{Edge-T:} Telemetry collection and peripheral edge computing tasks.
+		\item \textbf{Spatial Scanning:} Monitoring current voxel density.
+		\item \textbf{Inference:} Determining optimal ``Neural Node'' locations.
+		\item \textbf{Synthesis:} On-the-fly generation via LLM-to-Voxel (T2BM) pipelines.
+		\item \textbf{Execution:} RCON-mediated placement within the Skynet AI Testing Field.
 	\end{itemize}
 \end{frame}
 
-% Slide 3: The Chonk Execution Layer
-\begin{frame}{The Chonk Execution Layer}
+% Slide 3: Hardware Specification
+\begin{frame}{Hardware Specification: The Hailo-8L Cluster}
+	To maintain a strict 20 TPS baseline, inference workloads are offloaded from the primary Stargate node to a distributed Raspberry Pi 5 array.
+	
+	\begin{block}{NPU Advantages}
+		By utilizing the \textbf{Hailo-8L NPU} for spatial density analysis, we avoid CPU interrupts on the main game thread. This ensures that ``Weaver'' agents can construct complex geometries without triggering watchdog timeouts or tick-skip events.
+	\end{block}
+	
+	\vfill
+	\centering
+	\scriptsize \texttt{Target Performance: 13 TOPS per Node}
+\end{frame}
+
+% Slide 4: The T2BM Pipeline
+\begin{frame}{The T2BM (Text to Building) Pipeline}
+	Building generation follows a three-stage refinement process:
+	\begin{enumerate}
+		\item \textbf{Prompt Refinement:} Distilling urban requirements into structural tokens.
+		\item \textbf{Interlayer Decoding:} Translating latent representations into 3D NBT schematics.
+		\item \textbf{Automated Repair:} Validating block-state connectivity (e.g., door/stair orientation).
+	\end{enumerate}
+	\vfill
 	\begin{itemize}
-		\item \textbf{Environment:} Debian 12 (Bookworm) and Java 21.
-		\item \textbf{Core Engine:} Paper 1.21.11 / Forge integration.
-		\item \textbf{Role:} Handles active game simulation and local physical mechanics.
-		\item \textbf{Design Choice:} Fully isolated from heavy NPU/TPU AI orchestration to maintain high TPS and server stability.
+		\item Functional facades and interior logic.
+		\item Adherence to the 2026 Urbanization style guide.
 	\end{itemize}
 \end{frame}
 
-% Slide 4: Physical Detection Mechanics
-\begin{frame}{Physical Detection in World-Space}
+% Slide 5: Containment Strategy
+\begin{frame}{Skynet AI Testing Field: Containment}
+	All AI-generated schematics are confined to the defined testing field to prevent unauthorized mutation of ``Heritage Zones.''
+	
 	\begin{itemize}
-		\item \textbf{Mechanism:} Detector rails capture the spatial movement of minecarts.
-		\item \textbf{Signal Conditioning:} 1-tick repeaters stabilize redstone pulses during high-speed transits.
-		\item \textbf{Triggering:} Stabilized pulses reliably activate adjacent Command Blocks.
-		\item \textbf{Result:} Smoothly converts physical entity movement into discrete digital events.
-	\end{itemize}
-		\begin{center}\includegraphics[scale=0.07]{images/Gemini_Generated_Image_xz297bxz297bxz29.png}\end{center}
-\end{frame}
-
-% Slide 5: Telemetry Encapsulation
-\begin{frame}{Telemetry Encapsulation}
-	\begin{itemize}
-		\item \textbf{Action:} Command Blocks execute targeted \texttt{tellraw} payloads.
-		\item \textbf{Syntax:} \texttt{... run tellraw @a \{"text":"[TELEMETRY] NODE:CHONK EVENT:CART\_PASS"\}}
-		\item \textbf{Rationale:} Bypasses standard JVM and "Server" prefix clutter in console logs.
-		\item \textbf{Output:} Clean, standardized string injected directly into the RCON buffer.
+		\item \textbf{Hub 01 (Logic Core):} Primary inference nexus for reactive mutation.
+		\item \textbf{Hub 07 (Neural Data Vault):} Cold storage for successful architectural seeds.
+		\item \textbf{Spatial Masks:} WorldGuard regions enforced to prevent overlap with the Noodlington Deep-Works or 2012 Legacy Rail.
 	\end{itemize}
 \end{frame}
 
-% Slide 6: The Local Bridge Service
-\begin{frame}{The Local Bridge Service}
+% Slide 6: Evolutionary Epochs
+\begin{frame}{Evolutionary Analysis: 2012 to 2026}
 	\begin{itemize}
-		\item \textbf{Architecture:} Python/Go-based bridge script running locally on the Chonk host.
-		\item \textbf{Monitoring:} Actively tails \texttt{logs/latest.log} and monitors the RCON stream.
-		\item \textbf{Pattern Matching:} Filters for the \texttt{[TELEMETRY]} identifier.
-		\item \textbf{Transformation:} Extracts metadata (NODE, EVENT) and encapsulates it into a network-routable JSON payload.
+		\item \textbf{Legacy Epoch (2012-2014):} Cobblestone-heavy, manual placement, primarily centered around Shroomville.
+		\item \textbf{Expansion Epoch (2020-2024):} Stylized fantasy elements and southern frontier outposts.
+		\item \textbf{Neural Epoch (2025-2026):} High-density architecture characterized by Void-Tech aesthetics and automated redstone integration.
 	\end{itemize}
 \end{frame}
 
-% Slide 7: Inter-Node Network Transit
-\begin{frame}{Inter-Node Network Transit}
+% Slide 7: Project Motivations
+\begin{frame}{Outline of Intent}
 	\begin{itemize}
-		\item \textbf{Protocol:} Asynchronous TCP/UDP socket communication.
-		\item \textbf{Direction:} Forwards JSON payloads from Chonk directly to the Stargate host.
-		\item \textbf{Performance:} Network transit occurs in an isolated thread.
-		\item \textbf{Benefit:} Prevents network latency from causing "tick lag" on the live Minecraft server.
+		\item \textbf{Fun Factor:} Putting idle SBC hardware to work.
+		\item \textbf{Beyond Chat:} Moving past simple LLM-driven avatars to full-scale infrastructure orchestration.
+		\item \textbf{Disparity:} Managing the gap between the LLM's imaginary structures and real-world spatial constraints.
+		\item \textbf{Constraints:} Dealing with token limits and context windows despite hardware acceleration.
 	\end{itemize}
+	
+	\vfill
+	\textbf{Status: [Inference Active]} \\
+	\textbf{Target: 20 TPS Sustained}
 \end{frame}
 
-% Slide 8: Ingestion and MCP Integration
-\begin{frame}{Stargate Ingestion \& MCP Integration}
-	\begin{itemize}
-		\item \textbf{Ingestion:} Stargate daemon listens asynchronously on port 5005.
-		\item \textbf{Translation:} Decodes incoming JSON telemetry packets.
-		\item \textbf{Action Mapping:} Translates \texttt{CART\_PASS} events into Model Context Protocol (MCP) commands.
-		\item \textbf{Execution:} Facilitates AI-driven world-state manipulation (e.g., automated schematic injection).
-	\end{itemize}
-\end{frame}
-
-% Slide 9: Safe Schematic Deployment
-\begin{frame}{Safe Schematic Deployment}
-	\begin{itemize}
-		\item \textbf{Challenge:} Preventing AI-generated structures from overwriting player zones or telemetry transit lines.
-		\item \textbf{Solution:} Spatial intersection middleware.
-		\item \textbf{Validation:} Pre-deployment checks ensure NBT integrity and correct origin coordinates.
-		\item \textbf{Result:} Eliminates chunk corruption and "silent deployment failures."
-	\end{itemize}
-\end{frame}
-
-% Slide 10: Codebase Organization
-\begin{frame}{Managing the Distributed Codebase}
-	\begin{itemize}
-		\item \textbf{Structure:} Server-centric organization (e.g., \texttt{src/servers/chonk/}, \texttt{src/servers/stargate/}).
-		\item \textbf{Isolation:} Hardware-specific dependencies are strictly siloed.
-		\item \textbf{Efficiency:} Hailo/Coral ML libraries remain entirely off the JVM-focused Chonk host.
-		\item \textbf{Security:} Reduces the attack surface and enables targeted deployment scripts.
-	\end{itemize}
-\end{frame}
-
-% Slide 11: Hardware Acceleration Roadmap
-\begin{frame}{Hardware Acceleration Roadmap}
-	\begin{itemize}
-		\item \textbf{Objective:} Offload spatial parsing and visual inference from standard CPUs.
-		\item \textbf{Edge TPUs:} Utilizing Coral Edge TPUs via the Mendel Development Tool (MDT).
-		\item \textbf{NPUs:} Deploying compiled \texttt{.hef} models to Hailo architecture.
-		\item \textbf{Impact:} Rapid object detection and schematic synthesis without impacting the live game simulation.
-	\end{itemize}
-\end{frame}
-
+% Slide 8: Q&A and Download
 \begin{frame}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -190,17 +231,12 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\centering
-			\qrcode[height=3cm]{https://github.com/pale-shadow/game-skynet-minecraft/raw/main/docs/chonk_slides.pdf}
+			% The QR code will point to the raw PDF in your repository for easy access.
+			\qrcode[height=3cm]{https://github.com/pale-shadow/game-skynet-minecraft/raw/main/docs/quest-for-greebling.pdf}
 			\vfill
 			\scriptsize \texttt{Scan to download PDF}
 		\end{column}
 	\end{columns}
 \end{frame}
 
-\begin{frame}
-	\begin{center}
-		\Huge \textbf{Thank You!}\\
-		\includegraphics[scale=0.10]{images/Gemini_Generated_Image_xz297bxz297bxz29.png}
-	\end{center}
-\end{frame}
 \end{document}
