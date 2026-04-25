@@ -2,7 +2,7 @@
 
 Welcome a world that bridges over a decade of history with the cutting edge of AI-driven Minecraft engineering. 
 
-[![View Slides](https://img.shields.io/badge/Presentation-Download_PDF-blue?logo=adobe-acrobat-reader&logoColor=white)](https://github.com/pale-shadow/game-skynet-minecraft/raw/main/docs/quest-for-greebling.pdf) [![Bandit Security Scan](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml)
+[![View Slides](https://img.shields.io/badge/Presentation-Download_PDF-blue?logo=adobe-acrobat-reader&logoColor=white)](https://github.com/pale-shadow/game-skynet-minecraft/blob/main/docs/slides/quest-for-greebling.pdf) [![Bandit Security Scan](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml/badge.svg)](https://github.com/pale-shadow/game-skynet-minecraft/actions/workflows/bandit.yml)
 
 ![tech void nihilism as software architecture](https://github.com/pale-shadow/game-skynet-minecraft/blob/main/static/images/skynet_unified_brain_architecture.png)
 
