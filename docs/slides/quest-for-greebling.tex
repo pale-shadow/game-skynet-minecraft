@@ -24,6 +24,7 @@
 	\end{frame}
 	\note[itemize]{
 		\item I asked "the AI" to generate an image of ``us'' enjoying some game time together 
+		\item hope you appreciate these slides I typed them mostly by hand into TexStudio. 
 	}
 	
 	\section{Introduction}
@@ -35,15 +36,15 @@
 				\begin{itemize}
 					\item I like to build things on my personal minecraft server.
 					\item Minecraft is an ``all ages'' block building game.... but highly extensible and customizable.
-					\item How can we use these 				
+					\item We had some ``existing hardware'' that I went around and collected, with the goal of having it create buildings in my MC world. 		
 				\end{itemize}
 			\end{column}
 			\begin{column}{0.5\textwidth}
 				\centering
 				% The QR code will point to the raw PDF in your repository for easy access.
-				\qrcode[height=3cm]{https://github.com/pale-shadow/game-skynet-minecraft/raw/main/docs/quest-for-greebling.pdf}
+				\includegraphics[scale=0.07]{images/HGbUmw1WQAAhk65.jpg}
 				\vfill
-				\scriptsize \texttt{Scan to download PDF}
+				\scriptsize \texttt{Time to see what's going on in the tech world. 🤔}
 			\end{column}
 		\end{columns}
 	
@@ -53,30 +54,71 @@
 		\item i love that i can tweak the slides up until the last minute and beyond thanks to modern technology.
 	}
 
+	\begin{frame}{The Plan....More or Less}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item But... what to build? MC has a paradigm known as ``schematics'' whereby you model the blocks and shape of a building such that it can be placed in the world using software tools. 
+					\item I combined the existing HW into a lab of sorts....
+				\end{itemize}
+				\end{column}
+				\begin{column}{0.5\textwidth}
+					\includegraphics[scale=0.04]{images/20260421\_082443.jpg}
+				\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\note[itemize]{
+		\item blowfish is my database server, OpenBSD 7.8
+		\item 10`` rack includes single board computers and low voltage boards
+		\item the big rack connects to the 10g fiber backbone through Dream Machine.
+	}
 	
 	\section{Hardware and Software}
 	
-	% Slide 2: The Distributed Architecture
 	\begin{frame}{System Topology and Node Roles}
-		\begin{itemize}
-			\item \textbf{Skynet:} AI orchestration, neural routing, and high-level agent management.
-			\item \textbf{Stargate:} Control plane, handling MCP integration and inter-server bridging.
-			\item \textbf{Chonk:} World-state execution layer running the live Minecraft instance.
-			\item \textbf{Edge-T:} Telemetry collection and peripheral edge computing tasks.
-		\end{itemize}
+			\begin{columns}
+				\begin{column}{0.5\textwidth}
+					\begin{itemize}
+						\item \textbf{Skynet:} PI5 w/Hailo hat meant for for visual inference.
+						\item \textbf{Stargate:} Control plane, handling MCP integration and inter-server bridging. AI orchestration, neural routing, and high-level agent management.
+						\item \textbf{Chonk:} World-state execution layer running the live Minecraft instance.
+						\item \textbf{Edge-T:} Asus Tinker W/ Google TPU
+					\end{itemize}
+					\end{column}
+					\begin{column}{0.5\textwidth}
+							\includegraphics[scale=0.25]{images/greeblenet.png}
+					\end{column}
+			\end{columns}
 	\end{frame}
+	\note{I thought it would be fun to make things do what I wanted, rather than worry about the ``intended uses''}
 	
 	% Slide 3: The Chonk Execution Layer
-	\begin{frame}{The Chonk Execution Layer}
-		\begin{itemize}
-			\item \textbf{Environment:} Debian 12 (Bookworm) and Java 25.
-			\item \textbf{Core Engine:} Paper 1.21.11 / Forge integration.
-			\item \textbf{Role:} Handles active game simulation and local physical mechanics.
-			\item \textbf{Design Choice:} Fully isolated from heavy NPU/TPU AI orchestration to maintain high TPS and server stability.
-		\end{itemize}
+	\begin{frame}{The Chonk MC server}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item \textbf{Environment:} Debian 12 (Bookworm) and Java 25.
+					\item \textbf{Core Engine:} Paper 1.21.11 with plugins
+					\item \textbf{Role:} Handles active game simulation and local physical mechanics.
+					\item \textbf{Design Choice:} Fully isolated from heavy NPU/TPU AI orchestration to maintain high TPS and server stability.
+				\end{itemize}
+					\end{column}
+			\begin{column}{0.5\textwidth}
+				\includegraphics[scale=0.07]{images/Gemini_Generated_Image_p4bveep4bveep4bv.png}
+			\end{column}
+			\end{columns}
+	\end{frame}
+	\note{THIS IS GONNA BE EPIC}
+	
+	\section{party time}
+	
+	\begin{frame}{What's a Greebling?}
+		Greebles, also called greeblies or nurnies, are small relief details used to give visual complexity to a model. The act of decorating a model with greebles is known as greebling. While greebling originated as a technique in filmmaking, it is commonly used in model-making, toy design, and kitbashing. The term "greeblies" was coined by George Lucas in the 1970s to describe details on model ships used in the production of Star Wars.
 	\end{frame}
 	
-	% Slide 4: Physical Detection Mechanics
+	\note{greebling is a term often associated with Lego blocks as well.
+	
 	\begin{frame}{Physical Detection in World-Space}
 		\begin{itemize}
 			\item \textbf{Mechanism:} Detector rails capture the spatial movement of minecarts.
@@ -86,8 +128,7 @@
 		\end{itemize}
 		\begin{center}\includegraphics[scale=0.07]{images/Gemini_Generated_Image_xz297bxz297bxz29.png}\end{center}
 	\end{frame}
-	
-	% Slide 5: Telemetry Encapsulation
+
 	\begin{frame}{Telemetry Encapsulation}
 		\begin{itemize}
 			\item \textbf{Action:} Command Blocks execute targeted \texttt{tellraw} payloads.
