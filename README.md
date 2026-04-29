@@ -25,4 +25,14 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 *   **Void-Tech Architecture:** Explore the newest "Urbanized" districts featuring high-tech mycelial aesthetics
 *   **Autonomous Builders:** Witness a world built by AI logic cores running on dedicated local hardware, now with pre-deployment overlap prevention for structural integrity.
 
+## 🧠 AI Infrastructure
+The Bitsmasher network utilizes a distributed AI control plane to manage autonomous urbanization while maintaining a strict **20 TPS** server performance target.
+
+*   **Stargate (Hub-01):** LLM Building Inference & Orchestration (Ollama/T2BM).
+*   **Skynet (Hub-00):** NPU-accelerated Geometric Expansion (Hailo-8L).
+*   **Edge-T (Hub-06):** TPU-driven Vision Verification (Google Edge TPU).
+
+For instructions on running local models (like Llama 3.1) on the Stargate node, see:
+👉 **[Ollama Integration Guide](docs/OLLAMA.md)**
+
 ![tech void nihilism as building fashion](https://github.com/pale-shadow/game-skynet-minecraft/blob/main/static/images/infographic.png)
