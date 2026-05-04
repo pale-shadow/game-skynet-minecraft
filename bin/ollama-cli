@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""
+Ollama CLI Bridge for the Bitsmasher Minecraft AI Network.
+Bridges the T2BM pipeline to local Llama 3.1 inference.
+"""
+import sys
+import os
+
+try:
+    import ollama
+except ImportError:
+    print("Error: The 'ollama' Python library is not installed.")
+    print("Run: pip install ollama")
+    sys.exit(1)
+
+# Default model matching our v5 Architectural standards
+DEFAULT_MODEL = os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+
+def main():
+    # Get input from arguments or pipe
+    user_input = " ".join(sys.argv[1:])
+    if not user_input and not sys.stdin.isatty():
+        user_input = sys.stdin.read()
+
+    if not user_input:
+        print(f"Usage: {sys.argv[0]} 'Your architectural intent'")
+        print("Example: ./ollama-cli 'Generate a Void-Tech research module with 3x3 pillars'")
+        sys.exit(0)
+
+    try:
+        # Check if Ollama is running and model is available
+        # Note: In a production environment, you might want to add a timeout or check specifically
+        response = ollama.chat(
+            model=DEFAULT_MODEL,
+            messages=[
+                {
+                    'role': 'system', 
+                    'content': (
+                        "You are the Bitsmasher Architectural Agent. Your goal is to refine Minecraft "
+                        "building intents into high-fidelity 'Void-Tech' manifests. "
+                        "Use Polished Tuff, Obsidian, and Froglights. Follow the Rule of Three."
+                    )
+                },
+                {'role': 'user', 'content': user_input},
+            ]
+        )
+        print(response['message']['content'])
+    except Exception as e:
+        print(f"Ollama Error: {e}", file=sys.stderr)
+        print("Ensure the Ollama daemon is running and the model is pulled.", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
