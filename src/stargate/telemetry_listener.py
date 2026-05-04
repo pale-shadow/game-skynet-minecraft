@@ -103,10 +103,8 @@ class TelemetryListener:
 
 if __name__ == "__main__":
     # Configure logging for standalone execution
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s [%(levelname)s] %(name)s: %(message)s'
-    )
+    from src.utils.config_utils import setup_logging
+    setup_logging("stargate_telemetry_listener")
     
     listener = TelemetryListener()
     try:

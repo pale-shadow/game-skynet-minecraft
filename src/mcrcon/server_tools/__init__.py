@@ -5,7 +5,7 @@
 import logging.config
 
 logging.config.fileConfig(
-    "logging.conf",
-    defaults={"logfilename": "server_tools.log"},
+    "src/logging.conf",
+    defaults={"logfilename": "logs/server_tools.log"},
     disable_existing_loggers=False,
 )

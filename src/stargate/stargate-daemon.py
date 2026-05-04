@@ -4,12 +4,10 @@ import logging
 import os
 from src.stargate.telemetry_listener import TelemetryListener
 
+from src.utils.config_utils import setup_logging
+
 # Configure Logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(name)s: %(message)s'
-)
-logger = logging.getLogger("STARGATE_DAEMON")
+logger = setup_logging("stargate_daemon")
 
 # Registry of remote construction hosts
 REMOTE_HOSTS = {

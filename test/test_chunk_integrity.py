@@ -1,6 +1,9 @@
 import os
 import struct
 import pytest
+from src.utils.config_utils import setup_logging
+
+logger = setup_logging("test_chunk_integrity")
 
 # Define potential world paths (configurable via environment)
 WORLD_PATHS = [
@@ -33,7 +36,7 @@ def test_region_file_discovery():
             mca_files = [f for f in os.listdir(path) if f.endswith(".mca")]
             if mca_files:
                 found = True
-                print(f"Discovered {len(mca_files)} region files in {path}")
+                logger.info(f"Discovered {len(mca_files)} region files in {path}")
                 break
     
     if not found:

@@ -3,13 +3,13 @@ import logging.config
 
 try:
     logging.config.fileConfig(
-        "logging.conf",
-        defaults={"logfilename": "website.log"},
+        "src/logging.conf",
+        defaults={"logfilename": "logs/website.log"},
         disable_existing_loggers=False,
     )
 except Exception:
     logging.basicConfig(level=logging.INFO)
-    logging.warning("logging.conf not found or invalid, using basicConfig.")
+    logging.warning("src/logging.conf not found or invalid, using basicConfig.")
 
 logger = logging.getLogger("hanson")
 

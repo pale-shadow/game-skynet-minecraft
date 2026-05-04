@@ -26,12 +26,10 @@ AI_CLUSTER = {
     "node_vision": {"hardware": "AI Vision Node", "focus": "Perimeter Security"},
 }
 
+from utils.config_utils import setup_logging
+
 # Professional Logging Configuration [Conversation]
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - [%(levelname)s] - %(message)s",
-    handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler()],
-)
+logger = setup_logging("skynet_self_aware")
 
 
 def get_temp():
