@@ -14,7 +14,7 @@ except ImportError:
     sys.exit(1)
 
 # Default model matching our v5 Architectural standards
-DEFAULT_MODEL = "llama3.1:8b"
+DEFAULT_MODEL = os.getenv("OLLAMA_MODEL", "llama3.1:8b")
 
 def main():
     # Get input from arguments or pipe
@@ -46,8 +46,9 @@ def main():
         )
         print(response['message']['content'])
     except Exception as e:
-        print(f"Ollama Error: {e}")
-        print("Ensure the Ollama daemon is running and the model is pulled.")
+        print(f"Ollama Error: {e}", file=sys.stderr)
+        print("Ensure the Ollama daemon is running and the model is pulled.", file=sys.stderr)
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

@@ -49,6 +49,10 @@ if not user_input:
 
 response = ollama.chat(model='llama3.1:8b', messages=[
   {
+    'role': 'system',
+    'content': "You are the Bitsmasher Architectural Agent. Use Polished Tuff, Obsidian, and Froglights. Follow the Rule of Three.",
+  },
+  {
     'role': 'user',
     'content': user_input,
   },
