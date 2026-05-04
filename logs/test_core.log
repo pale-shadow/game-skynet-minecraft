@@ -14,3 +14,5 @@
 2026-04-08 22:24:57,349 - [WARNING] - ⚠️ Thermal Throttling: 85.0°C > 75.0°C
 2026-04-08 22:28:45,425 - [WARNING] - ⚠️ Thermal Throttling: 85.0°C > 75.0°C
 2026-04-09 08:05:58,527 - [WARNING] - ⚠️ Thermal Throttling: 85.0°C > 75.0°C
+2026-05-03 21:27:34,371 - test - INFO - Optimal coordinates found: (-997, 360)
+2026-05-03 21:37:30,308 - test - INFO - Optimal coordinates found: (-949, -633)
