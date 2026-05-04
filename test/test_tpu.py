@@ -1,8 +1,10 @@
 import os
+
 import tflite_runtime.interpreter as tflite
 from src.utils.config_utils import setup_logging
 
 logger = setup_logging("test_tpu")
+
 
 def test_tpu_hardware():
     # Update this path if 'find' showed something different!

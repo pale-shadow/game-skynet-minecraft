@@ -1,9 +1,11 @@
 import os
+
 import pytest
 from google import genai
 from src.utils.config_utils import setup_logging
 
 logger = setup_logging("test_gemini_link")
+
 
 @pytest.mark.skipif("GOOGLE_API_KEY" not in os.environ, reason="GOOGLE_API_KEY not set")
 def test_connection():
