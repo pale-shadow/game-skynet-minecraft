@@ -26,12 +26,10 @@ VOID_MESSAGES = [
     ["[DANGER]", "RECLAMATION CORE", "HIGH RADIATION", "VOID LEAK DETECTED"],
 ]
 
+from utils.config_utils import setup_logging
+
 # Professional Logging Setup [Conversation]
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - [%(levelname)s] - %(message)s",
-    handlers=[logging.FileHandler("../logs/ai_signs.log"), logging.StreamHandler()],
-)
+logger = setup_logging("ai_signs")
 
 
 def get_sign_nbt(messages):

@@ -1,15 +1,13 @@
 import asyncio
 import json
-import logging
-from mcrcon import MCRcon
+from src.utils.config_utils import setup_logging
 
 # Configuration - typically loaded from env
 RCON_HOST = "10.10.8.60" # Chonk
 RCON_PORT = 25575
 RCON_PASS = "dinosaurExTraVaGanZa1969"
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("RCON_TEST")
+logger = setup_logging("test_rcon_bridge")
 
 async def test_rcon_bridge():
     logger.info(f"Connecting to RCON at {RCON_HOST}:{RCON_PORT}...")
