@@ -47,3 +47,11 @@ cd ~/src/schematic-go
 go mod init github.com/chonk/minecraft-station
 go get github.com/Tnze/go-mc@master
 ```
+
+## mark by host
+
+Verification Steps:
+
+1. Save the file.
+2. In one of your test files (e.g., test/test_rcon.py), add @pytest.mark.host("chonk") above a test function.
+3. Run make test on the stargate or skynet host. You should see that test explicitly bypassed with an s in the Pytest output grid, preventing the test suite from throwing false negatives.

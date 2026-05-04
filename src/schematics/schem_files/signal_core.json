@@ -7,7 +7,7 @@
     "t2bm_version": "v2.1-urbanization"
   },
   "hardware_telemetry": {
-    "inference_node": "Stargate-MCP-Hub",
+    "inference_node": "Pi5 / NVMe (Stargate)",
     "vision_audit_node": "edge-t-Google-TPU",
     "total_render_time_ms": 40,
     "npu_utilization_peak": "15%"
