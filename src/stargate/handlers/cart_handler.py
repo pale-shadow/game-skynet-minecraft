@@ -1,6 +1,6 @@
-import logging
+from src.utils.config_utils import setup_logging
 
-logger = logging.getLogger(__name__)
+logger = setup_logging("stargate")
 
 async def handle_cart_pass(payload):
     """

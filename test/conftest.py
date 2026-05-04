@@ -6,6 +6,13 @@ import pytest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+from src.utils.config_utils import setup_logging
+
+@pytest.fixture(scope="session", autouse=True)
+def global_setup():
+    """Global setup for the test suite, including logging."""
+    setup_logging("test", log_file="logs/test_suite.log")
+
 @pytest.fixture
 def mock_rcon():
     """Mocked RCON client to avoid real server calls during unit tests."""
