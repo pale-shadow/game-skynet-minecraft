@@ -11,6 +11,10 @@ except ImportError:
     # Fallback for different execution contexts in the Bitsmasher network
     from npu_spatial_engine import NPUSpatialEngine
 
+from src.utils.config_utils import setup_logging
+
+logger = setup_logging("test_hailo_npu")
+
 # Instantiate the engine for the Hailo-8L hardware [4]
 skynet_npu = NPUSpatialEngine(hardware_mode="hailo")
 
@@ -29,4 +33,4 @@ def test_hailo_npu_decoding_validity():
     # Verify that a valid coordinate was returned
     assert optimal_coords is not None
     assert optimal_coords != (None, None)
-    print(f"Optimal coordinates found: {optimal_coords}")
+    logger.info(f"Optimal coordinates found: {optimal_coords}")
