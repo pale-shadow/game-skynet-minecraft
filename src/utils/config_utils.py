@@ -65,13 +65,35 @@ class MockConfig:
 Config = MockConfig()
 
 
-# --- Mock Logging Setup ---
-def setup_logging(name):
-    """Mock logging setup function."""
+# --- Logging Setup ---
+import logging.config
+
+def setup_logging(name, log_file=None):
+    """
+    Sets up logging for the given name using the shared logging.conf.
+    If log_file is not provided, it defaults to logs/{name}.log.
+    """
+    if log_file is None:
+        log_file = f"logs/{name}.log"
+
+    # Ensure logs directory exists
+    os.makedirs("logs", exist_ok=True)
+
+    config_path = "src/logging.conf"
+    if os.path.exists(config_path):
+        try:
+            logging.config.fileConfig(
+                config_path,
+                defaults={"logfilename": log_file},
+                disable_existing_loggers=False,
+            )
+            return logging.getLogger(name)
+        except Exception as e:
+            print(f"WARNING: Failed to load logging.conf from {config_path}: {e}")
+
+    # Fallback to basic configuration
     log_level = os.environ.get("LOG_LEVEL", "INFO").upper()
-    numeric_level = getattr(logging, log_level, None)
-    if not isinstance(numeric_level, int):
-        raise ValueError(f"Invalid log level: {log_level}")
+    numeric_level = getattr(logging, log_level, logging.INFO)
 
     logging.basicConfig(
         level=numeric_level,
