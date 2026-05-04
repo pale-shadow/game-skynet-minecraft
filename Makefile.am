@@ -27,17 +27,18 @@ edge-t: python
 	@echo "==> Deploying Edge-T Vision Services..."
 	$(PYTHON) -m pip install -r src/servers/edge-t/requirements-edge-t.txt
 
-test: python
+test:
 	@echo "==> Initiating BSFR Distributed Test Suite..."
-	PYTHONPATH=./src $(PYTHON) -m pytest test/test_gemini_link.py \
-			test/test_brain.py \
-			test/test_hardware.py \
-			test/test_neural_vault_logging_persistence.py \
-			test/test_hailo_npu_decoding_validity.py \
-			test/test_schematic_boundary_safety.py \
-			test/test_schematic_metadata_integrity.py \
-			test/test_rcon.py \
-			test/test_builders.py
+	PYTHONPATH=./src:./src/skynet:./src/schematics:./src/vision:./src/utils .venv/bin/python3 -m pytest test/test_gemini_link.py \
+		test/test_brain.py \
+		test/test_hardware.py \
+		test/test_neural_vault_logging_persistence.py \
+		test/test_hailo_npu_decoding_validity.py \
+		test/test_schematic_boundary_safety.py \
+		test/test_schematic_metadata_integrity.py \
+		test/test_rcon.py \
+		test/test_builders.py
+
 	@echo "==> Auditing Hub 01 (Inference Nexus) NPU & Thermal State..."
 	ssh $(HUB01_NODE) "hailortcli fw-control identify && vcgencmd measure_temp"
 
