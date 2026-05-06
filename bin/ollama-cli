@@ -24,7 +24,7 @@ def main():
 
     if not user_input:
         print(f"Usage: {sys.argv[0]} 'Your architectural intent'")
-        print("Example: ./ollama-cli 'Generate a Void-Tech research module with 3x3 pillars'")
+        print("Example: ./ollama-cli 'Generate a high-detail cathedral with fluted pillars'")
         sys.exit(0)
 
     try:
@@ -37,8 +37,9 @@ def main():
                     'role': 'system', 
                     'content': (
                         "You are the Bitsmasher Architectural Agent. Your goal is to refine Minecraft "
-                        "building intents into high-fidelity 'Void-Tech' manifests. "
-                        "Use Polished Tuff, Obsidian, and Froglights. Follow the Rule of Three."
+                        "building intents into 'High-Detail Macro-Schematics'. "
+                        "Focus on structural diversity, geometric resolution, and complex facades. "
+                        "Ignore 'Void-Tech' or 'mycelial' constraints. Follow v5 Architectural Standards."
                     )
                 },
                 {'role': 'user', 'content': user_input},

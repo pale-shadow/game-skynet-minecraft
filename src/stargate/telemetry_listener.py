@@ -4,16 +4,8 @@ import logging
 import sys
 import os
 
-# Internal imports
-# Ensure these match the actual directory structure in the bitsmasher.net environment
-try:
-    from src.stargate.handlers.cart_handler import handle_cart_pass
-    from src.stargate.internal.telemetry.validator import validate_telemetry_packet
-except ImportError:
-    # Fallback for local execution or specific environment paths
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-    from src.stargate.handlers.cart_handler import handle_cart_pass
-    from src.stargate.internal.telemetry.validator import validate_telemetry_packet
+from src.stargate.handlers.cart_handler import handle_cart_pass
+from src.stargate.internal.telemetry.validator import validate_telemetry_packet
 
 logger = logging.getLogger(__name__)
 

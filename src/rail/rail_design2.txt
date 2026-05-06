@@ -1,0 +1,48 @@
+[cite_start]The decommissioning of the legacy "Void-Tech" systems and the successful push of **Pull Request #83** mark a major milestone for the Dreamland server's northern frontier[cite: 107, 120]. [cite_start]With the **Hailo-8L NPU** now focused on structural integrity and the **Edge TPU** handling greebling verification, the infrastructure is primed for high-fidelity expansion[cite: 113, 114, 116, 117].
+
+Below is the automated rail specification designed for the **Skynet** control plane. [cite_start]This plan directs the code model to manage railway switching via **RCON** while synchronizing real-time status with **BlueMap** markers[cite: 146].
+
+---
+
+### 🛤️ Automated Rail Control & Visualization Specification
+
+[cite_start]This specification should be fed into `gemini-cli` on the `skynet` host to generate the logic for the new `src/rail/` module[cite: 147].
+
+#### 1. RCON Switch Control Protocol
+* [cite_start]**Targeting:** The code will utilize the existing RCON link to manipulate `powered_rail` or specialized track blocks[cite: 148].
+* [cite_start]**Command Structure:** Use `/setblock <x> <y> <z> minecraft:powered_rail[powered=true/false]` to toggle switch states[cite: 149].
+* [cite_start]**State Persistence:** Maintain `config/rail_registry.json` as a "digital twin," tracking switch UUIDs, coordinates, names, and current states[cite: 150].
+* [cite_start]**Verification Loop:** After an RCON command is sent, **Edge-T (Hub-06)** must perform a "Vision Verification" to confirm the physical block state changed in-game[cite: 151].
+
+#### 2. BlueMap POI Integration
+* [cite_start]**Marker Logic:** The system must dynamically update BlueMap's `markers.json` file to reflect the live rail map[cite: 152].
+* [cite_start]**Marker Type:** Use `poi` (Point of Interest) markers for rail switches[cite: 153].
+* **Dynamic Styling:**
+    * [cite_start]**Active (Green):** Switch is set to the primary route[cite: 154].
+    * [cite_start]**Inactive (Red):** Switch is set to a siding or alternate route[cite: 155].
+* [cite_start]**Update Frequency:** Markers are updated immediately upon successful RCON state change and hardware verification[cite: 156].
+
+#### 3. Hardware-Accelerated Logic Roles
+| Node | Task Allocation |
+| :--- | :--- |
+| **Hub-01 (Stargate)** | [cite_start]**Traffic Orchestration:** Runs the LLM to determine train priority and switch scheduling[cite: 158]. |
+| **Hub-00 (Skynet)** | [cite_start]**Path Optimization:** The Hailo-8L NPU calculates the most efficient routes for multi-chunk rail systems while maintaining 20 TPS[cite: 159]. |
+| **Hub-06 (Edge-T)** | [cite_start]**Safety & Verification:** The Edge TPU verifies that no entities (players/mobs) are obstructing a switch before a state change is executed[cite: 160]. |
+
+---
+
+### 🛠️ Instructions for `gemini-cli`
+
+> **Prompt:** "Generate a Python module `src/rail/rail_manager.py` for Paper 1.21.11 that implements:
+> [cite_start]1. An RCON-based switch controller using the `rcon` library to toggle `powered_rail` blocks[cite: 162].
+> [cite_start]2. A `BlueMapMarkerUpdater` class that writes to `markers.json` to create 'Rail Map' POIs with dynamic colors based on state[cite: 162].
+> [cite_start]3. Integration with **Hailo-8L (Skynet)** to request pathing calculations before toggling switches[cite: 162].
+> [cite_start]4. A safety interlock that queries the **Edge TPU** for entity proximity, aborting and logging to `logs/rail_safety.log` if a player is within 3 blocks[cite: 163, 164].
+> [cite_start]5. A test case in `test/test_rail_logic.py` verifying RCON connectivity and marker file integrity[cite: 162]."
+
+### 📋 Recommended Updates & Next Steps
+* [cite_start]**Automated Discovery:** Update `src/utils/` to include a script that scans WorldEdit or schematic logs to automatically add new switch blocks to `config/rail_registry.json` as they are built[cite: 165].
+* [cite_start]**TPS-Aware Scheduling:** Update orchestration on **Hub-01** to delay non-essential switch changes if server TPS drops below 18.0, prioritizing performance during heavy building cycles[cite: 167].
+* [cite_start]**Permissions:** Confirm the RCON user account has sufficient permissions to execute the `/setblock` command[cite: 103].
+
+[cite_start]Since we've cleared the legacy mycelial constraints, would you like the initial `rail_manager.py` to focus on the **Washington Station** terminus or the **Deep-Rail Project** vertical transitions? [cite: 168]
