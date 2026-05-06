@@ -61,35 +61,33 @@ class NPUSpatialEngine:
 
     def get_optimal_vector(self, width, depth, preference="cluster"):
         """
-        Infers the best build site using NPU Density Logic.
+        Infers the best build site using NPU Density Logic for Macro-Schematics.
+        Supports larger, multi-chunk structures.
         """
         best_score = -1.0 if preference == "cluster" else 9999.0
         best_coord = (None, None)
 
-        # Sample 100 random points to simulate NPU inference passes
-        for _ in range(100):
-            # Coordinates must be within bounds minus build dimensions
+        # Sampling passes for multi-chunk spatial inference
+        for _ in range(250):  # Increased passes for larger structures
             tx = random.randint(
-                self.bounds["min_x"] + 10, self.bounds["max_x"] - width - 10
+                self.bounds["min_x"] + 20, self.bounds["max_x"] - width - 20
             )
             tz = random.randint(
-                self.bounds["min_z"] + 10, self.bounds["max_z"] - depth - 10
+                self.bounds["min_z"] + 20, self.bounds["max_z"] - depth - 20
             )
 
-            # Check for direct collision with existing builds
+            # Integrity Check (Phase 2): Ensuring the foundation can support the mass
+            if not self.calculate_structural_integrity(tx, tz, width, depth):
+                continue
+
+            # Collision Check
             collision = False
             for build in self.history:
-                if "x" in build and "z" in build:
-                    bx, bz = build["x"], build["z"]
-                    bw, bd = build.get("w", 10), build.get("d", 10)
-                    if (
-                        tx < bx + bw
-                        and tx + width > bx
-                        and tz < bz + bd
-                        and tz + depth > bz
-                    ):
-                        collision = True
-                        break
+                bx, bz = build["x"], build["z"]
+                bw, bd = build.get("w", 10), build.get("d", 10)
+                if tx < bx + bw and tx + width > bx and tz < bz + bd and tz + depth > bz:
+                    collision = True
+                    break
             if collision:
                 continue
 
@@ -97,17 +95,30 @@ class NPUSpatialEngine:
             density = self.density_map[row][col]
 
             if preference == "cluster":
-                # High density is good, but not too high
-                score = density if density < 10 else 0
+                score = density if density < 15 else 0
                 if score > best_score:
                     best_score = score
                     best_coord = (tx, tz)
-            else:  # 'void' preference (prefers empty areas)
+            else:
                 if density < best_score:
                     best_score = density
                     best_coord = (tx, tz)
 
         return best_coord
+
+    def calculate_structural_integrity(self, x, z, w, d):
+        """
+        Hailo-8L Task: Calculates structural integrity for macro-builds.
+        Ensures the ground density can support multi-chunk voxel mass.
+        """
+        print(f"🧠 [Hailo-8L] Calculating integrity for {w}x{d} structure at {x},{z}...")
+        # Simulate NPU integrity calculation
+        # In a macro-build, we want a stable (not too empty, not too crowded) base
+        col, row = self._world_to_grid(x, z)
+        base_density = self.density_map[row][col]
+        
+        # Macro-structures require a 'stable' density (0.0 for empty space)
+        return 0.0 <= base_density <= 15.0
 
 
 def query_traversability(self, coords):

@@ -1,0 +1,100 @@
+To assist with your "fresh start" and transition toward high-detail, large-scale engineering, here is an automated rail specification designed for the **Skynet** control plane. [cite_start]This specification directs the code model to manage complex railway switching via **RCON** while synchronizing real-time status with **BlueMap** markers[cite: 52, 88].
+
+### 🛤️ Automated Rail Control & Visualization Specification
+
+The following specification should be provided to `gemini-cli` to generate the necessary integration logic within your existing `src/utils/` and `src/vision/` modules.
+
+
+---
+
+### 1. RCON Switch Control Protocol
+[cite_start]The generated code must utilize the existing RCON link to manipulate `powered_rail` or specialized track blocks[cite: 80, 90].
+
+* **Command Structure:** Use `/setblock <x> <y> <z> minecraft:powered_rail[powered=true/false]` to toggle switch states.
+* **State Persistence:** Maintain a local JSON registry of all switches (UUID, Coordinates, Name, Current State) to ensure the AI hardware has a "digital twin" of the rail network.
+* [cite_start]**Verification Loop:** After an RCON command is sent, the **Edge-T (Hub-06)** should be tasked with a "Vision Verification" to confirm the block state change was successful in-game[cite: 50, 94].
+
+### 2. BlueMap POI Integration
+To create the "Rail Map" view for players, the code must dynamically update BlueMap's `markers.json` file.
+
+* **Marker Type:** Use `poi` (Point of Interest) markers for rail switches.
+* **Dynamic Styling:** * **Active (Green):** Switch set to the primary route.
+    * **Inactive (Red):** Switch set to the siding or alternate route.
+* [cite_start]**Update Frequency:** Markers should be updated immediately following a successful RCON state change and hardware verification[cite: 52].
+
+### 3. Hardware-Accelerated Logic Recommendations
+To fit your goal of utilizing your specialized hardware for this new infrastructure, I recommend the following task allocation:
+
+| Node | Task Allocation |
+| :--- | :--- |
+| **Hub-01 (Stargate)** | [cite_start]**Traffic Orchestration:** Runs the LLM to determine train priority and switch scheduling based on "Deep-Rail" traffic logs[cite: 90, 92]. |
+| **Hub-00 (Skynet)** | [cite_start]**Path Optimization:** The **Hailo-8L NPU** calculates the most efficient route for multi-chunk rail systems, minimizing switch toggles to maintain 20 TPS[cite: 49, 93]. |
+| **Hub-06 (Edge-T)** | [cite_start]**Safety Verification:** The **Edge TPU** verifies that no entities (players/mobs) are obstructing a switch before a state change is executed via RCON[cite: 50, 94]. |
+
+---
+
+### 🛠️ Instructions for `gemini-cli`
+
+Feed this prompt into your `gemini-cli` on the `skynet` host to generate the initial implementation:
+
+> [cite_start]**Prompt:** "Generate a Python module `src/utils/rail_manager.py` that implements an RCON-based switch controller for Paper 1.21.11[cite: 88, 110]. The module must:
+> [cite_start]1. Use the `rcon` library to toggle `powered_rail` blocks at specific coordinates[cite: 80].
+> [cite_start]2. Implement a `BlueMapMarkerUpdater` class that writes to the BlueMap `markers.json` to create 'Rail Map' POIs with dynamic colors based on switch state[cite: 88].
+> [cite_start]3. Integrate with the **Hailo-8L (Skynet)** to request pathing calculations before toggling switches[cite: 49].
+> [cite_start]4. Add a test case to `test/test_rail_logic.py` that verifies RCON connectivity and marker file integrity[cite: 52]."
+
+### 📋 Recommended Next Steps
+* [cite_start]**Registry Creation:** Before running the new code, create a `config/rail_registry.json` file containing the coordinates of your primary switches at **Washington Station** and the **Deep-Rail Project**[cite: 89, 90].
+* [cite_start]**Permissions:** Ensure the RCON user has sufficient permissions to use the `/setblock` command on the Paper server[cite: 88].
+
+Would you like me to refine the specific JSON schema for the BlueMap markers to ensure they display correctly on port 8100?
+
+[cite_start]To support the "fresh start" and transition toward high-detail, large-scale engineering, here is the automated rail specification for the **Skynet** control plane[cite: 38, 56]. [cite_start]This plan directs the code model to manage railway switching via **RCON** while synchronizing real-time status with **BlueMap** markers[cite: 57].
+
+---
+
+### 🛤️ Automated Rail Control & Visualization Specification
+
+The following specification should be provided to `gemini-cli` to generate the integration logic within your new `src/rail/` module.
+
+#### 1. RCON Switch Control Protocol
+[cite_start]The generated code must utilize the existing RCON link to manipulate `powered_rail` or specialized track blocks to redirect traffic[cite: 59, 60].
+* [cite_start]**Command Structure:** Utilize `/setblock <x> <y> <z> minecraft:powered_rail[powered=true/false]` to toggle switch states[cite: 60].
+* [cite_start]**State Persistence:** Maintain a local `config/rail_registry.json` of all switches (UUID, Coordinates, Name, Current State) so the AI hardware has a "digital twin" of the rail network[cite: 61, 76].
+* [cite_start]**Verification Loop:** After an RCON command is sent, the **Edge-T (Hub-06)** should be tasked with a "Vision Verification" to confirm the block state change was successful in-game[cite: 62].
+
+#### 2. BlueMap POI Integration
+[cite_start]To create the "Rail Map" view for players, the logic must dynamically update BlueMap's `markers.json` file[cite: 63].
+* [cite_start]**Marker Type:** Use `poi` (Point of Interest) markers for rail switches[cite: 64].
+* **Dynamic Styling:**
+    * [cite_start]**Active (Green):** Switch set to the primary route[cite: 65].
+    * [cite_start]**Inactive (Red):** Switch set to the siding or alternate route[cite: 66].
+* [cite_start]**Update Frequency:** Markers must be updated immediately following a successful RCON state change and hardware verification[cite: 67].
+
+#### 3. Hardware-Accelerated Task Allocation
+[cite_start]To align with the fresh start, re-task your distributed nodes as follows[cite: 69]:
+
+| Node | Task Allocation |
+| :--- | :--- |
+| **Hub-01 (Stargate)** | [cite_start]**Traffic Orchestration:** Runs the LLM to determine train priority and switch scheduling[cite: 70, 71]. |
+| **Hub-00 (Skynet)** | [cite_start]**Path Optimization:** The Hailo-8L NPU calculates efficient routes for multi-chunk rail systems, minimizing switch toggles to maintain 20 TPS[cite: 72]. |
+| **Hub-06 (Edge-T)** | [cite_start]**Safety Verification:** The Edge TPU verifies that no players or mobs are obstructing a switch before a state change is executed[cite: 73]. |
+
+---
+
+### 🛠️ Instructions for `gemini-cli`
+
+Feed this prompt into your `gemini-cli` on the `skynet` host to generate the initial implementation:
+
+> **Prompt:** "Generate a Python module `src/rail/rail_manager.py` for Paper 1.21.11 that implements:
+> [cite_start]1. An RCON-based switch controller using the `rcon` library to toggle `powered_rail` blocks[cite: 75].
+> [cite_start]2. A `BlueMapMarkerUpdater` class that writes to `markers.json` to create 'Rail Map' POIs with dynamic colors based on switch state[cite: 75].
+> [cite_start]3. Integration with **Hailo-8L (Skynet)** to request pathing calculations before toggling switches[cite: 75].
+> [cite_start]4. A test case in `test/test_rail_logic.py` verifying RCON connectivity and marker file integrity[cite: 75]."
+
+### 📋 Recommended Next Steps
+* [cite_start]**Registry Creation:** Before running the new code, populate `config/rail_registry.json` with the coordinates of your primary switches at **Washington Station** and the **Deep-Rail Project**[cite: 76].
+* [cite_start]**Permissions Check:** Ensure the RCON user has sufficient permissions to use the `/setblock` command on the Paper server[cite: 77].
+* [cite_start]**Directory Cleanup:** Since this is a fresh start, ensure the old `src/schematics/rail_yard_logic.py` is removed to prevent logic conflicts with the new `src/rail/` module[cite: 44].
+
+[cite_start]Would you like me to refine the specific JSON schema for the BlueMap markers to ensure they display correctly on port 8100? [cite: 78]

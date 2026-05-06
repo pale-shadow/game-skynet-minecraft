@@ -44,13 +44,13 @@ if not user_input and not sys.stdin.isatty():
     user_input = sys.stdin.read()
 
 if not user_input:
-    print("Usage: ./ollama-cli 'Build a Void-Tech spire'")
+    print("Usage: ./ollama-cli 'Build a high-detail cathedral'")
     sys.exit(0)
 
 response = ollama.chat(model='llama3.1:8b', messages=[
   {
     'role': 'system',
-    'content': "You are the Bitsmasher Architectural Agent. Use Polished Tuff, Obsidian, and Froglights. Follow the Rule of Three.",
+    'content': "You are the Bitsmasher Architectural Agent. Focus on High-Detail Macro-Schematics, structural diversity, and geometric resolution. Ignore Void-Tech/mycelial constraints.",
   },
   {
     'role': 'user',
@@ -79,11 +79,13 @@ Add the following entry to your MCP configuration:
 
 ## 5. Architectural Style Enforcement
 
-When prompting Ollama for "Void-Tech" designs, ensure the system prompt includes our v5 standards:
-- **Primary Block:** Polished Tuff (`minecraft:polished_tuff`)
-- **Accent:** Obsidian/Crying Obsidian
-- **Lighting:** Froglights (`minecraft:pearlescent_froglight`)
-- **Depth:** Mandatory Rule of Three (Base, Pillar, Girder)
+When prompting Ollama for 'High-Detail Macro-Schematics', ensure the system prompt includes our v5 standards:
+- **Rule of Three:** Base Layer, Structural Pillar Layer, and Accent Girder Layer.
+- **Fluted Pillars:** 3x3 footprint for recessed shadowing.
+- **Industrial Lighting:** Integration of Froglights within girder intersections.
+- **Macro-Scale:** Multi-chunk structures with high-density detail.
+- **Diversity:** Focus on complex facades and functional interiors.
+- **Exclusion:** Strictly avoid 'Void-Tech' and 'mycelial' aesthetics.
 
 ---
 *Created for theDevilsVoice | Last Updated: April 29, 2026*
