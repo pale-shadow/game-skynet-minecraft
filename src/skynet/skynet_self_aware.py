@@ -5,7 +5,7 @@ import subprocess
 import time
 from datetime import datetime
 
-from adaptive_mutation_v7 import AdaptiveMutator
+from npu_spatial_engine import NPUSpatialEngine
 from place_ai_warning_signs import place_random_warning
 from skynet_process import get_node_logic, push_build_to_chonk
 
@@ -65,8 +65,8 @@ def run_unified_brain():
         f"📡 Monitoring Nodes: {', '.join([n['hardware'] for n in AI_CLUSTER.values()])}"
     )
 
-    mutator = AdaptiveMutator()
-    mutator.engine.history_file = "src/schematics/input/build_history.json"
+    npu_engine = NPUSpatialEngine()
+    npu_engine.history_file = "src/schematics/input/build_history.json"
 
     cycle_count = 0
     while True:
@@ -81,12 +81,16 @@ def run_unified_brain():
             time.sleep(60)
             continue
 
-        # 1. World State Scan (Adaptive Mutation)
+        # 1. Structural Integrity Audit (Phase 2)
         try:
-            logging.info("👁 Scanning world state for Phase 2.1 mutations...")
-            mutator.run_cycle()
+            logging.info("🧠 Auditing structural integrity for macro-builds...")
+            for build in npu_engine.history[-3:]:
+                if "x" in build and "z" in build:
+                    x, z = build["x"], build["z"]
+                    w, d = build.get("w", 10), build.get("d", 10)
+                    npu_engine.calculate_structural_integrity(x, z, w, d)
         except Exception as e:
-            logging.error(f"Mutation Error: {e}")
+            logging.error(f"Audit Error: {e}")
 
         # 2. Void Reclamation Signage [424, Conversation]
         try:

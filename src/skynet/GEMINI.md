@@ -9,8 +9,8 @@
 - **Interface:** High-Speed RCON Bridge / WebSockets
 
 ## 🧠 T2BM Logic Partition
-- **Hailo-8L Role:** Geometric Expansion. Processes the `interlayer` T2BM representations into high-density voxel arrays. This offloads computationally intensive matrix math from the main server CPU, directly improving Minecraft server TPS by dedicating NPU resources to AI structural generation.
-- **USB TPU Role:** Aesthetic Validation. Runs real-time classification on generated schematics to ensure "Black Ice" style compliance (Block-ratios of Tuff, Obsidian, and Froglights). This prevents the deployment of overly complex or aesthetically non-compliant structures that could otherwise lead to inefficient rendering or resource-intensive adjustments, thereby safeguarding TPS.
+- **Hailo-8L Role:** Structural Integrity Calculation. Processes larger bounding boxes for multi-chunk macro-structures. Tasks include calculating the structural integrity and spatial viability of high-detail buildings, ensuring they can be supported by the terrain without impacting TPS.
+- **USB TPU Role:** Aesthetic Validation. Runs real-time classification on macro-schematics to ensure compliance with v5 architectural standards.
 
 ## 🛰 Infrastructure Connectivity
 - **Stargate MCP Link:** Active (Port 8765)

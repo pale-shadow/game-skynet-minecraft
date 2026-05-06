@@ -10,20 +10,10 @@ import math
 import mcschematic
 
 from .primitives import circle_xz, cone, cylinder, flat_plane, line_y
-from .void_tech import (
-    add_hydro_pod,
-    add_kinetic_signaling,
-    apply_mutation,
-    apply_void_palette,
-    build_ribbed_structure,
-)
 
 
 def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
-    # Use v7 Standard if requested
-    if prompt.get("features", {}).get("void_tech", False):
-        prompt = apply_void_palette(prompt)
-
+    # Use v5 Industrial Standards
     dims = prompt.get("dimensions", {})
     w = dims.get("width", 7)
     h = dims.get("height", 20)
@@ -54,31 +44,10 @@ def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
     cx = w // 2
     cz = l // 2
 
-    # Main tower body
-    if feats.get("void_tech", False):
-        build_ribbed_structure(schem, cx, 0, cz, radius, h, mats)
-        # Void Core
-        cylinder(
-            schem,
-            cx,
-            1,
-            cz,
-            radius - 1,
-            h - 1,
-            mats.get("energy", "minecraft:crying_obsidian"),
-            filled=True,
-        )
-        # Kinetic Pulse at base
-        add_kinetic_signaling(schem, cx + radius + 1, 0, cz)
-        # Hydro Pod at top
-        add_hydro_pod(schem, cx, h + 2, cz, mats)
-        # Spread mutation
-        apply_mutation(schem, cx, 0, cz, radius + 5, mats)
-    else:
-        # Main tower body — hollow cylinder
-        cylinder(schem, cx, 0, cz, radius, h, primary, filled=True)
-        if hollow and radius > 1:
-            cylinder(schem, cx, 1, cz, radius - 1, h - 1, "minecraft:air", filled=True)
+    # Main tower body — hollow cylinder
+    cylinder(schem, cx, 0, cz, radius, h, primary, filled=True)
+    if hollow and radius > 1:
+        cylinder(schem, cx, 1, cz, radius - 1, h - 1, "minecraft:air", filled=True)
 
     # Floor
     circle_xz(schem, cx, 0, cz, radius - 1, secondary, filled=True)

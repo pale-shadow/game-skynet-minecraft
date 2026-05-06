@@ -31,14 +31,14 @@ class MockConfig:
     PLAYER_CHECK_INTERVAL = 10
     WARNING_INTERVAL = 60
 
-    RCON_PASS = "dinosaur_password"
-    RCON_PORT = 25575
-    CHONK_IP = "10.10.8.60"
+    RCON_PASS = os.getenv("RCON_PASS", "dinosaur_password")
+    RCON_PORT = int(os.getenv("RCON_PORT", 25575))
+    CHONK_IP = os.getenv("CHONK_IP", "10.10.8.60")
 
     # Directory settings based on 2026 protocol
-    SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files"
-    MINECRAFT_SCHEM_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files"
-    JSON_METADATA_DIR = "/mnt/clusterfs2/workspace/gaming/game-skynet-minecraft/src/schematics/build_metadata"
+    SCHEM_DIR = os.getenv("SCHEM_DIR", "/home/franklin/workspace/gaming/game-skynet-minecraft/src/schematics/schem_files")
+    MINECRAFT_SCHEM_DIR = os.getenv("MINECRAFT_SCHEM_DIR", SCHEM_DIR)
+    JSON_METADATA_DIR = os.getenv("JSON_METADATA_DIR", "/home/franklin/workspace/gaming/game-skynet-minecraft/src/schematics/build_metadata")
 
     BUILD_COOLDOWN = 3600  # 1 hour
     BUILD_COOLDOWN_VOID = 1800  # 30 min

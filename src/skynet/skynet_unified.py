@@ -9,7 +9,7 @@ import time
 from datetime import datetime, timedelta
 
 import mcschematic
-from adaptive_mutation_v7 import AdaptiveMutator
+from npu_spatial_engine import NPUSpatialEngine
 from skynet_core import Config, SkynetCore, SkynetRCON, setup_logging
 from validate_no_overlaps import check_overlaps
 
@@ -19,20 +19,20 @@ logger = setup_logging("skynet_unified")
 
 class SkynetUnifiedDaemon(SkynetCore):
     """
-    The Unified Skynet Brain (2026 Urbanization Phase).
-    Consolidates Urbanization, Mutation, Containment, and Health Monitoring.
+    The Unified Skynet Brain (2026 Macro-Architectural Phase).
+    Consolidates Urbanization, Integrity Auditing, and Health Monitoring.
     """
 
     def __init__(self):
         super().__init__("skynet_unified")
-        self.mutator = AdaptiveMutator()
+        self.npu_engine = NPUSpatialEngine()
 
         # State Tracking
         self.last_rcon_check = 0
         self.last_player_check = 0
         self.last_urbanization_build = 0  # Hourly .schem
-        self.last_void_tech_build = 0  # 30-min Void-Tech (fill)
-        self.last_mutation_cycle = 0  # 5-min Adaptive Mutation
+        self.last_macro_build = 0  # 30-min Macro-Build (fill)
+        self.last_integrity_audit = 0  # 5-min Structural Audit
 
     # Players and thermal logic inherited from SkynetCore
 
@@ -222,33 +222,45 @@ class SkynetUnifiedDaemon(SkynetCore):
             json.dump(metadata, f, indent=2)
         logger.info(f"📝 Saved build metadata for {build_name} to {metadata_file_path}")
 
-    def run_adaptive_mutation_cycle(self):
-        """Scans nodes and applies sculk mutation based on human incursions."""
+    def run_structural_integrity_audit(self):
+        """Hailo-8L Task: Audits existing builds for structural integrity."""
         if not self.check_thermal():
             return
-        logger.info("🧪 Starting Adaptive Mutation Cycle (TPU Vision)...")
+        logger.info("🧠 Starting Structural Integrity Audit (Hailo-8L NPU)...")
         try:
-            self.mutator.run_cycle()
+            # Audit the most recent builds in history
+            for build in self.npu_engine.history[-5:]:
+                if "x" in build and "z" in build:
+                    x, z = build["x"], build["z"]
+                    w, d = build.get("w", 10), build.get("d", 10)
+                    stable = self.npu_engine.calculate_structural_integrity(x, z, w, d)
+                    status = "STABLE" if stable else "MARGINAL"
+                    logger.info(f"📊 Audit [{build['label']}]: {status}")
         except Exception as e:
-            logger.error(f"❌ Mutation Cycle Error: {e}")
+            logger.error(f"❌ Audit Error: {e}")
 
-    def run_void_tech_cycle(self):
-        """Generates a procedural Void-Tech structure using direct fill commands."""
+    def run_macro_build_cycle(self):
+        """Generates a procedural Macro-Architectural structure."""
         if not self.check_thermal():
             return
-        logger.info("🏗 Starting Void-Tech Mutation Cycle (NPU)...")
+        logger.info("🏗 Starting Macro-Architectural Build Cycle (NPU)...")
         try:
             sector_name = random.choice(list(Config.SECTORS.keys()))
             bounds = Config.SECTORS[sector_name]
-            tx = random.randint(bounds["x"][0], bounds["x"][1])
-            tz = random.randint(bounds["z"][0], bounds["z"][1])
+            
+            # Use NPU to find optimal macro-site
+            tx, tz = self.npu_engine.get_optimal_vector(15, 15, preference="cluster")
+            if not tx:
+                logger.warning("⚠️ No suitable macro-site found.")
+                return
+
             ty = Config.FIELD_BOUNDS["y_base"]
+            build_name = f"MACRO_CORE_{random.randint(100, 999)}"
 
-            build_name = f"VOID_CORE_{random.randint(100, 999)}"
-
+            # Industrial Macro-Geometry (Replacing Void-Tech fill)
             cmds = [
-                f"fill {tx} {ty} {tz} {tx+3} {ty+15} {tz+3} minecraft:polished_tuff",
-                f"fill {tx+1} {ty+1} {tz+1} {tx+2} {ty+14} {tz+2} minecraft:air",
+                f"fill {tx} {ty} {tz} {tx+5} {ty+20} {tz+5} minecraft:polished_deepslate",
+                f"fill {tx+1} {ty+1} {tz+1} {tx+4} {ty+19} {tz+4} minecraft:air",
             ]
 
             # Metadata Signs
@@ -260,15 +272,15 @@ class SkynetUnifiedDaemon(SkynetCore):
             )
             cmds.append(f"setblock {tx} {ty} {tz} minecraft:oak_sign{sign_nbt} replace")
             cmds.append(
-                f"say [Skynet] Void-Tech \x27{build_name}\x27 deployed at {tx} {ty} {tz} in {sector_name}."
+                f"say [Skynet] Macro-Structure \x27{build_name}\x27 deployed at {tx} {ty} {tz} in {sector_name}."
             )
 
             self.rcon.send(cmds)
             logger.info(
-                f"✅ Successfully mutated area at {tx} {ty} {tz} in {sector_name}"
+                f"✅ Successfully deployed macro-structure at {tx} {ty} {tz} in {sector_name}"
             )
         except Exception as e:
-            logger.error(f"❌ Void-Tech Error: {e}")
+            logger.error(f"❌ Macro-Build Error: {e}")
 
     def run_loop(self):
         logger.info("🚀 Skynet Unified Brain v1.5: INITIALIZED")
@@ -295,14 +307,14 @@ class SkynetUnifiedDaemon(SkynetCore):
                         self.send_warning(name)
                 self.last_player_check = now
 
-            # 3. Builds & Mutations
-            if now - self.last_mutation_cycle >= Config.BUILD_COOLDOWN_MUTATION:
-                self.run_adaptive_mutation_cycle()
-                self.last_mutation_cycle = now
+            # 3. Builds & Audits
+            if now - self.last_integrity_audit >= Config.BUILD_COOLDOWN_MUTATION:
+                self.run_structural_integrity_audit()
+                self.last_integrity_audit = now
 
-            if now - self.last_void_tech_build >= Config.BUILD_COOLDOWN_VOID:
-                self.run_void_tech_cycle()
-                self.last_void_tech_build = now
+            if now - self.last_macro_build >= Config.BUILD_COOLDOWN_VOID:
+                self.run_macro_build_cycle()
+                self.last_macro_build = now
 
             if now - self.last_urbanization_build >= Config.BUILD_COOLDOWN:
                 self.run_urbanization_cycle()

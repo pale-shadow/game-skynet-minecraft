@@ -8,8 +8,8 @@
 - **OS:** Debian-based Tinker OS / Mendel Linux Environment
 
 ## 🧠 T2BM Logic Partition
-- **Edge TPU Role:** Vision-First Verification. Before any `setblock` command is sent, the onboard TPU performs a "Terrain Scan" to ensure optimal placement and to prevent new constructions from overwriting critical game assets or heritage zones. This pre-placement validation directly minimizes server load by preventing costly invalid builds and subsequent rollbacks, thereby ensuring TPS stability.
-- **Protocol:** Executes lightweight TFLite models for real-time environmental analysis and pre-placement validation, specifically designed for rapid inference to maintain low latency and high TPS.
+- **Edge TPU Role:** Greebling Density Verification. Tasked with analyzing surface textures to ensure AI builders are utilizing the expanded block variety (v5 standards) effectively. This pre-placement validation ensures high-detail macro-schematics meet aesthetic standards before deployment.
+- **Protocol:** Executes TFLite models for real-time greebling density analysis, maintaining low latency for TPS stability.
 
 ## 🛰 Infrastructure Connectivity
 - **Stargate MCP Link:** Slave Mode (Port 8765)
