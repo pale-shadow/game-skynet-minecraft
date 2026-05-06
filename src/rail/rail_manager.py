@@ -2,8 +2,8 @@ import json
 import logging
 import os
 import time
-from mcrcon.mcrcon import MCRcon
-from utils.config_utils import Config, setup_logging
+from src.mcrcon.mcrcon import MCRcon
+from src.utils.config_utils import Config, setup_logging
 
 class BlueMapMarkerUpdater:
     """
@@ -170,5 +170,5 @@ class RailManager:
 if __name__ == "__main__":
     # Example usage:
     # mgr = RailManager()
-    # mgr.toggle_switch("washington_terminus_main", True)
+    # mgr.toggle_switch("chonk_02_sensor_switch", True)
     pass

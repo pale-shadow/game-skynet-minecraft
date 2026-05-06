@@ -1,0 +1,21 @@
+{
+    "markerSets": {
+        "rail_switches": {
+            "label": "Rail Map",
+            "toggleable": true,
+            "defaultHide": false,
+            "markers": {
+                "chonk_02_sensor_switch": {
+                    "type": "poi",
+                    "position": {
+                        "x": 1583,
+                        "y": 59,
+                        "z": 670
+                    },
+                    "label": "Chonk-02 Sensor Switch (ACTIVE)",
+                    "icon": "assets/icons/rail_green.png"
+                }
+            }
+        }
+    }
+}
