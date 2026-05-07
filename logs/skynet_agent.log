@@ -1720,3 +1720,133 @@ Traceback (most recent call last):
 OSError: [Errno 98] error while attempting to bind on address ('0.0.0.0', 5005): address already in use
 2026-04-22 21:55:36,125 [INFO] STARGATE_DAEMON: Initializing Stargate Daemon...
 2026-04-22 21:55:36,127 [INFO] src.stargate.telemetry_listener: Telemetry listener operational on ('0.0.0.0', 5005)
+INFO - telemetry_receiver - RailTelemetryProcessor initialized.
+INFO - stargate_daemon - Initializing Stargate Daemon...
+INFO - src.stargate.telemetry_listener - Telemetry listener operational on ('0.0.0.0', 5005)
+INFO - telemetry_receiver - RailTelemetryProcessor initialized.
+INFO - stargate_daemon - Initializing Stargate Daemon...
+INFO - src.stargate.telemetry_listener - Telemetry listener operational on ('0.0.0.0', 5005)
+INFO - telemetry_receiver - RailTelemetryProcessor initialized.
+INFO - stargate_daemon - Initializing Stargate Daemon...
+INFO - src.stargate.telemetry_listener - Telemetry listener operational on ('0.0.0.0', 5005)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 59692)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113416, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-02
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-02", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113416, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113416, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-02: {'action': 'toggle_switch', 'switch_id': 'chonk_02_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_02_sensor to state True
+ERROR - rail_manager - Switch ID chonk_02_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_02_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-02
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 59692)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 59698)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113418, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-03
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-03", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113418, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113418, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-03: {'action': 'toggle_switch', 'switch_id': 'chonk_03_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_03_sensor to state True
+ERROR - rail_manager - Switch ID chonk_03_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_03_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-03
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 59698)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 34344)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113424, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-03
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-03", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113424, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113424, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-03: {'action': 'toggle_switch', 'switch_id': 'chonk_03_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_03_sensor to state True
+ERROR - rail_manager - Switch ID chonk_03_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_03_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-03
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 34344)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 34350)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113426, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-02
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-02", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113426, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113426, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-02: {'action': 'toggle_switch', 'switch_id': 'chonk_02_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_02_sensor to state True
+ERROR - rail_manager - Switch ID chonk_02_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_02_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-02
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 34350)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 40592)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113430, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-02
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-02", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113430, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113430, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-02: {'action': 'toggle_switch', 'switch_id': 'chonk_02_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_02_sensor to state True
+ERROR - rail_manager - Switch ID chonk_02_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_02_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-02
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 40592)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 40596)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113432, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-03
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-03", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113432, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113432, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-03: {'action': 'toggle_switch', 'switch_id': 'chonk_03_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_03_sensor to state True
+ERROR - rail_manager - Switch ID chonk_03_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_03_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-03
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 40596)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 55482)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113493, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-03
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-03", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113493, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113493, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-03: {'action': 'toggle_switch', 'switch_id': 'chonk_03_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_03_sensor to state True
+ERROR - rail_manager - Switch ID chonk_03_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_03_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-03
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 55482)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 55490)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113497, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-02
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-02", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113497, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113497, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-02: {'action': 'toggle_switch', 'switch_id': 'chonk_02_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_02_sensor to state True
+ERROR - rail_manager - Switch ID chonk_02_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_02_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-02
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 55490)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 50548)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113525, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-03
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-03", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113525, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113525, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-03: {'action': 'toggle_switch', 'switch_id': 'chonk_03_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_03_sensor to state True
+ERROR - rail_manager - Switch ID chonk_03_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_03_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-03
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 50548)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 50016)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113533, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-03
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-03", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113533, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-03', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113533, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-03: {'action': 'toggle_switch', 'switch_id': 'chonk_03_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_03_sensor to state True
+ERROR - rail_manager - Switch ID chonk_03_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_03_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-03
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 50016)
+INFO - src.stargate.telemetry_listener - Connected to telemetry source: ('10.10.8.60', 50024)
+INFO - stargate - Processing CART_PASS event: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113535, 'SOURCE': 'minecraft_log'}
+[HANDLER] Minecart detected at [0, 0, 0] on node CHONK-02
+INFO - rail_traffic - Received rail telemetry: {"NODE": "CHONK-02", "EVENT": "CART_PASS", "DATA": "SIGNAL_HIGH", "coords": [0, 0, 0], "timestamp": 1778113535, "SOURCE": "minecraft_log"}
+INFO - rail_traffic - LLM Orchestration: Receiving event for analysis: {'NODE': 'CHONK-02', 'EVENT': 'CART_PASS', 'DATA': 'SIGNAL_HIGH', 'coords': [0, 0, 0], 'timestamp': 1778113535, 'SOURCE': 'minecraft_log'}
+INFO - rail_traffic - LLM Orchestration: Decision for CHONK-02: {'action': 'toggle_switch', 'switch_id': 'chonk_02_sensor', 'state': True}
+INFO - telemetry_receiver - Orchestrator activating switch: chonk_02_sensor to state True
+ERROR - rail_manager - Switch ID chonk_02_sensor not found in registry.
+ERROR - telemetry_receiver - Failed to execute LLM decision for chonk_02_sensor.
+INFO - src.stargate.telemetry_listener - Successfully processed CART_PASS from CHONK-02
+INFO - src.stargate.telemetry_listener - Closing connection from ('10.10.8.60', 50024)
