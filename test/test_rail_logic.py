@@ -97,7 +97,7 @@ async def test_rail_telemetry_processor_orchestration_flow(
     # Mock the RailManager instance that RailTelemetryProcessor will create
     mock_rail_manager_instance = MockRailManagerClass.return_value
     # Ensure toggle_switch is an awaitable mock
-    mock_rail_manager_instance.toggle_switch = AsyncMock(return_value=True)
+    mock_rail_manager_instance.toggle_switch = MagicMock(return_value=True)
 
     processor = RailTelemetryProcessor()
 
