@@ -1,8 +1,9 @@
-import os
 import json
-import time
+import os
 import random
 import sys
+import time
+
 import mcschematic
 
 # Ensure project paths are correct
@@ -10,9 +11,10 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "src/schematics"))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "src/servers/skynet"))
 
-from npu_spatial_engine import NPUSpatialEngine
 from builders.station2 import build as build_station
+from npu_spatial_engine import NPUSpatialEngine
 from skynet_core import Config, SkynetRCON
+
 
 def main():
     print("🧠 Initializing Hailo NPU Spatial Inference...")

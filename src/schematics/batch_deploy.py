@@ -5,8 +5,9 @@ import sys
 import time
 
 import mcschematic  # Added import for mcschematic
-from utils.config_utils import Config
 from npu_spatial_engine import NPUSpatialEngine
+
+from utils.config_utils import Config
 
 # Import MCRcon if it's an external library; otherwise, it might need mocking.
 # Assuming MCRcon is an external library for RCON communication.

@@ -5,8 +5,9 @@ import random
 import time
 
 import requests
-from utils.config_utils import Config, setup_logging
 from skynet_unified import SkynetUnifiedDaemon
+
+from utils.config_utils import Config, setup_logging
 
 logger = setup_logging("skynet_controller")
 

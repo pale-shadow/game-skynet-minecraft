@@ -14,9 +14,8 @@ try:
     from npu_spatial_engine import NPUSpatialEngine
     from skynet_core import Config
 
-    from mcrcon import (
-        MCRcon,
-    )  # Assuming mcrcon is installed or available in the environment
+    from mcrcon import \
+        MCRcon  # Assuming mcrcon is installed or available in the environment
 except ImportError as e:
     print(f"Error importing modules: {e}")
     print(
