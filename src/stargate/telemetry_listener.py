@@ -1,8 +1,8 @@
 import asyncio
 import json
 import logging
-import sys
 import os
+import sys
 
 # Add the project root to sys.path for module imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))

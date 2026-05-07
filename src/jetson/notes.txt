@@ -1,0 +1,74 @@
+This implementation plan, designated **Project GPU-Bridge**, codifies the offloading of the T2BM (Text-to-Building) validation pipeline to the NVIDIA Jetson cluster. By parallelizing these checks, we ensure that schematics are "safe for injection" before they ever hit the Chonk execution layer, maintaining our 20 TPS target.
+
+---
+
+## **Phase 1: Cluster Preparation & Networking**
+
+Before assigning specific logic roles, the cluster must be unified under the `mdt-keymaster` security umbrella and gain access to the shared filesystem.
+
+1.  **Node 901 Recovery:** Restore physical connectivity to `node901`. Verify via `clush -w node901 ping -c 1 stargate`.
+2.  **Mount Unification:** Execute a batch NFS mount across all nodes to ensure access to the `.schem` and `.hef` assets.
+    ```bash
+    clush -g gpu "sudo mount -a"
+    clush -g gpu "df -Th | grep clusterfs2"
+    ```
+3.  **CUDA Toolkit Deployment:** Deploy the NVIDIA Container Toolkit to all nodes to allow Dockerized AI agents to access the Maxwell GPU cores.
+
+---
+
+## **Phase 2: Functional Logic Assignment (The Role-Based Plan)**
+
+Each node will run a dedicated FastAPI-based microservice container optimized for its specific task.
+
+### **Jetson-01: Structural Style Analysis (The "Architect")**
+* **Input:** LLM-generated raw voxel data.
+* **Logic:** Uses a quantized Vision Transformer (ViT) to compare the generated structure against existing bitsmasher.net style guides (e.g., "Industrial," "Neural-Core").
+* **Output:** A "Style-Match" coefficient. If < 0.7, the schematic is sent back to Stargate for re-prompting.
+
+### **Jetson-02: NBT Metadata Verification (The "Clerk")**
+* **Input:** `.schem` binary files.
+* **Logic:** Executes `test_schematic_metadata_integrity.py`. It deep-scans NBT tags for missing origin coordinates, version mismatches (Java 25 requirements), and pallet corruption.
+* **Output:** Verified binary blob ready for the spatial safety check.
+
+### **Jetson-03: Collision Detection Logic (The "Surveyor")**
+* **Input:** Verified schematic + Current World Region (`.mca`) data.
+* **Logic:** Executes CUDA-accelerated voxel intersection tests. It compares the schematic’s bounding box against protected zones (Detector Rail arrays, AI Neural Bridges, and player-claimed chunks).
+* **GPU Benefit:** Uses the Maxwell cores to perform 3D AABB (Axis-Aligned Bounding Box) collision checks in parallel rather than sequential CPU loops.
+
+### **Jetson-04: Redstone Logic Validation (The "Engineer")**
+* **Input:** Schematic slice containing redstone components.
+* **Logic:** Simulates the redstone tick-flow within the proposed structure. Ensures that new builds won't create infinite feedback loops or clock-burn that could lag the Chonk JVM.
+* **Safety Interlock:** Specifically checks for `CART_PASS` telemetry interference.
+
+---
+
+## **Phase 3: Pipeline Integration (The "Injection Loop")**
+
+
+
+To prevent "silent deployment failures," we implement a **Gated Release** workflow:
+
+1.  **Generation:** Stargate (Hub-01) generates a structure via Ollama.
+2.  **Dispatch:** Stargate pushes the task to a Redis queue.
+3.  **Parallel Validation:**
+    * **Node 901/902/903/904** pull their respective tasks from the queue.
+    * Validation occurs simultaneously across the cluster.
+4.  **Consensus:** A "Health Packet" (JSON) is sent back to Stargate.
+    * *Green State:* All four nodes return `valid: true`.
+    * *Red State:* Any node returns `fail`. Stargate logs the error to `test_core.log` and aborts.
+5.  **Injection:** Stargate issues the final RCON `/place` command to Chonk.
+
+---
+
+## **Phase 4: Monitoring & Maintenance**
+
+* **Thermal Monitoring:** Since Jetson 2GB boards are thermally sensitive, we will integrate `hailort.log` style thermal tracking into the `conky.conf` on Chonk.
+* **Hydration Checks:** Ensure `git lfs pull` is run on the cluster after any push to `game-skynet-minecraft` to prevent nodes from validating "text pointers" instead of real schematics.
+
+**Initial Setup Command:**
+To start the environment sync, run this from Chonk:
+```bash
+clush -g gpu "git -C /home/franklin/workspace/gaming/game-skynet-minecraft lfs pull"
+```
+
+Does this sequence align with your current vision for the Skynet expansion, or should we prioritize the **Jetson-03 Collision Detection** node first to stop the current overlap issues?

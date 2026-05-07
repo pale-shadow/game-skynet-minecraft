@@ -1,8 +1,9 @@
+import asyncio
 import json
 import logging
-import asyncio
-from src.utils.config_utils import setup_logging
+
 from src.rail.rail_manager import RailManager
+from src.utils.config_utils import setup_logging
 
 # Configure logging specifically for rail traffic
 rail_traffic_logger = setup_logging("rail_traffic", log_file="logs/rail_traffic.log")

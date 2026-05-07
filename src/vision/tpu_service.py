@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import json
+
 from flask import Flask, jsonify, request
-from pycoral.utils.edgetpu import make_interpreter
-from pycoral.adapters import common, classify
 from PIL import Image
+from pycoral.adapters import classify, common
+from pycoral.utils.edgetpu import make_interpreter
 
 app = Flask(__name__)
 
