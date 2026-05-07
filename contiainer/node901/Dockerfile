@@ -1,5 +1,5 @@
 # Dockerfile.jetson02_clerk
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
