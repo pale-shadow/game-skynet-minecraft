@@ -49,24 +49,27 @@ class RailTelemetryProcessor:
         """
         rail_traffic_logger.info(f"Received rail telemetry: {json.dumps(event_data)}")
 
-        # 1. LLM Orchestration
-        llm_decision = await self._orchestrate_with_llm(event_data)
-
-        # 2. Act based on LLM decision
-        if llm_decision.get("action") == "toggle_switch":
-            switch_id = llm_decision["switch_id"]
-            state = llm_decision["state"]
-            logger.info(f"Orchestrator activating switch: {switch_id} to state {state}")
-            # RailManager.toggle_switch is not async, so run it in a thread pool
-            success = await asyncio.to_thread(self.rail_manager.toggle_switch, switch_id, state)
-            if success:
-                logger.info(f"Successfully executed LLM decision for {switch_id}.")
+        raw_decision = await self._orchestrate_with_llm(event_data)
+        decisions = raw_decision if isinstance(raw_decision, list) else [raw_decision]
+        for llm_decision in decisions:
+            action = llm_decision.get("action")
+            
+            if action == "toggle_switch":
+                switch_id = llm_decision.get("switch_id")
+                state = llm_decision.get("state")
+                logger.info(f"Orchestrator activating switch: {switch_id} to state {state}")
+                
+                # Execute via thread pool for non-async RailManager
+                success = await asyncio.to_thread(self.rail_manager.toggle_switch, switch_id, state)
+                if success:
+                    logger.info(f"Successfully executed LLM decision for {switch_id}.")
+                else:
+                    logger.error(f"Failed to execute LLM decision for {switch_id}.")
+                    
+            elif action == "no_action":
+                logger.info("LLM decided no action is needed for this event.")
             else:
-                logger.error(f"Failed to execute LLM decision for {switch_id}.")
-        elif llm_decision.get("action") == "no_action":
-            logger.info("LLM decided no action is needed for this event.")
-        else:
-            logger.warning(f"Unknown LLM decision: {llm_decision.get('action')}. Taking no action.")
+                logger.warning(f"Unknown LLM decision: {action}. Taking no action.")
 
 if __name__ == "__main__":
     # This block allows for standalone testing/simulation of the processor.
