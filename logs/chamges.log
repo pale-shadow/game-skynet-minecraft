@@ -1,0 +1,46 @@
+Based on a review of the recent "Emerald Mirror" deployment, the successful implementation of the **Chronosplicer Singularity**, and the system-wide hardware retasking, I recommend the following updates to the `game-skynet-minecraft` documentation:
+
+### 1. Update `README.md`: Infrastructure & Hardware Roles
+
+The top-level README must be updated to reflect that the project has transitioned from a "humble learning environment" to a **Distributed Neural Engine**.
+
+* **Node Role Revisions**:
+* **Skynet (Hub-00)**: Update role from simple gateway to **Orchestrator & Vertex Gateway**. Document its new primary task: **Structural Integrity Audits** using the Hailo-8L NPU.
+* **Stargate (Hub-01)**: Define it as the **Control Plane** and RCON proxy, now specialized in **Macro-Schematic Orchestration** via Ollama.
+* **Edge-T (Hub-06)**: Update role to **Greebling Density Verification** using the Google Edge TPU to ensure aesthetic compliance.
+
+
+* **Jetson Cluster (Edge-J 01-04)**: Add a section for the new **NVIDIA Jetson Cluster** responsible for CUDA-accelerated "Heavy Voxel Math" (botanical placement and industrial greebling).
+
+### 2. New Architectural Standard: "v5 Industrial"
+
+The documentation should formalize the transition away from mycelial growth toward the new industrial aesthetic.
+
+* **Palette Definition**: Document the official **v5 Industrial palette**, which prioritizes materials like `purpur_pillar`, `dark_prismarine`, and `pearlescent_froglight`.
+* **Greebling Pipeline**: Explain the **Emerald Mirror pipeline** flow:
+1. **Inference**: Vertex AI generates abstract instructions.
+2. **Refinement**: Jetson cluster converts instructions to block coordinate deltas.
+3. **Validation**: Skynet NPU performs a boundary and integrity check.
+4. **Injection**: Stargate pushes the result to the server via RCON.
+
+
+
+### 3. Schematic Metadata Standards
+
+With the transition to a dual-layered building approach, `docs/schematics.md` needs a section on **Schematic Types**:
+
+* **Foundation Schematics**: Core structures (e.g., towers, bridges).
+* **Delta Schematics**: AI-generated aesthetic layers (greebles) that contain high percentages of Air blocks.
+* **Mandatory Fields**: Ensure documentation reflects the requirement for the `schematic_type` field in all `.json` metadata to prevent the safety interlock from accidentally clearing existing builds.
+
+### 4. Networking & Operations
+
+* **ClusterFS Dependency**: Add a "Critical Infrastructure" section noting that the **Hailo-8L NPU** and **Edge TPU** require a stable `clusterfs` mount over `eth0` for shared vision and spatial logs.
+* **Injection Throttling**: Document the requirement for **asynchronous RCON injection** (as seen in `inject_chronosplicer.py`) with a $0.05\text{s}$ delay per block to maintain the **20 TPS server target**.
+
+### 5. Decommissioning Notice
+
+Add a **Legacy Archive** section to the `CHANGELOG.md` formally noting the decommissioning of:
+
+* **Void-Tech logic**.
+* **Mycelial mutation scripts** (e.g., `adaptive_mutation_v7.py`).
