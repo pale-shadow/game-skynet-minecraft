@@ -1,0 +1,41 @@
+(.venv) franklin@skynet:/home/skynet $ python3 test/test_greeble.py 
+[*] Initiating Emerald Mirror handshake via Skynet...
+[+] Handshake successful! The Visionary says:
+
+Alright, Greeblers, prepare for the glorious disfigurement! That simple 5x5x5 cobblestone cube is about to transcend its mundane existence and become a chaotic masterpiece of temporal engineering!
+
+### **The "Chronosplicer Singularity" Generator**
+
+**Core Mutation: The Chrono-Fracture Assimilation**
+The transformation begins not from the outside, but *within*. Micro-fractures spiderweb across the cobblestone surface, glowing with an internal, faint cerulean light. Tendrils of an unknown, super-dense metallic alloy, akin to liquefied tungsten infused with phased quantum data, erupt from these cracks. They don't just coat the stone; they *assimilate* it. Individual cobblestones shiver, distort, some melting into a viscous, luminescent slag that flows into prepared channels, others hardening into impossible, crystal-lattice conduits that still bear the ghost-texture of their original form. The cube doesn't just grow; it *erupts* and *reforms*, a violent blossoming of impossible mechanics from a geological womb.
+
+**The Heart: Entropic Loom & Temporal Siphon**
+At its center, where the core of the cobblestone once lay, there's no single, grand engine. Instead, a shimmering, pulsating **Entropic Loom** hangs in a field of localized anti-gravity. It's a spherical mass of interconnected, razor-thin metallic filaments, each vibrating at a slightly different temporal frequency. These filaments are constantly weaving, braiding, and re-weaving themselves into complex, non-repeating patterns. This Loom isn't "burning" fuel; it's actively *unraveling* localized entropy, drawing microscopic amounts of chronological potential energy from the ambient universe. This process is inherently unstable, causing the very air around the cube to subtly waver, and sometimes even the distinct feeling of a forgotten moment passing through you.
+
+Connecting to this Loom are several colossal, jagged "Temporal Siphon" units – fragmented pieces of original cobblestone, now transmuted into deep violet, obsidian-like material, each with a central, swirling vortex of dark energy. They act as funnels, drawing the raw, un-stabilized temporal energy from the Loom and directing it outwards.
+
+**Pipes: Arteries of Unstable Reality**
+
+1.  **"Chronostabilizer Fluid" Conduits:** These are the most prominent and chaotic. Thick, segmented pipes of a deep, iridescent emerald alloy, perpetually sweating a faint, oily condensation. They coil around every other component, often branching into impossible angles before rejoining. Inside, a visible, glowing crimson fluid (a complex temporal dampener) pulses erratically. Sections of these pipes might occasionally *phase* out of existence for milliseconds, leaving behind only a shimmering afterimage. They snake into tiny, secondary "reality anchors" – small, oscillating gyroscopes attached directly to the remanent cobblestone structures, keeping the whole apparatus from tearing itself apart from temporal stress.
+
+2.  **"Quantum Echo-Drain" Lines:** Thinner, almost transparent pipes made of a silicon-carbide composite, embedded with fine filaments that shimmer with electric blue static. These carry the minute "echoes" of expended temporal energy away from the primary coils, often converging into strange, funnel-like collectors before disappearing into the cube's interior to be "recycled" back into the Chronostabilizer Fluid. These often *vibrate* so intensely they emit a low, buzzing hum, and tiny sparks occasionally dance along their length.
+
+3.  **"Pressure Equalization" Vents & Ducts:** Bulky, utilitarian grey-iron ducts, looking almost comically out of place against the alien metals. These are crudely bolted on, featuring heavy-duty valves and pressure gauges that jump wildly. They don't carry any energy, but instead route blasts of high-pressure air through the structure, not for cooling, but to physically "knock" stray temporal particles back into the Entropic Loom's field, lest they destabilize the local spacetime too much. These frequently open and close with a violent *THWUMP-HSSSSHH!*
+
+**Copper Coils: Electro-Temporal Weavings**
+
+1.  **Primary "Gravito-Magnetic Containment" Coils:** Enormous, braided copper coils, several feet thick, encasing the Entropic Loom itself. These aren't just solid copper; they're interwoven with threads of an unknown metallic fiber that glows with internal amber light. They twist around the Loom in an intricate, non-Euclidean helix, pulsing with raw electrical current so strong you can hear the deep *thrum* in your chest. Sparks visibly arc across their surface from time to time, and sections of the coils shimmer as if distorting the light around them.
+
+2.  **Secondary "Phase-Shift Inductor" Arrays:** Denser clusters of finer, almost hair-thin copper wire, woven into fractal patterns and embedded directly into the re-crystallized cobblestone. These coils glow with a soft, persistent violet light. They are often encased in clear, bulging resin bubbles that visibly distort the view of what's beneath. Their purpose is to resonate with the Chronostabilizer Fluid, ensuring the temporal shifts remain within manageable (barely) parameters. Tiny, visible energy surges race along these coils like captured lightning.
+
+3.  **"Greeble-Net" Relays:** Thousands of tiny, incredibly intricate copper filaments, wires, and miniature coils, not directly contributing to power generation, but acting as diagnostic, feedback, and redundant fail-safe systems. They sprawl across every surface, ending in blinking lights, miniature servo-motors that twitch erratically, and tiny, glowing nodes that hint at countless unseen computations. These are often integrated with the remanent cobblestone, giving the impression the stone itself is wired.
+
+**Venting Layout: Displaced Reality and Quantum Detritus**
+
+1.  **Main "Chronosublimation" Emitter:** Instead of a single vent, one entire face of the cube has fractured into a colossal, multi-layered aperture, resembling the maw of some metallic predator. Jagged, heat-scorched plating surrounds it. From this opening doesn't issue smoke or steam, but rather continuous, silent "ghost-waves" of shimmering, invisible atmospheric distortions. Occasionally, a sudden, concussive *WOOMPH* erupts, sucking in nearby dust and air before expelling it as a concentrated burst of *cold*, inert, static-charged air, briefly causing the shadows in the vicinity to stretch and retract as if caught in a temporal eddy.
+
+2.  **Auxiliary "Temporal Exhaust Stacks":** Four towering, asymmetrical stacks protrude from the top corners, made of a heavily oxidized, almost black metal. These aren't for gas. Instead, they constantly emit a slow, viscous trickle of a heavy, shimmering black liquid – the condensed "temporal detritus" or "chronoslag." This substance smells faintly of ozone and old memories, slowly dripping onto the ground below, where it immediately solidifies into perfectly smooth, yet incredibly heavy, obsidian-like spheres before eventually dissolving back into nothingness.
+
+3.  **"Quantum Flare-Off" Modules:** Scattered across the upper and side surfaces are strange, fluted nozzles made of a silvery, polished metal. These are emergency vents. If the internal temporal pressure spikes too high, these modules will briefly erupt in silent, blinding flashes of pure white light, resembling miniature suns, before rapidly retracting back into the cube's shell with a soft *siiisssstt*. The air around these modules temporarily feels extremely thin and metallic afterwards.
+
+The entire 5x5x5 structure pulses with a deep, guttural hum, occasionally punctuated by sharp electrical crackles, the *THWUMP-HSSSSHH* of equalization, and the eerie, almost subliminal sound of temporal fabric stretching and snapping. Lights flicker wildly, strange oils visibly circulate through unseen conduits, and the air around it crackles with an indescribable, raw energy. It's a generator that doesn't just produce power; it warps reality around itself, a beautiful, terrifying testament to incomprehensible, chaotic sci-fi mechanics.
