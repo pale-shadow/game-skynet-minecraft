@@ -1,0 +1,13 @@
+A voxel (short for volumetric pixel) is the 3D equivalent of a 2D pixel.
+
+If you look at a digital photograph, it is made up of a flat grid of tiny squares (pixels), each containing specific color data. A voxel takes that concept into three-dimensional space. Instead of a flat square, a voxel is a perfect 3D cube positioned within a 3D grid, containing data about its state, material, or color.
+
+In the context of the Emerald Mirror pipeline and Minecraft:
+
+The Grid: The Minecraft world is a massive, infinite 3D grid system defined by X, Y, and Z coordinates.
+
+The Voxel: Every single "block" in Minecraft (whether it is Air, Crying Obsidian, or Waxed Copper) represents one voxel.
+
+The Injection: When your script pushed "113 voxels," it was literally pushing an array of 113 sets of (X, Y, Z) coordinates, each paired with specific metadata (the block ID), mapping them into that 3D grid at the Abyssal Reef anchor.
+
+By manipulating voxels instead of vectors or polygons, your NVIDIA Jetson cluster can precisely calculate the density and placement of industrial "greebling" block by block.
