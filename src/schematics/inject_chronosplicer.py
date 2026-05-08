@@ -1,9 +1,9 @@
 import json
-import time
+import asyncio
 import os
 from rcon.source import rcon
 
-def inject_schematic(delta_path, anchor):
+async def inject_schematic(delta_path, anchor):
     if not os.path.exists(delta_path):
         print(f"[!] Error: {delta_path} not found.")
         return
@@ -12,9 +12,8 @@ def inject_schematic(delta_path, anchor):
         data = json.load(f)
     
     voxels = data['voxels']
-    print(f"[*] Prepared to inject {len(voxels)} voxels into Chonk via Stargate Proxy...")
+    print(f"[*] Prepared to asynchronously inject {len(voxels)} voxels into Chonk via Stargate Proxy...")
 
-    # Properly targeting your .envrc variables
     rcon_pass = os.getenv('RCON_PASS', 'dinosaurExTraVaGanZa1969')
     rcon_host = os.getenv('MCRCON_HOST', '10.10.8.60')
     rcon_port = int(os.getenv('RCON_PORT', 25575))
@@ -27,15 +26,15 @@ def inject_schematic(delta_path, anchor):
             
             cmd = f"setblock {final_x} {final_y} {final_z} {v['block']}"
             
-            # Executing the one-shot rcon function
-            rcon(cmd, host=rcon_host, port=rcon_port, passwd=rcon_pass)
+            # Properly awaiting the async RCON payload
+            await rcon(cmd, host=rcon_host, port=rcon_port, passwd=rcon_pass)
             
-            # Progress update to ensure we aren't hanging
+            # Progress update
             if i % 25 == 0:
                 print(f"  > Progressive Manifestation: {i}/{len(voxels)} voxels...")
             
-            # Maintain 20 TPS target stability (network overhead + sleep)
-            time.sleep(0.05) 
+            # Using asyncio.sleep to maintain 20 TPS without blocking the event loop
+            await asyncio.sleep(0.05) 
 
         print("[+] Chronosplicer Singularity successfully manifested at the Abyssal Reef.")
     except Exception as e:
@@ -43,4 +42,5 @@ def inject_schematic(delta_path, anchor):
 
 if __name__ == "__main__":
     anchor_point = {'x': 1950, 'y': 84, 'z': 750}
-    inject_schematic('config/schem-gen/chronosplicer_delta.json', anchor_point)
+    # Execute the asynchronous event loop
+    asyncio.run(inject_schematic('config/schem-gen/chronosplicer_delta.json', anchor_point))
