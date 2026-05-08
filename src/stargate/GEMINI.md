@@ -51,14 +51,12 @@ It is highly recommended to deploy MCP on Stargate to act as the **API bridge** 
 
 ## 🚀 Status & Recent Updates
 
-- **Telemetry Hub Integration**: (April 19, 2026) Successfully integrated a dedicated `TelemetryListener` into the Stargate Daemon. The node now acts as a reactive control hub for events originating from the Chonk host (e.g., `CART_PASS`).
-- **Directory Restructuring**: Decoupled network ingestion from core MCP logic:
-    - `src/servers/stargate/internal/telemetry/`: Dedicated to packet validation and socket logic.
-    - `src/servers/stargate/handlers/`: Contains modular event handlers (e.g., `cart_handler.py`).
-- **NFS Mount Standardization:** Fully integrated with the standardized `/mnt/clusterfs/minecraft/schematics` NFS mount for all schematic generation and metadata storage, ensuring seamless data flow and consistency across the cluster.
-- **T2BM Pipeline Optimization:** (Apr 11, 2026) Refined the "Repairing" stage to leverage the high-speed NVMe I/O for faster block-state validation, directly contributing to more efficient build deployments.
-- **MCP Integration:** (Active) Standardized toolsets for `filesystem-stargate`, `rcon-chonk`, and `git-ledger` are operational and being utilized by the T2BM pipeline.
-- **Hardware Health:** Monitoring Pi 5 thermals during heavy T2BM inference; current temps stable at ~62°C, well within operational limits.
+- **Emerald Mirror API Bridge:** (May 8, 2026) Successfully transitioned to the primary API bridge between LLM architectural logic and RCON deployment tools for the Emerald Mirror project.
+- **Telemetry Hub Integration**: Successfully integrated a dedicated `TelemetryListener`. The node now acts as a reactive control hub for events originating from the Chonk host.
+- **Directory Restructuring**: Decoupled network ingestion from core MCP logic.
+- **NFS Mount Standardization:** Fully integrated with the standardized `/mnt/clusterfs/minecraft/schematics` NFS mount for mutated schematic data.
+- **T2BM Pipeline Optimization:** Refined the "Repairing" stage for Emerald Mirror mutations, leveraging high-speed NVMe I/O for faster block-state validation.
+- **Hardware Health:** Pi 5 thermals stable at ~62°C during Emerald Mirror inference.
 
 ---
-*Created for theDevilsVoice | Last Updated: April 11, 2026*
+*Created for theDevilsVoice | Last Updated: May 8, 2026*
