@@ -1,7 +1,6 @@
 from diagrams import Cluster, Diagram, Edge
 from diagrams.generic.device import Tablet
 from diagrams.onprem.compute import Server
-
 # Changed SQL to Mysql to fix the ImportError
 from diagrams.onprem.database import Mysql
 from diagrams.onprem.network import Internet

@@ -2,8 +2,12 @@ import asyncio
 import json
 import logging
 import os
-from src.stargate.telemetry_listener import TelemetryListener
+import sys
 
+# Add the project root to sys.path for module imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+from src.stargate.telemetry_listener import TelemetryListener
 from src.utils.config_utils import setup_logging
 
 # Configure Logging

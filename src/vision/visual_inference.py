@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import json
+
 import requests
-from pycoral.utils.edgetpu import make_interpreter
-from pycoral.adapters import common, classify
 from PIL import Image
+from pycoral.adapters import classify, common
+from pycoral.utils.edgetpu import make_interpreter
 
 # Hub 06 Config
 STARGATE_HOST = "http://stargate.local:8080/api/t2bm/prompt"

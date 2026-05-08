@@ -1,8 +1,11 @@
 import asyncio
 import json
 import logging
-import sys
 import os
+import sys
+
+# Add the project root to sys.path for module imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from src.stargate.handlers.cart_handler import handle_cart_pass
 from src.stargate.internal.telemetry.validator import validate_telemetry_packet

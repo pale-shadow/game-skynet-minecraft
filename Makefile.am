@@ -21,11 +21,11 @@ python:
 
 stargate: python
 	@echo "==> Deploying Stargate MCP Services..."
-	$(PYTHON) -m pip install -r src/servers/stargate/requirements-stargate.txt
+	$(PYTHON) -m pip install -r src/stargate/requirements-stargate.txt
 
 edge-t: python
 	@echo "==> Deploying Edge-T Vision Services..."
-	$(PYTHON) -m pip install -r src/servers/edge-t/requirements-edge-t.txt
+	$(PYTHON) -m pip install -r src/edge-t/requirements-edge-t.txt
 
 test:
 	@echo "==> Initiating BSFR Distributed Test Suite..."
