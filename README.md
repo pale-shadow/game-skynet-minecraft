@@ -21,16 +21,22 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 4.  Join and start your journey at **Washington Station (The Zero Point)**
 
 ## ✨ Current Features
-*   **The Deep-Rail Project:** Experience vertical logistics connecting the **Rail Yard (Y:63)** to the **Deep Station (Y:31)**
-*   **Void-Tech Architecture:** Explore the newest "Urbanized" districts featuring high-tech mycelial aesthetics
-*   **Autonomous Builders:** Witness a world built by AI logic cores running on dedicated local hardware, now with pre-deployment overlap prevention for structural integrity.
+*   **The Deep-Rail Project:** Experience vertical logistics connecting the **Rail Yard (Y:63)** to the **Deep Station (Y:31)**.
+*   **v5 Industrial Architecture:** Explore the newest "Urbanized" districts featuring high-detail greebling, fluted pillars, and grid-iron girder aesthetics.
+*   **Emerald Mirror Pipeline:** A distributed AI pipeline that evolves the world through context-aware architectural greebling and spatial mutation.
 
 ## 🧠 AI Infrastructure
-The Bitsmasher network utilizes a distributed AI control plane to manage autonomous urbanization while maintaining a strict **20 TPS** server performance target.
+The Bitsmasher network has transitioned into a **Distributed Neural Engine**, utilizing a multi-node control plane to manage autonomous urbanization while maintaining a strict **20 TPS** server performance target.
 
-*   **Stargate (Hub-01):** LLM Building Inference & Orchestration (Ollama/T2BM).
-*   **Skynet (Hub-00):** NPU-accelerated Geometric Expansion (Hailo-8L).
-*   **Edge-T (Hub-06):** TPU-driven Vision Verification (Google Edge TPU).
+*   **Skynet (Hub-00):** Orchestrator & Vertex Gateway. Primary task: **Structural Integrity Audits** using the Hailo-8L NPU and global spatial mapping.
+*   **Stargate (Hub-01):** Control Plane and RCON proxy. Specialized in **Macro-Schematic Orchestration** via Ollama (T2BM).
+*   **Edge-T (Hub-06):** Vision Overseer. Specialized in **Greebling Density Verification** using the Google Edge TPU to ensure aesthetic compliance.
+*   **Jetson Cluster (Edge-J 01-04):** NVIDIA Jetson nodes responsible for CUDA-accelerated **Heavy Voxel Math**, including botanical placement and industrial greebling refinement.
+
+## 🛠️ Critical Infrastructure & Operations
+*   **ClusterFS Dependency:** The Hailo-8L NPU (Skynet) and Edge TPU (Edge-T) require a stable **ClusterFS mount** over `eth0` for shared vision datasets, spatial logs, and schematic exchange.
+*   **Injection Throttling:** All automated RCON block injections must implement a minimum **0.05s delay per block** to safeguard the 20 TPS server target and prevent engine stalls.
+*   **Voxelization Offloading:** Heavy geometric calculations are offloaded to the Edge-J cluster to keep the primary orchestrator NPUs free for real-time spatial analysis.
 
 For instructions on running local models (like Llama 3.1) on the Stargate node, see:
 👉 **[Ollama Integration Guide](docs/OLLAMA.md)**

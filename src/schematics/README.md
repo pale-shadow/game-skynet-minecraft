@@ -1,39 +1,29 @@
-# Schematics & Procedural Generation
+# Schematics & Emerald Mirror Pipeline
 
-This directory contains legacy schematics and the newer **Skynet Procedural Generators** for the 2026 "Void-Tech" era.
+This directory is the operational hub for the **Emerald Mirror** project—a distributed AI pipeline that evolves the Bitsmasher Minecraft environment through context-aware architectural greebling.
 
-- [I like this tool craftmatic](https://github.com/tribixbite/craftmatic)
-
-## Procedural Generators (Skynet v7+)
-The Skynet system now includes various modular builder functions for different structure types (e.g., high-fidelity industrial stations, houses, interiors, banks). For a comprehensive and up-to-date list of active builders, refer to `src/schematics/GEMINI.md`.
-- **`neural_rail_v7_nexus.py`**: Procedurally generates logistics hubs with ribbed geometry.
-- **`neural_bridge_v8_pathfinder.py`**: Dynamically calculates and builds intelligent rail links.
-- **`generate_signal_core.py`**: Python-based generator for "Signal Core" data hubs.
-
-## Legacy Schematics (WorldEdit)
-Legacy schematics are located in `schem_files/` and can be loaded via WorldEdit.
-
-### Installing Schematics
-- Place `.schem` or `.schematic` files in `/home/minecraft/minecraft/config/worldedit/schematics`.
-- Run `/schem load <name>` in-game.
-- Run `//paste` to deploy.
-
-## Go Tools (Legacy Generation)
-The project originally used Go for large-scale schematic handling:
-```sh
-mkdir -p ~/src/schematic-go
-cd ~/src/schematic-go
-go mod init github.com/chonk/minecraft-station
-go get github.com/Tnze/go-mc@master
-```
-
-## Hybrid Workflow
-The 2026 architecture combines **pre-built schematics** with **NPU-driven procedural logic** to create an evolving, reactive environment in the AI Testing Field. This now includes robust pre-deployment 3D AABB overlap detection (`src/schematics/validate_no_overlaps.py`) to ensure structural integrity and prevent conflicting builds.
-
-## v5 Architectural Standards (Industrial)
-To match high-fidelity reference aesthetics, v5 schematics must adhere to the following technical specifications:
+## 🏛️ v5 Industrial Standards
+To match the "Emerald Mirror" goals, all schematics must adhere to the following technical specifications:
 *   **Voxel Density**: Minimum bounding box of $20 \times 15 \times 25$.
-*   **Structural Depth**: Mandatory use of the "Rule of Three" (Base Layer, Structural Pillar Layer, and Accent Girder Layer).
-*   **Fluted Pillars**: 3x3 footprint utilizing `minecraft:purpur_pillar[axis=y]` cores.
-*   **Industrial Lighting**: Integration of `minecraft:pearlescent_froglight` within girder intersections.
-*   **Grid-Iron Girders**: Intersecting longitudinal and transverse beams using `dark_prismarine` and `warped_fences`.
+*   **Rule of Three**: Mandatory use of Base, Structural Pillar, and Accent Girder layers.
+*   **Fluted Pillars**: 3x3 footprint utilizing `minecraft:purpur_pillar` cores.
+*   **Industrial Lighting**: `minecraft:pearlescent_froglight` at girder intersections.
+
+## 📊 Schematic Classification
+Schematics are categorized into two types to support layered builds:
+1.  **Foundation**: Core skeletal structures (Towers, Bridges, Hubs).
+2.  **Delta**: AI-generated greebling layers that "wrap" around foundations.
+
+**Mandatory Metadata**: Every `.schem` file must have a `.json` metadata file containing the `schematic_type` field.
+
+## 🔄 Delivery Loop & Injection
+Spatial data is processed via Vertex AI and the Edge-J Jetson cluster. Resulting deltas are pushed to the **chonk** server via automated RCON scripts.
+
+### **Injection Throttling**
+To maintain a stable **20 TPS server target**, all block injections must implement a **0.05s delay per block**.
+
+## 🛠️ Procedural Generators
+Active builders are documented in `src/schematics/GEMINI.md`.
+- **`process_chronosplicer.py`**: Parses high-concept architectural prose into greebled JSON voxel maps.
+- **`station2.py`**: High-fidelity industrial station builder.
+- **`neural_bridge_v8_pathfinder.py`**: Intelligent rail link calculator.
