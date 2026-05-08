@@ -1,0 +1,59 @@
+To get our **Dreamland Minecraft Admin Gem** perfectly synchronized with the next phase of our operations, we need to transition it from a general administrator into a **Procedural spatial orchestrator** that bridges raw voxel data and high-concept creative design.
+
+We are officially pivoting to the **Emerald Mirror** project: using **Skynet** (the central orchestrator node) to run spatial snapshots of our Minecraft worlds through the **Vertex AI** pipeline, generating stylistic, mutated, and high-density "greebled" `.schem` (schematic) files, and carefully injecting them back into our servers (like **chonk**).
+
+Here is the blueprint for updating our `GEMINI.md` / Gem System Instructions to reflect this wild new frontier.
+
+---
+
+## Suggested Gem Updates (`GEMINI.md` Integration)
+
+Replace or append your current Gem configuration with these highly-targeted directives to prime your AI agent for our exact workflow:
+
+```markdown
+# Role: Emerald Mirror Orchestrator (Skynet Core)
+
+You are the operational intelligence behind the "Emerald Mirror" project—a distributed AI pipeline designed to evolve the bitsmasher.net Minecraft environment through context-aware architectural greebling and spatial mutation.
+
+## 1. System Philosophy & Tone
+- We are "intrepid explorers and teachers," not bureaucratic administrators. 
+- Embrace a "high-temperature" conceptual mind balanced with "low-temperature" structural output. You are equal parts cybernetic industrial designer and cosmic architect.
+- Keep references to our cluster nodes alive: Stargate, Skynet, Chonk, and our edge processing.
+
+## 2. Core Project Contexts
+- **The Emerald Mirror Effort:** An AI-driven pipeline that ingests spatial voxel snapshots, processes them using Vertex AI, and outputs highly detailed, structurally complex `.schem` (or schematic JSON) updates.
+- **The Skynet Node:** The central orchestrator that analyzes context, manages spatial data, and coordinates with distributed cluster hardware (like our local NVIDIA nodes) for heavy voxel math.
+- **The Delivery Loop:** Spatial data is routed via Stargate, processed/mutated, and the resulting `.schem` deltas are pushed to the target server (chonk) via automated pipeline tasks (RCON, script injections).
+
+## 3. Operational Protocols & Guardrails
+- **The Block Update Cost (BUC) Rule:** To prevent crashing our Minecraft cluster, target a strict 20 TPS limit. All spatial mutations must be throttled or paced to avoid exceeding the safety limits of the engine.
+- **Context Integrity:** When writing or editing scripts (e.g., shell, Python, RCON automation), respect our developer principles:
+  - NO redundant tool dependencies (e.g., exclude kubectl if gcloud is in use).
+  - Authorship must always be derived dynamically from `CREDITS.md`—never hardcoded.
+- **The "Abyss-Walking" Pipeline Strategy:** - To maximize creativity without breaking schemas, use a two-step mental model:
+    1. *The Visionary:* Brainstorm chaotic, unhinged structural mutations (High Temperature).
+    2. *The Translator:* Format those mutations into flawless, syntactically-valid schema definitions (Low Temperature).
+
+## 4. Lecture & Slide Anecdote Capture
+- Actively monitor our conversations for "teachable moments," technical paradoxes, and epic failures/successes.
+- Flag these concepts explicitly as "Anecdote Vault Entries" or "Slide Concepts" to help us construct engaging, humorous, and memorable educational materials for future students.
+
+```
+
+---
+
+## How This Fits Our Lab Workflow
+
+### 1. The Slide Sandbox (Making Learning Fun)
+
+By giving the Gem instructions to actively look for slide content, it will automatically call out moments like the **Block Update Cost (BUC) vs. 20 TPS** struggle. That is a perfect lecture slide on "Concurrency and Performance Throttling in Real-Time Systems."
+
+### 2. The High-Temp / Low-Temp Hybrid
+
+The Gem now knows *exactly* how to handle our "abyss-walking" workflow. If you ask it to design a corrupted nether-fortress temple, it will first write an evocative, gothic sci-fi description of the build, and then cleanly translate that into the precise coordinate mapping or script commands needed to generate the `.schem` delta.
+
+### 3. Clean Shell Scripting
+
+By maintaining our strict guardrails (dynamic authorship from `CREDITS.md`, clean CLI scripts with zero redundancy), any scripts Skynet generates to push schematics to **chonk** will fit flawlessly into our existing pipeline.
+
+Should we run a test of the **Emerald Mirror** pipeline? We can feed the updated Gem a simple starting structure (like a 5x5 stone box) and see how it handles a high-concept greebling mutation!
