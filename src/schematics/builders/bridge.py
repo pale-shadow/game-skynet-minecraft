@@ -12,102 +12,86 @@ from .primitives import cuboid_filled, flat_plane, line_z
 
 
 def build_bridge(schem: mcschematic.MCSchematic, prompt: dict):
-    # Use v5 Industrial Standards
+    # Use v5 Industrial Standards (Emerald Mirror Project)
     dims = prompt.get("dimensions", {})
-    w = dims.get("width", 5)  # width of bridge (X)
+    w = dims.get("width", 7)  # Increased default width for fluted pillars
     h = dims.get("height", 8)  # arch height
     l = dims.get("length", 25)  # span of bridge (Z)
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
-    primary = mats.get("primary", "minecraft:stone_bricks")
-    secondary = mats.get("secondary", "minecraft:stone_brick_slab")
-    slab = mats.get("secondary", "minecraft:stone_brick_slab")
-    fence = mats.get("fence", "minecraft:stone_brick_wall")
-    roof_mat = mats.get("roof", primary)
-    light = mats.get("light", "minecraft:lantern")
+    # v5 Industrial Palette Defaults
+    primary = mats.get("primary", "minecraft:polished_deepslate_bricks")
+    secondary = mats.get("secondary", "minecraft:dark_prismarine")
+    pillar_mat = mats.get("pillar", "minecraft:purpur_pillar")
+    girder_mat = mats.get("girder", "minecraft:dark_prismarine")
+    fence_mat = mats.get("fence", "minecraft:warped_fence")
+    light_mat = mats.get("light", "minecraft:pearlescent_froglight")
+    floor_mat = mats.get("floor", "minecraft:polished_andesite")
 
     has_railing = feats.get("has_railing", True)
     arch_style = feats.get("arch_style", "round")
     has_rail_bed = feats.get("has_rail_bed", False)
-    vaulted_ceiling = feats.get("vaulted_ceiling", False)
-    side_walkways = feats.get("side_walkways", False)
+    vaulted_ceiling = feats.get("vaulted_ceiling", True) # v5 prefers vaulted industrial look
+    side_walkways = feats.get("side_walkways", True)
 
-    if arch_style == "none" or (has_rail_bed and arch_style == "round"):
-        # Flat bridge or rail bed
-        flat_plane(schem, 0, 0, 0, w - 1, l - 1, primary)
+    # Base Foundation (Rule of Three: Base Layer)
+    flat_plane(schem, 0, 0, 0, w - 1, l - 1, floor_mat)
 
-        if has_rail_bed:
-            # Place track bed in middle
-            mid_x = w // 2
-            line_z(
-                schem,
-                mid_x,
-                0,
-                0,
-                l - 1,
-                "minecraft:polished_deepslate",
-            )
-            line_z(schem, mid_x, 1, 0, l - 1, "minecraft:powered_rail[powered=true]")
+    # Grid-Iron Girders (Rule of Three: Accent Girder Layer)
+    # Longitudinal girders
+    line_z(schem, 0, 0, 0, l - 1, girder_mat)
+    line_z(schem, w - 1, 0, 0, l - 1, girder_mat)
+    # Transverse girders every 5 blocks
+    for z in range(0, l, 5):
+        for x in range(w):
+            schem.setBlock((x, 0, z), girder_mat)
 
-        if side_walkways:
-            line_z(schem, 0, 0, 0, l - 1, secondary)
-            line_z(schem, w - 1, 0, 0, l - 1, secondary)
+    if has_rail_bed:
+        # Place track bed in middle
+        mid_x = w // 2
+        line_z(schem, mid_x, 0, 0, l - 1, "minecraft:polished_deepslate")
+        line_z(schem, mid_x, 1, 0, l - 1, "minecraft:powered_rail[powered=true]")
 
-        # Vaulted Ceiling
-        if vaulted_ceiling:
-            for z in range(l):
-                from .primitives import arch_xz
-
-                arch_xz(schem, 0, 1, z, w - 1, h, roof_mat)
-                # Interior lighting
-                if z % 4 == 0:
-                    schem.setBlock((w // 2, h, z), light)
-
-        # Railings
-        if has_railing and not vaulted_ceiling:
-            for z in range(l):
-                schem.setBlock((0, 1, z), fence)
-                schem.setBlock((w - 1, 1, z), fence)
-    else:
-        # Arched bridge
-        mid_z = l / 2.0
-        radius_z = l / 2.0
-
+    # Side Walkways with Industrial Lighting
+    if side_walkways:
         for z in range(l):
-            # Calculate arch height at this z position
-            dz = z - mid_z
-            if arch_style == "round":
-                if abs(dz) <= radius_z:
-                    arch_y = int(
-                        math.sqrt(max(0, radius_z * radius_z - dz * dz))
-                        * (h / radius_z)
-                    )
-                else:
-                    arch_y = 0
-            elif arch_style == "pointed":
-                arch_y = int(h * (1.0 - abs(dz) / radius_z))
-            else:
-                arch_y = 0
+            schem.setBlock((0, 0, z), primary)
+            schem.setBlock((w - 1, 0, z), primary)
+            # Integrated Lighting in the floor
+            if z % 6 == 0:
+                schem.setBlock((0, 0, z), light_mat)
+                schem.setBlock((w - 1, 0, z), light_mat)
 
-            # Deck at arch height
-            for x in range(w):
-                schem.setBlock((x, arch_y, z), primary)
-                # Slab on top for walkway
-                schem.setBlock(
-                    (x, arch_y + 1, z), f"{slab}[type=bottom]" if slab else primary
-                )
+    # Vaulted Ceiling / Structure
+    if vaulted_ceiling:
+        for z in range(l):
+            from .primitives import arch_xz
+            arch_xz(schem, 0, 1, z, w - 1, h, girder_mat)
+            # Accent Girder Layer (Warped Fences)
+            if z % 2 == 0:
+                schem.setBlock((0, 2, z), fence_mat)
+                schem.setBlock((w - 1, 2, z), fence_mat)
 
-            # Support pillars underneath (every 5 blocks)
-            if z % 5 == 0:
-                for y in range(0, arch_y):
-                    schem.setBlock((0, y, z), primary)
-                    schem.setBlock((w - 1, y, z), primary)
-
-            # Railings
-            if has_railing:
-                schem.setBlock((0, arch_y + 2, z), fence)
-                schem.setBlock((w - 1, arch_y + 2, z), fence)
+    # Fluted Pillar Supports (Rule of Three: Structural Pillar Layer)
+    # Every 8 blocks, place a 3x3 fluted pillar support
+    for z in range(0, l, 8):
+        # Support locations
+        for sx in [0, w - 3]: # Left and Right supports
+            # 3x3 Footprint for Fluted Pillars
+            for px in range(sx, sx + 3):
+                for pz in range(z, z + 3):
+                    # Vertical pillar core
+                    for py in range(-5, 0): # Support goes down into the 'foundation'
+                        schem.setBlock((px, py, pz), pillar_mat)
+            # Recessed Shadows (Stairs around the 3x3 core)
+            # Simplified for now: just the core
+            
+    # Railings
+    if has_railing:
+        for z in range(l):
+            schem.setBlock((0, 1, z), fence_mat)
+            schem.setBlock((w - 1, 1, z), fence_mat)
 
     return schem
 

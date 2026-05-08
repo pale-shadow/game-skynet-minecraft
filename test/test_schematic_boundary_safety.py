@@ -1,4 +1,7 @@
 import math
+import sys
+import json
+import os
 
 import pytest
 
@@ -23,20 +26,53 @@ def check_hub_collision(pos, radius=10):
             (pos["x"] - coords["x"]) ** 2 + (pos["z"] - coords["z"]) ** 2
         )
         if distance < radius:
-            return True
-    return False
+            return True, hub_name
+    return False, None
 
 
-def test_schematic_boundary_safety():
+def test_schematic_boundary_safety(file_path=None):
     """
-    Ensures new schematics do not overlap with Hub 01 (Logic Core)
-    or Hub 02 (Transmission Core) coordinates.
+    Ensures new schematics do not overlap with critical Skynet Hub infrastructure.
+    If file_path is provided, it validates the voxels within.
     """
-    # New position in the Abyssal Reef sector, far from known hubs
-    new_schem_pos = {"x": 1950, "y": 84, "z": 750}
+    if file_path and os.path.exists(file_path):
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+        
+        # New position in the Abyssal Reef sector, far from known hubs
+        # We offset the relative voxels by this anchor
+        anchor = {"x": 1950, "y": 84, "z": 750}
+        
+        for voxel in data.get("voxels", []):
+            pos = {
+                "x": anchor["x"] + voxel["x"],
+                "y": anchor["y"] + voxel["y"],
+                "z": anchor["z"] + voxel["z"]
+            }
+            collision, hub = check_hub_collision(pos, radius=10)
+            if collision:
+                pytest.fail(f"Safety Breach: Voxel at {pos} overlaps with {hub}!")
+        
+        print(f"[√] All {len(data.get('voxels', []))} voxels passed boundary safety at anchor {anchor}.")
+    else:
+        # Default safety check for the anchor point itself
+        new_schem_pos = {"x": 1950, "y": 84, "z": 750}
+        collision, hub = check_hub_collision(new_schem_pos, radius=10)
+        assert (
+            collision is False
+        ), f"Safety Breach: Schematic anchor at {new_schem_pos} overlaps with {hub}!"
 
-    collision = check_hub_collision(new_schem_pos, radius=10)
-
-    assert (
-        collision is False
-    ), f"Safety Breach: Schematic overlaps with critical Skynet Hub infrastructure!"
+if __name__ == "__main__":
+    # If run as a script, check the provided file
+    if len(sys.argv) > 1:
+        test_file = sys.argv[1]
+        try:
+            test_schematic_boundary_safety(test_file)
+            print("[+] Boundary Safety Validation: SUCCESS")
+        except Exception as e:
+            print(f"[-] Boundary Safety Validation: FAILED - {e}")
+            sys.exit(1)
+    else:
+        # Run default test
+        test_schematic_boundary_safety()
+        print("[+] Boundary Safety Validation: SUCCESS (Default Anchor)")

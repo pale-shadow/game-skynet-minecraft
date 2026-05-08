@@ -30,5 +30,6 @@
     "tps_pre_deployment": 20.0,
     "tps_post_deployment": 19.98,
     "fawe_asynchronous_load": true
-  }
+  },
+  "schematic_type": "Foundation"
 }
