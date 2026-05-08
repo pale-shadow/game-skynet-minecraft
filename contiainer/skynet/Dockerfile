@@ -1,5 +1,5 @@
 # Dockerfile.skynet
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 LABEL maintainer="admin@bitsmasher.net"
 LABEL role="skynet-ai-orchestration"
