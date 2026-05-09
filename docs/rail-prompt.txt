@@ -1,0 +1,10 @@
+Generate an asynchronous Python module src/rail/rail_manager.py for a Paper 1.21.11 environment. The module must:
+
+Hot-Reloading Registry: Implement a RailRegistry class that monitors config/rail_registry.json for changes using file modification timestamps, as suggested by local Llama 3 reviews.
+2. Async RCON Controller: Use asyncio and the rcon library to toggle powered_rail blocks using /execute in minecraft:overworld run setblock .... Include a 0.05s delay between commands to protect the 20 TPS target.
+
+Edge TPU Safety Interlock: Before any switch toggle, query the Edge-T (Hub-06) vision daemon. If a player is detected within a 5-block radius of the target coordinate, abort the operation and log a warning to logs/rail_safety.log.
+
+BlueMap Integration: Include a MarkerManager that updates the BlueMap markers.json file. Switches should appear as green POIs when active (primary route) and red when inactive (siding).
+
+Robust Error Handling: Implement the Llama 3 recommendation to use try-except blocks for all metadata retrieval and log critical failures at the ERROR level.
