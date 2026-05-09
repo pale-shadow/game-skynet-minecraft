@@ -1,0 +1,32 @@
+\chapter{Distributed Node Topology}
+\label{chap:topology}
+
+The bitsmasher.net infrastructure is established on a decentralized, heterogeneous compute grid. Node assignment splits heavy I/O operations, JVM world-state execution, and on-device neural inferencing across optimized platforms.
+
+\section{Core Compute Grid Nodes}
+
+\begin{description}
+    \item[Chonk] The primary gameplay execution engine. It hosts the Paper server and coordinates low-level coordinate mutations via custom bridge interfaces.
+    \item[Skynet] The local AI orchestration node. It processes neural pipeline coordination, NBT file manipulation, and runs the local spatial engines.
+    \item[Stargate] The high-throughput Model Context Protocol (MCP) hub and network routing plane.
+    \item[Edge-T] The physical network boundary agent handling telemetry interception.
+\end{description}
+
+\section{System Metrics \& Runtime baselines}
+To ensure predictable execution timings under heavy block modifications, the runtime states must align with the parameters defined in Table~\ref{tab:runtime_topology}.
+
+\begin{table}[htbp]
+\centering
+\caption{Distributed Cluster Runtime Configurations}
+\label{tab:runtime_topology}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Node} & \textbf{Platform / Engine} & \textbf{Vessel Target} & \textbf{Network Port} & \textbf{Purpose} \\ 
+\midrule
+Chonk    & Paper 26.1.5            & Java 25                & 25565 / 25575         & World Persistence \\
+Skynet   & Python 3.11 / venv      & Debian Bookworm (rpi)  & --                    & T2BM Orchestration \\
+Stargate & Go / Python Daemons     & Linux AMD64            & 5005                  & MCP / Tel. Hub \\
+Edge-T   & LiteRT / Mendel OS      & i.MX 8M ARM64          & --                    & Boundary Vision \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,52 @@
+\chapter{Operational Protocols \& Telemetry}
+\label{chap:protocols}
+
+Our distributed nodes run asynchronous telemetry listeners to monitor server status and coordinate transport actions in real time.
+
+\section{Socket Configuration and Ports}
+Communication channels strictly adhere to the internal network matrix documented in Table~\ref{tab:port_map}.
+
+\begin{table}[htbp]
+\centering
+\caption{System Port Interface Matrix}
+\label{tab:port_map}
+\begin{tabular}{llll}
+\toprule
+\textbf{Port} & \textbf{Protocol} & \textbf{Traffic Type} & \textbf{Service Endpoint} \\ 
+\midrule
+25565 & TCP & Game Client Handshakes & Paper Minecraft Server \\
+25575 & TCP & Administrative Console & RCON Control Bridge \\
+5005  & TCP & Telemetry Events       & CART\_PASS Async Listener \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Telemetry Event Processing}
+When a physical minecart triggers an accelerated detector rail array on Chonk, the telemetry sender encapsulates metadata regarding the transit and forwards it to Stargate on Port 5005.
+
+Let $E_{cart}$ be the telemetry event package. The serialized JSON envelope must strictly map to the following payload schema:
+
+\begin{lstlisting}[style=bashstyle, caption={CART\_PASS Telemetry JSON Schema}]
+{
+  "event": "CART_PASS",
+  "node": "CHONK-01",
+  "data": {
+    "rail_id": "WASHINGTON_TERM_04",
+    "coordinates": {
+      "x": -1042,
+      "y": 64,
+      "z": 1289
+    },
+    "timestamp": 1778346300
+  }
+}
+\end{lstlisting}
+
+\section{Debugging Pipelines}
+If an AI agent confirms building generation but changes are not reflected in the live world, administrators must isolate the pipeline drop points:
+
+\begin{equation}
+    \text{T2BM Output} \xrightarrow{\text{Validated}} \text{test\_core.log} \xrightarrow{\text{Transited}} \text{hailort.log} \xrightarrow{\text{Injected}} \text{Chonk RCON}
+\end{equation}
+
+By sequentially running the unit test targets via \texttt{pytest}, drop points can be identified and cleared before pipeline timeouts occur.
