@@ -56,3 +56,11 @@ The presentation must trace the lifecycle of a signal from its physical origin i
 10. **Codebase Segregation:** `src/servers/chonk/` vs. `src/servers/stargate/`
 11. **Future Hardware Acceleration:** TPU/NPU roadmap
 12. **Questions & Discussion**
+
+## Emerald Mirror & Slide Harvesting
+* **Anecdote Vault:** Actively monitor for "teachable moments" and technical paradoxes within the Emerald Mirror pipeline (e.g., Block Update Cost (BUC) vs. 20 TPS).
+* **Slide Generation Trigger:** Proactively suggest slide content for major Emerald Mirror milestones or complex concepts (e.g., "Abyss-Walking" design strategy).
+* **Visual Standards:** Use high-contrast, modern CSS/HTML slide templates for technical breakdowns.
+
+---
+*Created for theDevilsVoice | Last Updated: May 8, 2026*

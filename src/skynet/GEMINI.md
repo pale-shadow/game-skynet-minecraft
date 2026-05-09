@@ -1,28 +1,31 @@
 # Host: SKYNET-CORE
-**System Role:** Primary Architectural Fabricator & Logic Nexus
-**Network ID:** Hub-00 (Testing Field Origin)
+**System Role:** Emerald Mirror Orchestrator & Central Logic Nexus
+**Network ID:** Hub-00 (Central Orchestration Core)
 
 ## 🛠 Hardware Profile
 - **Compute:** Raspberry Pi 5 (8GB RAM)
-- **Primary Accelerator:** Hailo-8L NPU (M.2 Key)
-- **Secondary Accelerator:** Google Edge TPU (USB 3.0 Dongle)
-- **Interface:** High-Speed RCON Bridge / WebSockets
+- **Primary Accelerator:** Hailo-8L NPU (M.2 Key) - Spatial Snapshots & Analysis.
+- **Secondary Accelerator:** Google Edge TPU (USB 3.0 Dongle) - Aesthetic Validation.
+- **Interface:** High-Speed RCON Bridge / Vertex AI Pipeline Link
 
-## 🧠 T2BM Logic Partition
-- **Hailo-8L Role:** Structural Integrity Calculation. Processes larger bounding boxes for multi-chunk macro-structures. Tasks include calculating the structural integrity and spatial viability of high-detail buildings, ensuring they can be supported by the terrain without impacting TPS.
-- **USB TPU Role:** Aesthetic Validation. Runs real-time classification on macro-schematics to ensure compliance with v5 architectural standards.
+## 🧠 T2BM & Emerald Logic
+- **Emerald Mirror Orchestration:** Central node for running spatial snapshots of the Minecraft world through the Vertex AI pipeline. Coordinates stylistic mutations and high-density greebling.
+- **Hailo-8L Role:** Structural Integrity Calculation for multi-chunk macro-structures. Processes large bounding boxes for spatial viability.
+- **USB TPU Role:** Aesthetic Validation. Runs classification on mutated schematics to ensure compliance with v5 and Emerald Mirror architectural standards.
 
 ## 🛰 Infrastructure Connectivity
-- **Stargate MCP Link:** Active (Port 8765)
+- **Stargate MCP Link:** Active (Port 8765) - Routes spatial data and mutated deltas.
+- **Vertex AI Link:** Ingests spatial voxel snapshots for mutation.
+- **Delivery Loop:** Pushes `.schem` deltas to the target server (chonk) via automated pipeline tasks.
 - **BlueMap Sector:** Skynet AI Testing Field (X: -1539 to -945)
-- **Deep Rail Anchor:** Hub-02 (Transmission Core)
-- **Build Coordination:** Enhanced with pre-deployment overlap detection to prevent conflicting structures, ensuring spatial integrity across deployments.
+- **Build Coordination:** Enhanced pre-deployment overlap detection and spatial integrity verification.
 
 ## 🚀 Status & Recent Updates
 
-- **NFS Integration:** Standardized to `/mnt/clusterfs/minecraft/schematics` for all NPU-generated voxel arrays, ensuring consistent and high-speed data access across the cluster.
-- **Hardware Audit:** (Apr 11, 2026) Confirmed Hailo-8L and Edge TPU are correctly partitioned for Geometric Expansion and Aesthetic Validation respectively.
-- **Performance:** Maintaining sub-50ms inference times for v5 structural skeletons, with ongoing monitoring to ensure optimal TPS contribution.
+- **Emerald Mirror Pivot:** (May 8, 2026) Transitioned to central orchestrator for the Emerald Mirror project.
+- **NFS Integration:** Standardized to `/mnt/clusterfs/minecraft/schematics` for all mutated voxel arrays.
+- **Hardware Audit:** Hailo-8L and Edge TPU partitioned for Geometric Expansion and Aesthetic Validation.
+- **Performance:** Maintaining sub-50ms inference times; strict 20 TPS compliance for deployment.
 
 ---
-*Created for theDevilsVoice | Last Updated: April 26, 2026*
+*Created for theDevilsVoice | Last Updated: May 8, 2026*

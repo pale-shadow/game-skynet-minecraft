@@ -20,14 +20,18 @@ The MCP bridges high-level LLM reasoning with Minecraft server administrative to
 *   **Documentation**:
     *   Synced `README.md` and `src/servers/stargate/README.md` to reflect the new directory structure and the `make stargate` build target.
 
-## 3. Repository Structure
+## 3. Repository Structure & Emerald Integration
 
 *   `src/mcp_server/`: Contains the Python scripts and configuration for MCP servers.
     *   `mcp-server.py`: Base utility server.
     *   `mcp-servers.json`: Configuration registry for MCP servers.
-    *   `schematic_generator_orchestrator.py`: LLM orchestration logic.
+    *   `schematic_generator_orchestrator.py`: LLM orchestration logic for Emerald Mirror mutations.
+*   **Emerald Mirror Tooling:**
+    *   `spatial-snapshot-tool`: Ingests voxel data from Chonk for mutation.
+    *   `vertex-ai-link`: Routes data to Vertex AI and retrieves greebled deltas.
+    *   `BUC-throttler`: Ensures RCON deployments stay within 20 TPS limits.
 *   `test/test_mcp_stargate.py`: Functional tests for MCP services.
-*   `Makefile.am`: Added `stargate` target for environment synchronization and dependency management.
+*   `Makefile.am`: Added `stargate` target for environment synchronization.
 
 ---
-*Created for theDevilsVoice | Last Updated: April 14, 2026*
+*Created for theDevilsVoice | Last Updated: May 8, 2026*

@@ -4,12 +4,14 @@ This document provides a Gemini-specific overview of the Skynet Distributed Test
 
 ## 1. Purpose
 
-The Skynet Distributed Test Suite is designed to validate the Stargate MCP and the hardware-accelerated "Void-Tech" infrastructure. Its primary goal is to ensure that AI-driven urbanization operations remain within the **20 TPS performance ceiling** and adhere to safety protocols.
+The Skynet Distributed Test Suite is designed to validate the Stargate MCP, the hardware-accelerated "Void-Tech" infrastructure, and the **Emerald Mirror spatial mutation pipeline**. Its primary goal is to ensure that AI-driven urbanization and greebling operations remain within the **20 TPS performance ceiling** and adhere to spatial integrity protocols.
 
 ## 2. Test Categories and Descriptions
 
-### 2.1. AI & Logic (T2BM Pipeline)
+### 2.1. AI & Logic (T2BM & Emerald Mirror)
 
+*   **`test_emerald_mirror_snapshot.py`**: (New) Validates the capture of spatial voxel snapshots from the Chonk server for mutation.
+*   **`test_vertex_ai_mutation.py`**: (New) Audits the Vertex AI link for stylistic mutation and high-density greebling fidelity.
 *   **`test_gemini_link.py`**: Validates the **prompt refinement** phase using the Gemini 2.0 Flash API. Confirms connectivity and responsiveness of the AI's input processing.
 *   **`test_hailo_npu_decoding_validity.py`**: Audits the Raspberry Pi 5 and Hailo-8L NPU's **spatial inference capabilities** to find optimal build vectors. This ensures the NPU accurately identifies suitable locations for new structures, rather than decoding raw architectural concepts (which is a Stargate responsibility).
 *   **`test_builders.py`**: Exercises the **repairing and construction** logic for autonomous builders (e.g., Tower, Castle). Verifies that builder scripts function correctly and add blocks to schematics.
