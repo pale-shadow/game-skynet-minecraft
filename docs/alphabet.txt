@@ -1,0 +1,119 @@
+☁️ Alphabet Service Integration Protocol
+This protocol ensures that our local NPU/TPU acceleration tier can securely request creative reasoning from the cloud while staying within our $10/mo credit budget.
+
+1. Host-Level Installation: gcloud CLI
+The gcloud binary must be installed on Stargate (the bridge) and Skynet (the orchestrator). While edge nodes like Edge-T and Edge-J usually don't talk to GCP directly, having the CLI available aids in telemetry debugging.
+
+Installation Steps (Debian/LMDE):
+
+# Add the Google Cloud SDK distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | \
+    sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
+    sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+# Update and install
+sudo apt update && sudo apt install google-cloud-cli
+
+
+
+2. Authentication Flow
+To allow our Python scripts (running in .venv) to access Vertex AI without hardcoding API keys, we use Application Default Credentials (ADC).
+
+User Authentication: Used for manual management.
+
+gcloud auth login
+
+Service Authentication (ADC): This is what the VertexBridge logic uses.
+
+gcloud auth application-default login
+
+Note: Run this from within the Stargate terminal. It generates a JSON file in ~/.config/gcloud/ that the Google AI Platform SDK automatically detects.
+
+3. Service Configuration: Vertex AI Reasoning
+The Stargate Control Plane acts as the singular gateway. This minimizes the attack surface and allows for centralized credit monitoring.
+
+Service: aiplatform.googleapis.com (Vertex AI)
+
+Model: gemini-1.5-pro (for complex architectural reasoning)
+
+Fallback Model: Local Ollama:Llama3 on Chonk (activated when credits drop below $1.00).
+
+Implementation in src/internal/vertex_bridge.py
+The code is designed to be Context-Aware. It doesn't just ask for "a building"; it passes the classification results from our Edge-T (Coral TPU) vision sensor to the cloud.
+
+4. The "Heroic" Learning Goal: Budget Sentinel
+To ensure we don't exceed the $10/mo Google Skills credits, we've integrated a monitoring hook in the Pandas Registry.
+
+MetricRegistry ColumnPurposeToken Trackingtokens_usedLogs the prompt + response weight for every build.Mutation Statevertex_enhancedA boolean check to prevent redundant cloud calls.Cost GateN/ALogic in registry_manager.py that halts calls if tokens_used exceeds the monthly threshold.
+
+Dreamland Minecraft Admin
+Custom Gem
+To realize our goal of being "heroes of learning and fun," we need to establish a hardened bridge to the Alphabet ecosystem. This documentation defines how the bitsmasher.net cluster authenticates with Google Cloud Platform (GCP) and utilizes Vertex AI for the Emerald Mirror greebling logic.
+
+☁️ Alphabet Service Integration Protocol
+This protocol ensures that our local NPU/TPU acceleration tier can securely request creative reasoning from the cloud while staying within our $10/mo credit budget.
+
+1. Host-Level Installation: gcloud CLI
+The gcloud binary must be installed on Stargate (the bridge) and Skynet (the orchestrator). While edge nodes like Edge-T and Edge-J usually don't talk to GCP directly, having the CLI available aids in telemetry debugging.
+
+Installation Steps (Debian/LMDE):
+
+Bash
+# Add the Google Cloud SDK distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | \
+    sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
+    sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+# Update and install
+sudo apt update && sudo apt install google-cloud-cli
+2. Authentication Flow
+To allow our Python scripts (running in .venv) to access Vertex AI without hardcoding API keys, we use Application Default Credentials (ADC).
+
+User Authentication: Used for manual management.
+
+gcloud auth login
+
+Service Authentication (ADC): This is what the VertexBridge logic uses.
+
+gcloud auth application-default login
+
+Note: Run this from within the Stargate terminal. It generates a JSON file in ~/.config/gcloud/ that the Google AI Platform SDK automatically detects.
+
+3. Service Configuration: Vertex AI Reasoning
+The Stargate Control Plane acts as the singular gateway. This minimizes the attack surface and allows for centralized credit monitoring.
+
+Service: aiplatform.googleapis.com (Vertex AI)
+
+Model: gemini-1.5-pro (for complex architectural reasoning)
+
+Fallback Model: Local Ollama:Llama3 on Chonk (activated when credits drop below $1.00).
+
+Implementation in src/internal/vertex_bridge.py
+The code is designed to be Context-Aware. It doesn't just ask for "a building"; it passes the classification results from our Edge-T (Coral TPU) vision sensor to the cloud.
+
+4. The "Heroic" Learning Goal: Budget Sentinel
+To ensure we don't exceed the $10/mo Google Skills credits, we've integrated a monitoring hook in the Pandas Registry.
+
+Metric	Registry Column	Purpose
+Token Tracking	tokens_used	Logs the prompt + response weight for every build.
+Mutation State	vertex_enhanced	A boolean check to prevent redundant cloud calls.
+Cost Gate	N/A	Logic in registry_manager.py that halts calls if tokens_used exceeds the monthly threshold.
+5. Deployment Matrix
+Node	Requirement	Role
+Stargate	gcloud, google-cloud-aiplatform	Primary Bridge & Credit Monitor.
+Skynet	gcloud (optional)	Orchestrates voxel transit between local and cloud tiers.
+Edge-T	LiteRT	Captures build "vibes" to send to Stargate.
+Edge-J	CUDA, TensorRT	Processes the high-detail greebles returned by Vertex AI.
+
+🛠️ Administrative Action Items
+Project Initialization: On Stargate, run gcloud config set project [YOUR_PROJECT_ID].
+
+Enable APIs: Ensure the Vertex AI API is enabled in your GCP Console.
+
+Hydration: Ensure src/requirements-stargate.txt includes google-cloud-aiplatform so the make test command we built earlier continues to pass.
