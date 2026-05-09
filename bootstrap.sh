@@ -8,7 +8,7 @@
 #
 # v0.1 02/25/2025 initial version
 
-DEB_PKG=(git git-delta gnupg keyringer pass logiops)
+DEB_PKG=(git git-delta gnupg keyringer pass logiops libmariadb-dev-compat libmariadb-dev build-essential)
 LRED='\033[1;31m'
 
 function required_files() {
