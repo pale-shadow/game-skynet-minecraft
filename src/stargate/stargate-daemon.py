@@ -11,7 +11,7 @@ from src.stargate.telemetry_listener import TelemetryListener
 from src.utils.config_utils import setup_logging
 
 # Configure Logging
-logger = setup_logging("stargate_daemon")
+logger = setup_logging("stargate-daemon")
 
 # Registry of remote construction hosts
 REMOTE_HOSTS = {
