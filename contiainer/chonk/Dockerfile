@@ -1,5 +1,5 @@
 # Dockerfile.chonk
-FROM eclipse-temurin:25-jre-jammy
+FROM eclipse-temurin:25.0.3_9-jre-jammy
 
 LABEL maintainer="admin@bitsmasher.net"
 LABEL role="chonk-execution-layer"

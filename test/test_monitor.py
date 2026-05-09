@@ -1,6 +1,7 @@
 # test/test_monitor.py
 import pytest
 
+
 @pytest.mark.host("blowfish")
 @pytest.mark.database
 def test_mariadb_idle_connections():
@@ -8,8 +9,10 @@ def test_mariadb_idle_connections():
     # DB connection logic here...
     pass
 
+
 # test/test_lfs_hydration_state.py
 import pytest
+
 
 @pytest.mark.host("chonk")
 @pytest.mark.world_state

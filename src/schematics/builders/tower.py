@@ -13,108 +13,90 @@ from .primitives import circle_xz, cone, cylinder, flat_plane, line_y
 
 
 def build_tower(schem: mcschematic.MCSchematic, prompt: dict):
-    # Use v5 Industrial Standards
+    # Use v5 Industrial Standards (Emerald Mirror Project)
     dims = prompt.get("dimensions", {})
-    w = dims.get("width", 7)
-    h = dims.get("height", 20)
-    l = dims.get("length", 7)
+    w = dims.get("width", 9) # Increased default for fluted structure
+    h = dims.get("height", 24)
+    l = dims.get("length", 9)
     mats = prompt.get("materials", {})
     feats = prompt.get("features", {})
 
-    primary = mats.get("primary", "minecraft:stone_bricks")
-    secondary = mats.get("secondary", "minecraft:spruce_planks")
-    stairs = mats.get("stairs", "minecraft:stone_brick_stairs")
-    glass = mats.get("glass", "minecraft:glass_pane")
-    light = mats.get("light", "minecraft:torch")
-    accent = mats.get("accent", primary)
-    tertiary = mats.get("tertiary", primary)
-    roof_mat = mats.get("roof", primary)
-    water_mat = mats.get("water", "minecraft:water")
+    # v5 Industrial Palette
+    primary = mats.get("primary", "minecraft:polished_deepslate_bricks")
+    secondary = mats.get("secondary", "minecraft:dark_prismarine")
+    pillar_mat = mats.get("pillar", "minecraft:purpur_pillar")
+    girder_mat = mats.get("girder", "minecraft:dark_prismarine")
+    light_mat = mats.get("light", "minecraft:pearlescent_froglight")
+    accent = mats.get("accent", "minecraft:warped_fence")
+    roof_mat = mats.get("roof", "minecraft:purpur_block")
 
     has_roof = feats.get("has_roof", True)
     roof_style = feats.get("roof_style", "peaked")
     hollow = feats.get("hollow", True)
     crenellations = feats.get("crenellations", False)
     interior_lit = feats.get("interior_lit", True)
-    has_water = feats.get("has_water", False)
-    has_antenna = feats.get("has_antenna", False)
+    has_antenna = feats.get("has_antenna", True)
     top_deck = feats.get("top_deck", False)
 
     radius = min(w, l) // 2
     cx = w // 2
     cz = l // 2
 
-    # Main tower body — hollow cylinder
-    cylinder(schem, cx, 0, cz, radius, h, primary, filled=True)
-    if hollow and radius > 1:
-        cylinder(schem, cx, 1, cz, radius - 1, h - 1, "minecraft:air", filled=True)
+    # 1. Structural Pillar Layer: 3x3 Fluted Pillars in Corners
+    # For a cylindrical tower, we use fluted pillars around the perimeter
+    for angle in range(0, 360, 45):
+        rad = math.radians(angle)
+        px = cx + int(round(radius * math.cos(rad)))
+        pz = cz + int(round(radius * math.sin(rad)))
+        # 3x3 core at each point
+        for ix in range(px-1, px+2):
+            for iz in range(pz-1, pz+2):
+                line_y(schem, ix, iz, 0, h, pillar_mat)
 
-    # Floor
-    circle_xz(schem, cx, 0, cz, radius - 1, secondary, filled=True)
-
-    # Water feature at base
-    if has_water:
-        circle_xz(schem, cx, 0, cz, radius + 2, water_mat, filled=False)
-
-    # Floor platforms every 5 blocks (interior floors for a multi-story tower)
-    if hollow and h > 8:
-        for floor_y in range(5, h - 2, 5):
-            circle_xz(schem, cx, floor_y, cz, radius - 1, secondary, filled=True)
-
-    # Windows (cardinal directions at regular intervals)
+    # 2. Base Layer: Main tower body (Inner shell)
+    cylinder(schem, cx, 0, cz, radius - 1, h, primary, filled=True)
     if hollow:
-        for wy in range(3, h - 2, 5):
-            schem.setBlock((cx + radius, wy, cz), glass)
-            schem.setBlock((cx - radius, wy, cz), glass)
-            schem.setBlock((cx, wy, cz + radius), glass)
-            schem.setBlock((cx, wy, cz - radius), glass)
+        cylinder(schem, cx, 1, cz, radius - 2, h - 1, "minecraft:air", filled=True)
 
-    # Top Deck
-    if top_deck:
-        circle_xz(schem, cx, h - 1, cz, radius - 1, secondary, filled=True)
-        # Railing
-        circle_xz(schem, cx, h, cz, radius, accent, filled=False)
+    # 3. Accent Girder Layer: Grid-iron horizontal rings
+    for floor_y in range(0, h, 6):
+        circle_xz(schem, cx, floor_y, cz, radius, girder_mat, filled=False)
+        # Add lighting within girder intersections
+        for angle in [0, 90, 180, 270]:
+            rad = math.radians(angle)
+            lx = cx + int(round(radius * math.cos(rad)))
+            lz = cz + int(round(radius * math.sin(rad)))
+            schem.setBlock((lx, floor_y, lz), light_mat)
 
-    # Crenellations
-    if crenellations:
-        top_y = h
-        for angle_step in range(0, 360, 15):
-            rad = math.radians(angle_step)
-            bx = cx + int(round(radius * math.cos(rad)))
-            bz = cz + int(round(radius * math.sin(rad)))
-            if angle_step % 30 == 0:
-                schem.setBlock((bx, top_y, bz), primary)
+    # Interior floors every 6 blocks
+    if hollow and h > 8:
+        for floor_y in range(6, h - 2, 6):
+            circle_xz(schem, cx, floor_y, cz, radius - 2, secondary, filled=True)
 
-    # Roof
-    if has_roof and not top_deck:
+    # Windows (Glass Panes)
+    if hollow:
+        for wy in range(3, h - 2, 6):
+            schem.setBlock((cx + radius - 1, wy, cz), "minecraft:glass_pane")
+            schem.setBlock((cx - radius + 1, wy, cz), "minecraft:glass_pane")
+            schem.setBlock((cx, wy, cz + radius - 1), "minecraft:glass_pane")
+            schem.setBlock((cx, wy, cz - radius + 1), "minecraft:glass_pane")
+
+    # Roof / Top Deck
+    if has_roof:
         roof_y = h
         if roof_style == "peaked":
-            cone(schem, cx, roof_y, cz, radius + 1, radius + 2, stairs)
-        elif roof_style == "dome":
-            from .primitives import dome
-
-            dome(schem, cx, roof_y, cz, radius, roof_mat, filled=False)
+            cone(schem, cx, roof_y, cz, radius + 1, radius + 2, "minecraft:purpur_stairs")
         else:
-            circle_xz(schem, cx, roof_y, cz, radius, stairs, filled=True)
+            circle_xz(schem, cx, roof_y, cz, radius, roof_mat, filled=True)
 
-    # Antenna
+    # Antenna (Industrial detailing)
     if has_antenna:
-        ant_y = h + (radius + 2 if has_roof and roof_style == "peaked" else 0)
-        line_y(schem, cx, cz, ant_y, ant_y + 5, tertiary)
+        ant_y = h + (radius + 2 if has_roof else 0)
+        line_y(schem, cx, cz, ant_y, ant_y + 8, "minecraft:lightning_rod")
 
-    # Interior lighting (torches on walls)
-    if interior_lit and hollow:
-        for wy in range(2, h - 1, 4):
-            schem.setBlock(
-                (cx + radius - 1, wy, cz), f"minecraft:wall_torch[facing=west]"
-            )
-            schem.setBlock(
-                (cx - radius + 1, wy, cz), f"minecraft:wall_torch[facing=east]"
-            )
-
-    # Door opening at ground level (south side)
+    # Door opening at ground level
     if hollow:
-        schem.setBlock((cx, 1, cz + radius), "minecraft:air")
-        schem.setBlock((cx, 2, cz + radius), "minecraft:air")
+        schem.setBlock((cx, 1, cz + radius - 1), "minecraft:air")
+        schem.setBlock((cx, 2, cz + radius - 1), "minecraft:air")
 
     return schem

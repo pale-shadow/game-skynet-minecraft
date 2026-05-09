@@ -86,7 +86,15 @@ def test_metadata_integrity(schem_path):
             dimensions[dim], (int, float)
         ), f"Dimension '{dim}' must be numeric in {json_path}"
 
-    # 5. Validate Hardware Telemetry (Attribution)
+    # 5. Validate Schematic Type (Foundation vs. Delta)
+    # v5 Requirement: Distinguish between the building core and greebling layers
+    schem_type = data.get("schematic_type", "unknown")
+    assert schem_type in [
+        "Foundation",
+        "Delta",
+    ], f"Invalid or missing 'schematic_type' in {json_path}. Must be 'Foundation' or 'Delta'."
+
+    # 6. Validate Hardware Telemetry (Attribution)
     telemetry = data.get("hardware_telemetry", {})
     inf_node = telemetry.get("inference_node", "unknown")
     assert (
