@@ -11,10 +11,6 @@
 \input{preamble}
 
 \begin{document}
-	
-	% \maketitle
-	
-	% Slide 1: Title Slide
 	\begin{frame}
 		\begin{center}
 			\includegraphics[scale=0.12]{images/Gemini\_Generated\_Image\_e2extne2extne2ex.png}\\
@@ -49,10 +45,10 @@
 		\end{columns}
 	
 	\end{frame}
-	%\note[itemize]{
-	%	\item the latest version of these slides is available from the QR code or you can type in the link
-	%	\item i love that i can tweak the slides up until the last minute and beyond thanks to modern technology.
-	%}
+	\note[itemize]{
+		\item the latest version of these slides is available from the QR code or you can type in the link
+		\item i love that i can tweak the slides up until the last minute and beyond thanks to modern technology.
+	}
 
 	\begin{frame}{The Plan....More or Less}
 		\begin{columns}
@@ -93,7 +89,6 @@
 	\end{frame}
 	\note{I thought it would be fun to make things do what I wanted, rather than worry about the ``intended uses''}
 	
-	% Slide 3: The Chonk Execution Layer
 	\begin{frame}{The Chonk MC server}
 		\begin{itemize}
 			\item \textbf{Environment:} Debian 12 (Bookworm) and Java 25.
@@ -138,7 +133,6 @@
 		\end{itemize}
 	\end{frame}
 	
-	% Slide 6: The Local Bridge Service
 	\begin{frame}{The Local Bridge Service}
 		\begin{itemize}
 			\item \textbf{Architecture:} Python/Go-based bridge script running locally on the Chonk host.
@@ -148,7 +142,6 @@
 		\end{itemize}
 	\end{frame}
 	
-	% Slide 7: Inter-Node Network Transit
 	\begin{frame}{Inter-Node Network Transit}
 		\begin{itemize}
 			\item \textbf{Protocol:} Asynchronous TCP/UDP socket communication.
@@ -158,7 +151,6 @@
 		\end{itemize}
 	\end{frame}
 	
-	% Slide 8: Ingestion and MCP Integration
 	\begin{frame}{Stargate Ingestion \& MCP Integration}
 		\begin{itemize}
 			\item \textbf{Ingestion:} Stargate daemon listens asynchronously on port 5005.
@@ -168,7 +160,6 @@
 		\end{itemize}
 	\end{frame}
 	
-	% Slide 9: Safe Schematic Deployment
 	\begin{frame}{Safe Schematic Deployment}
 		\begin{itemize}
 			\item \textbf{Challenge:} Preventing AI-generated structures from overwriting player zones or telemetry transit lines.
@@ -178,7 +169,6 @@
 		\end{itemize}
 	\end{frame}
 	
-	% Slide 10: Codebase Organization
 	\begin{frame}{Managing the Distributed Codebase}
 		\begin{itemize}
 			\item \textbf{Structure:} Server-centric organization (e.g., \texttt{src/servers/chonk/}, \texttt{src/servers/stargate/}).
@@ -188,7 +178,6 @@
 		\end{itemize}
 	\end{frame}
 	
-	% Slide 11: Hardware Acceleration Roadmap
 	\begin{frame}{Hardware Acceleration Roadmap}
 		\begin{itemize}
 			\item \textbf{Objective:} Offload spatial parsing and visual inference from standard CPUs.
@@ -205,9 +194,6 @@
 		\end{center}
 	\end{frame}
 	
-
-
-% Slide 3: Hardware Specification
 \begin{frame}{Hardware Specification: The Hailo-8L Cluster}
 	To maintain a strict 20 TPS baseline, inference workloads are offloaded from the primary Stargate node to a distributed Raspberry Pi 5 array.
 	
@@ -220,35 +206,6 @@
 	\scriptsize \texttt{Target Performance: 13 TOPS per Node}
 \end{frame}
 
-% Slide 4: The T2BM Pipeline
-\begin{frame}{The T2BM (Text to Building) Pipeline}
-	Building generation follows a three-stage refinement process:
-	\begin{enumerate}
-		\item \textbf{Prompt Refinement:} Distilling urban requirements into structural tokens.
-		\item \textbf{Interlayer Decoding:} Translating latent representations into 3D NBT schematics.
-		\item \textbf{Automated Repair:} Validating block-state connectivity (e.g., door/stair orientation).
-	\end{enumerate}
-	\vfill
-	\begin{itemize}
-		\item Functional facades and interior logic.
-		\item Adherence to the 2026 Urbanization style guide.
-	\end{itemize}
-\end{frame}
-
-% Slide 5: Containment Strategy
-\begin{frame}{Skynet AI Testing Field: Containment}
-	All AI-generated schematics are confined to the defined testing field to prevent unauthorized mutation of ``Heritage Zones.''
-	
-	\begin{itemize}
-		\item \textbf{Hub 01 (Logic Core):} Primary inference nexus for reactive mutation.
-		\item \textbf{Hub 07 (Neural Data Vault):} Cold storage for successful architectural seeds.
-		\item \textbf{Spatial Masks:} WorldGuard regions enforced to prevent overlap with the Noodlington Deep-Works or 2012 Legacy Rail.
-	\end{itemize}
-\end{frame}
-
-
-
-% Slide 8: Q&A and Download
 \begin{frame}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
