@@ -15,6 +15,19 @@
 \usepackage{titlesec}
 \usepackage{graphicx}
 
+% --- Updated Typography (Modern Vector Fonts) ---
+\usepackage{lmodern}           % Latin Modern Roman/Sans/Typewriter
+\usepackage{courier}           % High-contrast Monospace fallback for JetBrains Mono
+
+% --- Unicode Box-Drawing & Symbol Error Mitigations ---
+\usepackage{newunicodechar}
+\newunicodechar{┌}{\raisebox{0.5ex}{\mbox{\tiny o}}} % Approximate top-left corner
+\newunicodechar{─}{\ensuremath{-}}                 % Approximate horizontal line
+\newunicodechar{└}{\raisebox{-0.5ex}{\mbox{\tiny o}}} % Approximate bottom-left corner
+\newunicodechar{▪}{\ensuremath{\blacksquare}}       % Terminal bullet block
+\newunicodechar{✗}{\ensuremath{\times}}             % Command line fail cross
+\newunicodechar{🛠}{\textit{[Setup]}}               % Embellished emoji mapping
+
 % --- Hyperref Setup ---
 \hypersetup{
     colorlinks=true,
@@ -47,7 +60,9 @@
     showstringspaces=false,
     showtabs=false,                  
     tabsize=2,
-    frame=single
+    frame=single,
+    extendedchars=true,
+    literate={┌}{{┌}}1 {─}{{─}}1 {└}{{└}}1 {▪}{{▪}}1 {✗}{{✗}}1 {🛠}{{🛠}}1
 }
 
 % --- Custom Page Layout ---
@@ -66,11 +81,17 @@
 \begin{document}
 
 \maketitle
+
+% --- Table of Contents ---
+\frontmatter
 \tableofcontents
+\mainmatter
 
 % --- Include Modular Chapters ---
 \include{chap_topology}
 \include{chap_acceleration}
+\include{chap_schematics}
+\include{chap_time}
 \include{chap_pipeline}
 \include{chap_protocols}
 

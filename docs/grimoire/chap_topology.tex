@@ -1,5 +1,4 @@
 \chapter{Distributed Node Topology}
-\label{chap:topology}
 
 The bitsmasher.net infrastructure is established on a decentralized, heterogeneous compute grid. Node assignment splits heavy I/O operations, JVM world-state execution, and on-device neural inferencing across optimized platforms.
 
@@ -13,12 +12,13 @@ The bitsmasher.net infrastructure is established on a decentralized, heterogeneo
 \end{description}
 
 \section{System Metrics \& Runtime baselines}
-To ensure predictable execution timings under heavy block modifications, the runtime states must align with the parameters defined in Table~\ref{tab:runtime_topology}.
+To ensure predictable execution timings under heavy block modifications, the runtime
+states must align with the parameters defined in Table \ref{tab:runtime-topology}.
 
 \begin{table}[htbp]
 \centering
 \caption{Distributed Cluster Runtime Configurations}
-\label{tab:runtime_topology}
+\label{tab:runtime-topology}
 \begin{tabular}{lllll}
 \toprule
 \textbf{Node} & \textbf{Platform / Engine} & \textbf{Vessel Target} & \textbf{Network Port} & \textbf{Purpose} \\ 

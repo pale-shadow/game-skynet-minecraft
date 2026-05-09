@@ -1,5 +1,4 @@
 \chapter{Schematic \& Injection Pipeline}
-\label{chap:pipeline}
 
 The Text-to-Building (T2BM) generation pipeline converts spatial parameters into physical block data arrays inside the active world space.
 
@@ -24,7 +23,7 @@ PYTHONPATH=./src ./venv/bin/python3 -m pytest \
 \end{enumerate}
 
 \section{Git LFS \& World Synchronization}
-Binary files (\texttt{.schem}, \texttt{.mca}, and \texttt{.dat}) are handled strictly via Git LFS. Before performing commits, the world state must be frozen to prevent backing up partially written or corrupted regions:
+Binary files (\texttt{.schem}, \texttt{.mca}, and \texttt{.dat}) are handled strictly via Git LFS.\@ Before performing commits, the world state must be frozen to prevent backing up partially written or corrupted regions:
 
 \begin{lstlisting}[style=bashstyle, caption={World Freeze and Sync Protocol}]
 # Freeze chunk flushing and lock auto-save routines on the live server

@@ -9,6 +9,8 @@ EXTRA_DIST = \
 	grimoire.tex \
 	chap_topology.tex \
 	chap_acceleration.tex \
+	chap_schematics.tex \
+	chap_time.tex \
 	chap_pipeline.tex \
 	chap_protocols.tex
 
@@ -16,7 +18,7 @@ EXTRA_DIST = \
 MASTER_TEX = grimoire.tex
 TEX_CHAPTERS = chap_*.tex
 
-.PHONY: lint pdf clean-grimoire all
+.PHONY: lint pdf clean-local all
 
 # Default target compiles the PDF grimoire
 all: pdf
@@ -38,8 +40,8 @@ pdf: $(MASTER_TEX)
 	@echo "==> Resolving document structure and compiling grimoire.pdf..."
 	latexmk -pdf -interaction=nonstopmode $<
 
-# Clean up all auxiliary files, leaving only the source documents and final PDF
-clean-grimoire:
+# Standard Autotools hook to purge LaTeX compilation garbage on 'make clean'
+clean-local:
 	@echo "==> Cleaning grimoire auxiliary compilation assets..."
-	latexmk -c $(MASTER_TEX)
-	rm -f grimoire.pdf *.nav *.snm *.vrb *.fls *.fdb_latexmk *.run.xml *.bcf
+	latexmk -C -silent $(MASTER_TEX)
+	rm -f grimoire.pdf *.aux *.log *.toc *.out *.fls *.fdb_latexmk *.nav *.snm *.vrb *.run.xml *.bcf
