@@ -1,0 +1,40 @@
+\chapter{Schematic \& Injection Pipeline}
+
+The Text-to-Building (T2BM) generation pipeline converts spatial parameters into physical block data arrays inside the active world space.
+
+\section{Deployment Safety Checks}
+To protect the integrity of human-built architecture and designated cluster facilities, the system executes an automated test framework prior to dispatching any RCON payload:
+
+\begin{lstlisting}[style=bashstyle, caption={Pre-deployment Verification Command Line}]
+# Navigate to repository root
+cd /home/skynet/game-skynet-minecraft
+
+# Initialize and execute pipeline validation suite
+PYTHONPATH=./src ./venv/bin/python3 -m pytest \
+    test/test_schematic_metadata_integrity.py \
+    test/test_schematic_boundary_safety.py
+\end{lstlisting}
+
+\section{Validation Vectors}
+\begin{enumerate}
+    \item \textbf{Metadata Integrity Check:} Compares schematic headers against authorized NBT coordinate profiles to confirm structural bounds.
+    \item \textbf{Boundary Safety Check:} Intercepts injection payloads if coordinates intersect with restricted zones, such as the neural operation field or core transport lines.
+    \item \textbf{Payload Transit Auditing:} Tails \texttt{logs/test_core.log} and \texttt{logs/hailort.log} to verify that payload structures are completely received by the custom JVM mod.
+\end{enumerate}
+
+\section{Git LFS \& World Synchronization}
+Binary files (\texttt{.schem}, \texttt{.mca}, and \texttt{.dat}) are handled strictly via Git LFS.\@ Before performing commits, the world state must be frozen to prevent backing up partially written or corrupted regions:
+
+\begin{lstlisting}[style=bashstyle, caption={World Freeze and Sync Protocol}]
+# Freeze chunk flushing and lock auto-save routines on the live server
+./rcon.sh "save-off"
+./rcon.sh "save-all flush"
+
+# Execute LFS synchronization
+git add world/region/*.mca
+git commit -m "sysadmin: world region state snapshot"
+git push origin master
+
+# Restore server-side auto-save routines
+./rcon.sh "save-on"
+\end{lstlisting}

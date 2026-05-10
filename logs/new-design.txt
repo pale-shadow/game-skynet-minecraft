@@ -1,0 +1,36 @@
+This "fresh start" for the Dreamland server sounds like a significant architectural pivot. [cite_start]Moving away from the current mycelial and "Void-Tech" aesthetics [cite: 38] toward larger, more detailed structures will require reallocating how your distributed nodes handle data.
+
+[cite_start]Since you are looking to spend more time using the **Hailo-8L (Skynet)** for geometric expansion [cite: 41, 57] [cite_start]and the **Edge TPU (Edge-T)** for vision-based greebling[cite: 42, 57], we need to strip away the legacy Python scripts that were hard-coded for the older, smaller-scale mycelial generation.
+
+### 🛠️ Fresh Start Instructions for `gemini-cli`
+
+You can feed these instructions directly into your `gemini-cli` on the `skynet` host to begin the transition.
+
+---
+
+### Phase 1: Legacy Code Removal
+[cite_start]The current `src/schematics/` likely contains logic tied to the 2012-era vertical logistics and the mycelial "Urbanized" districts[cite: 35, 38]. To make room for larger buildings and block variety, execute the following:
+
+* [cite_start]**Remove `src/schematics/void_tech_gen.py` (or similar):** Delete any scripts specifically handling the "mycelial aesthetics" and small-scale mycelial growth logic[cite: 38].
+* [cite_start]**Remove `src/schematics/rail_yard_logic.py`:** If these are tied to the specific vertical logistics of the "Deep-Rail Project" (Y:63 to Y:31)[cite: 38], they should be cleared to allow for more flexible, larger-scale architectural foundations.
+* [cite_start]**Purge `config/schem-gen/`:** The Go code and configurations here [cite: 16] [cite_start]should be reset to remove constraints on block variety, allowing the LLM on **Stargate (Hub-01)** to experiment with a wider palette[cite: 40].
+
+### Phase 2: AI Hardware Re-Tasking
+[cite_start]Once the legacy code is cleared, we will pivot the distributed AI control plane[cite: 39]:
+
+1.  **Stargate (Hub-01) - Orchestration:**
+    * [cite_start]Update the **Ollama** integration [cite: 40] [cite_start]prompts to ignore the "Void-Tech" constraints[cite: 38].
+    * Instruct the LLM to focus on "High-Detail Macro-Schematics" with a focus on structural diversity rather than mycelial replication.
+
+2.  **Skynet (Hub-00) - Geometric Expansion:**
+    * [cite_start]Modify the **Hailo-8L NPU** logic [cite: 41, 57] to handle larger bounding boxes. 
+    * Instead of "Geometric Expansion" for mycelial paths, task the NPU with calculating the structural integrity of larger, multi-chunk buildings.
+
+3.  **Edge-T (Hub-06) - Greebling Verification:**
+    * [cite_start]Pivot the **Google Edge TPU** [cite: 42, 57] from "Vision Verification" of pathing to "Greebling Density Verification."
+    * The TPU should now analyze the "look and feel" of surfaces to ensure the AI builders are applying a variety of blocks for aesthetic depth.
+
+### Phase 3: System Verification
+After the cleanup, ensure the core communication remains intact:
+* [cite_start]Run `make test` again to ensure that `test/test_rcon.py` [cite: 28, 52] [cite_start]and `test/test_brain.py` [cite: 49] [cite_start]still pass, as these maintain the link between your AI logic and the **Paper 1.21.11** server[cite: 36, 57].
+
