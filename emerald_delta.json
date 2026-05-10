@@ -1,0 +1,105 @@
+{
+  "greebling_delta_name": "Emerald Mirror Module for Industrial Singularity Cluster",
+  "description": "An 'Emerald Mirror' greebling delta designed for the Bitsmasher Minecraft Cluster's 5x5 Cobblestone Pillar within an 'Industrial Singularity' context. Focuses on creating an illusion of depth, sophisticated internal lighting, and stark material contrasts.",                                 
+  "environment_context": "Industrial Singularity",
+  "base_foundation_notes": "The greebling is applied to the exterior surfaces of the existing 5x5 Cobblestone Pillar. Coordinates [x,y,z] are relative to the pillar's central base block (y=0). The pillar occupies x and z from -2 to 2 (e.g., blocks are at x=-2,-1,0,1,2 and z=-2,-1,0,1,2). Greebling elements will extend outwards, occupying spaces up to X/Z values of +/-5, with Y from 1 to 4.",                                                                    
+  "focus_points": {
+    "depth": "Achieved through a multi-layered block placement strategy, starting with recessed light sources, a dark backing, a reflective glass surface, and a prominent, protruding frame. This layering creates distinct visual planes that draw the eye inward, hinting at complex internal systems.",         
+    "lighting": "Internal Sea Lanterns, concealed behind the green stained glass panels, generate a consistent, vibrant 'emerald glow'. This backlighting effect is crucial for the 'mirror' aesthetic and provides dynamic contrast against the dark industrial materials.",                                       
+    "material_contrast": "Stark juxtaposition of dark, smooth, and reflective industrial elements (Polished Deepslate, Black Concrete, Green Stained Glass) against the assumed rough, dull cobblestone base. Strategic placement of radiant Emerald Blocks provides concentrated pops of color and emphasizes the 'Emerald' theme."                                                                                                                                          
+  },
+  "greebling_elements": [
+    // --- Depth Layer 1: Internal Lighting (Deepest Recess) ---
+    {
+      "element_name": "Internal Emerald Glow Source",
+      "block_type": "minecraft:sea_lantern",
+      "notes": "Hidden light sources positioned one block *inside* the pillar's original surface. They provide powerful, diffused illumination that will give the 'Emerald Mirror' its characteristic internal glow, even in low light conditions.",                                                                
+      "placements": [
+        {"face": "north", "coords": [[-1,2,1], [0,2,1], [1,2,1], [-1,3,1], [0,3,1], [1,3,1]]},
+        {"face": "south", "coords": [[-1,2,-1], [0,2,-1], [1,2,-1], [-1,3,-1], [0,3,-1], [1,3,-1]]},
+        {"face": "east", "coords": [[1,2,-1], [1,2,0], [1,2,1], [1,3,-1], [1,3,0], [1,3,1]]},
+        {"face": "west", "coords": [[-1,2,-1], [-1,2,0], [-1,2,1], [-1,3,-1], [-1,3,0], [-1,3,1]]}
+      ]
+    },
+    // --- Depth Layer 2: Recessed Background (Behind Mirror) ---
+    {
+      "element_name": "Recessed Black Concrete Panels",
+      "block_type": "minecraft:black_concrete",
+      "notes": "Forms the deepest visible layer of the industrial shell, providing a dark, matte, and uniform background for the reflective emerald mirror. This replaces the outermost cobblestone blocks on the pillar's surface (e.g., Z=2 for north face) for visual consistency.",                             
+      "placements": [
+        {"face": "north", "coords": [[-1,2,2], [0,2,2], [1,2,2], [-1,3,2], [0,3,2], [1,3,2]]},
+        {"face": "south", "coords": [[-1,2,-2], [0,2,-2], [1,2,-2], [-1,3,-2], [0,3,-2], [1,3,-2]]},
+        {"face": "east", "coords": [[2,2,-1], [2,2,0], [2,2,1], [2,3,-1], [2,3,0], [2,3,1]]},
+        {"face": "west", "coords": [[-2,2,-1], [-2,2,0], [-2,2,1], [-2,3,-1], [-2,3,0], [-2,3,1]]}
+      ]
+    },
+    // --- Depth Layer 3: Emerald Mirror Surface ---
+    {
+      "element_name": "Emerald Mirror Panels",
+      "block_type": "minecraft:green_stained_glass",
+      "notes": "The core 'Emerald Mirror' surface. These transparent, green panels are positioned one block *out* from the pillar's original surface. They provide depth by revealing the glowing Sea Lanterns behind them and reflect ambient light, enhancing the 'mirror' quality and vibrant color.",           
+      "placements": [
+        {"face": "north", "coords": [[-1,2,3], [0,2,3], [1,2,3], [-1,3,3], [0,3,3], [1,3,3]]},
+        {"face": "south", "coords": [[-1,2,-3], [0,2,-3], [1,2,-3], [-1,3,-3], [0,3,-3], [1,3,-3]]},
+        {"face": "east", "coords": [[3,2,-1], [3,2,0], [3,2,1], [3,3,-1], [3,3,0], [3,3,1]]},
+        {"face": "west", "coords": [[-3,2,-1], [-3,2,0], [-3,2,1], [-3,3,-1], [-3,3,0], [-3,3,1]]}
+      ]
+    },
+    // --- Depth Layer 4: Primary Industrial Frame (Protruding) ---
+    {
+      "element_name": "Polished Deepslate Frame",
+      "block_type": "minecraft:polished_deepslate",
+      "notes": "Forms a robust, dark, and smooth industrial frame around the emerald mirror panels, positioned two blocks *out* from the pillar's original surface. This frame provides strong material contrast, defines the panel's edges, and adds a pronounced sense of protrusion.",                           
+      "placements": [
+        // Top and Bottom borders of the frame (full width of pillar + 2 blocks out)
+        {"face": "north", "coords": [[-2,1,4], [-1,1,4], [0,1,4], [1,1,4], [2,1,4],    // Bottom row (y=1)
+                                      [-2,4,4], [-1,4,4], [0,4,4], [1,4,4], [2,4,4]]},   // Top row (y=4)
+        {"face": "south", "coords": [[-2,1,-4], [-1,1,-4], [0,1,-4], [1,1,-4], [2,1,-4],
+                                      [-2,4,-4], [-1,4,-4], [0,4,-4], [1,4,-4], [2,4,-4]]},
+        {"face": "east", "coords": [[4,1,-2], [4,1,-1], [4,1,0], [4,1,1], [4,1,2],
+                                     [4,4,-2], [4,4,-1], [4,4,0], [4,4,1], [4,4,2]]},
+        {"face": "west", "coords": [[-4,1,-2], [-4,1,-1], [-4,1,0], [-4,1,1], [-4,1,2],
+                                     [-4,4,-2], [-4,4,-1], [-4,4,0], [-4,4,1], [-4,4,2]]},
+        // Side borders of the frame (adjacent to glass panels, 2 blocks out)
+        {"face": "north", "coords": [[-2,2,4], [-2,3,4], [2,2,4], [2,3,4]]},
+        {"face": "south", "coords": [[-2,2,-4], [-2,3,-4], [2,2,-4], [2,3,-4]]},
+        {"face": "east", "coords": [[4,2,-2], [4,3,-2], [4,2,2], [4,3,2]]},
+        {"face": "west", "coords": [[-4,2,-2], [-4,3,-2], [-4,2,2], [-4,3,2]]}
+      ]
+    },
+    // --- Depth Layer 5: Accent Greebling & Details (Outermost Layer) ---
+    {
+        "element_name": "Emerald Core Accent (Framed)",
+        "block_type": "minecraft:emerald_block",
+        "notes": "A singular, prominent emerald block per side, placed within the polished deepslate frame (at the same depth). This serves as a concentrated focal point of pure emerald color and shine, visually tying into the 'Emerald Mirror' theme with unadulterated material contrast.",                   
+        "placements": [
+            {"face": "north", "coords": [[0,2,4]]}, // Centered at Y=2 within the frame
+            {"face": "south", "coords": [[0,2,-4]]},
+            {"face": "east", "coords": [[4,2,0]]},
+            {"face": "west", "coords": [[-4,2,0]]}
+        ]
+    },
+    {
+        "element_name": "Industrial Control Buttons (Tactile Detail)",
+        "block_type": "minecraft:polished_deepslate_button",
+        "notes": "Small, functional-looking buttons placed on the outer deepslate frame. These provide micro-details and hint at interactive elements or access panels, enhancing the 'Industrial Singularity' context and adding fine textural contrast.",                                                         
+        "placements": [
+            {"face": "north", "coords": [[0,1,4]], "block_state": {"facing": "north"}}, // Bottom-center on frame, facing outwards
+            {"face": "south", "coords": [[0,1,-4]], "block_state": {"facing": "south"}},
+            {"face": "east", "coords": [[4,1,0]], "block_state": {"facing": "east"}},
+            {"face": "west", "coords": [[-4,1,0]], "block_state": {"facing": "west"}}
+        ]
+    },
+    {
+        "element_name": "Corner Connectors / Vent-like Details",
+        "block_type": "minecraft:deepslate_tile_wall",
+        "notes": "Thin, dark deepslate walls placed at the outermost corners of the greebling, slightly protruding three blocks *out* from the pillar's original surface. These add linear complexity and suggest ventilation, structural reinforcement, or energy conduits, further enhancing overall depth and industrial detail.",                                                                                                                                         
+        "placements": [
+            {"face": "north", "coords": [[-3,2,5], [-3,3,5], [3,2,5], [3,3,5]]}, // Outer corners at Y=2 and Y=3
+            {"face": "south", "coords": [[-3,2,-5], [-3,3,-5], [3,2,-5], [3,3,-5]]},
+            {"face": "east", "coords": [[5,2,-3], [5,3,-3], [5,2,3], [5,3,3]]},
+            {"face": "west", "coords": [[-5,2,-3], [-5,3,-3], [-5,2,3], [-5,3,3]]}
+        ]
+    }
+  ]
+}
