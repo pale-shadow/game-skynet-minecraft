@@ -1,0 +1,34 @@
+\chapter{Hardware Acceleration \& Voxelization Mathematics}
+
+To eliminate high CPU thread wait times during procedural generation on Chonk, neural model execution is strictly offloaded to hardware edge accelerators.
+
+\section{Hardware Acceleration Framework}
+\begin{itemize}
+    \item \textbf{Vision Pipeline:} Quantized integer models run on the Edge-T node's Coral Edge TPU.\@ The host relies on the Mendel Development Tool (MDT) and SSH key authentication secured by \texttt{mdt-keymaster}.
+    \item \textbf{Spatial Mapping:} Spatial engines on Skynet communicate directly with the local Hailo-8L NPU.\@ Models must compile to the Hailo Executable Format (\texttt{.hef}) to enable direct memory access pipelines.
+\end{itemize}
+
+\section{Voxel Mutation Calculation}
+Voxel placement calculations utilize a 3D coordinate transformation pipeline to map abstract model outputs to specific world delta regions.
+
+Let $P_{\text{local}} = (x, y, z)^T$ be the local coordinate inside a structured schematic origin. The target world coordinate vector $P_{\text{world}}$ on Chonk is computed using a translation offset vector $T = (T_x, T_y, T_z)^T$ and a rotation matrix $R(\theta)$:
+
+\begin{equation}
+    P_{\text{world}} = R(\theta) \cdot P_{\text{local}} + T
+\end{equation}
+
+Where $R(\theta)$ for a rotation of angle $\theta$ around the vertical $Y$-axis is defined by:
+
+\begin{equation}
+    R_y(\theta) = \begin{pmatrix}
+        \cos\theta & 0 & \sin\theta \\
+        0          & 1 & 0          \\
+        -\sin\theta & 0 & \cos\theta
+    \end{pmatrix}
+\end{equation}
+
+To avoid chunk desynchronization or locking during high block change throughput events, the processing latency ($L$) on the NPU must satisfy the performance inequality:
+
+\begin{equation}
+    L_{\text{npu}} + \delta_{\text{rcon}} < \frac{1}{\text{TPS}} \quad \text{where } \text{TPS} \ge 20.0
+\end{equation}
