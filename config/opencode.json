@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "project": "Emerald Mirror Effort: Dreamland Stargate MCP",
+    "version": "1.21.11-urbanization-v0.9",
+    "timestamp": "2026-05-08T14:30:00Z",
+    "authoring_source": "Skynet Core Orchestrator (Emerald Mirror)",
+    "status": "Active; Urbanization Cycle Scheduled"
+  },
+  
+  "system_architecture": {
+    "host_mapping": [
+      {"role": "Stargate_MCP", "function": "Primary Intent Dispatch & Routing", "ip": "10.10.16.66", "priority": "HIGH", "service": 
+"stargate-daemon.py"},
+      {"role": "Skynet_Core_NPU", "function": "Geometric Fabrication & Context Analysis (Muscle)", "ip": "10.10.16.10", "priority": "CRITICAL", 
+"hardware": "Hailo-8L/Pi 5"},
+      {"role": "Vision_Overseer_TPU", "function": "Perimeter & Style Mutation (Sight)", "ip": "10.10.16.4", "priority": "MEDIUM", "hardware": 
+"Edge TPU"},
+      {"role": "Data_Vault", "function": "State Persistence & Lookups", "ip": "10.10.12.15", "database": "MariaDB"}
+    ],
+    "data_pipeline": {
+      "input_schema": ["spatial_voxel_snapshot", "structural_intent_params"],
+      "output_format": "schematic_delta.json/.schem",
+      "delivery_protocol": "RCON/Automated Script Injection (Rate-limited)",
+      "nfs_mount": "/mnt/clusterfs/minecraft/schematics"
+    }
+  },
+  
+  "operational_protocols": {
+    "performance_constraints": {
+      "max_tps_budget": 20,
+      "protocol_": "BUC_Rule_Adherence",
+      "throttling_strategy": "Batching_Spatial_Cohesion",
+      "pacing_factor": "Asynchronous_Deployment_Priority"
+    },
+    "aesthetic_guidelines": {
+      "theme": "Cyber-Noir / Void-Tech",
+      "palette": ["Purple", "Cyan", "Deepslate", "Polished Tuff"],
+      "structural_priority": ["Contiguous_Placement", "Functional_Density"]
+    },
+    "security_mandates": {
+      "rcon_auth_source": "direnv",
+      "credential_redaction_alert": "RCON passwords and private IPs must be masked."
+    }
+  },
+  
+  "2026_urbanization_directives": {
+    "project_focus": "Shroomville Biome Overhaul & Deep-Rail Connectivity",
+    "landmarks": [
+      {
+        "name": "Deep-Rail Station",
+        "coords": [1832, 31, 688],
+        "priority": 1,
+        "asset_type": "Transportation Hub (High Fidelity v5)",
+        "required_delta": ["track_network", "automated_signal_grid"]
+      },
+      {
+        "name": "Rail Yard/Repair Shed",
+        "coords": [1618, 63, 676],
+        "priority": 2,
+        "asset_type": "Industrial Outpost",
+        "required_delta": ["repair_mechanism", "storage_vats"]
+      },
+      {
+        "name": "Western Gate (Defense)",
+        "coords": [1484, 63, 750],
+        "priority": 3,
+        "asset_type": "Automated Night-Lock/Perimeter Defense",
+        "trigger_mechanism": "Timer/EssentialsX Guardrail"
+      }
+    ],
+    "high_level_task": "Iterative deployment of museum/culture assets (SS Shroomville Museum, Aviary, Cathedral Plaza) while maintaining BUC 
+stability."
+  },
+  
+  "execution_workflow_manifest": {
+    "process_model": "The Abyss-Walking Strategy",
+    "stages": [
+      {"stage": 1, "name": "The Visionary (High Temp)", "input": "Architectural Intent (Chaos/Mutation)", "output": "Conceptual Schema Outline"},
+      {"stage": 2, "name": "The Translator (Low Temp)", "input": "Conceptual Schema Outline", "output": "Syntax-Valid .schem Delta"},
+      {"stage": 3, "name": "The Fabricator (Cluster Execution)", "input": "Delta", "output": "Server-State Update (Throttled)"}
+    ],
+    "code_standards": {
+      "dependencies": "Minimal (No redundant calls; gcloud preferred over kubectl)",
+      "authorship_mandate": "DYNAMIC_LOAD_FROM(CREDITS.md) [CRITICAL]",
+      "function_check": "Must pass NPU/TPU Style Validation before RCON execution."
+    }
+  }
+}
