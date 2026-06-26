@@ -9,7 +9,7 @@ Welcome a world that bridges over a decade of history with the cutting edge of A
 ## 🌐 Server Information
 *   **Server Address:** `minecraft.bitsmasher.net`
 *   **Version:** Paper 1.21.11 (Java 25)
-*   **Web Map (BlueMap):** [Click Here to View Port 8100]
+*   **Web Map (BlueMap):** [Click Here to View Port 8100](https://minecraft.bitsmasher.net:8100)
 *   **Established:** 2012
 
 ## 🎮 How to Join
