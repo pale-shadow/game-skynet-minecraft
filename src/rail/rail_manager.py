@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import rcon
+import asyncio
 from datetime import datetime
 
 logging.basicConfig(level=logging.INFO)
@@ -140,4 +141,4 @@ if __name__ == '__main__':
     markers_file = 'markers.json'
 
     rail_manager = RailManager(rcon_host, rcon_port, registry_file, markers_file)
-    await rail_manager.main_loop()
+    asyncio.run(rail_manager.main_loop())

@@ -7,4 +7,3 @@ google-genai
 gemini-cli
 mariadb
 pymysql
- 
